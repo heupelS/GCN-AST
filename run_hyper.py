@@ -54,7 +54,7 @@ def ray_tune(args):
     params_file = (
         os.path.join(os.getcwd(), args.params_file) if args.params_file else None
     )
-    ray.init()
+    ray.init(_temp_dir="C://ray_log")
     tune.register_trainable("train_func", objective_function)
     config = {}
     with open(params_file, "r") as fp:
@@ -97,7 +97,7 @@ def ray_tune(args):
         log_to_file=args.output_file,
         scheduler=scheduler,
         local_dir=local_dir,
-        resources_per_trial={"gpu": 1},
+        resources_per_trial={"cpu": 1},
     )
 
     best_trial = result.get_best_trial("recall@10", "max", "last")

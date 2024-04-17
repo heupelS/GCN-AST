@@ -33,7 +33,7 @@ class ANS(GeneralRecommender):
 
         # define layers and loss
         self.user_embedding = torch.nn.Embedding(
-            num_embeddings=self.n_users, embedding_dim=self.latent_dim
+            num_embeddings=self.n_users, embedding_dim=self.emb_size
         )
         self.item_embedding = torch.nn.Embedding(
             num_embeddings=self.n_items, embedding_dim=self.latent_dim

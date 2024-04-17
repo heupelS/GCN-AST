@@ -18,7 +18,7 @@ import sys
 
 
 import pickle
-from ray import tune
+from ray import tune,train
 
 from recbole.config import Config
 from recbole.data import (
@@ -155,7 +155,13 @@ def objective_function(config_dict=None, config_file_list=None, saved=True):
     )
     test_result = trainer.evaluate(test_data, load_best_model=saved)
 
-    tune.report(**test_result)
+
+    try:
+        train.report(**test_result)
+    except:
+        print("Error in reporting test result")
+        
+        
     return {
         "model": model_name,
         "best_valid_score": best_valid_score,
