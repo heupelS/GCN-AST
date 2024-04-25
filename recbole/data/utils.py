@@ -48,7 +48,10 @@ def create_dataset(config):
             ModelType.TRADITIONAL: "Dataset",
             ModelType.DECISIONTREE: "Dataset",
         }
-        dataset_class = getattr(dataset_module, type2class[model_type])
+        if True and model_type == ModelType.GENERAL:
+            dataset_class = getattr(dataset_module, 'AugmentedDataset')
+        else:
+            dataset_class = getattr(dataset_module, type2class[model_type])
 
     default_file = os.path.join(
         config["checkpoint_dir"], f'{config["dataset"]}-{dataset_class.__name__}.pth'
