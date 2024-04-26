@@ -4,6 +4,7 @@ import scipy as sp
 import random
 import torch
 import copy
+import heapq
 
 from recbole.data.dataset import Dataset
 
@@ -24,12 +25,11 @@ class AugmentedDataset(Dataset):
         #         break
         datasets = super().build()
         test_inter = self.inter_matrix(form='csr')
-        self.logger.debug(test_inter.nnz)
-
-        self._change_feat_format_to_dataframe()
-
         
         self.train_interaction_matrix = datasets[0].inter_matrix(form='csr')
+        self.logger.debug(f"Vor augmentation: {len(datasets[0].inter_feat)}")
+        datasets[0]._change_feat_format_to_dataframe()
+
         #nnz_entierr = self.train_interaction_matrix[2].nonzero()[1]
         #self.logger.debug(nnz_entierr)
 
@@ -38,16 +38,16 @@ class AugmentedDataset(Dataset):
         #     if idx == 10:
         #         break
 
-        self._generate_augmented_train_dataset()
+        datasets[0] = self._generate_augmented_train_dataset(datasets[0])
         self.logger.debug("Classname: " + datasets[0].__class__.__name__)
 
              
-        self._change_feat_format()
+        datasets[0]._change_feat_format()
         self.logger.debug("Augmented dataset")
-        
+        self.logger.debug(f"Nach augmentation: {len(datasets[0].inter_feat)}")
         return datasets
 
-    def _generate_augmented_train_dataset(self, K_si=1):
+    def _generate_augmented_train_dataset(self, dataset, K_si=1):
             
         
         item_co_occurrence_matrix = self.train_interaction_matrix.transpose().dot(self.train_interaction_matrix)
@@ -55,9 +55,11 @@ class AugmentedDataset(Dataset):
 
         similarity_matrix = self._calculate_item_similarity_matrix(item_co_occurrence_matrix, degrees_co_occurrence_items)
         
-        self._extend_train_dataset(similarity_matrix)
+        augmented_dataset = self._extend_train_dataset(similarity_matrix, dataset)
 
-        return
+        return augmented_dataset
+
+    
 
     def _calculate_item_similarity_matrix(self, co_occurrence_matrix, degrees):
         """
@@ -90,20 +92,56 @@ class AugmentedDataset(Dataset):
         similarities_matrix = sp.sparse.csr_matrix((data, (row_indices, col_indices)), shape=(n_items, n_items))
         ### maybe not needed
         similarities_matrix = similarities_matrix + similarities_matrix.T  # Fill below the diagonal
+        similarities_matrix.setdiag(0)
 
         return similarities_matrix
 
-    def _extend_train_dataset(self, similarity_matrix, N=1):
+    def _extend_train_dataset(self, similarity_matrix, dataset, N=3, K=10):
+        
         total_new_items = N * self.user_num
         print("Total new items: " + str(total_new_items))
-        # Initialize an empty matrix to store the extended interaction data
-        new_interaction_data = np.zeros((self.user_num, self.item_num + total_new_items))
+        augmented_data = []  # List to store data to add to DataFrame
 
         # Iterate through each user index with interactions
         for user_id in self.user_counter.keys():
             positive_items = self.train_interaction_matrix[user_id].indices
-            self.logger.debug("Positive items: " + str(positive_items))
-        return
+
+            # Initialize a dictionary to store the K most similar items for each positive item
+            top_items_heap = []
+
+            # Find the K most similar items for each positive item
+            for item in positive_items:
+                # Get the similarity scores of the current item with all other items
+                similarity_scores = similarity_matrix[item].toarray().flatten()
+                
+                # Use a heap to efficiently find the K most similar items
+                most_similar_items = heapq.nlargest(K, range(len(similarity_scores)), key=similarity_scores.__getitem__)
+                
+                # Store the most similar items
+                for similar_item in most_similar_items:
+                    heapq.heappush(top_items_heap, (similarity_matrix[item, similar_item], similar_item))
+            
+            # Take the top N items from the heap
+            top_N_items = heapq.nlargest(N, top_items_heap)
+            
+            
+            # Add the top N items for the current user to the interaction_train_matrix
+            for score, item_index in top_N_items:
+                self.train_interaction_matrix[user_id, item_index] = 1
+            
+
+            for score, item_index in top_N_items:
+                augmented_data.append({'user_id': user_id, 'item_id': item_index, 'label': 1})
+
+        print(type(dataset))
+        # Add the data to the DataFrame
+        dataset.inter_feat = pd.concat([dataset.inter_feat, pd.DataFrame(augmented_data)], ignore_index=True)   
+        
+        self.logger.debug(dataset.inter_feat.columns)
+        
+        self.logger.debug(self.train_interaction_matrix.nnz)
+
+        return dataset
 
 
     def _change_feat_format_to_dataframe(self):
