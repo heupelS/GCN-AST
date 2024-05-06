@@ -18,11 +18,6 @@ class AugmentedDataset(Dataset):
         
         self.logger.debug(len(self.inter_feat))
 
-        #inter_mat = self.inter_feat.inter_matrix(form='csr')
-        # for idx, item in enumerate(self.inter_feat.values):
-        #     self.logger.debug(item)
-        #     if idx == 10:
-        #         break
         datasets = super().build()
         test_inter = self.inter_matrix(form='csr')
         
@@ -30,13 +25,6 @@ class AugmentedDataset(Dataset):
         self.logger.debug(f"Vor augmentation: {len(datasets[0].inter_feat)}")
         datasets[0]._change_feat_format_to_dataframe()
 
-        #nnz_entierr = self.train_interaction_matrix[2].nonzero()[1]
-        #self.logger.debug(nnz_entierr)
-
-        # for idx, item in enumerate(self.train_interaction_matrix):
-        #     self.logger.debug(item)
-        #     if idx == 10:
-        #         break
 
         datasets[0] = self._generate_augmented_train_dataset(datasets[0])
         self.logger.debug("Classname: " + datasets[0].__class__.__name__)
@@ -96,7 +84,7 @@ class AugmentedDataset(Dataset):
 
         return similarities_matrix
 
-    def _extend_train_dataset(self, similarity_matrix, dataset, N=3, K=10):
+    def _extend_train_dataset(self, similarity_matrix, dataset, N=1, K=15):
         
         total_new_items = N * self.user_num
         print("Total new items: " + str(total_new_items))

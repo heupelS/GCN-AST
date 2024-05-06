@@ -226,9 +226,6 @@ class Trainer(AbstractTrainer):
             if show_progress
             else train_data
         )
-        sampler_class_name = type(train_data.sampler).__name__
-        self.logger.debug(f"Sampler class name: {sampler_class_name}")
-
 
         if not self.config["single_spec"] and train_data.shuffle:
             train_data.sampler.set_epoch(epoch_idx)

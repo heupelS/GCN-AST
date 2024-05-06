@@ -18,7 +18,7 @@ import sys
 
 
 import pickle
-from ray import tune,train
+from ray import tune
 
 from recbole.config import Config
 from recbole.data import (
@@ -157,7 +157,7 @@ def objective_function(config_dict=None, config_file_list=None, saved=True):
 
 
     try:
-        train.report(**test_result)
+        tune.report(**test_result)
     except:
         print("Error in reporting test result")
         
