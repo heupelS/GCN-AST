@@ -220,6 +220,7 @@ class ANS(GeneralRecommender):
 
         loss = mf_loss + self.reg_weight * reg_loss + self.gamma * (sns_loss + dis_loss)
         # loss = mf_loss + self.gamma * (sns_loss)
+        #self.logger.debug(f"loss: {loss} mf_loss: {mf_loss} reg_loss: {reg_loss} sns_loss: {sns_loss} dis_loss: {dis_loss} ")
         return loss
 
     def predict(self, interaction):
@@ -231,11 +232,18 @@ class ANS(GeneralRecommender):
         u_embeddings = user_all_embeddings[user]
         i_embeddings = item_all_embeddings[item]
         scores = torch.mul(u_embeddings, i_embeddings).sum(dim=1)
+        # self.logger.debug(f"u_embeddings: {u_embeddings.shape} i_embeddings: {i_embeddings.shape}")
+        # self.logger.debug(f"predict scores: {scores.shape}")
+        # self.logger.debug(f"predict scores: {scores.view(-1, len(interaction)).shape}")
+        # self.logger.debug(f"len interaction: {len(interaction)}")
+
         return scores
 
     def full_sort_predict(self, interaction):
         user = interaction[self.USER_ID]
         user_e = self.user_embedding(user)
+        #self.logger.debug(f"user_e shape: {user_e.shape}")
         all_item_e = self.item_embedding.weight
         score = torch.matmul(user_e, all_item_e.transpose(0, 1))
+        #self.logger.debug(f"full sort predict scores: {score.view(-1).shape}")
         return score.view(-1)

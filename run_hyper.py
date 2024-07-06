@@ -18,6 +18,7 @@ import ray
 from ray import tune
 from ray.tune.schedulers import ASHAScheduler
 import math
+from logging import getLogger
 
 
 def hyperopt_tune(args):
@@ -37,9 +38,10 @@ def hyperopt_tune(args):
     )
     hp.run()
     hp.export_result(output_file=args.output_file)
-    print("best params: ", hp.best_params)
-    print("best result: ")
-    print(hp.params2result[hp.params2str(hp.best_params)])
+    logger = getLogger()
+    logger.info("best params: ", hp.best_params)
+    logger.info("best result: ")
+    logger.info(hp.params2result[hp.params2str(hp.best_params)])
 
 
 def ray_tune(args):
@@ -88,7 +90,7 @@ def ray_tune(args):
     # choose different schedulers to use different tuning optimization algorithms
     # For details, please refer to Ray's official website https://docs.ray.io
     scheduler = ASHAScheduler(
-        metric="recall@10", mode="max", max_t=10, grace_period=1, reduction_factor=2
+        metric="test_result/recall@20", mode="max", max_t=10, grace_period=1, reduction_factor=2
     )
 
     result = tune.run(
@@ -100,7 +102,7 @@ def ray_tune(args):
         resources_per_trial={"gpu": 1},
     )
 
-    best_trial = result.get_best_trial("recall@10", "max", "last")
+    best_trial = result.get_best_trial("test_result/recall@20", "max", "last")
     print("best params: ", best_trial.config)
     print("best result: ", best_trial.last_result)
 

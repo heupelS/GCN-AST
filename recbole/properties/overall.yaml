@@ -3,7 +3,7 @@ gpu_id: '0'                     # (str) The id of GPU device(s).
 worker: 0                       # (int) The number of workers processing the data.
 use_gpu: True                   # (bool) Whether or not to use GPU.
 seed: 2020                      # (int) Random seed.
-state: DEBUG                    # (str) Logging level.
+state: INFO                    # (str) Logging level.
 reproducibility: True           # (bool) Whether or not to make results reproducible.
 data_path: 'dataset/'           # (str) The path of input dataset.
 checkpoint_dir: 'saved'         # (str) The path to save checkpoint file.
@@ -18,24 +18,31 @@ shuffle: True                   # (bool) Whether or not to shuffle the training 
 
 # Training Settings
 epochs: 500                     # (int) The number of training epochs.
-train_batch_size: 2048          # (int) The training batch size.
+train_batch_size: 4096          # (int) The training batch size.
 learner: adam                   # (str) The name of used optimizer.
 learning_rate: 0.0001            # (float) Learning rate.
 train_neg_sample_args:          # (dict) Negative sampling configuration for model training.
   distribution: uniform         # (str) The distribution of negative items.
-  sample_num: 1                 # (int) The sampled num of negative items.
+  sample_num: 5                 # (int) The sampled num of negative items.
   alpha: 1.0                    # (float) The power of sampling probability for popularity distribution.
   dynamic: False                # (bool) Whether to use dynamic negative sampling.
   candidate_num: 0              # (int) The number of candidate negative items when dynamic negative sampling.
 eval_step: 1                    # (int) The number of training epochs before an evaluation on the valid dataset.
-stopping_step: 100               # (int) The threshold for validation-based early stopping.
+stopping_step: 150               # (int) The threshold for validation-based early stopping.
 clip_grad_norm: ~               # (dict) The args of clip_grad_norm_ which will clip gradient norm of model. 
 weight_decay: 0.0               # (float) The weight decay value (L2 penalty) for optimizers.
 loss_decimal_place: 4           # (int) The decimal place of training loss.
 require_pow: False              # (bool) Whether or not to perform power operation in EmbLoss.
 enable_amp: False               # (bool) Whether or not to use mixed precision training.
-enable_scaler: False            # (bool) Whether or not to use GradScaler in mixed precision training.
+enable_scaler: True            # (bool) Whether or not to use GradScaler in mixed precision training.
 transform: ~                    # (str) The transform operation for batch data process.
+train_after_converge: True      # (bool) Whether or not to continue training after early stopping.
+positive_sampling: True         # (bool) Whether or not to perform positive sampling
+model_name_custom: "-"    # (str) Name of model for visualization purposes
+data_augmentation: False         # (bool) Whether or not to perform data augmentation before training.
+Q: 5                            # (int) number of items to add for PSST at sampling level.
+K: 1                            # (int) number of top k items to be added by SBGA
+P: 15                           # (int) number of candidate items for SBGA
 
 # Evaluation Settings
 eval_args:                      # (dict) 4 keys: group_by, order, split, and mode
@@ -45,8 +52,8 @@ eval_args:                      # (dict) 4 keys: group_by, order, split, and mod
   mode: full                    # (str) The evaluation mode ranging in ['full','unixxx','popxxx','labeled'].
 repeatable: False               # (bool) Whether to evaluate results with a repeatable recommendation scene. 
 metrics: ["Recall","MRR","NDCG","Hit","Precision"]  # (list or str) Evaluation metrics.
-topk: [20]                      # (list or int or None) The value of k for topk evaluation metrics.
-valid_metric: MRR@20            # (str) The evaluation metric for early stopping. 
+topk: [5,10,20]                      # (list or int or None) The value of k for topk evaluation metrics.
+valid_metric: Recall@20            # (str) The evaluation metric for early stopping. 
 valid_metric_bigger: True       # (bool) Whether to take a bigger valid metric value as a better result.
 eval_batch_size: 4096           # (int) The evaluation batch size.
 metric_decimal_place: 4         # (int) The decimal place of metric scores.

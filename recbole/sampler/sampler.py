@@ -19,6 +19,7 @@ import numpy as np
 from numpy.random import sample
 import torch
 from collections import Counter
+from logging import getLogger
 
 
 class AbstractSampler(object):
@@ -38,6 +39,7 @@ class AbstractSampler(object):
         self.alpha = alpha
         self.set_distribution(distribution)
         self.used_ids = self.get_used_ids()
+        self.phase = None
 
     def set_distribution(self, distribution):
         """Set the distribution of sampler.

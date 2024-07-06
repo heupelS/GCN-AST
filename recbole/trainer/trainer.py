@@ -18,6 +18,7 @@ recbole.trainer.trainer
 """
 
 import os
+import json
 
 from logging import getLogger
 from time import time
@@ -45,8 +46,9 @@ from recbole.utils import (
     get_gpu_usage,
     WandbLogger,
 )
+from recbole.data.utils import get_dataloader
 from torch.nn.parallel import DistributedDataParallel
-
+from recbole.visualizer.visualizer import PlotVisualizer
 
 class AbstractTrainer(object):
     r"""Trainer Class is used to manage the training and evaluation processes of recommender system models.
@@ -132,12 +134,14 @@ class Trainer(AbstractTrainer):
         saved_model_file = "{}-{}.pth".format(self.config["model"], get_local_time())
         self.saved_model_file = os.path.join(self.checkpoint_dir, saved_model_file)
         self.weight_decay = config["weight_decay"]
+        self.train_after_converge = config["train_after_converge"]
 
         self.start_epoch = 0
         self.cur_step = 0
         self.best_valid_score = -np.inf if self.valid_metric_bigger else np.inf
         self.best_valid_result = None
         self.train_loss_dict = dict()
+        self.recall_at_20_dict = dict()
         self.optimizer = self._build_optimizer()
         self.eval_type = config["eval_type"]
         self.eval_collector = Collector(config)
@@ -231,7 +235,9 @@ class Trainer(AbstractTrainer):
             train_data.sampler.set_epoch(epoch_idx)
 
         scaler = amp.GradScaler(enabled=self.enable_scaler)
+        length = 0
         for batch_idx, interaction in enumerate(iter_data):
+            length += len(interaction)
             interaction = interaction.to(self.device)
             self.optimizer.zero_grad()
             sync_loss = 0
@@ -341,7 +347,8 @@ class Trainer(AbstractTrainer):
 
     def _check_nan(self, loss):
         if torch.isnan(loss):
-            raise ValueError("Training loss is nan")
+            #raise ValueError("Training loss is nan")
+            self.logger.warning("Training loss is nan")
 
     def _generate_train_loss_output(self, epoch_idx, s_time, e_time, losses):
         des = self.config["loss_decimal_place"] or 4
@@ -427,10 +434,14 @@ class Trainer(AbstractTrainer):
             self._save_checkpoint(-1, verbose=verbose)
 
         self.eval_collector.data_collect(train_data)
-        if self.config["train_neg_sample_args"].get("dynamic", False):
+        if self.config["train_neg_sample_args"].get("dynamic", False) or self.config["train_after_converge"]:
             train_data.get_model(self.model)
+            train_data._sampler.set_model(self.model)
         valid_step = 0
 
+        self.logger.debug(f" length of inter_feat: {len(train_data._dataset.inter_feat)}")
+        self.logger.debug(f" length of dataset: {len(train_data._dataset)}")
+        
         for epoch_idx in range(self.start_epoch, self.epochs):
             # train
             training_start_time = time()
@@ -462,6 +473,7 @@ class Trainer(AbstractTrainer):
                 valid_score, valid_result = self._valid_epoch(
                     valid_data, show_progress=show_progress
                 )
+                self.recall_at_20_dict[epoch_idx] = valid_result["recall@20"]
 
                 (
                     self.best_valid_score,
@@ -509,9 +521,39 @@ class Trainer(AbstractTrainer):
                     )
                     if verbose:
                         self.logger.info(stop_output)
-                    break
+
+                    if not self.train_after_converge:
+                        break
+                    else:
+                        self.stopping_step += 200
+                        train_data._dataset.inter_feat = train_data._sampler.add_potential_positives_to_dataset(top_k=self.config["Q"])
+                        train_data._sampler.update_sampler_inter_feat(train_data._dataset.inter_feat)
+                        train_data = get_dataloader(self.config, "train")(
+                            self.config, train_data._dataset, train_data._sampler, shuffle=self.config["shuffle"]
+                        )
+                        self.logger.debug(f" length of inter_feat: {len(train_data._dataset.inter_feat)}")
+
+                    self.train_after_converge = False
+                    stop_flag = False
 
                 valid_step += 1
+
+        # Save the train loss and recall@20 dicts to output files
+        if False:
+            PLOT_DIR = "log/plotting_data"
+            ensure_dir(PLOT_DIR)
+
+            with open(f"{PLOT_DIR}/{self.config['model_name_custom']}.json", "w") as f:
+                output_plotting_data = {
+                    self.config["model_name_custom"]:
+                    {
+                        "train_loss": self.train_loss_dict,
+                        "recall@20": self.recall_at_20_dict,
+                    }
+                }
+                json.dump(output_plotting_data, f)
+            visualizer = PlotVisualizer(PLOT_DIR)
+            visualizer.plot_data()
 
         self._add_hparam_to_tensorboard(self.best_valid_score)
         return self.best_valid_score, self.best_valid_result

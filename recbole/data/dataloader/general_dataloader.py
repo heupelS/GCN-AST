@@ -13,6 +13,7 @@ recbole.data.dataloader.general_dataloader
 """
 
 import numpy as np
+import copy
 import torch
 from logging import getLogger
 from recbole.data.dataloader.abstract_dataloader import (
@@ -68,7 +69,33 @@ class TrainDataLoader(NegSampleDataLoader):
         index = np.array(index)
         data = self._dataset[index]
         transformed_data = self.transform(self._dataset, data)
+        #transformed_data = self._pos_sampling(transformed_data)
         return self._neg_sampling(transformed_data)
+    
+        
+    def add_potential_positive_samples(self, dataset):
+        """Add potential positive samples to the dataset.
+
+        Args:
+            dataset (Dataset): The dataset to be augmented.
+
+        Returns:
+            Dataset: The augmented dataset.
+        """
+        self.model.eval()
+        dataset = copy.deepcopy(dataset)
+        scores = self.model.predict(Interaction({self.uid_field: torch.tensor(1).to(self.model.device), self.iid_field: torch.tensor(2).to(self.model.device)}))
+        self.logger.debug(f"Full sort prediction scores: {scores}")
+        self.logger.debug(f"Full sort prediction scores shape: {scores.shape}")
+        #scores = scores.view(-1, dataset.item_num)
+        self.logger.debug(f"Full sort prediction scores shape: {scores.shape}")
+        topk_scores, topk_indices = torch.topk(scores, self.config["train_neg_sample_args"]["sample_num"], dim=1)
+
+
+        self.model.train()
+        return dataset
+
+
 
 
 class NegSampleEvalDataLoader(NegSampleDataLoader):

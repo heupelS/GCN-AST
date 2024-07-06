@@ -18,7 +18,7 @@ from logging import getLogger
 
 import torch
 
-from recbole.data.interaction import Interaction
+from recbole.data.interaction import Interaction, cat_interactions
 from recbole.utils import InputType, FeatureType, FeatureSource
 from recbole.data.transform import construct_transform
 
@@ -182,6 +182,8 @@ class NegSampleDataLoader(AbstractDataLoader):
             candidate_num = self.neg_sample_args["candidate_num"]
             user_ids = inter_feat[self.uid_field].numpy()
             item_ids = inter_feat[self.iid_field].numpy()
+            self.logger.debug(f"user_ids: {user_ids.shape}")
+            self.logger.debug(f"item_ids: {item_ids.shape}")
             neg_candidate_ids = self._sampler.sample_by_user_ids(
                 user_ids, item_ids, self.neg_sample_num * candidate_num
             )

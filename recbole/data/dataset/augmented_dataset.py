@@ -13,6 +13,8 @@ class AugmentedDataset(Dataset):
 
     def __init__(self, config):
         super().__init__(config)
+        self.K = config['K']
+        self.P = config['P']
     
     def build(self):
         
@@ -35,7 +37,7 @@ class AugmentedDataset(Dataset):
         self.logger.debug(f"Nach augmentation: {len(datasets[0].inter_feat)}")
         return datasets
 
-    def _generate_augmented_train_dataset(self, dataset, K_si=1):
+    def _generate_augmented_train_dataset(self, dataset, K=1, P=15):
             
         
         item_co_occurrence_matrix = self.train_interaction_matrix.transpose().dot(self.train_interaction_matrix)
@@ -43,7 +45,7 @@ class AugmentedDataset(Dataset):
 
         similarity_matrix = self._calculate_item_similarity_matrix(item_co_occurrence_matrix, degrees_co_occurrence_items)
         
-        augmented_dataset = self._extend_train_dataset(similarity_matrix, dataset)
+        augmented_dataset = self._extend_train_dataset(similarity_matrix, dataset, K=K, P=P)
 
         return augmented_dataset
 
@@ -84,9 +86,9 @@ class AugmentedDataset(Dataset):
 
         return similarities_matrix
 
-    def _extend_train_dataset(self, similarity_matrix, dataset, N=1, K=15):
+    def _extend_train_dataset(self, similarity_matrix, dataset, K=1, P=15):
         
-        total_new_items = N * self.user_num
+        total_new_items = K * self.user_num
         print("Total new items: " + str(total_new_items))
         augmented_data = []  # List to store data to add to DataFrame
 
@@ -103,14 +105,14 @@ class AugmentedDataset(Dataset):
                 similarity_scores = similarity_matrix[item].toarray().flatten()
                 
                 # Use a heap to efficiently find the K most similar items
-                most_similar_items = heapq.nlargest(K, range(len(similarity_scores)), key=similarity_scores.__getitem__)
+                I_aug = heapq.nlargest(P, range(len(similarity_scores)), key=similarity_scores.__getitem__)
                 
                 # Store the most similar items
-                for similar_item in most_similar_items:
+                for similar_item in I_aug:
                     heapq.heappush(top_items_heap, (similarity_matrix[item, similar_item], similar_item))
             
             # Take the top N items from the heap
-            top_N_items = heapq.nlargest(N, top_items_heap)
+            top_N_items = heapq.nlargest(K, top_items_heap)
             
             
             # Add the top N items for the current user to the interaction_train_matrix
@@ -119,7 +121,7 @@ class AugmentedDataset(Dataset):
             
 
             for score, item_index in top_N_items:
-                augmented_data.append({'user_id': user_id, 'item_id': item_index, 'label': 1})
+                augmented_data.append({'user_id': user_id, 'item_id': item_index})
 
         print(type(dataset))
         # Add the data to the DataFrame
