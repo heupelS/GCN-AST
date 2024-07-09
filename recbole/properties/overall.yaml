@@ -15,6 +15,7 @@ dataloaders_save_path: ~        # (str) The path of saved dataloaders.
 log_wandb: False                # (bool) Whether or not to use Weights & Biases(W&B).
 wandb_project: 'recbole'        # (str) The project to conduct experiments in W&B.
 shuffle: True                   # (bool) Whether or not to shuffle the training data before each epoch.
+plot_learning_curve: False       # (bool) Whether or not to plot and save data for train loss curve
 
 # Training Settings
 epochs: 500                     # (int) The number of training epochs.
@@ -28,7 +29,7 @@ train_neg_sample_args:          # (dict) Negative sampling configuration for mod
   dynamic: False                # (bool) Whether to use dynamic negative sampling.
   candidate_num: 0              # (int) The number of candidate negative items when dynamic negative sampling.
 eval_step: 1                    # (int) The number of training epochs before an evaluation on the valid dataset.
-stopping_step: 150               # (int) The threshold for validation-based early stopping.
+stopping_step: 10               # (int) The threshold for validation-based early stopping.
 clip_grad_norm: ~               # (dict) The args of clip_grad_norm_ which will clip gradient norm of model. 
 weight_decay: 0.0               # (float) The weight decay value (L2 penalty) for optimizers.
 loss_decimal_place: 4           # (int) The decimal place of training loss.
@@ -36,13 +37,13 @@ require_pow: False              # (bool) Whether or not to perform power operati
 enable_amp: False               # (bool) Whether or not to use mixed precision training.
 enable_scaler: True            # (bool) Whether or not to use GradScaler in mixed precision training.
 transform: ~                    # (str) The transform operation for batch data process.
-train_after_converge: True      # (bool) Whether or not to continue training after early stopping.
+train_after_converge: False      # (bool) Whether or not to continue training after early stopping.
 positive_sampling: True         # (bool) Whether or not to perform positive sampling
-model_name_custom: "-"    # (str) Name of model for visualization purposes
+model_name_custom: "-"          # (str) Name of model for visualization purposes
 data_augmentation: False         # (bool) Whether or not to perform data augmentation before training.
-Q: 5                            # (int) number of items to add for PSST at sampling level.
-K: 1                            # (int) number of top k items to be added by SBGA
-P: 15                           # (int) number of candidate items for SBGA
+Q: 8                            # (int) number of items to add for PSST at sampling level.
+K: 3                            # (int) number of top k items to be added by SBGA
+P: 20                           # (int) number of candidate items for SBGA
 
 # Evaluation Settings
 eval_args:                      # (dict) 4 keys: group_by, order, split, and mode
@@ -51,9 +52,12 @@ eval_args:                      # (dict) 4 keys: group_by, order, split, and mod
   order: RO                     # (str) The ordering strategy ranging in ['RO', 'TO'].
   mode: full                    # (str) The evaluation mode ranging in ['full','unixxx','popxxx','labeled'].
 repeatable: False               # (bool) Whether to evaluate results with a repeatable recommendation scene. 
-metrics: ["Recall","MRR","NDCG","Hit","Precision"]  # (list or str) Evaluation metrics.
-topk: [5,10,20]                      # (list or int or None) The value of k for topk evaluation metrics.
+metrics: ["Recall","NDCG","MRR","Hit","Precision"]  # (list or str) Evaluation metrics.
+topk: [10,20]                      # (list or int or None) The value of k for topk evaluation metrics.
 valid_metric: Recall@20            # (str) The evaluation metric for early stopping. 
 valid_metric_bigger: True       # (bool) Whether to take a bigger valid metric value as a better result.
 eval_batch_size: 4096           # (int) The evaluation batch size.
-metric_decimal_place: 4         # (int) The decimal place of metric scores.
+metric_decimal_place: 3         # (int) The decimal place of metric scores.
+
+model: 'ANS'
+dataset: 'ml-100k'

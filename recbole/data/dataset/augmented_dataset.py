@@ -22,13 +22,15 @@ class AugmentedDataset(Dataset):
 
         datasets = super().build()
         test_inter = self.inter_matrix(form='csr')
+
+        self.logger.info(f"Building augmented dataset with K={self.K} and P={self.P}")
         
         self.train_interaction_matrix = datasets[0].inter_matrix(form='csr')
         self.logger.debug(f"Vor augmentation: {len(datasets[0].inter_feat)}")
         datasets[0]._change_feat_format_to_dataframe()
 
 
-        datasets[0] = self._generate_augmented_train_dataset(datasets[0])
+        datasets[0] = self._generate_augmented_train_dataset(datasets[0], K=self.K, P=self.P)
         self.logger.debug("Classname: " + datasets[0].__class__.__name__)
 
              

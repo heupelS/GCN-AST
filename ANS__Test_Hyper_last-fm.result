@@ -1,0 +1,97 @@
+L:2, Q:3, eps:0.08592080825271142, gamma:0.23142562172768882, learning_rate:0.0015, train_batch_size:2048
+Valid result:
+recall@10 : 0.229    recall@20 : 0.345    ndcg@10 : 0.244    ndcg@20 : 0.272    mrr@10 : 0.401    mrr@20 : 0.409    hit@10 : 0.777    hit@20 : 0.889    precision@10 : 0.167    precision@20 : 0.131
+Test result:
+recall@10 : 0.263    recall@20 : 0.386    ndcg@10 : 0.304    ndcg@20 : 0.325    mrr@10 : 0.504    mrr@20 : 0.51    hit@10 : 0.814    hit@20 : 0.903    precision@10 : 0.206    precision@20 : 0.156
+
+L:2, Q:8, eps:0.36486746705616624, gamma:0.07895255323042202, learning_rate:0.0001, train_batch_size:2048
+Valid result:
+recall@10 : 0.007    recall@20 : 0.014    ndcg@10 : 0.008    ndcg@20 : 0.01    mrr@10 : 0.019    mrr@20 : 0.023    hit@10 : 0.065    hit@20 : 0.122    precision@10 : 0.007    precision@20 : 0.007
+Test result:
+recall@10 : 0.006    recall@20 : 0.012    ndcg@10 : 0.008    ndcg@20 : 0.009    mrr@10 : 0.018    mrr@20 : 0.022    hit@10 : 0.071    hit@20 : 0.121    precision@10 : 0.007    precision@20 : 0.007
+
+L:3, Q:5, eps:0.5514067761434568, gamma:0.21841272454453078, learning_rate:0.0015, train_batch_size:2048
+Valid result:
+recall@10 : 0.223    recall@20 : 0.342    ndcg@10 : 0.239    ndcg@20 : 0.268    mrr@10 : 0.395    mrr@20 : 0.404    hit@10 : 0.764    hit@20 : 0.887    precision@10 : 0.164    precision@20 : 0.132
+Test result:
+recall@10 : 0.261    recall@20 : 0.378    ndcg@10 : 0.307    ndcg@20 : 0.325    mrr@10 : 0.512    mrr@20 : 0.518    hit@10 : 0.812    hit@20 : 0.893    precision@10 : 0.205    precision@20 : 0.155
+
+L:2, Q:10, eps:0.14450506896410037, gamma:0.1753481551546405, learning_rate:0.0015, train_batch_size:2048
+Valid result:
+recall@10 : 0.226    recall@20 : 0.35    ndcg@10 : 0.242    ndcg@20 : 0.274    mrr@10 : 0.401    mrr@20 : 0.409    hit@10 : 0.773    hit@20 : 0.887    precision@10 : 0.164    precision@20 : 0.135
+Test result:
+recall@10 : 0.26    recall@20 : 0.385    ndcg@10 : 0.301    ndcg@20 : 0.323    mrr@10 : 0.496    mrr@20 : 0.503    hit@10 : 0.795    hit@20 : 0.897    precision@10 : 0.203    precision@20 : 0.156
+
+L:2, Q:5, eps:0.5982282407309517, gamma:0.03554322456536965, learning_rate:0.0001, train_batch_size:2048
+Valid result:
+recall@10 : 0.235    recall@20 : 0.359    ndcg@10 : 0.256    ndcg@20 : 0.285    mrr@10 : 0.423    mrr@20 : 0.431    hit@10 : 0.78    hit@20 : 0.887    precision@10 : 0.176    precision@20 : 0.139
+Test result:
+recall@10 : 0.274    recall@20 : 0.398    ndcg@10 : 0.327    ndcg@20 : 0.345    mrr@10 : 0.531    mrr@20 : 0.537    hit@10 : 0.824    hit@20 : 0.902    precision@10 : 0.219    precision@20 : 0.165
+
+L:3, Q:10, eps:0.3421563211538668, gamma:0.21526869719614247, learning_rate:0.0001, train_batch_size:2048
+Valid result:
+recall@10 : 0.008    recall@20 : 0.014    ndcg@10 : 0.01    ndcg@20 : 0.011    mrr@10 : 0.025    mrr@20 : 0.028    hit@10 : 0.07    hit@20 : 0.118    precision@10 : 0.007    precision@20 : 0.007
+Test result:
+recall@10 : 0.005    recall@20 : 0.011    ndcg@10 : 0.007    ndcg@20 : 0.009    mrr@10 : 0.015    mrr@20 : 0.019    hit@10 : 0.062    hit@20 : 0.116    precision@10 : 0.007    precision@20 : 0.007
+
+L:3, Q:10, eps:0.3221843630407796, gamma:0.050084554905148154, learning_rate:0.001, train_batch_size:2048
+Valid result:
+recall@10 : 0.231    recall@20 : 0.35    ndcg@10 : 0.247    ndcg@20 : 0.274    mrr@10 : 0.403    mrr@20 : 0.411    hit@10 : 0.773    hit@20 : 0.888    precision@10 : 0.17    precision@20 : 0.134
+Test result:
+recall@10 : 0.264    recall@20 : 0.385    ndcg@10 : 0.308    ndcg@20 : 0.327    mrr@10 : 0.507    mrr@20 : 0.514    hit@10 : 0.801    hit@20 : 0.902    precision@10 : 0.206    precision@20 : 0.157
+
+L:2, Q:5, eps:0.5134059873473871, gamma:0.14372244247988858, learning_rate:0.001, train_batch_size:4096
+Valid result:
+recall@10 : 0.202    recall@20 : 0.322    ndcg@10 : 0.214    ndcg@20 : 0.247    mrr@10 : 0.361    mrr@20 : 0.37    hit@10 : 0.725    hit@20 : 0.858    precision@10 : 0.152    precision@20 : 0.125
+Test result:
+recall@10 : 0.235    recall@20 : 0.353    ndcg@10 : 0.267    ndcg@20 : 0.291    mrr@10 : 0.443    mrr@20 : 0.45    hit@10 : 0.786    hit@20 : 0.881    precision@10 : 0.19    precision@20 : 0.148
+
+L:3, Q:8, eps:0.6128455702756419, gamma:0.11716552304615374, learning_rate:1e-05, train_batch_size:2048
+Valid result:
+recall@10 : 0.006    recall@20 : 0.014    ndcg@10 : 0.009    ndcg@20 : 0.011    mrr@10 : 0.024    mrr@20 : 0.028    hit@10 : 0.072    hit@20 : 0.126    precision@10 : 0.008    precision@20 : 0.007
+Test result:
+recall@10 : 0.007    recall@20 : 0.011    ndcg@10 : 0.009    ndcg@20 : 0.009    mrr@10 : 0.02    mrr@20 : 0.023    hit@10 : 0.06    hit@20 : 0.101    precision@10 : 0.007    precision@20 : 0.006
+
+L:2, Q:5, eps:0.35986093132893304, gamma:0.09260549093969819, learning_rate:0.001, train_batch_size:2048
+Valid result:
+recall@10 : 0.22    recall@20 : 0.339    ndcg@10 : 0.238    ndcg@20 : 0.268    mrr@10 : 0.397    mrr@20 : 0.405    hit@10 : 0.761    hit@20 : 0.88    precision@10 : 0.166    precision@20 : 0.134
+Test result:
+recall@10 : 0.254    recall@20 : 0.379    ndcg@10 : 0.306    ndcg@20 : 0.326    mrr@10 : 0.509    mrr@20 : 0.516    hit@10 : 0.794    hit@20 : 0.901    precision@10 : 0.207    precision@20 : 0.158
+
+L:2, Q:5, eps:0.6600581135455639, gamma:0.2079997240967503, learning_rate:1e-05, train_batch_size:4096
+Valid result:
+recall@10 : 0.006    recall@20 : 0.013    ndcg@10 : 0.008    ndcg@20 : 0.01    mrr@10 : 0.022    mrr@20 : 0.026    hit@10 : 0.07    hit@20 : 0.122    precision@10 : 0.007    precision@20 : 0.007
+Test result:
+recall@10 : 0.007    recall@20 : 0.011    ndcg@10 : 0.008    ndcg@20 : 0.009    mrr@10 : 0.019    mrr@20 : 0.021    hit@10 : 0.057    hit@20 : 0.092    precision@10 : 0.006    precision@20 : 0.005
+
+L:3, Q:3, eps:0.71241173397803, gamma:0.024757491500979223, learning_rate:1e-05, train_batch_size:2048
+Valid result:
+recall@10 : 0.203    recall@20 : 0.31    ndcg@10 : 0.226    ndcg@20 : 0.249    mrr@10 : 0.395    mrr@20 : 0.403    hit@10 : 0.733    hit@20 : 0.848    precision@10 : 0.155    precision@20 : 0.123
+Test result:
+recall@10 : 0.24    recall@20 : 0.348    ndcg@10 : 0.285    ndcg@20 : 0.299    mrr@10 : 0.484    mrr@20 : 0.491    hit@10 : 0.784    hit@20 : 0.881    precision@10 : 0.191    precision@20 : 0.144
+
+L:2, Q:5, eps:0.020532671432314797, gamma:0.013809668765985744, learning_rate:1e-05, train_batch_size:2048
+Valid result:
+recall@10 : 0.199    recall@20 : 0.302    ndcg@10 : 0.224    ndcg@20 : 0.245    mrr@10 : 0.393    mrr@20 : 0.4    hit@10 : 0.73    hit@20 : 0.839    precision@10 : 0.154    precision@20 : 0.122
+Test result:
+recall@10 : 0.235    recall@20 : 0.344    ndcg@10 : 0.281    ndcg@20 : 0.295    mrr@10 : 0.479    mrr@20 : 0.487    hit@10 : 0.773    hit@20 : 0.876    precision@10 : 0.189    precision@20 : 0.142
+
+L:2, Q:8, eps:0.32856446997226574, gamma:0.07325883264541497, learning_rate:0.001, train_batch_size:4096
+Valid result:
+recall@10 : 0.195    recall@20 : 0.31    ndcg@10 : 0.208    ndcg@20 : 0.237    mrr@10 : 0.337    mrr@20 : 0.346    hit@10 : 0.724    hit@20 : 0.846    precision@10 : 0.154    precision@20 : 0.125
+Test result:
+recall@10 : 0.224    recall@20 : 0.346    ndcg@10 : 0.265    ndcg@20 : 0.287    mrr@10 : 0.437    mrr@20 : 0.445    hit@10 : 0.747    hit@20 : 0.866    precision@10 : 0.19    precision@20 : 0.149
+
+L:3, Q:5, eps:0.4139941688244043, gamma:0.24544108137595727, learning_rate:1e-05, train_batch_size:2048
+Valid result:
+recall@10 : 0.006    recall@20 : 0.013    ndcg@10 : 0.008    ndcg@20 : 0.01    mrr@10 : 0.021    mrr@20 : 0.025    hit@10 : 0.068    hit@20 : 0.123    precision@10 : 0.007    precision@20 : 0.007
+Test result:
+recall@10 : 0.006    recall@20 : 0.011    ndcg@10 : 0.008    ndcg@20 : 0.009    mrr@10 : 0.019    mrr@20 : 0.021    hit@10 : 0.057    hit@20 : 0.094    precision@10 : 0.007    precision@20 : 0.005
+
+HYPER USED:
+L choice [2,3]
+eps uniform 0, 0.75
+gamma uniform 0, 0.25
+Q choice [3,5,8,10]
+train_batch_size choice [2048,4096]
+learning_rate choice [0.001,0.0015, 0.0001, 0.00001]

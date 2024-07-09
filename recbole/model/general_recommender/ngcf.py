@@ -105,12 +105,12 @@ class NGCF(GeneralRecommender):
                 )
             )
         )
-        A._update(data_dict)
+        for key, value in data_dict.items():
+            A[key] = value
         # norm adj matrix
         sumArr = (A > 0).sum(axis=1)
-        diag = (
-            np.array(sumArr.flatten())[0] + 1e-7
-        )  # add epsilon to avoid divide by zero Warning
+        # add epsilon to avoid divide by zero Warning
+        diag = np.array(sumArr.flatten())[0] + 1e-7
         diag = np.power(diag, -0.5)
         D = sp.diags(diag)
         L = D * A * D

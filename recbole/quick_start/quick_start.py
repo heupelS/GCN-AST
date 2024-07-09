@@ -137,7 +137,7 @@ def objective_function(config_dict=None, config_file_list=None, saved=True):
         saved (bool, optional): Whether to save the model. Defaults to ``True``.
     """
 
-    config = Config(config_dict=config_dict, config_file_list=config_file_list)
+    config = Config(config_dict=config_dict, config_file_list=config_file_list, model="ANS", dataset="ml-100k") #
     init_seed(config["seed"], config["reproducibility"])
     logger = getLogger()
     for hdlr in logger.handlers[:]:  # remove all old handlers

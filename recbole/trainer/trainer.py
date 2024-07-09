@@ -234,7 +234,7 @@ class Trainer(AbstractTrainer):
         if not self.config["single_spec"] and train_data.shuffle:
             train_data.sampler.set_epoch(epoch_idx)
 
-        scaler = amp.GradScaler(enabled=self.enable_scaler)
+        scaler = torch.amp.GradScaler(enabled=self.enable_scaler)
         length = 0
         for batch_idx, interaction in enumerate(iter_data):
             length += len(interaction)
@@ -539,7 +539,7 @@ class Trainer(AbstractTrainer):
                 valid_step += 1
 
         # Save the train loss and recall@20 dicts to output files
-        if False:
+        if self.config["plot_learning_curve"]:
             PLOT_DIR = "log/plotting_data"
             ensure_dir(PLOT_DIR)
 

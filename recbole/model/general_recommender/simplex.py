@@ -34,17 +34,8 @@ class SimpleX(GeneralRecommender):
 
     We implement the model following the original author with a pairwise training mode.
     """
+
     input_type = InputType.PAIRWISE
-
-    @staticmethod
-    def alignment(x, y):
-        x, y = F.normalize(x, dim=-1), F.normalize(y, dim=-1)
-        return (x - y).norm(p=2, dim=1).pow(2).mean()
-
-    @staticmethod
-    def uniformity(x):
-        x = F.normalize(x, dim=-1)
-        return torch.pdist(x, p=2).pow(2).mul(-2).exp().mean().log()
 
     def __init__(self, config, dataset):
         super(SimpleX, self).__init__(config, dataset)
@@ -174,55 +165,11 @@ class SimpleX(GeneralRecommender):
         neg_item_seq_e = self.item_emb(neg_item_seq)
 
         # [user_num, embedding_size]
-        # UI_aggregation_e = self.get_UI_aggregation(user_e, history_item_e, history_len)
-        # UI_aggregation_e = self.dropout(UI_aggregation_e)
-        
+        UI_aggregation_e = self.get_UI_aggregation(user_e, history_item_e, history_len)
+        UI_aggregation_e = self.dropout(UI_aggregation_e)
 
-        pos_cos = self.get_cos(user_e, pos_item_e.unsqueeze(1))
-        neg_cos = self.get_cos(user_e, neg_item_seq_e)
-
-
-        # label
-
-        indices = torch.min(neg_cos, dim=1)[1].detach()  # [batch_size]
-        neg_item = torch.gather(neg_item_seq, dim=1, index=indices.unsqueeze(-1)).squeeze()
-        true_neg_e = self.item_emb(neg_item)
-        true_neg_cos = self.get_cos(user_e, true_neg_e)
-
-        # align
-        diff_pos = pos_item_e - neg_item_seq_e
-        pos_random_noise = torch.rand(diff_pos.shape).to(self.device)
-        pos_noise = torch.mul(torch.sign(pos_item_e.unsqueeze(dim=1)),torch.nn.functional.normalize(pos_random_noise, p=2, dim=-1))
-
-        diff_neg = true_neg_e - neg_item_seq_e
-        neg_random_noise = torch.rand(diff_neg.shape).to(self.device)
-        neg_noise = torch.mul(torch.sign(true_neg_e .unsqueeze(dim=1)),torch.nn.functional.normalize(neg_random_noise, p=2, dim=-1))
-        align_e_1 = pos_noise + neg_item_seq_e
-        align_e_2 = neg_noise + neg_item_seq_e
-
-
-
-        # amb loss
-
-        align = self.alignment(align_e_1 , align_e_2)
-        uniform = self.uniformity(neg_item_seq_e) / 2
-        amb_loss = align + uniform
-        
-        # semi-sup loss
-        contrastive_loss = torch.sigmoid(neg_cos.mean(1, keepdim=True) - pos_cos) + torch.sigmoid(true_neg_cos - neg_cos.mean(1, keepdim=True))
-        semi_loss = contrastive_loss.mean()
-
-
-        # sup loss
-        sup_loss = -torch.mean(torch.mul(pos_cos, torch.log(pos_cos)))
-
-
-        #final loss
-
-        final_loss = 0.4*sup_loss + 0.6*(semi_loss + amb_loss)
-
-
-
+        pos_cos = self.get_cos(UI_aggregation_e, pos_item_e.unsqueeze(1))
+        neg_cos = self.get_cos(UI_aggregation_e, neg_item_seq_e)
 
         # CCL loss
         pos_loss = torch.relu(1 - pos_cos)
