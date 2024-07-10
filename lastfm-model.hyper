@@ -1,4 +1,4 @@
-L choice [2,3,4]
-train_batch_size choice [1024,2048,4096]
-learning_rate choice [0.001,0.0015, 0.0001, 0.00001]
-reg_weight choice [0.001,0.0001,0.00001]
+gamma choice [0.01,0.05,0.1,0.15,0.2,0.3,0.5]
+eps choice [0.2,0.3,0.5,0.75]
+learning_rate choice [0.001,0.0015, 0.0001]
+reg_weight choice [0.001, 0.0001, 0.00001]

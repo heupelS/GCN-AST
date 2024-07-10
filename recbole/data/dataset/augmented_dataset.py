@@ -123,7 +123,7 @@ class AugmentedDataset(Dataset):
             
 
             for score, item_index in top_N_items:
-                augmented_data.append({'user_id': user_id, 'item_id': item_index})
+                augmented_data.append({dataset.uid_field: user_id, dataset.iid_field: item_index})
 
         print(type(dataset))
         # Add the data to the DataFrame

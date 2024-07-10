@@ -137,12 +137,13 @@ def objective_function(config_dict=None, config_file_list=None, saved=True):
         saved (bool, optional): Whether to save the model. Defaults to ``True``.
     """
 
-    config = Config(config_dict=config_dict, config_file_list=config_file_list, model="ANS", dataset="ml-100k") #
+    config = Config(config_dict=config_dict, config_file_list=config_file_list)
     init_seed(config["seed"], config["reproducibility"])
     logger = getLogger()
     for hdlr in logger.handlers[:]:  # remove all old handlers
         logger.removeHandler(hdlr)
     init_logger(config)
+    logger.info(config)
     logging.basicConfig(level=logging.ERROR)
     dataset = create_dataset(config)
     train_data, valid_data, test_data = data_preparation(config, dataset)
@@ -160,7 +161,7 @@ def objective_function(config_dict=None, config_file_list=None, saved=True):
         train.report(**test_result)
     except Exception as e:
         logger.error(f"Error in reporting test result: {e}")
-        logger.debug(f"test_result: {test_result}")
+        logger.info(f"test_result: {test_result}")
 
         
         
