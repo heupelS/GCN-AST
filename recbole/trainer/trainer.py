@@ -442,6 +442,8 @@ class Trainer(AbstractTrainer):
         self.logger.debug(f" length of inter_feat: {len(train_data._dataset.inter_feat)}")
         self.logger.debug(f" length of dataset: {len(train_data._dataset)}")
         
+        total_training_time = 0
+
         for epoch_idx in range(self.start_epoch, self.epochs):
             # train
             training_start_time = time()
@@ -452,6 +454,9 @@ class Trainer(AbstractTrainer):
                 sum(train_loss) if isinstance(train_loss, tuple) else train_loss
             )
             training_end_time = time()
+            epoch_training_time = training_end_time - training_start_time
+            total_training_time += epoch_training_time  # Accumulate training time
+
             train_loss_output = self._generate_train_loss_output(
                 epoch_idx, training_start_time, training_end_time, train_loss
             )
@@ -554,6 +559,11 @@ class Trainer(AbstractTrainer):
                 json.dump(output_plotting_data, f)
             visualizer = PlotVisualizer(PLOT_DIR)
             visualizer.plot_data()
+
+        # Calculate and log average training time and epochs to converge
+        average_training_time = total_training_time / (epoch_idx + 1)
+        self.logger.info(f"Average training time per epoch: {average_training_time:.2f} seconds")
+        self.logger.info(f"Epochs to converge: {epoch_idx + 1}")
 
         self._add_hparam_to_tensorboard(self.best_valid_score)
         return self.best_valid_score, self.best_valid_result
