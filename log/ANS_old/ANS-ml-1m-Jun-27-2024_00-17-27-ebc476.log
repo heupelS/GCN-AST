@@ -1,0 +1,28 @@
+Thu 27 Jun 2024 00:17:27 DEBUG  Loading <class 'recbole.data.dataset.dataset.Dataset'> from scratch.
+Thu 27 Jun 2024 00:17:27 DEBUG  uid_field: user_id
+Thu 27 Jun 2024 00:17:27 DEBUG  iid_field: item_id
+Thu 27 Jun 2024 00:17:27 DEBUG  Loading feature from [dataset/ml-1m/ml-1m.inter] (source: [FeatureSource.INTERACTION]).
+Thu 27 Jun 2024 00:17:27 DEBUG  [inter]: 
+Thu 27 Jun 2024 00:17:27 DEBUG  	 load_col: [{'item_id', 'user_id', 'rating'}]
+Thu 27 Jun 2024 00:17:27 DEBUG  	 unload_col: [None]
+Thu 27 Jun 2024 00:17:29 DEBUG  Interaction feature loaded successfully from [dataset/ml-1m/ml-1m.inter].
+Thu 27 Jun 2024 00:17:29 DEBUG  Loading feature from [dataset/ml-1m/ml-1m.user] (source: [FeatureSource.USER]).
+Thu 27 Jun 2024 00:17:29 DEBUG  [user]: 
+Thu 27 Jun 2024 00:17:29 DEBUG  	 load_col: [set()]
+Thu 27 Jun 2024 00:17:29 DEBUG  	 unload_col: [None]
+Thu 27 Jun 2024 00:17:29 DEBUG  [user] feature loaded successfully from [dataset/ml-1m/ml-1m.user].
+Thu 27 Jun 2024 00:17:29 DEBUG  Loading feature from [dataset/ml-1m/ml-1m.item] (source: [FeatureSource.ITEM]).
+Thu 27 Jun 2024 00:17:29 DEBUG  [item]: 
+Thu 27 Jun 2024 00:17:29 DEBUG  	 load_col: [set()]
+Thu 27 Jun 2024 00:17:29 DEBUG  	 unload_col: [None]
+Thu 27 Jun 2024 00:17:29 DEBUG  [item] feature loaded successfully from [dataset/ml-1m/ml-1m.item].
+Thu 27 Jun 2024 00:17:29 DEBUG  drop_by_value: val={}
+Thu 27 Jun 2024 00:17:29 DEBUG  Filling nan
+Thu 27 Jun 2024 00:17:29 DEBUG  Set label by {'rating': 4.0}.
+Thu 27 Jun 2024 00:17:29 DEBUG  Delete column [rating].
+Thu 27 Jun 2024 00:17:29 DEBUG  Normalized fields: ['label']
+Thu 27 Jun 2024 00:17:29 DEBUG  split by ratios [[0.8, 0.1, 0.1]], group_by=[user_id]
+Thu 27 Jun 2024 00:17:31 INFO  [Training]: train_batch_size = [2048] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 1}]
+Thu 27 Jun 2024 00:17:31 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Thu 27 Jun 2024 00:17:42 DEBUG   length of inter_feat: 805443
+Thu 27 Jun 2024 00:17:42 DEBUG   length of dataset: 805443

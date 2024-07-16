@@ -1,0 +1,28 @@
+Thu 27 Jun 2024 00:18:48 DEBUG  Loading <class 'recbole.data.dataset.dataset.Dataset'> from scratch.
+Thu 27 Jun 2024 00:18:48 DEBUG  uid_field: user_id
+Thu 27 Jun 2024 00:18:48 DEBUG  iid_field: item_id
+Thu 27 Jun 2024 00:18:48 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.inter] (source: [FeatureSource.INTERACTION]).
+Thu 27 Jun 2024 00:18:48 DEBUG  [inter]: 
+Thu 27 Jun 2024 00:18:48 DEBUG  	 load_col: [{'item_id', 'user_id', 'rating'}]
+Thu 27 Jun 2024 00:18:48 DEBUG  	 unload_col: [None]
+Thu 27 Jun 2024 00:18:49 DEBUG  Interaction feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.inter].
+Thu 27 Jun 2024 00:18:49 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.user] (source: [FeatureSource.USER]).
+Thu 27 Jun 2024 00:18:49 DEBUG  [user]: 
+Thu 27 Jun 2024 00:18:49 DEBUG  	 load_col: [set()]
+Thu 27 Jun 2024 00:18:49 DEBUG  	 unload_col: [None]
+Thu 27 Jun 2024 00:18:49 DEBUG  [user] feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.user].
+Thu 27 Jun 2024 00:18:49 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.item] (source: [FeatureSource.ITEM]).
+Thu 27 Jun 2024 00:18:49 DEBUG  [item]: 
+Thu 27 Jun 2024 00:18:49 DEBUG  	 load_col: [set()]
+Thu 27 Jun 2024 00:18:49 DEBUG  	 unload_col: [None]
+Thu 27 Jun 2024 00:18:49 DEBUG  [item] feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.item].
+Thu 27 Jun 2024 00:18:49 DEBUG  drop_by_value: val={}
+Thu 27 Jun 2024 00:18:49 DEBUG  Filling nan
+Thu 27 Jun 2024 00:18:49 DEBUG  Set label by {'rating': 4.0}.
+Thu 27 Jun 2024 00:18:49 DEBUG  Delete column [rating].
+Thu 27 Jun 2024 00:18:49 DEBUG  Normalized fields: ['label']
+Thu 27 Jun 2024 00:18:49 DEBUG  split by ratios [[0.8, 0.1, 0.1]], group_by=[user_id]
+Thu 27 Jun 2024 00:18:49 INFO  [Training]: train_batch_size = [2048] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 1}]
+Thu 27 Jun 2024 00:18:49 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Thu 27 Jun 2024 00:18:50 DEBUG   length of inter_feat: 80808
+Thu 27 Jun 2024 00:18:50 DEBUG   length of dataset: 80808

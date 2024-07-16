@@ -1,0 +1,6 @@
+Mon 08 Jul 2024 19:25:36 INFO  [Training]: train_batch_size = [4096] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 5, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}]
+Mon 08 Jul 2024 19:25:36 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Mon 08 Jul 2024 19:32:09 INFO  Loading model structure and parameters from saved/ANS-Jul-08-2024_19-25-37.pth
+Mon 08 Jul 2024 19:32:09 INFO  best params: 
+Mon 08 Jul 2024 19:32:09 INFO  best result: 
+Mon 08 Jul 2024 19:32:09 INFO  {'model': 'ANS', 'best_valid_score': 0.351, 'valid_score_bigger': True, 'best_valid_result': OrderedDict([('recall@10', 0.23), ('recall@20', 0.351), ('ndcg@10', 0.258), ('ndcg@20', 0.285), ('mrr@10', 0.439), ('mrr@20', 0.446), ('hit@10', 0.782), ('hit@20', 0.889), ('precision@10', 0.173), ('precision@20', 0.135)]), 'test_result': OrderedDict([('recall@10', 0.268), ('recall@20', 0.392), ('ndcg@10', 0.323), ('ndcg@20', 0.341), ('mrr@10', 0.525), ('mrr@20', 0.531), ('hit@10', 0.813), ('hit@20', 0.897), ('precision@10', 0.215), ('precision@20', 0.161)])}

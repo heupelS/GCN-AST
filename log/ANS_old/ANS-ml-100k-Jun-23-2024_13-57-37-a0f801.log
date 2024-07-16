@@ -1,0 +1,26 @@
+Sun 23 Jun 2024 13:57:37 DEBUG  Loading <class 'recbole.data.dataset.augmented_dataset.AugmentedDataset'> from scratch.
+Sun 23 Jun 2024 13:57:37 DEBUG  uid_field: user_id
+Sun 23 Jun 2024 13:57:37 DEBUG  iid_field: item_id
+Sun 23 Jun 2024 13:57:37 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.inter] (source: [FeatureSource.INTERACTION]).
+Sun 23 Jun 2024 13:57:37 DEBUG  [inter]: 
+Sun 23 Jun 2024 13:57:37 DEBUG  	 load_col: [{'item_id', 'rating', 'user_id'}]
+Sun 23 Jun 2024 13:57:37 DEBUG  	 unload_col: [None]
+Sun 23 Jun 2024 13:57:37 DEBUG  Interaction feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.inter].
+Sun 23 Jun 2024 13:57:37 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.user] (source: [FeatureSource.USER]).
+Sun 23 Jun 2024 13:57:37 DEBUG  [user]: 
+Sun 23 Jun 2024 13:57:37 DEBUG  	 load_col: [set()]
+Sun 23 Jun 2024 13:57:37 DEBUG  	 unload_col: [None]
+Sun 23 Jun 2024 13:57:37 DEBUG  [user] feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.user].
+Sun 23 Jun 2024 13:57:37 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.item] (source: [FeatureSource.ITEM]).
+Sun 23 Jun 2024 13:57:37 DEBUG  [item]: 
+Sun 23 Jun 2024 13:57:37 DEBUG  	 load_col: [set()]
+Sun 23 Jun 2024 13:57:37 DEBUG  	 unload_col: [None]
+Sun 23 Jun 2024 13:57:37 DEBUG  [item] feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.item].
+Sun 23 Jun 2024 13:57:37 DEBUG  drop_by_value: val={}
+Sun 23 Jun 2024 13:57:37 DEBUG  Filling nan
+Sun 23 Jun 2024 13:57:37 DEBUG  Set label by {'rating': 4.0}.
+Sun 23 Jun 2024 13:57:37 DEBUG  Delete column [rating].
+Sun 23 Jun 2024 13:57:37 DEBUG  Normalized fields: ['label']
+Sun 23 Jun 2024 13:57:37 DEBUG  100000
+Sun 23 Jun 2024 13:57:37 DEBUG  split by ratios [[0.8, 0.1, 0.1]], group_by=[user_id]
+Sun 23 Jun 2024 13:57:37 DEBUG  Vor augmentation: 80808

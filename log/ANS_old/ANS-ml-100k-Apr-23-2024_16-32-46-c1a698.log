@@ -1,0 +1,1142 @@
+Tue 23 Apr 2024 16:32:46 INFO  ['run_recbole.py', '--model=ANS', '--dataset=ml-100k']
+Tue 23 Apr 2024 16:32:46 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 2020
+state = INFO
+reproducibility = True
+data_path = /home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k
+checkpoint_dir = saved
+show_progress = True
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = False
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 500
+train_batch_size = 1024
+learner = adam
+learning_rate = 0.001
+train_neg_sample_args = {'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}
+eval_step = 1
+stopping_step = 100
+clip_grad_norm = None
+weight_decay = 0.0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.0, 0.2]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}
+repeatable = False
+metrics = ['Recall', 'MRR', 'NDCG', 'Hit', 'Precision']
+topk = [20]
+valid_metric = MRR@20
+valid_metric_bigger = True
+eval_batch_size = 4096
+metric_decimal_place = 4
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = None
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id', 'rating', 'timestamp']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = None
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = None
+item_inter_num_interval = None
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = True
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+kg_reverse_r = False
+entity_kg_num_interval = None
+relation_kg_num_interval = None
+benchmark_filename = None
+
+Other Hyper Parameters: 
+worker = 0
+wandb_project = recbole
+shuffle = True
+require_pow = False
+enable_amp = False
+enable_scaler = False
+transform = None
+embedding_size = 64
+n_layers = 3
+reg_weight = 0.0001
+eps = 0.3
+gamma = 0.15
+numerical_features = []
+discretization = None
+MODEL_TYPE = ModelType.GENERAL
+MODEL_INPUT_TYPE = InputType.PAIRWISE
+eval_type = EvaluatorType.RANKING
+single_spec = True
+local_rank = 0
+device = cuda
+eval_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+
+
+Tue 23 Apr 2024 16:32:46 INFO  ml-100k
+The number of users: 944
+Average actions of users: 106.04453870625663
+The number of items: 1683
+Average actions of items: 59.45303210463734
+The number of inters: 100000
+The sparsity of the dataset: 93.70575143257098%
+Remain Fields: ['user_id', 'item_id', 'rating', 'timestamp']
+Tue 23 Apr 2024 16:32:46 INFO  [Training]: train_batch_size = [1024] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}]
+Tue 23 Apr 2024 16:32:46 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.0, 0.2]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Tue 23 Apr 2024 16:32:47 INFO  ANS(
+  (user_embedding): Embedding(944, 64)
+  (item_embedding): Embedding(1683, 64)
+  (mf_loss): BPRLoss()
+  (reg_loss): EmbLoss()
+  (user_gate): Linear(in_features=64, out_features=64, bias=True)
+  (item_gate): Linear(in_features=64, out_features=64, bias=True)
+  (pos_gate): Linear(in_features=64, out_features=64, bias=True)
+  (neg_gate): Linear(in_features=64, out_features=64, bias=True)
+  (hard_gate): Linear(in_features=64, out_features=64, bias=True)
+  (conf_gate): Linear(in_features=64, out_features=64, bias=True)
+  (easy_gate): Linear(in_features=64, out_features=64, bias=True)
+  (margin_model): Linear(in_features=64, out_features=1, bias=True)
+)
+Trainable parameters: 197313
+Tue 23 Apr 2024 16:32:48 INFO  FLOPs: 0.0
+Tue 23 Apr 2024 16:32:50 INFO  epoch 0 training [time: 1.49s, train loss: 63.5774]
+Tue 23 Apr 2024 16:32:50 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:32:51 INFO  epoch 1 training [time: 0.89s, train loss: 63.3890]
+Tue 23 Apr 2024 16:32:51 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:32:52 INFO  epoch 2 training [time: 0.94s, train loss: 63.2694]
+Tue 23 Apr 2024 16:32:52 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:32:53 INFO  epoch 3 training [time: 0.88s, train loss: 63.1475]
+Tue 23 Apr 2024 16:32:53 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:32:53 INFO  epoch 4 training [time: 0.96s, train loss: 62.8959]
+Tue 23 Apr 2024 16:32:53 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:32:55 INFO  epoch 5 training [time: 1.02s, train loss: 60.1942]
+Tue 23 Apr 2024 16:32:55 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:32:56 INFO  epoch 6 training [time: 1.16s, train loss: 42.5444]
+Tue 23 Apr 2024 16:32:56 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:32:57 INFO  epoch 7 training [time: 1.05s, train loss: 38.3518]
+Tue 23 Apr 2024 16:32:57 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:32:58 INFO  epoch 8 training [time: 0.93s, train loss: 37.3978]
+Tue 23 Apr 2024 16:32:58 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:32:59 INFO  epoch 9 training [time: 0.91s, train loss: 35.6535]
+Tue 23 Apr 2024 16:32:59 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:00 INFO  epoch 10 training [time: 0.91s, train loss: 33.7973]
+Tue 23 Apr 2024 16:33:00 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:00 INFO  epoch 11 training [time: 0.93s, train loss: 32.4831]
+Tue 23 Apr 2024 16:33:00 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:01 INFO  epoch 12 training [time: 0.91s, train loss: 31.3839]
+Tue 23 Apr 2024 16:33:01 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:02 INFO  epoch 13 training [time: 0.98s, train loss: 30.6169]
+Tue 23 Apr 2024 16:33:02 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:03 INFO  epoch 14 training [time: 0.90s, train loss: 30.1645]
+Tue 23 Apr 2024 16:33:03 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:04 INFO  epoch 15 training [time: 0.89s, train loss: 29.4043]
+Tue 23 Apr 2024 16:33:04 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:05 INFO  epoch 16 training [time: 0.93s, train loss: 29.2020]
+Tue 23 Apr 2024 16:33:05 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:06 INFO  epoch 17 training [time: 0.92s, train loss: 28.8732]
+Tue 23 Apr 2024 16:33:06 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:07 INFO  epoch 18 training [time: 0.88s, train loss: 28.4888]
+Tue 23 Apr 2024 16:33:07 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:08 INFO  epoch 19 training [time: 0.92s, train loss: 28.3811]
+Tue 23 Apr 2024 16:33:08 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:09 INFO  epoch 20 training [time: 0.90s, train loss: 28.0474]
+Tue 23 Apr 2024 16:33:09 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:10 INFO  epoch 21 training [time: 0.90s, train loss: 27.8836]
+Tue 23 Apr 2024 16:33:10 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:11 INFO  epoch 22 training [time: 1.04s, train loss: 27.6581]
+Tue 23 Apr 2024 16:33:11 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:12 INFO  epoch 23 training [time: 0.91s, train loss: 27.2662]
+Tue 23 Apr 2024 16:33:12 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:12 INFO  epoch 24 training [time: 0.89s, train loss: 27.1691]
+Tue 23 Apr 2024 16:33:13 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:13 INFO  epoch 25 training [time: 0.86s, train loss: 26.9613]
+Tue 23 Apr 2024 16:33:13 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:14 INFO  epoch 26 training [time: 0.88s, train loss: 26.8631]
+Tue 23 Apr 2024 16:33:14 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:15 INFO  epoch 27 training [time: 0.91s, train loss: 26.6775]
+Tue 23 Apr 2024 16:33:15 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:16 INFO  epoch 28 training [time: 0.91s, train loss: 26.4799]
+Tue 23 Apr 2024 16:33:16 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:17 INFO  epoch 29 training [time: 0.90s, train loss: 26.2054]
+Tue 23 Apr 2024 16:33:17 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:18 INFO  epoch 30 training [time: 0.87s, train loss: 26.0854]
+Tue 23 Apr 2024 16:33:18 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:19 INFO  epoch 31 training [time: 0.89s, train loss: 26.0252]
+Tue 23 Apr 2024 16:33:19 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:20 INFO  epoch 32 training [time: 0.84s, train loss: 25.9487]
+Tue 23 Apr 2024 16:33:20 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:20 INFO  epoch 33 training [time: 0.85s, train loss: 25.8060]
+Tue 23 Apr 2024 16:33:20 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:21 INFO  epoch 34 training [time: 0.91s, train loss: 25.6469]
+Tue 23 Apr 2024 16:33:21 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:22 INFO  epoch 35 training [time: 0.87s, train loss: 25.6628]
+Tue 23 Apr 2024 16:33:22 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:23 INFO  epoch 36 training [time: 0.89s, train loss: 25.3118]
+Tue 23 Apr 2024 16:33:23 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:24 INFO  epoch 37 training [time: 0.88s, train loss: 25.1985]
+Tue 23 Apr 2024 16:33:24 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:25 INFO  epoch 38 training [time: 0.95s, train loss: 25.1803]
+Tue 23 Apr 2024 16:33:25 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:26 INFO  epoch 39 training [time: 0.88s, train loss: 25.0256]
+Tue 23 Apr 2024 16:33:26 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:27 INFO  epoch 40 training [time: 0.91s, train loss: 25.1465]
+Tue 23 Apr 2024 16:33:27 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:28 INFO  epoch 41 training [time: 0.91s, train loss: 24.9263]
+Tue 23 Apr 2024 16:33:28 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:29 INFO  epoch 42 training [time: 0.89s, train loss: 24.7030]
+Tue 23 Apr 2024 16:33:29 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:30 INFO  epoch 43 training [time: 0.91s, train loss: 24.7941]
+Tue 23 Apr 2024 16:33:30 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:30 INFO  epoch 44 training [time: 0.88s, train loss: 24.5301]
+Tue 23 Apr 2024 16:33:30 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:31 INFO  epoch 45 training [time: 0.88s, train loss: 24.5407]
+Tue 23 Apr 2024 16:33:31 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:32 INFO  epoch 46 training [time: 0.88s, train loss: 24.4266]
+Tue 23 Apr 2024 16:33:32 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:33 INFO  epoch 47 training [time: 0.92s, train loss: 24.2383]
+Tue 23 Apr 2024 16:33:33 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:34 INFO  epoch 48 training [time: 0.97s, train loss: 24.0129]
+Tue 23 Apr 2024 16:33:34 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:35 INFO  epoch 49 training [time: 0.99s, train loss: 24.1321]
+Tue 23 Apr 2024 16:33:35 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:36 INFO  epoch 50 training [time: 1.00s, train loss: 23.8989]
+Tue 23 Apr 2024 16:33:36 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:37 INFO  epoch 51 training [time: 1.04s, train loss: 23.9876]
+Tue 23 Apr 2024 16:33:37 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:38 INFO  epoch 52 training [time: 1.09s, train loss: 23.8405]
+Tue 23 Apr 2024 16:33:38 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:39 INFO  epoch 53 training [time: 1.04s, train loss: 23.6462]
+Tue 23 Apr 2024 16:33:39 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:40 INFO  epoch 54 training [time: 1.15s, train loss: 23.6406]
+Tue 23 Apr 2024 16:33:40 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:42 INFO  epoch 55 training [time: 1.09s, train loss: 23.6190]
+Tue 23 Apr 2024 16:33:42 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:43 INFO  epoch 56 training [time: 1.00s, train loss: 23.4524]
+Tue 23 Apr 2024 16:33:43 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:44 INFO  epoch 57 training [time: 1.08s, train loss: 23.2700]
+Tue 23 Apr 2024 16:33:44 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:45 INFO  epoch 58 training [time: 1.08s, train loss: 23.1578]
+Tue 23 Apr 2024 16:33:45 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:46 INFO  epoch 59 training [time: 1.04s, train loss: 23.2111]
+Tue 23 Apr 2024 16:33:46 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:47 INFO  epoch 60 training [time: 0.97s, train loss: 23.2440]
+Tue 23 Apr 2024 16:33:47 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:48 INFO  epoch 61 training [time: 0.98s, train loss: 23.1151]
+Tue 23 Apr 2024 16:33:48 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:49 INFO  epoch 62 training [time: 0.97s, train loss: 22.9881]
+Tue 23 Apr 2024 16:33:49 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:50 INFO  epoch 63 training [time: 0.99s, train loss: 22.9899]
+Tue 23 Apr 2024 16:33:50 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:51 INFO  epoch 64 training [time: 0.95s, train loss: 22.8544]
+Tue 23 Apr 2024 16:33:51 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:52 INFO  epoch 65 training [time: 0.97s, train loss: 22.9270]
+Tue 23 Apr 2024 16:33:52 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:53 INFO  epoch 66 training [time: 1.00s, train loss: 22.8022]
+Tue 23 Apr 2024 16:33:53 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:54 INFO  epoch 67 training [time: 1.03s, train loss: 22.6899]
+Tue 23 Apr 2024 16:33:54 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:55 INFO  epoch 68 training [time: 0.83s, train loss: 22.6722]
+Tue 23 Apr 2024 16:33:55 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:55 INFO  epoch 69 training [time: 0.89s, train loss: 22.6543]
+Tue 23 Apr 2024 16:33:55 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:56 INFO  epoch 70 training [time: 1.02s, train loss: 22.5989]
+Tue 23 Apr 2024 16:33:56 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:58 INFO  epoch 71 training [time: 1.10s, train loss: 22.3833]
+Tue 23 Apr 2024 16:33:58 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:33:59 INFO  epoch 72 training [time: 1.00s, train loss: 22.4349]
+Tue 23 Apr 2024 16:33:59 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:00 INFO  epoch 73 training [time: 1.05s, train loss: 22.1973]
+Tue 23 Apr 2024 16:34:00 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:01 INFO  epoch 74 training [time: 0.92s, train loss: 22.2782]
+Tue 23 Apr 2024 16:34:01 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:01 INFO  epoch 75 training [time: 0.88s, train loss: 22.2114]
+Tue 23 Apr 2024 16:34:01 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:02 INFO  epoch 76 training [time: 0.89s, train loss: 22.1060]
+Tue 23 Apr 2024 16:34:02 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:03 INFO  epoch 77 training [time: 0.90s, train loss: 22.0064]
+Tue 23 Apr 2024 16:34:03 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:04 INFO  epoch 78 training [time: 0.87s, train loss: 22.0476]
+Tue 23 Apr 2024 16:34:04 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:05 INFO  epoch 79 training [time: 0.86s, train loss: 21.9372]
+Tue 23 Apr 2024 16:34:05 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:06 INFO  epoch 80 training [time: 0.87s, train loss: 22.0392]
+Tue 23 Apr 2024 16:34:06 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:07 INFO  epoch 81 training [time: 0.83s, train loss: 21.8963]
+Tue 23 Apr 2024 16:34:07 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:08 INFO  epoch 82 training [time: 0.87s, train loss: 21.7408]
+Tue 23 Apr 2024 16:34:08 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:08 INFO  epoch 83 training [time: 0.89s, train loss: 21.7472]
+Tue 23 Apr 2024 16:34:09 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:09 INFO  epoch 84 training [time: 0.84s, train loss: 21.7369]
+Tue 23 Apr 2024 16:34:09 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:10 INFO  epoch 85 training [time: 0.96s, train loss: 21.6365]
+Tue 23 Apr 2024 16:34:10 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:11 INFO  epoch 86 training [time: 0.85s, train loss: 21.6168]
+Tue 23 Apr 2024 16:34:11 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:12 INFO  epoch 87 training [time: 0.85s, train loss: 21.5047]
+Tue 23 Apr 2024 16:34:12 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:13 INFO  epoch 88 training [time: 0.85s, train loss: 21.6268]
+Tue 23 Apr 2024 16:34:13 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:14 INFO  epoch 89 training [time: 0.85s, train loss: 21.5687]
+Tue 23 Apr 2024 16:34:14 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:15 INFO  epoch 90 training [time: 0.86s, train loss: 21.3713]
+Tue 23 Apr 2024 16:34:15 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:15 INFO  epoch 91 training [time: 0.86s, train loss: 21.4436]
+Tue 23 Apr 2024 16:34:15 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:16 INFO  epoch 92 training [time: 0.84s, train loss: 21.3709]
+Tue 23 Apr 2024 16:34:16 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:17 INFO  epoch 93 training [time: 0.81s, train loss: 21.3119]
+Tue 23 Apr 2024 16:34:17 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:18 INFO  epoch 94 training [time: 0.88s, train loss: 21.3303]
+Tue 23 Apr 2024 16:34:18 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:19 INFO  epoch 95 training [time: 0.87s, train loss: 21.2389]
+Tue 23 Apr 2024 16:34:19 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:20 INFO  epoch 96 training [time: 0.88s, train loss: 21.1951]
+Tue 23 Apr 2024 16:34:20 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:21 INFO  epoch 97 training [time: 0.88s, train loss: 21.2260]
+Tue 23 Apr 2024 16:34:21 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:22 INFO  epoch 98 training [time: 0.84s, train loss: 21.0865]
+Tue 23 Apr 2024 16:34:22 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:22 INFO  epoch 99 training [time: 0.87s, train loss: 21.0896]
+Tue 23 Apr 2024 16:34:22 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:23 INFO  epoch 100 training [time: 0.88s, train loss: 21.0517]
+Tue 23 Apr 2024 16:34:23 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:24 INFO  epoch 101 training [time: 0.99s, train loss: 20.9240]
+Tue 23 Apr 2024 16:34:24 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:25 INFO  epoch 102 training [time: 0.82s, train loss: 20.9731]
+Tue 23 Apr 2024 16:34:25 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:26 INFO  epoch 103 training [time: 0.86s, train loss: 21.0172]
+Tue 23 Apr 2024 16:34:26 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:27 INFO  epoch 104 training [time: 0.85s, train loss: 20.7969]
+Tue 23 Apr 2024 16:34:27 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:28 INFO  epoch 105 training [time: 0.87s, train loss: 20.8935]
+Tue 23 Apr 2024 16:34:28 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:29 INFO  epoch 106 training [time: 0.89s, train loss: 20.7333]
+Tue 23 Apr 2024 16:34:29 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:30 INFO  epoch 107 training [time: 0.89s, train loss: 20.7571]
+Tue 23 Apr 2024 16:34:30 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:30 INFO  epoch 108 training [time: 0.89s, train loss: 20.6877]
+Tue 23 Apr 2024 16:34:30 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:31 INFO  epoch 109 training [time: 0.88s, train loss: 20.6081]
+Tue 23 Apr 2024 16:34:31 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:32 INFO  epoch 110 training [time: 0.90s, train loss: 20.6947]
+Tue 23 Apr 2024 16:34:32 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:33 INFO  epoch 111 training [time: 0.88s, train loss: 20.5498]
+Tue 23 Apr 2024 16:34:33 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:34 INFO  epoch 112 training [time: 0.90s, train loss: 20.6693]
+Tue 23 Apr 2024 16:34:34 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:35 INFO  epoch 113 training [time: 0.89s, train loss: 20.5242]
+Tue 23 Apr 2024 16:34:35 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:36 INFO  epoch 114 training [time: 0.86s, train loss: 20.5694]
+Tue 23 Apr 2024 16:34:36 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:37 INFO  epoch 115 training [time: 0.87s, train loss: 20.4382]
+Tue 23 Apr 2024 16:34:37 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:37 INFO  epoch 116 training [time: 0.86s, train loss: 20.5097]
+Tue 23 Apr 2024 16:34:37 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:39 INFO  epoch 117 training [time: 1.02s, train loss: 20.4983]
+Tue 23 Apr 2024 16:34:39 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:39 INFO  epoch 118 training [time: 0.87s, train loss: 20.4842]
+Tue 23 Apr 2024 16:34:39 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:40 INFO  epoch 119 training [time: 0.85s, train loss: 20.4360]
+Tue 23 Apr 2024 16:34:40 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:41 INFO  epoch 120 training [time: 0.83s, train loss: 20.3379]
+Tue 23 Apr 2024 16:34:41 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:42 INFO  epoch 121 training [time: 0.85s, train loss: 20.3994]
+Tue 23 Apr 2024 16:34:42 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:43 INFO  epoch 122 training [time: 0.89s, train loss: 20.4198]
+Tue 23 Apr 2024 16:34:43 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:44 INFO  epoch 123 training [time: 0.89s, train loss: 20.3610]
+Tue 23 Apr 2024 16:34:44 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:45 INFO  epoch 124 training [time: 0.89s, train loss: 20.2242]
+Tue 23 Apr 2024 16:34:45 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:46 INFO  epoch 125 training [time: 0.88s, train loss: 20.2923]
+Tue 23 Apr 2024 16:34:46 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:46 INFO  epoch 126 training [time: 0.87s, train loss: 20.1981]
+Tue 23 Apr 2024 16:34:46 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:47 INFO  epoch 127 training [time: 0.87s, train loss: 20.2466]
+Tue 23 Apr 2024 16:34:47 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:48 INFO  epoch 128 training [time: 0.88s, train loss: 20.1609]
+Tue 23 Apr 2024 16:34:48 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:49 INFO  epoch 129 training [time: 0.80s, train loss: 20.1288]
+Tue 23 Apr 2024 16:34:49 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:50 INFO  epoch 130 training [time: 0.89s, train loss: 20.0902]
+Tue 23 Apr 2024 16:34:50 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:51 INFO  epoch 131 training [time: 0.88s, train loss: 20.1386]
+Tue 23 Apr 2024 16:34:51 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:52 INFO  epoch 132 training [time: 1.00s, train loss: 20.0550]
+Tue 23 Apr 2024 16:34:52 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:53 INFO  epoch 133 training [time: 0.89s, train loss: 20.0452]
+Tue 23 Apr 2024 16:34:53 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:54 INFO  epoch 134 training [time: 0.88s, train loss: 20.0970]
+Tue 23 Apr 2024 16:34:54 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:54 INFO  epoch 135 training [time: 0.88s, train loss: 20.0205]
+Tue 23 Apr 2024 16:34:54 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:55 INFO  epoch 136 training [time: 0.88s, train loss: 20.0204]
+Tue 23 Apr 2024 16:34:55 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:56 INFO  epoch 137 training [time: 0.85s, train loss: 19.8889]
+Tue 23 Apr 2024 16:34:56 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:57 INFO  epoch 138 training [time: 0.88s, train loss: 19.9460]
+Tue 23 Apr 2024 16:34:57 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:58 INFO  epoch 139 training [time: 0.97s, train loss: 19.9095]
+Tue 23 Apr 2024 16:34:58 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:34:59 INFO  epoch 140 training [time: 0.86s, train loss: 19.8946]
+Tue 23 Apr 2024 16:34:59 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:00 INFO  epoch 141 training [time: 0.87s, train loss: 19.7966]
+Tue 23 Apr 2024 16:35:00 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:01 INFO  epoch 142 training [time: 0.94s, train loss: 19.8986]
+Tue 23 Apr 2024 16:35:01 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:02 INFO  epoch 143 training [time: 0.92s, train loss: 19.8708]
+Tue 23 Apr 2024 16:35:02 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:03 INFO  epoch 144 training [time: 0.93s, train loss: 19.8267]
+Tue 23 Apr 2024 16:35:03 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:03 INFO  epoch 145 training [time: 0.87s, train loss: 19.7651]
+Tue 23 Apr 2024 16:35:03 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:04 INFO  epoch 146 training [time: 0.81s, train loss: 19.8044]
+Tue 23 Apr 2024 16:35:04 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:05 INFO  epoch 147 training [time: 0.89s, train loss: 19.8160]
+Tue 23 Apr 2024 16:35:05 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:06 INFO  epoch 148 training [time: 0.98s, train loss: 19.6936]
+Tue 23 Apr 2024 16:35:06 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:07 INFO  epoch 149 training [time: 0.89s, train loss: 19.7182]
+Tue 23 Apr 2024 16:35:07 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:08 INFO  epoch 150 training [time: 0.95s, train loss: 19.7339]
+Tue 23 Apr 2024 16:35:08 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:09 INFO  epoch 151 training [time: 0.84s, train loss: 19.6936]
+Tue 23 Apr 2024 16:35:09 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:10 INFO  epoch 152 training [time: 0.89s, train loss: 19.7178]
+Tue 23 Apr 2024 16:35:10 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:11 INFO  epoch 153 training [time: 0.87s, train loss: 19.6872]
+Tue 23 Apr 2024 16:35:11 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:11 INFO  epoch 154 training [time: 0.84s, train loss: 19.5814]
+Tue 23 Apr 2024 16:35:11 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:12 INFO  epoch 155 training [time: 0.85s, train loss: 19.6939]
+Tue 23 Apr 2024 16:35:12 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:13 INFO  epoch 156 training [time: 0.88s, train loss: 19.5425]
+Tue 23 Apr 2024 16:35:13 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:14 INFO  epoch 157 training [time: 0.96s, train loss: 19.5498]
+Tue 23 Apr 2024 16:35:14 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:15 INFO  epoch 158 training [time: 1.00s, train loss: 19.5536]
+Tue 23 Apr 2024 16:35:15 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:16 INFO  epoch 159 training [time: 1.00s, train loss: 19.5179]
+Tue 23 Apr 2024 16:35:16 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:17 INFO  epoch 160 training [time: 0.99s, train loss: 19.4696]
+Tue 23 Apr 2024 16:35:17 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:18 INFO  epoch 161 training [time: 0.96s, train loss: 19.4741]
+Tue 23 Apr 2024 16:35:18 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:19 INFO  epoch 162 training [time: 0.97s, train loss: 19.4900]
+Tue 23 Apr 2024 16:35:19 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:20 INFO  epoch 163 training [time: 0.95s, train loss: 19.4923]
+Tue 23 Apr 2024 16:35:20 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:21 INFO  epoch 164 training [time: 0.99s, train loss: 19.3415]
+Tue 23 Apr 2024 16:35:21 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:22 INFO  epoch 165 training [time: 0.99s, train loss: 19.4483]
+Tue 23 Apr 2024 16:35:22 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:23 INFO  epoch 166 training [time: 0.98s, train loss: 19.4464]
+Tue 23 Apr 2024 16:35:23 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:24 INFO  epoch 167 training [time: 0.97s, train loss: 19.4280]
+Tue 23 Apr 2024 16:35:24 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:25 INFO  epoch 168 training [time: 0.90s, train loss: 19.3351]
+Tue 23 Apr 2024 16:35:25 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:26 INFO  epoch 169 training [time: 0.99s, train loss: 19.4449]
+Tue 23 Apr 2024 16:35:26 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:27 INFO  epoch 170 training [time: 1.00s, train loss: 19.2959]
+Tue 23 Apr 2024 16:35:27 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:28 INFO  epoch 171 training [time: 1.01s, train loss: 19.3499]
+Tue 23 Apr 2024 16:35:28 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:29 INFO  epoch 172 training [time: 0.99s, train loss: 19.3781]
+Tue 23 Apr 2024 16:35:29 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:30 INFO  epoch 173 training [time: 0.99s, train loss: 19.4096]
+Tue 23 Apr 2024 16:35:30 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:31 INFO  epoch 174 training [time: 0.99s, train loss: 19.2464]
+Tue 23 Apr 2024 16:35:31 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:32 INFO  epoch 175 training [time: 0.99s, train loss: 19.2049]
+Tue 23 Apr 2024 16:35:32 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:33 INFO  epoch 176 training [time: 1.03s, train loss: 19.3433]
+Tue 23 Apr 2024 16:35:33 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:34 INFO  epoch 177 training [time: 0.93s, train loss: 19.2119]
+Tue 23 Apr 2024 16:35:34 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:35 INFO  epoch 178 training [time: 0.87s, train loss: 19.2648]
+Tue 23 Apr 2024 16:35:35 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:36 INFO  epoch 179 training [time: 0.81s, train loss: 19.1844]
+Tue 23 Apr 2024 16:35:36 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:37 INFO  epoch 180 training [time: 0.92s, train loss: 19.1119]
+Tue 23 Apr 2024 16:35:37 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:37 INFO  epoch 181 training [time: 0.85s, train loss: 19.2783]
+Tue 23 Apr 2024 16:35:37 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:38 INFO  epoch 182 training [time: 0.87s, train loss: 19.1625]
+Tue 23 Apr 2024 16:35:38 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:39 INFO  epoch 183 training [time: 0.92s, train loss: 19.0986]
+Tue 23 Apr 2024 16:35:39 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:40 INFO  epoch 184 training [time: 0.89s, train loss: 19.0779]
+Tue 23 Apr 2024 16:35:40 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:41 INFO  epoch 185 training [time: 0.90s, train loss: 19.1912]
+Tue 23 Apr 2024 16:35:41 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:42 INFO  epoch 186 training [time: 0.94s, train loss: 19.1298]
+Tue 23 Apr 2024 16:35:42 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:43 INFO  epoch 187 training [time: 1.00s, train loss: 18.9688]
+Tue 23 Apr 2024 16:35:43 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:44 INFO  epoch 188 training [time: 0.93s, train loss: 19.1120]
+Tue 23 Apr 2024 16:35:44 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:45 INFO  epoch 189 training [time: 0.87s, train loss: 19.1447]
+Tue 23 Apr 2024 16:35:45 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:46 INFO  epoch 190 training [time: 0.93s, train loss: 19.0801]
+Tue 23 Apr 2024 16:35:46 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:47 INFO  epoch 191 training [time: 0.84s, train loss: 19.0476]
+Tue 23 Apr 2024 16:35:47 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:47 INFO  epoch 192 training [time: 0.85s, train loss: 19.0014]
+Tue 23 Apr 2024 16:35:47 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:48 INFO  epoch 193 training [time: 0.87s, train loss: 19.0951]
+Tue 23 Apr 2024 16:35:48 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:49 INFO  epoch 194 training [time: 0.87s, train loss: 19.0693]
+Tue 23 Apr 2024 16:35:49 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:50 INFO  epoch 195 training [time: 0.96s, train loss: 19.1243]
+Tue 23 Apr 2024 16:35:50 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:51 INFO  epoch 196 training [time: 0.86s, train loss: 18.9682]
+Tue 23 Apr 2024 16:35:51 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:52 INFO  epoch 197 training [time: 0.86s, train loss: 18.9907]
+Tue 23 Apr 2024 16:35:52 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:53 INFO  epoch 198 training [time: 0.84s, train loss: 19.0390]
+Tue 23 Apr 2024 16:35:53 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:54 INFO  epoch 199 training [time: 0.86s, train loss: 19.0214]
+Tue 23 Apr 2024 16:35:54 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:54 INFO  epoch 200 training [time: 0.85s, train loss: 18.9760]
+Tue 23 Apr 2024 16:35:54 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:55 INFO  epoch 201 training [time: 0.86s, train loss: 19.0231]
+Tue 23 Apr 2024 16:35:55 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:56 INFO  epoch 202 training [time: 0.87s, train loss: 18.9685]
+Tue 23 Apr 2024 16:35:56 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:57 INFO  epoch 203 training [time: 0.83s, train loss: 18.9695]
+Tue 23 Apr 2024 16:35:57 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:58 INFO  epoch 204 training [time: 0.85s, train loss: 18.9457]
+Tue 23 Apr 2024 16:35:58 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:35:59 INFO  epoch 205 training [time: 0.85s, train loss: 18.8424]
+Tue 23 Apr 2024 16:35:59 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:00 INFO  epoch 206 training [time: 0.87s, train loss: 18.9264]
+Tue 23 Apr 2024 16:36:00 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:00 INFO  epoch 207 training [time: 0.82s, train loss: 18.8470]
+Tue 23 Apr 2024 16:36:00 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:01 INFO  epoch 208 training [time: 0.88s, train loss: 18.9059]
+Tue 23 Apr 2024 16:36:01 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:02 INFO  epoch 209 training [time: 0.89s, train loss: 18.8733]
+Tue 23 Apr 2024 16:36:02 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:03 INFO  epoch 210 training [time: 0.87s, train loss: 18.8907]
+Tue 23 Apr 2024 16:36:03 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:04 INFO  epoch 211 training [time: 0.99s, train loss: 18.7478]
+Tue 23 Apr 2024 16:36:04 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:05 INFO  epoch 212 training [time: 0.87s, train loss: 18.8615]
+Tue 23 Apr 2024 16:36:05 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:06 INFO  epoch 213 training [time: 0.88s, train loss: 18.8812]
+Tue 23 Apr 2024 16:36:06 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:07 INFO  epoch 214 training [time: 0.90s, train loss: 18.8606]
+Tue 23 Apr 2024 16:36:07 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:08 INFO  epoch 215 training [time: 0.85s, train loss: 18.9002]
+Tue 23 Apr 2024 16:36:08 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:09 INFO  epoch 216 training [time: 0.98s, train loss: 18.7759]
+Tue 23 Apr 2024 16:36:09 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:10 INFO  epoch 217 training [time: 0.96s, train loss: 18.8066]
+Tue 23 Apr 2024 16:36:10 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:11 INFO  epoch 218 training [time: 0.92s, train loss: 18.8663]
+Tue 23 Apr 2024 16:36:11 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:11 INFO  epoch 219 training [time: 0.88s, train loss: 18.7652]
+Tue 23 Apr 2024 16:36:11 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:12 INFO  epoch 220 training [time: 0.86s, train loss: 18.7126]
+Tue 23 Apr 2024 16:36:12 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:13 INFO  epoch 221 training [time: 0.86s, train loss: 18.7699]
+Tue 23 Apr 2024 16:36:13 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:14 INFO  epoch 222 training [time: 0.91s, train loss: 18.8009]
+Tue 23 Apr 2024 16:36:14 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:15 INFO  epoch 223 training [time: 0.94s, train loss: 18.7148]
+Tue 23 Apr 2024 16:36:15 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:16 INFO  epoch 224 training [time: 0.94s, train loss: 18.8250]
+Tue 23 Apr 2024 16:36:16 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:17 INFO  epoch 225 training [time: 0.94s, train loss: 18.6484]
+Tue 23 Apr 2024 16:36:17 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:18 INFO  epoch 226 training [time: 0.90s, train loss: 18.7622]
+Tue 23 Apr 2024 16:36:18 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:19 INFO  epoch 227 training [time: 0.99s, train loss: 18.6947]
+Tue 23 Apr 2024 16:36:19 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:20 INFO  epoch 228 training [time: 0.96s, train loss: 18.7354]
+Tue 23 Apr 2024 16:36:20 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:21 INFO  epoch 229 training [time: 0.89s, train loss: 18.7109]
+Tue 23 Apr 2024 16:36:21 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:22 INFO  epoch 230 training [time: 0.85s, train loss: 18.6736]
+Tue 23 Apr 2024 16:36:22 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:22 INFO  epoch 231 training [time: 0.91s, train loss: 18.6836]
+Tue 23 Apr 2024 16:36:22 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:23 INFO  epoch 232 training [time: 0.87s, train loss: 18.6844]
+Tue 23 Apr 2024 16:36:23 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:24 INFO  epoch 233 training [time: 0.90s, train loss: 18.7018]
+Tue 23 Apr 2024 16:36:24 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:25 INFO  epoch 234 training [time: 0.90s, train loss: 18.6232]
+Tue 23 Apr 2024 16:36:25 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:26 INFO  epoch 235 training [time: 0.92s, train loss: 18.6578]
+Tue 23 Apr 2024 16:36:26 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:27 INFO  epoch 236 training [time: 0.94s, train loss: 18.6395]
+Tue 23 Apr 2024 16:36:27 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:28 INFO  epoch 237 training [time: 0.96s, train loss: 18.6096]
+Tue 23 Apr 2024 16:36:28 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:29 INFO  epoch 238 training [time: 0.88s, train loss: 18.5227]
+Tue 23 Apr 2024 16:36:29 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:30 INFO  epoch 239 training [time: 0.92s, train loss: 18.6157]
+Tue 23 Apr 2024 16:36:30 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:31 INFO  epoch 240 training [time: 0.90s, train loss: 18.6056]
+Tue 23 Apr 2024 16:36:31 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:32 INFO  epoch 241 training [time: 0.84s, train loss: 18.6128]
+Tue 23 Apr 2024 16:36:32 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:32 INFO  epoch 242 training [time: 0.93s, train loss: 18.5252]
+Tue 23 Apr 2024 16:36:33 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:34 INFO  epoch 243 training [time: 1.00s, train loss: 18.5645]
+Tue 23 Apr 2024 16:36:34 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:34 INFO  epoch 244 training [time: 0.94s, train loss: 18.5493]
+Tue 23 Apr 2024 16:36:34 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:35 INFO  epoch 245 training [time: 0.92s, train loss: 18.5818]
+Tue 23 Apr 2024 16:36:35 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:36 INFO  epoch 246 training [time: 0.89s, train loss: 18.5637]
+Tue 23 Apr 2024 16:36:36 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:37 INFO  epoch 247 training [time: 0.87s, train loss: 18.6165]
+Tue 23 Apr 2024 16:36:37 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:38 INFO  epoch 248 training [time: 0.92s, train loss: 18.5497]
+Tue 23 Apr 2024 16:36:38 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:39 INFO  epoch 249 training [time: 0.89s, train loss: 18.5105]
+Tue 23 Apr 2024 16:36:39 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:40 INFO  epoch 250 training [time: 0.90s, train loss: 18.5402]
+Tue 23 Apr 2024 16:36:40 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:41 INFO  epoch 251 training [time: 0.87s, train loss: 18.4911]
+Tue 23 Apr 2024 16:36:41 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:42 INFO  epoch 252 training [time: 0.90s, train loss: 18.4573]
+Tue 23 Apr 2024 16:36:42 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:43 INFO  epoch 253 training [time: 0.90s, train loss: 18.5624]
+Tue 23 Apr 2024 16:36:43 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:43 INFO  epoch 254 training [time: 0.88s, train loss: 18.4415]
+Tue 23 Apr 2024 16:36:43 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:44 INFO  epoch 255 training [time: 0.89s, train loss: 18.5823]
+Tue 23 Apr 2024 16:36:44 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:45 INFO  epoch 256 training [time: 0.89s, train loss: 18.5555]
+Tue 23 Apr 2024 16:36:45 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:46 INFO  epoch 257 training [time: 0.89s, train loss: 18.4576]
+Tue 23 Apr 2024 16:36:46 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:47 INFO  epoch 258 training [time: 0.98s, train loss: 18.5035]
+Tue 23 Apr 2024 16:36:47 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:48 INFO  epoch 259 training [time: 0.91s, train loss: 18.4593]
+Tue 23 Apr 2024 16:36:48 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:49 INFO  epoch 260 training [time: 0.89s, train loss: 18.4718]
+Tue 23 Apr 2024 16:36:49 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:50 INFO  epoch 261 training [time: 0.88s, train loss: 18.4517]
+Tue 23 Apr 2024 16:36:50 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:51 INFO  epoch 262 training [time: 0.90s, train loss: 18.4275]
+Tue 23 Apr 2024 16:36:51 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:52 INFO  epoch 263 training [time: 0.88s, train loss: 18.5101]
+Tue 23 Apr 2024 16:36:52 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:53 INFO  epoch 264 training [time: 0.99s, train loss: 18.4820]
+Tue 23 Apr 2024 16:36:53 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:54 INFO  epoch 265 training [time: 0.90s, train loss: 18.4662]
+Tue 23 Apr 2024 16:36:54 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:54 INFO  epoch 266 training [time: 0.95s, train loss: 18.4925]
+Tue 23 Apr 2024 16:36:54 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:55 INFO  epoch 267 training [time: 0.98s, train loss: 18.4470]
+Tue 23 Apr 2024 16:36:55 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:56 INFO  epoch 268 training [time: 0.96s, train loss: 18.4695]
+Tue 23 Apr 2024 16:36:56 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:57 INFO  epoch 269 training [time: 0.97s, train loss: 18.3977]
+Tue 23 Apr 2024 16:36:57 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:58 INFO  epoch 270 training [time: 0.92s, train loss: 18.4149]
+Tue 23 Apr 2024 16:36:58 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:36:59 INFO  epoch 271 training [time: 1.01s, train loss: 18.3743]
+Tue 23 Apr 2024 16:36:59 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:00 INFO  epoch 272 training [time: 0.97s, train loss: 18.3984]
+Tue 23 Apr 2024 16:37:00 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:01 INFO  epoch 273 training [time: 0.95s, train loss: 18.4154]
+Tue 23 Apr 2024 16:37:01 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:02 INFO  epoch 274 training [time: 1.07s, train loss: 18.4393]
+Tue 23 Apr 2024 16:37:02 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:03 INFO  epoch 275 training [time: 0.96s, train loss: 18.4412]
+Tue 23 Apr 2024 16:37:03 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:04 INFO  epoch 276 training [time: 0.99s, train loss: 18.4522]
+Tue 23 Apr 2024 16:37:04 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:05 INFO  epoch 277 training [time: 1.01s, train loss: 18.3194]
+Tue 23 Apr 2024 16:37:05 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:06 INFO  epoch 278 training [time: 1.03s, train loss: 18.4158]
+Tue 23 Apr 2024 16:37:06 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:07 INFO  epoch 279 training [time: 0.98s, train loss: 18.3080]
+Tue 23 Apr 2024 16:37:07 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:08 INFO  epoch 280 training [time: 1.00s, train loss: 18.2776]
+Tue 23 Apr 2024 16:37:08 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:09 INFO  epoch 281 training [time: 1.00s, train loss: 18.3351]
+Tue 23 Apr 2024 16:37:09 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:10 INFO  epoch 282 training [time: 1.03s, train loss: 18.3144]
+Tue 23 Apr 2024 16:37:10 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:11 INFO  epoch 283 training [time: 1.01s, train loss: 18.3397]
+Tue 23 Apr 2024 16:37:11 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:13 INFO  epoch 284 training [time: 1.06s, train loss: 18.3362]
+Tue 23 Apr 2024 16:37:13 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:14 INFO  epoch 285 training [time: 0.99s, train loss: 18.3143]
+Tue 23 Apr 2024 16:37:14 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:14 INFO  epoch 286 training [time: 0.90s, train loss: 18.2911]
+Tue 23 Apr 2024 16:37:14 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:15 INFO  epoch 287 training [time: 0.90s, train loss: 18.3256]
+Tue 23 Apr 2024 16:37:15 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:16 INFO  epoch 288 training [time: 0.84s, train loss: 18.3763]
+Tue 23 Apr 2024 16:37:16 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:17 INFO  epoch 289 training [time: 0.91s, train loss: 18.3103]
+Tue 23 Apr 2024 16:37:17 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:18 INFO  epoch 290 training [time: 1.00s, train loss: 18.2581]
+Tue 23 Apr 2024 16:37:18 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:19 INFO  epoch 291 training [time: 0.91s, train loss: 18.3214]
+Tue 23 Apr 2024 16:37:19 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:20 INFO  epoch 292 training [time: 0.87s, train loss: 18.2873]
+Tue 23 Apr 2024 16:37:20 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:21 INFO  epoch 293 training [time: 0.89s, train loss: 18.2798]
+Tue 23 Apr 2024 16:37:21 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:22 INFO  epoch 294 training [time: 0.96s, train loss: 18.3093]
+Tue 23 Apr 2024 16:37:22 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:23 INFO  epoch 295 training [time: 0.88s, train loss: 18.3667]
+Tue 23 Apr 2024 16:37:23 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:24 INFO  epoch 296 training [time: 0.88s, train loss: 18.3044]
+Tue 23 Apr 2024 16:37:24 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:24 INFO  epoch 297 training [time: 0.91s, train loss: 18.2831]
+Tue 23 Apr 2024 16:37:24 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:25 INFO  epoch 298 training [time: 0.86s, train loss: 18.2515]
+Tue 23 Apr 2024 16:37:25 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:26 INFO  epoch 299 training [time: 0.91s, train loss: 18.2876]
+Tue 23 Apr 2024 16:37:26 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:27 INFO  epoch 300 training [time: 0.85s, train loss: 18.1855]
+Tue 23 Apr 2024 16:37:27 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:28 INFO  epoch 301 training [time: 0.90s, train loss: 18.2979]
+Tue 23 Apr 2024 16:37:28 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:29 INFO  epoch 302 training [time: 0.81s, train loss: 18.2261]
+Tue 23 Apr 2024 16:37:29 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:30 INFO  epoch 303 training [time: 0.85s, train loss: 18.2750]
+Tue 23 Apr 2024 16:37:30 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:31 INFO  epoch 304 training [time: 0.84s, train loss: 18.2642]
+Tue 23 Apr 2024 16:37:31 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:32 INFO  epoch 305 training [time: 1.05s, train loss: 18.1944]
+Tue 23 Apr 2024 16:37:32 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:33 INFO  epoch 306 training [time: 0.99s, train loss: 18.2124]
+Tue 23 Apr 2024 16:37:33 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:33 INFO  epoch 307 training [time: 0.90s, train loss: 18.2190]
+Tue 23 Apr 2024 16:37:33 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:34 INFO  epoch 308 training [time: 0.89s, train loss: 18.2890]
+Tue 23 Apr 2024 16:37:34 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:35 INFO  epoch 309 training [time: 0.86s, train loss: 18.2423]
+Tue 23 Apr 2024 16:37:35 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:36 INFO  epoch 310 training [time: 0.94s, train loss: 18.2298]
+Tue 23 Apr 2024 16:37:36 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:37 INFO  epoch 311 training [time: 0.90s, train loss: 18.2217]
+Tue 23 Apr 2024 16:37:37 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:38 INFO  epoch 312 training [time: 0.90s, train loss: 18.1985]
+Tue 23 Apr 2024 16:37:38 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:39 INFO  epoch 313 training [time: 0.85s, train loss: 18.1653]
+Tue 23 Apr 2024 16:37:39 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:40 INFO  epoch 314 training [time: 0.85s, train loss: 18.1768]
+Tue 23 Apr 2024 16:37:40 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:41 INFO  epoch 315 training [time: 0.89s, train loss: 18.2207]
+Tue 23 Apr 2024 16:37:41 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:42 INFO  epoch 316 training [time: 0.91s, train loss: 18.1415]
+Tue 23 Apr 2024 16:37:42 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:42 INFO  epoch 317 training [time: 0.89s, train loss: 18.2082]
+Tue 23 Apr 2024 16:37:42 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:43 INFO  epoch 318 training [time: 0.89s, train loss: 18.1077]
+Tue 23 Apr 2024 16:37:43 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:44 INFO  epoch 319 training [time: 0.87s, train loss: 18.1747]
+Tue 23 Apr 2024 16:37:44 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:45 INFO  epoch 320 training [time: 0.90s, train loss: 18.1787]
+Tue 23 Apr 2024 16:37:45 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:46 INFO  epoch 321 training [time: 0.98s, train loss: 18.1661]
+Tue 23 Apr 2024 16:37:46 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:47 INFO  epoch 322 training [time: 0.82s, train loss: 18.0837]
+Tue 23 Apr 2024 16:37:47 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:48 INFO  epoch 323 training [time: 0.89s, train loss: 18.0924]
+Tue 23 Apr 2024 16:37:48 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:49 INFO  epoch 324 training [time: 0.88s, train loss: 18.1870]
+Tue 23 Apr 2024 16:37:49 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:50 INFO  epoch 325 training [time: 0.89s, train loss: 18.1160]
+Tue 23 Apr 2024 16:37:50 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:50 INFO  epoch 326 training [time: 0.88s, train loss: 18.1756]
+Tue 23 Apr 2024 16:37:51 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:51 INFO  epoch 327 training [time: 0.87s, train loss: 18.1844]
+Tue 23 Apr 2024 16:37:51 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:52 INFO  epoch 328 training [time: 0.92s, train loss: 18.1325]
+Tue 23 Apr 2024 16:37:52 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:53 INFO  epoch 329 training [time: 0.97s, train loss: 18.0716]
+Tue 23 Apr 2024 16:37:53 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:54 INFO  epoch 330 training [time: 0.89s, train loss: 18.1701]
+Tue 23 Apr 2024 16:37:54 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:55 INFO  epoch 331 training [time: 0.89s, train loss: 18.0952]
+Tue 23 Apr 2024 16:37:55 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:56 INFO  epoch 332 training [time: 0.92s, train loss: 18.1355]
+Tue 23 Apr 2024 16:37:56 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:57 INFO  epoch 333 training [time: 0.89s, train loss: 18.0690]
+Tue 23 Apr 2024 16:37:57 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:58 INFO  epoch 334 training [time: 0.89s, train loss: 18.1046]
+Tue 23 Apr 2024 16:37:58 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:37:59 INFO  epoch 335 training [time: 0.90s, train loss: 18.1841]
+Tue 23 Apr 2024 16:37:59 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:00 INFO  epoch 336 training [time: 0.87s, train loss: 18.1644]
+Tue 23 Apr 2024 16:38:00 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:01 INFO  epoch 337 training [time: 1.06s, train loss: 18.1064]
+Tue 23 Apr 2024 16:38:01 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:02 INFO  epoch 338 training [time: 0.94s, train loss: 18.0562]
+Tue 23 Apr 2024 16:38:02 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:02 INFO  epoch 339 training [time: 0.88s, train loss: 18.1596]
+Tue 23 Apr 2024 16:38:02 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:04 INFO  epoch 340 training [time: 1.04s, train loss: 18.0457]
+Tue 23 Apr 2024 16:38:04 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:04 INFO  epoch 341 training [time: 0.95s, train loss: 18.1062]
+Tue 23 Apr 2024 16:38:04 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:05 INFO  epoch 342 training [time: 0.91s, train loss: 18.1453]
+Tue 23 Apr 2024 16:38:05 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:06 INFO  epoch 343 training [time: 0.90s, train loss: 18.0570]
+Tue 23 Apr 2024 16:38:06 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:07 INFO  epoch 344 training [time: 0.96s, train loss: 18.1045]
+Tue 23 Apr 2024 16:38:07 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:08 INFO  epoch 345 training [time: 0.88s, train loss: 18.0536]
+Tue 23 Apr 2024 16:38:08 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:09 INFO  epoch 346 training [time: 0.86s, train loss: 18.0764]
+Tue 23 Apr 2024 16:38:09 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:10 INFO  epoch 347 training [time: 0.89s, train loss: 18.0014]
+Tue 23 Apr 2024 16:38:10 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:11 INFO  epoch 348 training [time: 0.91s, train loss: 18.0449]
+Tue 23 Apr 2024 16:38:11 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:12 INFO  epoch 349 training [time: 0.91s, train loss: 18.0385]
+Tue 23 Apr 2024 16:38:12 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:13 INFO  epoch 350 training [time: 0.90s, train loss: 18.0451]
+Tue 23 Apr 2024 16:38:13 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:14 INFO  epoch 351 training [time: 0.97s, train loss: 18.0963]
+Tue 23 Apr 2024 16:38:14 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:15 INFO  epoch 352 training [time: 0.97s, train loss: 18.0552]
+Tue 23 Apr 2024 16:38:15 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:16 INFO  epoch 353 training [time: 1.08s, train loss: 18.0893]
+Tue 23 Apr 2024 16:38:16 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:17 INFO  epoch 354 training [time: 0.91s, train loss: 17.9341]
+Tue 23 Apr 2024 16:38:17 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:18 INFO  epoch 355 training [time: 0.91s, train loss: 18.0761]
+Tue 23 Apr 2024 16:38:18 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:19 INFO  epoch 356 training [time: 0.99s, train loss: 17.9955]
+Tue 23 Apr 2024 16:38:19 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:19 INFO  epoch 357 training [time: 0.92s, train loss: 17.9867]
+Tue 23 Apr 2024 16:38:19 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:20 INFO  epoch 358 training [time: 0.91s, train loss: 18.1022]
+Tue 23 Apr 2024 16:38:20 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:21 INFO  epoch 359 training [time: 0.89s, train loss: 18.0628]
+Tue 23 Apr 2024 16:38:21 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:22 INFO  epoch 360 training [time: 0.89s, train loss: 18.1352]
+Tue 23 Apr 2024 16:38:22 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:23 INFO  epoch 361 training [time: 0.90s, train loss: 17.9944]
+Tue 23 Apr 2024 16:38:23 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:24 INFO  epoch 362 training [time: 0.89s, train loss: 17.9723]
+Tue 23 Apr 2024 16:38:24 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:25 INFO  epoch 363 training [time: 0.90s, train loss: 18.0122]
+Tue 23 Apr 2024 16:38:25 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:26 INFO  epoch 364 training [time: 0.97s, train loss: 17.9862]
+Tue 23 Apr 2024 16:38:26 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:27 INFO  epoch 365 training [time: 0.98s, train loss: 18.0293]
+Tue 23 Apr 2024 16:38:27 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:28 INFO  epoch 366 training [time: 0.96s, train loss: 18.0088]
+Tue 23 Apr 2024 16:38:28 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:29 INFO  epoch 367 training [time: 0.95s, train loss: 17.9897]
+Tue 23 Apr 2024 16:38:29 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:30 INFO  epoch 368 training [time: 1.06s, train loss: 18.0384]
+Tue 23 Apr 2024 16:38:30 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:31 INFO  epoch 369 training [time: 0.90s, train loss: 18.0270]
+Tue 23 Apr 2024 16:38:31 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:32 INFO  epoch 370 training [time: 0.86s, train loss: 17.9989]
+Tue 23 Apr 2024 16:38:32 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:32 INFO  epoch 371 training [time: 0.83s, train loss: 17.9829]
+Tue 23 Apr 2024 16:38:32 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:33 INFO  epoch 372 training [time: 0.93s, train loss: 18.0541]
+Tue 23 Apr 2024 16:38:33 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:34 INFO  epoch 373 training [time: 1.00s, train loss: 18.0426]
+Tue 23 Apr 2024 16:38:34 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:35 INFO  epoch 374 training [time: 0.97s, train loss: 17.9772]
+Tue 23 Apr 2024 16:38:35 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:36 INFO  epoch 375 training [time: 0.97s, train loss: 17.9508]
+Tue 23 Apr 2024 16:38:36 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:37 INFO  epoch 376 training [time: 0.96s, train loss: 17.9837]
+Tue 23 Apr 2024 16:38:37 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:38 INFO  epoch 377 training [time: 0.96s, train loss: 17.9266]
+Tue 23 Apr 2024 16:38:38 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:39 INFO  epoch 378 training [time: 1.01s, train loss: 17.9846]
+Tue 23 Apr 2024 16:38:39 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:40 INFO  epoch 379 training [time: 0.94s, train loss: 18.0138]
+Tue 23 Apr 2024 16:38:40 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:41 INFO  epoch 380 training [time: 0.91s, train loss: 17.9440]
+Tue 23 Apr 2024 16:38:41 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:42 INFO  epoch 381 training [time: 0.97s, train loss: 17.9844]
+Tue 23 Apr 2024 16:38:42 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:43 INFO  epoch 382 training [time: 0.92s, train loss: 17.9213]
+Tue 23 Apr 2024 16:38:43 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:44 INFO  epoch 383 training [time: 1.01s, train loss: 17.9665]
+Tue 23 Apr 2024 16:38:44 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:45 INFO  epoch 384 training [time: 1.14s, train loss: 17.9440]
+Tue 23 Apr 2024 16:38:45 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:46 INFO  epoch 385 training [time: 1.01s, train loss: 17.9670]
+Tue 23 Apr 2024 16:38:46 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:47 INFO  epoch 386 training [time: 0.91s, train loss: 17.9128]
+Tue 23 Apr 2024 16:38:47 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:48 INFO  epoch 387 training [time: 0.95s, train loss: 17.9437]
+Tue 23 Apr 2024 16:38:48 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:49 INFO  epoch 388 training [time: 0.98s, train loss: 17.9551]
+Tue 23 Apr 2024 16:38:49 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:50 INFO  epoch 389 training [time: 0.98s, train loss: 17.8928]
+Tue 23 Apr 2024 16:38:50 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:51 INFO  epoch 390 training [time: 1.03s, train loss: 17.8967]
+Tue 23 Apr 2024 16:38:51 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:52 INFO  epoch 391 training [time: 0.97s, train loss: 17.9734]
+Tue 23 Apr 2024 16:38:52 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:53 INFO  epoch 392 training [time: 0.96s, train loss: 17.9281]
+Tue 23 Apr 2024 16:38:53 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:54 INFO  epoch 393 training [time: 0.89s, train loss: 17.9734]
+Tue 23 Apr 2024 16:38:54 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:55 INFO  epoch 394 training [time: 0.79s, train loss: 17.9228]
+Tue 23 Apr 2024 16:38:55 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:56 INFO  epoch 395 training [time: 0.85s, train loss: 17.9216]
+Tue 23 Apr 2024 16:38:56 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:56 INFO  epoch 396 training [time: 0.84s, train loss: 17.9398]
+Tue 23 Apr 2024 16:38:56 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:57 INFO  epoch 397 training [time: 0.84s, train loss: 17.8993]
+Tue 23 Apr 2024 16:38:57 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:58 INFO  epoch 398 training [time: 0.84s, train loss: 17.7983]
+Tue 23 Apr 2024 16:38:58 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:38:59 INFO  epoch 399 training [time: 0.88s, train loss: 17.9046]
+Tue 23 Apr 2024 16:38:59 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:00 INFO  epoch 400 training [time: 0.95s, train loss: 17.8535]
+Tue 23 Apr 2024 16:39:00 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:01 INFO  epoch 401 training [time: 0.85s, train loss: 17.8911]
+Tue 23 Apr 2024 16:39:01 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:02 INFO  epoch 402 training [time: 0.84s, train loss: 17.9598]
+Tue 23 Apr 2024 16:39:02 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:03 INFO  epoch 403 training [time: 0.85s, train loss: 17.8977]
+Tue 23 Apr 2024 16:39:03 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:03 INFO  epoch 404 training [time: 0.84s, train loss: 17.9013]
+Tue 23 Apr 2024 16:39:03 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:04 INFO  epoch 405 training [time: 0.81s, train loss: 17.8537]
+Tue 23 Apr 2024 16:39:04 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:05 INFO  epoch 406 training [time: 0.83s, train loss: 17.8933]
+Tue 23 Apr 2024 16:39:05 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:06 INFO  epoch 407 training [time: 0.85s, train loss: 17.8936]
+Tue 23 Apr 2024 16:39:06 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:07 INFO  epoch 408 training [time: 0.84s, train loss: 17.8938]
+Tue 23 Apr 2024 16:39:07 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:08 INFO  epoch 409 training [time: 0.85s, train loss: 17.9126]
+Tue 23 Apr 2024 16:39:08 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:08 INFO  epoch 410 training [time: 0.82s, train loss: 17.9858]
+Tue 23 Apr 2024 16:39:08 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:09 INFO  epoch 411 training [time: 0.87s, train loss: 17.8371]
+Tue 23 Apr 2024 16:39:09 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:10 INFO  epoch 412 training [time: 0.86s, train loss: 17.8070]
+Tue 23 Apr 2024 16:39:10 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:11 INFO  epoch 413 training [time: 0.86s, train loss: 17.8186]
+Tue 23 Apr 2024 16:39:11 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:12 INFO  epoch 414 training [time: 0.84s, train loss: 17.9275]
+Tue 23 Apr 2024 16:39:12 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:13 INFO  epoch 415 training [time: 0.85s, train loss: 17.8914]
+Tue 23 Apr 2024 16:39:13 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:14 INFO  epoch 416 training [time: 0.96s, train loss: 17.8882]
+Tue 23 Apr 2024 16:39:14 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:15 INFO  epoch 417 training [time: 0.85s, train loss: 17.8956]
+Tue 23 Apr 2024 16:39:15 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:15 INFO  epoch 418 training [time: 0.87s, train loss: 17.9024]
+Tue 23 Apr 2024 16:39:16 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:16 INFO  epoch 419 training [time: 0.86s, train loss: 17.8062]
+Tue 23 Apr 2024 16:39:16 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:17 INFO  epoch 420 training [time: 0.87s, train loss: 17.8527]
+Tue 23 Apr 2024 16:39:17 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:18 INFO  epoch 421 training [time: 0.88s, train loss: 17.8198]
+Tue 23 Apr 2024 16:39:18 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:19 INFO  epoch 422 training [time: 0.87s, train loss: 17.8314]
+Tue 23 Apr 2024 16:39:19 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:20 INFO  epoch 423 training [time: 0.85s, train loss: 17.8359]
+Tue 23 Apr 2024 16:39:20 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:21 INFO  epoch 424 training [time: 0.89s, train loss: 17.8133]
+Tue 23 Apr 2024 16:39:21 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:22 INFO  epoch 425 training [time: 0.87s, train loss: 17.7913]
+Tue 23 Apr 2024 16:39:22 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:23 INFO  epoch 426 training [time: 0.86s, train loss: 17.8294]
+Tue 23 Apr 2024 16:39:23 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:23 INFO  epoch 427 training [time: 0.84s, train loss: 17.8480]
+Tue 23 Apr 2024 16:39:23 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:24 INFO  epoch 428 training [time: 0.87s, train loss: 17.8464]
+Tue 23 Apr 2024 16:39:24 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:25 INFO  epoch 429 training [time: 0.88s, train loss: 17.8396]
+Tue 23 Apr 2024 16:39:25 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:26 INFO  epoch 430 training [time: 0.85s, train loss: 17.8035]
+Tue 23 Apr 2024 16:39:26 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:27 INFO  epoch 431 training [time: 0.97s, train loss: 17.8840]
+Tue 23 Apr 2024 16:39:27 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:28 INFO  epoch 432 training [time: 0.85s, train loss: 17.9029]
+Tue 23 Apr 2024 16:39:28 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:29 INFO  epoch 433 training [time: 0.89s, train loss: 17.8599]
+Tue 23 Apr 2024 16:39:29 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:30 INFO  epoch 434 training [time: 0.89s, train loss: 17.8237]
+Tue 23 Apr 2024 16:39:30 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:30 INFO  epoch 435 training [time: 0.90s, train loss: 17.8578]
+Tue 23 Apr 2024 16:39:31 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:31 INFO  epoch 436 training [time: 0.87s, train loss: 17.8755]
+Tue 23 Apr 2024 16:39:31 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:32 INFO  epoch 437 training [time: 0.87s, train loss: 17.8694]
+Tue 23 Apr 2024 16:39:32 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:33 INFO  epoch 438 training [time: 0.90s, train loss: 17.7442]
+Tue 23 Apr 2024 16:39:33 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:34 INFO  epoch 439 training [time: 0.88s, train loss: 17.8535]
+Tue 23 Apr 2024 16:39:34 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:35 INFO  epoch 440 training [time: 0.91s, train loss: 17.8530]
+Tue 23 Apr 2024 16:39:35 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:36 INFO  epoch 441 training [time: 0.85s, train loss: 17.8283]
+Tue 23 Apr 2024 16:39:36 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:37 INFO  epoch 442 training [time: 0.86s, train loss: 17.8568]
+Tue 23 Apr 2024 16:39:37 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:38 INFO  epoch 443 training [time: 0.89s, train loss: 17.8300]
+Tue 23 Apr 2024 16:39:38 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:38 INFO  epoch 444 training [time: 0.89s, train loss: 17.7835]
+Tue 23 Apr 2024 16:39:38 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:39 INFO  epoch 445 training [time: 0.84s, train loss: 17.8324]
+Tue 23 Apr 2024 16:39:39 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:40 INFO  epoch 446 training [time: 0.83s, train loss: 17.8152]
+Tue 23 Apr 2024 16:39:40 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:41 INFO  epoch 447 training [time: 0.96s, train loss: 17.8105]
+Tue 23 Apr 2024 16:39:41 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:42 INFO  epoch 448 training [time: 0.88s, train loss: 17.7812]
+Tue 23 Apr 2024 16:39:42 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:43 INFO  epoch 449 training [time: 0.90s, train loss: 17.7625]
+Tue 23 Apr 2024 16:39:43 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:44 INFO  epoch 450 training [time: 0.87s, train loss: 17.7483]
+Tue 23 Apr 2024 16:39:44 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:45 INFO  epoch 451 training [time: 0.92s, train loss: 17.8789]
+Tue 23 Apr 2024 16:39:45 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:46 INFO  epoch 452 training [time: 0.87s, train loss: 17.7828]
+Tue 23 Apr 2024 16:39:46 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:47 INFO  epoch 453 training [time: 0.90s, train loss: 17.7735]
+Tue 23 Apr 2024 16:39:47 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:47 INFO  epoch 454 training [time: 0.85s, train loss: 17.7558]
+Tue 23 Apr 2024 16:39:47 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:48 INFO  epoch 455 training [time: 0.87s, train loss: 17.8053]
+Tue 23 Apr 2024 16:39:48 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:49 INFO  epoch 456 training [time: 0.89s, train loss: 17.8173]
+Tue 23 Apr 2024 16:39:49 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:50 INFO  epoch 457 training [time: 0.87s, train loss: 17.7323]
+Tue 23 Apr 2024 16:39:50 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:51 INFO  epoch 458 training [time: 0.86s, train loss: 17.8009]
+Tue 23 Apr 2024 16:39:51 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:52 INFO  epoch 459 training [time: 0.86s, train loss: 17.7697]
+Tue 23 Apr 2024 16:39:52 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:53 INFO  epoch 460 training [time: 0.87s, train loss: 17.7574]
+Tue 23 Apr 2024 16:39:53 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:53 INFO  epoch 461 training [time: 0.86s, train loss: 17.6671]
+Tue 23 Apr 2024 16:39:54 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:54 INFO  epoch 462 training [time: 0.84s, train loss: 17.7645]
+Tue 23 Apr 2024 16:39:54 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:55 INFO  epoch 463 training [time: 1.00s, train loss: 17.7904]
+Tue 23 Apr 2024 16:39:55 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:56 INFO  epoch 464 training [time: 0.85s, train loss: 17.8008]
+Tue 23 Apr 2024 16:39:56 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:57 INFO  epoch 465 training [time: 0.84s, train loss: 17.7811]
+Tue 23 Apr 2024 16:39:57 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:58 INFO  epoch 466 training [time: 0.87s, train loss: 17.7680]
+Tue 23 Apr 2024 16:39:58 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:39:59 INFO  epoch 467 training [time: 0.90s, train loss: 17.7630]
+Tue 23 Apr 2024 16:39:59 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:00 INFO  epoch 468 training [time: 0.88s, train loss: 17.8118]
+Tue 23 Apr 2024 16:40:00 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:01 INFO  epoch 469 training [time: 0.80s, train loss: 17.7971]
+Tue 23 Apr 2024 16:40:01 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:01 INFO  epoch 470 training [time: 0.83s, train loss: 17.7690]
+Tue 23 Apr 2024 16:40:01 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:02 INFO  epoch 471 training [time: 0.82s, train loss: 17.7399]
+Tue 23 Apr 2024 16:40:02 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:03 INFO  epoch 472 training [time: 0.94s, train loss: 17.7408]
+Tue 23 Apr 2024 16:40:03 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:04 INFO  epoch 473 training [time: 0.99s, train loss: 17.7288]
+Tue 23 Apr 2024 16:40:04 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:05 INFO  epoch 474 training [time: 0.90s, train loss: 17.7639]
+Tue 23 Apr 2024 16:40:05 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:06 INFO  epoch 475 training [time: 0.94s, train loss: 17.7945]
+Tue 23 Apr 2024 16:40:06 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:07 INFO  epoch 476 training [time: 0.93s, train loss: 17.7046]
+Tue 23 Apr 2024 16:40:07 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:08 INFO  epoch 477 training [time: 0.90s, train loss: 17.6971]
+Tue 23 Apr 2024 16:40:08 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:09 INFO  epoch 478 training [time: 0.96s, train loss: 17.7435]
+Tue 23 Apr 2024 16:40:09 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:10 INFO  epoch 479 training [time: 1.07s, train loss: 17.7673]
+Tue 23 Apr 2024 16:40:10 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:11 INFO  epoch 480 training [time: 0.93s, train loss: 17.8129]
+Tue 23 Apr 2024 16:40:11 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:12 INFO  epoch 481 training [time: 0.93s, train loss: 17.7728]
+Tue 23 Apr 2024 16:40:12 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:13 INFO  epoch 482 training [time: 0.89s, train loss: 17.8059]
+Tue 23 Apr 2024 16:40:13 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:14 INFO  epoch 483 training [time: 0.92s, train loss: 17.7376]
+Tue 23 Apr 2024 16:40:14 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:15 INFO  epoch 484 training [time: 0.95s, train loss: 17.7539]
+Tue 23 Apr 2024 16:40:15 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:15 INFO  epoch 485 training [time: 0.96s, train loss: 17.7887]
+Tue 23 Apr 2024 16:40:15 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:16 INFO  epoch 486 training [time: 1.00s, train loss: 17.7410]
+Tue 23 Apr 2024 16:40:16 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:18 INFO  epoch 487 training [time: 1.03s, train loss: 17.7170]
+Tue 23 Apr 2024 16:40:18 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:19 INFO  epoch 488 training [time: 0.98s, train loss: 17.8421]
+Tue 23 Apr 2024 16:40:19 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:20 INFO  epoch 489 training [time: 1.07s, train loss: 17.7525]
+Tue 23 Apr 2024 16:40:20 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:21 INFO  epoch 490 training [time: 0.98s, train loss: 17.7690]
+Tue 23 Apr 2024 16:40:21 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:22 INFO  epoch 491 training [time: 0.97s, train loss: 17.7093]
+Tue 23 Apr 2024 16:40:22 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:23 INFO  epoch 492 training [time: 1.04s, train loss: 17.6729]
+Tue 23 Apr 2024 16:40:23 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:24 INFO  epoch 493 training [time: 1.02s, train loss: 17.6880]
+Tue 23 Apr 2024 16:40:24 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:25 INFO  epoch 494 training [time: 1.13s, train loss: 17.7456]
+Tue 23 Apr 2024 16:40:25 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:26 INFO  epoch 495 training [time: 0.98s, train loss: 17.7577]
+Tue 23 Apr 2024 16:40:26 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:27 INFO  epoch 496 training [time: 0.98s, train loss: 17.7119]
+Tue 23 Apr 2024 16:40:27 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:28 INFO  epoch 497 training [time: 1.01s, train loss: 17.6654]
+Tue 23 Apr 2024 16:40:28 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:29 INFO  epoch 498 training [time: 0.92s, train loss: 17.7399]
+Tue 23 Apr 2024 16:40:29 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:30 INFO  epoch 499 training [time: 0.95s, train loss: 17.6764]
+Tue 23 Apr 2024 16:40:30 INFO  Saving current: saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:30 INFO  Loading model structure and parameters from saved/ANS-Apr-23-2024_16-32-48.pth
+Tue 23 Apr 2024 16:40:31 INFO  The running environment of this training is as follows:
++-------------+----------------+
+| Environment |     Usage      |
++=============+================+
+| CPU         |     0.50 %     |
++-------------+----------------+
+| GPU         | 0.05 G/15.98 G |
++-------------+----------------+
+| Memory      | 1.27 G/15.47 G |
++-------------+----------------+
+Tue 23 Apr 2024 16:40:31 INFO  best valid : None
+Tue 23 Apr 2024 16:40:31 INFO  test result: OrderedDict([('recall@20', 0.1594), ('mrr@20', 0.2802), ('ndcg@20', 0.1454), ('hit@20', 0.8314), ('precision@20', 0.0947)])

@@ -1,0 +1,1129 @@
+Thu 18 Apr 2024 14:28:18 INFO  ['run_recbole.py', 'model=ANS', 'dataset=last-fm']
+Thu 18 Apr 2024 14:28:18 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 2020
+state = INFO
+reproducibility = True
+data_path = /home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k
+checkpoint_dir = saved
+show_progress = True
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = False
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 500
+train_batch_size = 1024
+learner = adam
+learning_rate = 0.001
+train_neg_sample_args = {'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}
+eval_step = 1
+stopping_step = 100
+clip_grad_norm = None
+weight_decay = 0.0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.0, 0.2]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}
+repeatable = False
+metrics = ['Recall', 'MRR', 'NDCG', 'Hit', 'Precision']
+topk = [20]
+valid_metric = MRR@20
+valid_metric_bigger = True
+eval_batch_size = 4096
+metric_decimal_place = 4
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = None
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id', 'rating', 'timestamp']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = None
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = None
+item_inter_num_interval = None
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = True
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+kg_reverse_r = False
+entity_kg_num_interval = None
+relation_kg_num_interval = None
+benchmark_filename = None
+
+Other Hyper Parameters: 
+worker = 0
+wandb_project = recbole
+shuffle = True
+require_pow = False
+enable_amp = False
+enable_scaler = False
+transform = None
+embedding_size = 64
+numerical_features = []
+discretization = None
+MODEL_TYPE = ModelType.GENERAL
+MODEL_INPUT_TYPE = InputType.PAIRWISE
+eval_type = EvaluatorType.RANKING
+single_spec = True
+local_rank = 0
+device = cuda
+eval_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+
+
+Thu 18 Apr 2024 14:28:18 INFO  ml-100k
+The number of users: 944
+Average actions of users: 106.04453870625663
+The number of items: 1683
+Average actions of items: 59.45303210463734
+The number of inters: 100000
+The sparsity of the dataset: 93.70575143257098%
+Remain Fields: ['user_id', 'item_id', 'rating', 'timestamp']
+Thu 18 Apr 2024 14:28:18 INFO  [Training]: train_batch_size = [1024] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}]
+Thu 18 Apr 2024 14:28:18 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.0, 0.2]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Thu 18 Apr 2024 14:28:18 INFO  BPR(
+  (user_embedding): Embedding(944, 64)
+  (item_embedding): Embedding(1683, 64)
+  (loss): BPRLoss()
+)
+Trainable parameters: 168128
+Thu 18 Apr 2024 14:28:18 INFO  FLOPs: 128.0
+Thu 18 Apr 2024 14:28:19 INFO  epoch 0 training [time: 0.27s, train loss: 54.7457]
+Thu 18 Apr 2024 14:28:19 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:20 INFO  epoch 1 training [time: 0.18s, train loss: 54.2393]
+Thu 18 Apr 2024 14:28:20 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:20 INFO  epoch 2 training [time: 0.18s, train loss: 50.2430]
+Thu 18 Apr 2024 14:28:20 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:20 INFO  epoch 3 training [time: 0.17s, train loss: 38.7488]
+Thu 18 Apr 2024 14:28:20 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:20 INFO  epoch 4 training [time: 0.18s, train loss: 30.4121]
+Thu 18 Apr 2024 14:28:20 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:20 INFO  epoch 5 training [time: 0.18s, train loss: 27.0166]
+Thu 18 Apr 2024 14:28:20 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:20 INFO  epoch 6 training [time: 0.17s, train loss: 25.1771]
+Thu 18 Apr 2024 14:28:20 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:21 INFO  epoch 7 training [time: 0.17s, train loss: 24.2077]
+Thu 18 Apr 2024 14:28:21 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:21 INFO  epoch 8 training [time: 0.17s, train loss: 22.9784]
+Thu 18 Apr 2024 14:28:21 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:21 INFO  epoch 9 training [time: 0.18s, train loss: 21.7107]
+Thu 18 Apr 2024 14:28:21 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:21 INFO  epoch 10 training [time: 0.16s, train loss: 20.6554]
+Thu 18 Apr 2024 14:28:21 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:21 INFO  epoch 11 training [time: 0.16s, train loss: 19.8637]
+Thu 18 Apr 2024 14:28:21 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:21 INFO  epoch 12 training [time: 0.16s, train loss: 18.9923]
+Thu 18 Apr 2024 14:28:21 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:22 INFO  epoch 13 training [time: 0.17s, train loss: 18.3749]
+Thu 18 Apr 2024 14:28:22 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:22 INFO  epoch 14 training [time: 0.16s, train loss: 17.8847]
+Thu 18 Apr 2024 14:28:22 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:22 INFO  epoch 15 training [time: 0.17s, train loss: 17.1404]
+Thu 18 Apr 2024 14:28:22 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:22 INFO  epoch 16 training [time: 0.17s, train loss: 16.8096]
+Thu 18 Apr 2024 14:28:22 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:22 INFO  epoch 17 training [time: 0.17s, train loss: 16.4151]
+Thu 18 Apr 2024 14:28:22 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:22 INFO  epoch 18 training [time: 0.16s, train loss: 15.9189]
+Thu 18 Apr 2024 14:28:22 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:23 INFO  epoch 19 training [time: 0.17s, train loss: 15.7267]
+Thu 18 Apr 2024 14:28:23 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:23 INFO  epoch 20 training [time: 0.17s, train loss: 15.2344]
+Thu 18 Apr 2024 14:28:23 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:23 INFO  epoch 21 training [time: 0.16s, train loss: 15.0141]
+Thu 18 Apr 2024 14:28:23 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:23 INFO  epoch 22 training [time: 0.16s, train loss: 14.7228]
+Thu 18 Apr 2024 14:28:23 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:23 INFO  epoch 23 training [time: 0.16s, train loss: 14.2566]
+Thu 18 Apr 2024 14:28:23 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:24 INFO  epoch 24 training [time: 0.17s, train loss: 14.0646]
+Thu 18 Apr 2024 14:28:24 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:24 INFO  epoch 25 training [time: 0.18s, train loss: 13.7358]
+Thu 18 Apr 2024 14:28:24 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:24 INFO  epoch 26 training [time: 0.17s, train loss: 13.5587]
+Thu 18 Apr 2024 14:28:24 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:24 INFO  epoch 27 training [time: 0.18s, train loss: 13.2936]
+Thu 18 Apr 2024 14:28:24 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:24 INFO  epoch 28 training [time: 0.16s, train loss: 12.9708]
+Thu 18 Apr 2024 14:28:24 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:24 INFO  epoch 29 training [time: 0.16s, train loss: 12.6371]
+Thu 18 Apr 2024 14:28:24 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:25 INFO  epoch 30 training [time: 0.16s, train loss: 12.3806]
+Thu 18 Apr 2024 14:28:25 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:25 INFO  epoch 31 training [time: 0.17s, train loss: 12.3344]
+Thu 18 Apr 2024 14:28:25 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:25 INFO  epoch 32 training [time: 0.16s, train loss: 12.1547]
+Thu 18 Apr 2024 14:28:25 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:25 INFO  epoch 33 training [time: 0.16s, train loss: 11.8662]
+Thu 18 Apr 2024 14:28:25 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:25 INFO  epoch 34 training [time: 0.16s, train loss: 11.6479]
+Thu 18 Apr 2024 14:28:25 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:25 INFO  epoch 35 training [time: 0.17s, train loss: 11.5973]
+Thu 18 Apr 2024 14:28:25 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:26 INFO  epoch 36 training [time: 0.17s, train loss: 11.1784]
+Thu 18 Apr 2024 14:28:26 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:26 INFO  epoch 37 training [time: 0.17s, train loss: 11.0074]
+Thu 18 Apr 2024 14:28:26 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:26 INFO  epoch 38 training [time: 0.18s, train loss: 10.9170]
+Thu 18 Apr 2024 14:28:26 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:26 INFO  epoch 39 training [time: 0.18s, train loss: 10.6633]
+Thu 18 Apr 2024 14:28:26 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:26 INFO  epoch 40 training [time: 0.16s, train loss: 10.7243]
+Thu 18 Apr 2024 14:28:26 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:26 INFO  epoch 41 training [time: 0.16s, train loss: 10.4432]
+Thu 18 Apr 2024 14:28:26 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:27 INFO  epoch 42 training [time: 0.16s, train loss: 10.1658]
+Thu 18 Apr 2024 14:28:27 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:27 INFO  epoch 43 training [time: 0.17s, train loss: 10.1784]
+Thu 18 Apr 2024 14:28:27 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:27 INFO  epoch 44 training [time: 0.15s, train loss: 9.8883]
+Thu 18 Apr 2024 14:28:27 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:27 INFO  epoch 45 training [time: 0.16s, train loss: 9.8255]
+Thu 18 Apr 2024 14:28:27 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:27 INFO  epoch 46 training [time: 0.16s, train loss: 9.6317]
+Thu 18 Apr 2024 14:28:27 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:27 INFO  epoch 47 training [time: 0.17s, train loss: 9.4679]
+Thu 18 Apr 2024 14:28:27 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:28 INFO  epoch 48 training [time: 0.16s, train loss: 9.2140]
+Thu 18 Apr 2024 14:28:28 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:28 INFO  epoch 49 training [time: 0.16s, train loss: 9.2491]
+Thu 18 Apr 2024 14:28:28 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:28 INFO  epoch 50 training [time: 0.17s, train loss: 8.9698]
+Thu 18 Apr 2024 14:28:28 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:28 INFO  epoch 51 training [time: 0.18s, train loss: 8.9456]
+Thu 18 Apr 2024 14:28:28 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:28 INFO  epoch 52 training [time: 0.17s, train loss: 8.8619]
+Thu 18 Apr 2024 14:28:28 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:28 INFO  epoch 53 training [time: 0.17s, train loss: 8.5752]
+Thu 18 Apr 2024 14:28:28 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:29 INFO  epoch 54 training [time: 0.17s, train loss: 8.5727]
+Thu 18 Apr 2024 14:28:29 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:29 INFO  epoch 55 training [time: 0.18s, train loss: 8.4958]
+Thu 18 Apr 2024 14:28:29 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:29 INFO  epoch 56 training [time: 0.17s, train loss: 8.3086]
+Thu 18 Apr 2024 14:28:29 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:29 INFO  epoch 57 training [time: 0.17s, train loss: 8.0930]
+Thu 18 Apr 2024 14:28:29 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:29 INFO  epoch 58 training [time: 0.17s, train loss: 7.9684]
+Thu 18 Apr 2024 14:28:29 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:30 INFO  epoch 59 training [time: 0.18s, train loss: 7.9655]
+Thu 18 Apr 2024 14:28:30 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:30 INFO  epoch 60 training [time: 0.17s, train loss: 7.9363]
+Thu 18 Apr 2024 14:28:30 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:30 INFO  epoch 61 training [time: 0.16s, train loss: 7.7963]
+Thu 18 Apr 2024 14:28:30 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:30 INFO  epoch 62 training [time: 0.17s, train loss: 7.5936]
+Thu 18 Apr 2024 14:28:30 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:30 INFO  epoch 63 training [time: 0.17s, train loss: 7.5645]
+Thu 18 Apr 2024 14:28:30 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:30 INFO  epoch 64 training [time: 0.17s, train loss: 7.4345]
+Thu 18 Apr 2024 14:28:30 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:31 INFO  epoch 65 training [time: 0.17s, train loss: 7.3947]
+Thu 18 Apr 2024 14:28:31 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:31 INFO  epoch 66 training [time: 0.17s, train loss: 7.3268]
+Thu 18 Apr 2024 14:28:31 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:31 INFO  epoch 67 training [time: 0.17s, train loss: 7.1508]
+Thu 18 Apr 2024 14:28:31 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:31 INFO  epoch 68 training [time: 0.16s, train loss: 7.1515]
+Thu 18 Apr 2024 14:28:31 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:31 INFO  epoch 69 training [time: 0.16s, train loss: 7.1213]
+Thu 18 Apr 2024 14:28:31 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:31 INFO  epoch 70 training [time: 0.17s, train loss: 6.9706]
+Thu 18 Apr 2024 14:28:31 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:32 INFO  epoch 71 training [time: 0.18s, train loss: 6.7363]
+Thu 18 Apr 2024 14:28:32 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:32 INFO  epoch 72 training [time: 0.16s, train loss: 6.7571]
+Thu 18 Apr 2024 14:28:32 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:32 INFO  epoch 73 training [time: 0.16s, train loss: 6.5403]
+Thu 18 Apr 2024 14:28:32 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:32 INFO  epoch 74 training [time: 0.16s, train loss: 6.6044]
+Thu 18 Apr 2024 14:28:32 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:32 INFO  epoch 75 training [time: 0.17s, train loss: 6.5260]
+Thu 18 Apr 2024 14:28:32 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:32 INFO  epoch 76 training [time: 0.16s, train loss: 6.4260]
+Thu 18 Apr 2024 14:28:32 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:33 INFO  epoch 77 training [time: 0.16s, train loss: 6.2389]
+Thu 18 Apr 2024 14:28:33 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:33 INFO  epoch 78 training [time: 0.16s, train loss: 6.3091]
+Thu 18 Apr 2024 14:28:33 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:33 INFO  epoch 79 training [time: 0.18s, train loss: 6.2641]
+Thu 18 Apr 2024 14:28:33 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:33 INFO  epoch 80 training [time: 0.16s, train loss: 6.2115]
+Thu 18 Apr 2024 14:28:33 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:33 INFO  epoch 81 training [time: 0.16s, train loss: 6.1293]
+Thu 18 Apr 2024 14:28:33 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:33 INFO  epoch 82 training [time: 0.16s, train loss: 5.8885]
+Thu 18 Apr 2024 14:28:33 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:34 INFO  epoch 83 training [time: 0.17s, train loss: 5.8868]
+Thu 18 Apr 2024 14:28:34 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:34 INFO  epoch 84 training [time: 0.17s, train loss: 5.8747]
+Thu 18 Apr 2024 14:28:34 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:34 INFO  epoch 85 training [time: 0.16s, train loss: 5.7627]
+Thu 18 Apr 2024 14:28:34 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:34 INFO  epoch 86 training [time: 0.16s, train loss: 5.6993]
+Thu 18 Apr 2024 14:28:34 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:34 INFO  epoch 87 training [time: 0.18s, train loss: 5.6111]
+Thu 18 Apr 2024 14:28:34 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:35 INFO  epoch 88 training [time: 0.17s, train loss: 5.6840]
+Thu 18 Apr 2024 14:28:35 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:35 INFO  epoch 89 training [time: 0.16s, train loss: 5.5940]
+Thu 18 Apr 2024 14:28:35 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:35 INFO  epoch 90 training [time: 0.16s, train loss: 5.4133]
+Thu 18 Apr 2024 14:28:35 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:35 INFO  epoch 91 training [time: 0.17s, train loss: 5.5033]
+Thu 18 Apr 2024 14:28:35 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:35 INFO  epoch 92 training [time: 0.16s, train loss: 5.3961]
+Thu 18 Apr 2024 14:28:35 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:35 INFO  epoch 93 training [time: 0.17s, train loss: 5.3361]
+Thu 18 Apr 2024 14:28:35 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:36 INFO  epoch 94 training [time: 0.17s, train loss: 5.3195]
+Thu 18 Apr 2024 14:28:36 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:36 INFO  epoch 95 training [time: 0.17s, train loss: 5.3014]
+Thu 18 Apr 2024 14:28:36 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:36 INFO  epoch 96 training [time: 0.17s, train loss: 5.1497]
+Thu 18 Apr 2024 14:28:36 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:36 INFO  epoch 97 training [time: 0.17s, train loss: 5.1280]
+Thu 18 Apr 2024 14:28:36 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:36 INFO  epoch 98 training [time: 0.16s, train loss: 5.1172]
+Thu 18 Apr 2024 14:28:36 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:36 INFO  epoch 99 training [time: 0.17s, train loss: 5.0611]
+Thu 18 Apr 2024 14:28:36 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:37 INFO  epoch 100 training [time: 0.17s, train loss: 5.0350]
+Thu 18 Apr 2024 14:28:37 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:37 INFO  epoch 101 training [time: 0.17s, train loss: 4.8587]
+Thu 18 Apr 2024 14:28:37 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:37 INFO  epoch 102 training [time: 0.17s, train loss: 4.8688]
+Thu 18 Apr 2024 14:28:37 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:37 INFO  epoch 103 training [time: 0.17s, train loss: 4.9418]
+Thu 18 Apr 2024 14:28:37 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:37 INFO  epoch 104 training [time: 0.18s, train loss: 4.7265]
+Thu 18 Apr 2024 14:28:37 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:37 INFO  epoch 105 training [time: 0.17s, train loss: 4.7925]
+Thu 18 Apr 2024 14:28:37 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:38 INFO  epoch 106 training [time: 0.17s, train loss: 4.6520]
+Thu 18 Apr 2024 14:28:38 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:38 INFO  epoch 107 training [time: 0.16s, train loss: 4.6322]
+Thu 18 Apr 2024 14:28:38 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:38 INFO  epoch 108 training [time: 0.16s, train loss: 4.5313]
+Thu 18 Apr 2024 14:28:38 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:38 INFO  epoch 109 training [time: 0.16s, train loss: 4.5390]
+Thu 18 Apr 2024 14:28:38 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:38 INFO  epoch 110 training [time: 0.18s, train loss: 4.5112]
+Thu 18 Apr 2024 14:28:38 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:39 INFO  epoch 111 training [time: 0.16s, train loss: 4.4450]
+Thu 18 Apr 2024 14:28:39 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:39 INFO  epoch 112 training [time: 0.17s, train loss: 4.4977]
+Thu 18 Apr 2024 14:28:39 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:39 INFO  epoch 113 training [time: 0.17s, train loss: 4.3720]
+Thu 18 Apr 2024 14:28:39 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:39 INFO  epoch 114 training [time: 0.19s, train loss: 4.4420]
+Thu 18 Apr 2024 14:28:39 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:39 INFO  epoch 115 training [time: 0.16s, train loss: 4.3402]
+Thu 18 Apr 2024 14:28:39 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:39 INFO  epoch 116 training [time: 0.16s, train loss: 4.3446]
+Thu 18 Apr 2024 14:28:39 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:40 INFO  epoch 117 training [time: 0.17s, train loss: 4.3415]
+Thu 18 Apr 2024 14:28:40 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:40 INFO  epoch 118 training [time: 0.18s, train loss: 4.3437]
+Thu 18 Apr 2024 14:28:40 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:40 INFO  epoch 119 training [time: 0.16s, train loss: 4.2014]
+Thu 18 Apr 2024 14:28:40 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:40 INFO  epoch 120 training [time: 0.17s, train loss: 4.1154]
+Thu 18 Apr 2024 14:28:40 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:40 INFO  epoch 121 training [time: 0.17s, train loss: 4.1853]
+Thu 18 Apr 2024 14:28:40 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:40 INFO  epoch 122 training [time: 0.17s, train loss: 4.1682]
+Thu 18 Apr 2024 14:28:40 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:41 INFO  epoch 123 training [time: 0.17s, train loss: 4.1283]
+Thu 18 Apr 2024 14:28:41 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:41 INFO  epoch 124 training [time: 0.17s, train loss: 3.9833]
+Thu 18 Apr 2024 14:28:41 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:41 INFO  epoch 125 training [time: 0.17s, train loss: 4.0747]
+Thu 18 Apr 2024 14:28:41 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:41 INFO  epoch 126 training [time: 0.18s, train loss: 4.0047]
+Thu 18 Apr 2024 14:28:41 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:41 INFO  epoch 127 training [time: 0.17s, train loss: 4.0076]
+Thu 18 Apr 2024 14:28:41 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:41 INFO  epoch 128 training [time: 0.17s, train loss: 3.9465]
+Thu 18 Apr 2024 14:28:42 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:42 INFO  epoch 129 training [time: 0.17s, train loss: 3.9323]
+Thu 18 Apr 2024 14:28:42 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:42 INFO  epoch 130 training [time: 0.19s, train loss: 3.8771]
+Thu 18 Apr 2024 14:28:42 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:42 INFO  epoch 131 training [time: 0.17s, train loss: 3.9237]
+Thu 18 Apr 2024 14:28:42 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:42 INFO  epoch 132 training [time: 0.16s, train loss: 3.8132]
+Thu 18 Apr 2024 14:28:42 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:42 INFO  epoch 133 training [time: 0.16s, train loss: 3.8579]
+Thu 18 Apr 2024 14:28:42 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:43 INFO  epoch 134 training [time: 0.18s, train loss: 3.7922]
+Thu 18 Apr 2024 14:28:43 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:43 INFO  epoch 135 training [time: 0.17s, train loss: 3.7853]
+Thu 18 Apr 2024 14:28:43 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:43 INFO  epoch 136 training [time: 0.17s, train loss: 3.7494]
+Thu 18 Apr 2024 14:28:43 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:43 INFO  epoch 137 training [time: 0.17s, train loss: 3.7014]
+Thu 18 Apr 2024 14:28:43 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:43 INFO  epoch 138 training [time: 0.18s, train loss: 3.6861]
+Thu 18 Apr 2024 14:28:43 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:43 INFO  epoch 139 training [time: 0.17s, train loss: 3.6483]
+Thu 18 Apr 2024 14:28:43 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:44 INFO  epoch 140 training [time: 0.16s, train loss: 3.6547]
+Thu 18 Apr 2024 14:28:44 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:44 INFO  epoch 141 training [time: 0.17s, train loss: 3.5952]
+Thu 18 Apr 2024 14:28:44 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:44 INFO  epoch 142 training [time: 0.18s, train loss: 3.5629]
+Thu 18 Apr 2024 14:28:44 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:44 INFO  epoch 143 training [time: 0.17s, train loss: 3.5657]
+Thu 18 Apr 2024 14:28:44 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:44 INFO  epoch 144 training [time: 0.17s, train loss: 3.6095]
+Thu 18 Apr 2024 14:28:44 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:44 INFO  epoch 145 training [time: 0.17s, train loss: 3.5365]
+Thu 18 Apr 2024 14:28:44 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:45 INFO  epoch 146 training [time: 0.18s, train loss: 3.5793]
+Thu 18 Apr 2024 14:28:45 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:45 INFO  epoch 147 training [time: 0.17s, train loss: 3.5660]
+Thu 18 Apr 2024 14:28:45 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:45 INFO  epoch 148 training [time: 0.18s, train loss: 3.4551]
+Thu 18 Apr 2024 14:28:45 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:45 INFO  epoch 149 training [time: 0.18s, train loss: 3.4225]
+Thu 18 Apr 2024 14:28:45 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:45 INFO  epoch 150 training [time: 0.18s, train loss: 3.3917]
+Thu 18 Apr 2024 14:28:45 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:46 INFO  epoch 151 training [time: 0.16s, train loss: 3.3880]
+Thu 18 Apr 2024 14:28:46 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:46 INFO  epoch 152 training [time: 0.17s, train loss: 3.4005]
+Thu 18 Apr 2024 14:28:46 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:46 INFO  epoch 153 training [time: 0.16s, train loss: 3.4425]
+Thu 18 Apr 2024 14:28:46 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:46 INFO  epoch 154 training [time: 0.17s, train loss: 3.2810]
+Thu 18 Apr 2024 14:28:46 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:46 INFO  epoch 155 training [time: 0.17s, train loss: 3.3131]
+Thu 18 Apr 2024 14:28:46 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:46 INFO  epoch 156 training [time: 0.17s, train loss: 3.2493]
+Thu 18 Apr 2024 14:28:46 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:47 INFO  epoch 157 training [time: 0.16s, train loss: 3.2504]
+Thu 18 Apr 2024 14:28:47 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:47 INFO  epoch 158 training [time: 0.18s, train loss: 3.2961]
+Thu 18 Apr 2024 14:28:47 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:47 INFO  epoch 159 training [time: 0.17s, train loss: 3.2514]
+Thu 18 Apr 2024 14:28:47 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:47 INFO  epoch 160 training [time: 0.17s, train loss: 3.1737]
+Thu 18 Apr 2024 14:28:47 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:47 INFO  epoch 161 training [time: 0.17s, train loss: 3.1925]
+Thu 18 Apr 2024 14:28:47 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:47 INFO  epoch 162 training [time: 0.18s, train loss: 3.2086]
+Thu 18 Apr 2024 14:28:47 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:48 INFO  epoch 163 training [time: 0.16s, train loss: 3.1925]
+Thu 18 Apr 2024 14:28:48 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:48 INFO  epoch 164 training [time: 0.16s, train loss: 3.1169]
+Thu 18 Apr 2024 14:28:48 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:48 INFO  epoch 165 training [time: 0.16s, train loss: 3.1695]
+Thu 18 Apr 2024 14:28:48 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:48 INFO  epoch 166 training [time: 0.18s, train loss: 3.1091]
+Thu 18 Apr 2024 14:28:48 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:48 INFO  epoch 167 training [time: 0.17s, train loss: 3.1209]
+Thu 18 Apr 2024 14:28:48 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:49 INFO  epoch 168 training [time: 0.18s, train loss: 3.0345]
+Thu 18 Apr 2024 14:28:49 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:49 INFO  epoch 169 training [time: 0.19s, train loss: 3.1307]
+Thu 18 Apr 2024 14:28:49 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:49 INFO  epoch 170 training [time: 0.20s, train loss: 3.0486]
+Thu 18 Apr 2024 14:28:49 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:49 INFO  epoch 171 training [time: 0.17s, train loss: 3.0842]
+Thu 18 Apr 2024 14:28:49 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:49 INFO  epoch 172 training [time: 0.18s, train loss: 3.0825]
+Thu 18 Apr 2024 14:28:49 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:49 INFO  epoch 173 training [time: 0.18s, train loss: 3.1082]
+Thu 18 Apr 2024 14:28:49 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:50 INFO  epoch 174 training [time: 0.18s, train loss: 2.9159]
+Thu 18 Apr 2024 14:28:50 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:50 INFO  epoch 175 training [time: 0.17s, train loss: 2.8897]
+Thu 18 Apr 2024 14:28:50 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:50 INFO  epoch 176 training [time: 0.17s, train loss: 3.0075]
+Thu 18 Apr 2024 14:28:50 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:50 INFO  epoch 177 training [time: 0.17s, train loss: 2.9045]
+Thu 18 Apr 2024 14:28:50 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:50 INFO  epoch 178 training [time: 0.17s, train loss: 2.9582]
+Thu 18 Apr 2024 14:28:50 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:50 INFO  epoch 179 training [time: 0.16s, train loss: 2.9020]
+Thu 18 Apr 2024 14:28:50 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:51 INFO  epoch 180 training [time: 0.17s, train loss: 2.8218]
+Thu 18 Apr 2024 14:28:51 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:51 INFO  epoch 181 training [time: 0.17s, train loss: 2.9292]
+Thu 18 Apr 2024 14:28:51 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:51 INFO  epoch 182 training [time: 0.17s, train loss: 2.8362]
+Thu 18 Apr 2024 14:28:51 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:51 INFO  epoch 183 training [time: 0.17s, train loss: 2.7956]
+Thu 18 Apr 2024 14:28:51 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:51 INFO  epoch 184 training [time: 0.17s, train loss: 2.7430]
+Thu 18 Apr 2024 14:28:51 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:52 INFO  epoch 185 training [time: 0.18s, train loss: 2.9156]
+Thu 18 Apr 2024 14:28:52 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:52 INFO  epoch 186 training [time: 0.17s, train loss: 2.8315]
+Thu 18 Apr 2024 14:28:52 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:52 INFO  epoch 187 training [time: 0.17s, train loss: 2.7314]
+Thu 18 Apr 2024 14:28:52 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:52 INFO  epoch 188 training [time: 0.17s, train loss: 2.7883]
+Thu 18 Apr 2024 14:28:52 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:52 INFO  epoch 189 training [time: 0.17s, train loss: 2.7485]
+Thu 18 Apr 2024 14:28:52 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:52 INFO  epoch 190 training [time: 0.16s, train loss: 2.7305]
+Thu 18 Apr 2024 14:28:52 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:53 INFO  epoch 191 training [time: 0.17s, train loss: 2.7407]
+Thu 18 Apr 2024 14:28:53 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:53 INFO  epoch 192 training [time: 0.16s, train loss: 2.7091]
+Thu 18 Apr 2024 14:28:53 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:53 INFO  epoch 193 training [time: 0.18s, train loss: 2.7508]
+Thu 18 Apr 2024 14:28:53 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:53 INFO  epoch 194 training [time: 0.17s, train loss: 2.8066]
+Thu 18 Apr 2024 14:28:53 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:53 INFO  epoch 195 training [time: 0.16s, train loss: 2.7335]
+Thu 18 Apr 2024 14:28:53 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:53 INFO  epoch 196 training [time: 0.17s, train loss: 2.7061]
+Thu 18 Apr 2024 14:28:53 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:54 INFO  epoch 197 training [time: 0.18s, train loss: 2.6795]
+Thu 18 Apr 2024 14:28:54 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:54 INFO  epoch 198 training [time: 0.17s, train loss: 2.6838]
+Thu 18 Apr 2024 14:28:54 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:54 INFO  epoch 199 training [time: 0.18s, train loss: 2.6699]
+Thu 18 Apr 2024 14:28:54 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:54 INFO  epoch 200 training [time: 0.18s, train loss: 2.6040]
+Thu 18 Apr 2024 14:28:54 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:54 INFO  epoch 201 training [time: 0.18s, train loss: 2.6674]
+Thu 18 Apr 2024 14:28:54 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:55 INFO  epoch 202 training [time: 0.16s, train loss: 2.5759]
+Thu 18 Apr 2024 14:28:55 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:55 INFO  epoch 203 training [time: 0.16s, train loss: 2.6013]
+Thu 18 Apr 2024 14:28:55 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:55 INFO  epoch 204 training [time: 0.17s, train loss: 2.5971]
+Thu 18 Apr 2024 14:28:55 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:55 INFO  epoch 205 training [time: 0.17s, train loss: 2.5412]
+Thu 18 Apr 2024 14:28:55 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:55 INFO  epoch 206 training [time: 0.17s, train loss: 2.5938]
+Thu 18 Apr 2024 14:28:55 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:55 INFO  epoch 207 training [time: 0.17s, train loss: 2.5398]
+Thu 18 Apr 2024 14:28:55 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:56 INFO  epoch 208 training [time: 0.16s, train loss: 2.6229]
+Thu 18 Apr 2024 14:28:56 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:56 INFO  epoch 209 training [time: 0.17s, train loss: 2.6015]
+Thu 18 Apr 2024 14:28:56 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:56 INFO  epoch 210 training [time: 0.17s, train loss: 2.6085]
+Thu 18 Apr 2024 14:28:56 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:56 INFO  epoch 211 training [time: 0.16s, train loss: 2.4787]
+Thu 18 Apr 2024 14:28:56 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:56 INFO  epoch 212 training [time: 0.16s, train loss: 2.5284]
+Thu 18 Apr 2024 14:28:56 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:56 INFO  epoch 213 training [time: 0.18s, train loss: 2.6270]
+Thu 18 Apr 2024 14:28:56 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:57 INFO  epoch 214 training [time: 0.17s, train loss: 2.5493]
+Thu 18 Apr 2024 14:28:57 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:57 INFO  epoch 215 training [time: 0.17s, train loss: 2.5466]
+Thu 18 Apr 2024 14:28:57 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:57 INFO  epoch 216 training [time: 0.17s, train loss: 2.3893]
+Thu 18 Apr 2024 14:28:57 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:57 INFO  epoch 217 training [time: 0.18s, train loss: 2.4585]
+Thu 18 Apr 2024 14:28:57 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:57 INFO  epoch 218 training [time: 0.17s, train loss: 2.4600]
+Thu 18 Apr 2024 14:28:57 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:57 INFO  epoch 219 training [time: 0.17s, train loss: 2.4999]
+Thu 18 Apr 2024 14:28:58 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:58 INFO  epoch 220 training [time: 0.18s, train loss: 2.4087]
+Thu 18 Apr 2024 14:28:58 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:58 INFO  epoch 221 training [time: 0.17s, train loss: 2.3825]
+Thu 18 Apr 2024 14:28:58 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:58 INFO  epoch 222 training [time: 0.16s, train loss: 2.4568]
+Thu 18 Apr 2024 14:28:58 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:58 INFO  epoch 223 training [time: 0.17s, train loss: 2.4127]
+Thu 18 Apr 2024 14:28:58 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:58 INFO  epoch 224 training [time: 0.16s, train loss: 2.5342]
+Thu 18 Apr 2024 14:28:58 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:59 INFO  epoch 225 training [time: 0.18s, train loss: 2.3756]
+Thu 18 Apr 2024 14:28:59 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:59 INFO  epoch 226 training [time: 0.17s, train loss: 2.3905]
+Thu 18 Apr 2024 14:28:59 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:59 INFO  epoch 227 training [time: 0.17s, train loss: 2.3629]
+Thu 18 Apr 2024 14:28:59 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:59 INFO  epoch 228 training [time: 0.17s, train loss: 2.4105]
+Thu 18 Apr 2024 14:28:59 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:59 INFO  epoch 229 training [time: 0.18s, train loss: 2.3942]
+Thu 18 Apr 2024 14:28:59 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:28:59 INFO  epoch 230 training [time: 0.17s, train loss: 2.3914]
+Thu 18 Apr 2024 14:28:59 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:00 INFO  epoch 231 training [time: 0.17s, train loss: 2.3689]
+Thu 18 Apr 2024 14:29:00 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:00 INFO  epoch 232 training [time: 0.17s, train loss: 2.3717]
+Thu 18 Apr 2024 14:29:00 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:00 INFO  epoch 233 training [time: 0.18s, train loss: 2.3765]
+Thu 18 Apr 2024 14:29:00 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:00 INFO  epoch 234 training [time: 0.18s, train loss: 2.3560]
+Thu 18 Apr 2024 14:29:00 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:00 INFO  epoch 235 training [time: 0.17s, train loss: 2.2615]
+Thu 18 Apr 2024 14:29:00 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:00 INFO  epoch 236 training [time: 0.17s, train loss: 2.2958]
+Thu 18 Apr 2024 14:29:00 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:01 INFO  epoch 237 training [time: 0.18s, train loss: 2.3122]
+Thu 18 Apr 2024 14:29:01 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:01 INFO  epoch 238 training [time: 0.18s, train loss: 2.2403]
+Thu 18 Apr 2024 14:29:01 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:01 INFO  epoch 239 training [time: 0.17s, train loss: 2.3574]
+Thu 18 Apr 2024 14:29:01 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:01 INFO  epoch 240 training [time: 0.18s, train loss: 2.2470]
+Thu 18 Apr 2024 14:29:01 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:01 INFO  epoch 241 training [time: 0.17s, train loss: 2.2578]
+Thu 18 Apr 2024 14:29:01 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:02 INFO  epoch 242 training [time: 0.17s, train loss: 2.2320]
+Thu 18 Apr 2024 14:29:02 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:02 INFO  epoch 243 training [time: 0.16s, train loss: 2.2105]
+Thu 18 Apr 2024 14:29:02 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:02 INFO  epoch 244 training [time: 0.18s, train loss: 2.2234]
+Thu 18 Apr 2024 14:29:02 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:02 INFO  epoch 245 training [time: 0.16s, train loss: 2.2351]
+Thu 18 Apr 2024 14:29:02 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:02 INFO  epoch 246 training [time: 0.16s, train loss: 2.2238]
+Thu 18 Apr 2024 14:29:02 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:02 INFO  epoch 247 training [time: 0.16s, train loss: 2.3139]
+Thu 18 Apr 2024 14:29:02 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:03 INFO  epoch 248 training [time: 0.17s, train loss: 2.2617]
+Thu 18 Apr 2024 14:29:03 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:03 INFO  epoch 249 training [time: 0.17s, train loss: 2.1895]
+Thu 18 Apr 2024 14:29:03 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:03 INFO  epoch 250 training [time: 0.17s, train loss: 2.2411]
+Thu 18 Apr 2024 14:29:03 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:03 INFO  epoch 251 training [time: 0.17s, train loss: 2.1828]
+Thu 18 Apr 2024 14:29:03 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:03 INFO  epoch 252 training [time: 0.18s, train loss: 2.1394]
+Thu 18 Apr 2024 14:29:03 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:03 INFO  epoch 253 training [time: 0.17s, train loss: 2.2013]
+Thu 18 Apr 2024 14:29:03 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:04 INFO  epoch 254 training [time: 0.16s, train loss: 2.1456]
+Thu 18 Apr 2024 14:29:04 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:04 INFO  epoch 255 training [time: 0.17s, train loss: 2.1975]
+Thu 18 Apr 2024 14:29:04 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:04 INFO  epoch 256 training [time: 0.18s, train loss: 2.2427]
+Thu 18 Apr 2024 14:29:04 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:04 INFO  epoch 257 training [time: 0.17s, train loss: 2.1212]
+Thu 18 Apr 2024 14:29:04 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:04 INFO  epoch 258 training [time: 0.17s, train loss: 2.1831]
+Thu 18 Apr 2024 14:29:04 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:05 INFO  epoch 259 training [time: 0.17s, train loss: 2.1446]
+Thu 18 Apr 2024 14:29:05 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:05 INFO  epoch 260 training [time: 0.18s, train loss: 2.0779]
+Thu 18 Apr 2024 14:29:05 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:05 INFO  epoch 261 training [time: 0.17s, train loss: 2.1029]
+Thu 18 Apr 2024 14:29:05 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:05 INFO  epoch 262 training [time: 0.17s, train loss: 2.1887]
+Thu 18 Apr 2024 14:29:05 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:05 INFO  epoch 263 training [time: 0.17s, train loss: 2.1733]
+Thu 18 Apr 2024 14:29:05 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:05 INFO  epoch 264 training [time: 0.17s, train loss: 2.1374]
+Thu 18 Apr 2024 14:29:05 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:06 INFO  epoch 265 training [time: 0.17s, train loss: 2.1253]
+Thu 18 Apr 2024 14:29:06 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:06 INFO  epoch 266 training [time: 0.17s, train loss: 2.1324]
+Thu 18 Apr 2024 14:29:06 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:06 INFO  epoch 267 training [time: 0.17s, train loss: 2.1318]
+Thu 18 Apr 2024 14:29:06 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:06 INFO  epoch 268 training [time: 0.19s, train loss: 2.0647]
+Thu 18 Apr 2024 14:29:06 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:06 INFO  epoch 269 training [time: 0.17s, train loss: 2.0793]
+Thu 18 Apr 2024 14:29:06 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:06 INFO  epoch 270 training [time: 0.17s, train loss: 2.1661]
+Thu 18 Apr 2024 14:29:06 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:07 INFO  epoch 271 training [time: 0.17s, train loss: 2.0795]
+Thu 18 Apr 2024 14:29:07 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:07 INFO  epoch 272 training [time: 0.18s, train loss: 2.1319]
+Thu 18 Apr 2024 14:29:07 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:07 INFO  epoch 273 training [time: 0.17s, train loss: 2.1188]
+Thu 18 Apr 2024 14:29:07 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:07 INFO  epoch 274 training [time: 0.17s, train loss: 2.0610]
+Thu 18 Apr 2024 14:29:07 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:07 INFO  epoch 275 training [time: 0.17s, train loss: 2.0886]
+Thu 18 Apr 2024 14:29:07 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:08 INFO  epoch 276 training [time: 0.18s, train loss: 2.1407]
+Thu 18 Apr 2024 14:29:08 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:08 INFO  epoch 277 training [time: 0.17s, train loss: 1.9996]
+Thu 18 Apr 2024 14:29:08 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:08 INFO  epoch 278 training [time: 0.18s, train loss: 2.0524]
+Thu 18 Apr 2024 14:29:08 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:08 INFO  epoch 279 training [time: 0.16s, train loss: 2.0104]
+Thu 18 Apr 2024 14:29:08 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:08 INFO  epoch 280 training [time: 0.18s, train loss: 2.0294]
+Thu 18 Apr 2024 14:29:08 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:08 INFO  epoch 281 training [time: 0.16s, train loss: 1.9959]
+Thu 18 Apr 2024 14:29:08 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:09 INFO  epoch 282 training [time: 0.16s, train loss: 2.0169]
+Thu 18 Apr 2024 14:29:09 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:09 INFO  epoch 283 training [time: 0.16s, train loss: 1.9992]
+Thu 18 Apr 2024 14:29:09 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:09 INFO  epoch 284 training [time: 0.18s, train loss: 1.9639]
+Thu 18 Apr 2024 14:29:09 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:09 INFO  epoch 285 training [time: 0.17s, train loss: 1.9554]
+Thu 18 Apr 2024 14:29:09 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:09 INFO  epoch 286 training [time: 0.17s, train loss: 1.9461]
+Thu 18 Apr 2024 14:29:09 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:09 INFO  epoch 287 training [time: 0.17s, train loss: 1.9581]
+Thu 18 Apr 2024 14:29:09 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:10 INFO  epoch 288 training [time: 0.18s, train loss: 2.0350]
+Thu 18 Apr 2024 14:29:10 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:10 INFO  epoch 289 training [time: 0.16s, train loss: 1.9349]
+Thu 18 Apr 2024 14:29:10 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:10 INFO  epoch 290 training [time: 0.16s, train loss: 2.0244]
+Thu 18 Apr 2024 14:29:10 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:10 INFO  epoch 291 training [time: 0.16s, train loss: 1.9349]
+Thu 18 Apr 2024 14:29:10 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:10 INFO  epoch 292 training [time: 0.18s, train loss: 1.9559]
+Thu 18 Apr 2024 14:29:10 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:10 INFO  epoch 293 training [time: 0.17s, train loss: 1.9583]
+Thu 18 Apr 2024 14:29:10 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:11 INFO  epoch 294 training [time: 0.17s, train loss: 1.9899]
+Thu 18 Apr 2024 14:29:11 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:11 INFO  epoch 295 training [time: 0.16s, train loss: 2.0198]
+Thu 18 Apr 2024 14:29:11 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:11 INFO  epoch 296 training [time: 0.17s, train loss: 2.0085]
+Thu 18 Apr 2024 14:29:11 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:11 INFO  epoch 297 training [time: 0.17s, train loss: 1.9682]
+Thu 18 Apr 2024 14:29:11 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:11 INFO  epoch 298 training [time: 0.16s, train loss: 1.9318]
+Thu 18 Apr 2024 14:29:11 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:12 INFO  epoch 299 training [time: 0.16s, train loss: 1.9168]
+Thu 18 Apr 2024 14:29:12 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:12 INFO  epoch 300 training [time: 0.18s, train loss: 1.9082]
+Thu 18 Apr 2024 14:29:12 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:12 INFO  epoch 301 training [time: 0.17s, train loss: 1.9216]
+Thu 18 Apr 2024 14:29:12 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:12 INFO  epoch 302 training [time: 0.17s, train loss: 1.9186]
+Thu 18 Apr 2024 14:29:12 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:12 INFO  epoch 303 training [time: 0.17s, train loss: 1.8828]
+Thu 18 Apr 2024 14:29:12 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:12 INFO  epoch 304 training [time: 0.19s, train loss: 1.9610]
+Thu 18 Apr 2024 14:29:12 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:13 INFO  epoch 305 training [time: 0.17s, train loss: 1.8901]
+Thu 18 Apr 2024 14:29:13 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:13 INFO  epoch 306 training [time: 0.17s, train loss: 1.8690]
+Thu 18 Apr 2024 14:29:13 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:13 INFO  epoch 307 training [time: 0.17s, train loss: 1.9204]
+Thu 18 Apr 2024 14:29:13 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:13 INFO  epoch 308 training [time: 0.18s, train loss: 1.8670]
+Thu 18 Apr 2024 14:29:13 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:13 INFO  epoch 309 training [time: 0.17s, train loss: 1.8859]
+Thu 18 Apr 2024 14:29:13 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:13 INFO  epoch 310 training [time: 0.17s, train loss: 1.9050]
+Thu 18 Apr 2024 14:29:13 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:14 INFO  epoch 311 training [time: 0.17s, train loss: 1.8671]
+Thu 18 Apr 2024 14:29:14 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:14 INFO  epoch 312 training [time: 0.17s, train loss: 1.9018]
+Thu 18 Apr 2024 14:29:14 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:14 INFO  epoch 313 training [time: 0.17s, train loss: 1.8824]
+Thu 18 Apr 2024 14:29:14 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:14 INFO  epoch 314 training [time: 0.17s, train loss: 1.8553]
+Thu 18 Apr 2024 14:29:14 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:14 INFO  epoch 315 training [time: 0.17s, train loss: 1.8378]
+Thu 18 Apr 2024 14:29:14 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:14 INFO  epoch 316 training [time: 0.17s, train loss: 1.8559]
+Thu 18 Apr 2024 14:29:14 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:15 INFO  epoch 317 training [time: 0.16s, train loss: 1.8142]
+Thu 18 Apr 2024 14:29:15 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:15 INFO  epoch 318 training [time: 0.17s, train loss: 1.8069]
+Thu 18 Apr 2024 14:29:15 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:15 INFO  epoch 319 training [time: 0.17s, train loss: 1.7921]
+Thu 18 Apr 2024 14:29:15 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:15 INFO  epoch 320 training [time: 0.18s, train loss: 1.9083]
+Thu 18 Apr 2024 14:29:15 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:15 INFO  epoch 321 training [time: 0.16s, train loss: 1.8142]
+Thu 18 Apr 2024 14:29:15 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:16 INFO  epoch 322 training [time: 0.17s, train loss: 1.8269]
+Thu 18 Apr 2024 14:29:16 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:16 INFO  epoch 323 training [time: 0.16s, train loss: 1.7915]
+Thu 18 Apr 2024 14:29:16 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:16 INFO  epoch 324 training [time: 0.18s, train loss: 1.8493]
+Thu 18 Apr 2024 14:29:16 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:16 INFO  epoch 325 training [time: 0.16s, train loss: 1.7554]
+Thu 18 Apr 2024 14:29:16 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:16 INFO  epoch 326 training [time: 0.16s, train loss: 1.8174]
+Thu 18 Apr 2024 14:29:16 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:16 INFO  epoch 327 training [time: 0.17s, train loss: 1.8181]
+Thu 18 Apr 2024 14:29:16 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:17 INFO  epoch 328 training [time: 0.18s, train loss: 1.8144]
+Thu 18 Apr 2024 14:29:17 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:17 INFO  epoch 329 training [time: 0.17s, train loss: 1.8004]
+Thu 18 Apr 2024 14:29:17 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:17 INFO  epoch 330 training [time: 0.17s, train loss: 1.8376]
+Thu 18 Apr 2024 14:29:17 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:17 INFO  epoch 331 training [time: 0.17s, train loss: 1.7232]
+Thu 18 Apr 2024 14:29:17 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:17 INFO  epoch 332 training [time: 0.18s, train loss: 1.7963]
+Thu 18 Apr 2024 14:29:17 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:17 INFO  epoch 333 training [time: 0.17s, train loss: 1.7238]
+Thu 18 Apr 2024 14:29:17 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:18 INFO  epoch 334 training [time: 0.17s, train loss: 1.7634]
+Thu 18 Apr 2024 14:29:18 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:18 INFO  epoch 335 training [time: 0.17s, train loss: 1.7363]
+Thu 18 Apr 2024 14:29:18 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:18 INFO  epoch 336 training [time: 0.18s, train loss: 1.8108]
+Thu 18 Apr 2024 14:29:18 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:18 INFO  epoch 337 training [time: 0.16s, train loss: 1.7426]
+Thu 18 Apr 2024 14:29:18 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:18 INFO  epoch 338 training [time: 0.17s, train loss: 1.7337]
+Thu 18 Apr 2024 14:29:18 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:18 INFO  epoch 339 training [time: 0.17s, train loss: 1.8004]
+Thu 18 Apr 2024 14:29:18 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:19 INFO  epoch 340 training [time: 0.18s, train loss: 1.7154]
+Thu 18 Apr 2024 14:29:19 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:19 INFO  epoch 341 training [time: 0.18s, train loss: 1.7781]
+Thu 18 Apr 2024 14:29:19 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:19 INFO  epoch 342 training [time: 0.18s, train loss: 1.7394]
+Thu 18 Apr 2024 14:29:19 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:19 INFO  epoch 343 training [time: 0.19s, train loss: 1.7349]
+Thu 18 Apr 2024 14:29:19 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:19 INFO  epoch 344 training [time: 0.17s, train loss: 1.7905]
+Thu 18 Apr 2024 14:29:19 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:20 INFO  epoch 345 training [time: 0.16s, train loss: 1.7111]
+Thu 18 Apr 2024 14:29:20 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:20 INFO  epoch 346 training [time: 0.16s, train loss: 1.6571]
+Thu 18 Apr 2024 14:29:20 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:20 INFO  epoch 347 training [time: 0.18s, train loss: 1.7300]
+Thu 18 Apr 2024 14:29:20 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:20 INFO  epoch 348 training [time: 0.17s, train loss: 1.6789]
+Thu 18 Apr 2024 14:29:20 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:20 INFO  epoch 349 training [time: 0.16s, train loss: 1.7062]
+Thu 18 Apr 2024 14:29:20 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:20 INFO  epoch 350 training [time: 0.17s, train loss: 1.7025]
+Thu 18 Apr 2024 14:29:20 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:21 INFO  epoch 351 training [time: 0.18s, train loss: 1.7077]
+Thu 18 Apr 2024 14:29:21 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:21 INFO  epoch 352 training [time: 0.18s, train loss: 1.7392]
+Thu 18 Apr 2024 14:29:21 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:21 INFO  epoch 353 training [time: 0.17s, train loss: 1.6775]
+Thu 18 Apr 2024 14:29:21 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:21 INFO  epoch 354 training [time: 0.17s, train loss: 1.6066]
+Thu 18 Apr 2024 14:29:21 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:21 INFO  epoch 355 training [time: 0.18s, train loss: 1.7032]
+Thu 18 Apr 2024 14:29:21 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:22 INFO  epoch 356 training [time: 0.17s, train loss: 1.6908]
+Thu 18 Apr 2024 14:29:22 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:22 INFO  epoch 357 training [time: 0.16s, train loss: 1.6551]
+Thu 18 Apr 2024 14:29:22 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:22 INFO  epoch 358 training [time: 0.16s, train loss: 1.7249]
+Thu 18 Apr 2024 14:29:22 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:22 INFO  epoch 359 training [time: 0.17s, train loss: 1.6648]
+Thu 18 Apr 2024 14:29:22 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:22 INFO  epoch 360 training [time: 0.17s, train loss: 1.6697]
+Thu 18 Apr 2024 14:29:22 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:22 INFO  epoch 361 training [time: 0.17s, train loss: 1.6361]
+Thu 18 Apr 2024 14:29:22 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:23 INFO  epoch 362 training [time: 0.17s, train loss: 1.6598]
+Thu 18 Apr 2024 14:29:23 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:23 INFO  epoch 363 training [time: 0.18s, train loss: 1.6463]
+Thu 18 Apr 2024 14:29:23 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:23 INFO  epoch 364 training [time: 0.17s, train loss: 1.6771]
+Thu 18 Apr 2024 14:29:23 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:23 INFO  epoch 365 training [time: 0.17s, train loss: 1.6057]
+Thu 18 Apr 2024 14:29:23 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:23 INFO  epoch 366 training [time: 0.17s, train loss: 1.6756]
+Thu 18 Apr 2024 14:29:23 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:23 INFO  epoch 367 training [time: 0.17s, train loss: 1.6394]
+Thu 18 Apr 2024 14:29:23 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:24 INFO  epoch 368 training [time: 0.17s, train loss: 1.6778]
+Thu 18 Apr 2024 14:29:24 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:24 INFO  epoch 369 training [time: 0.17s, train loss: 1.6797]
+Thu 18 Apr 2024 14:29:24 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:24 INFO  epoch 370 training [time: 0.17s, train loss: 1.6142]
+Thu 18 Apr 2024 14:29:24 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:24 INFO  epoch 371 training [time: 0.17s, train loss: 1.6083]
+Thu 18 Apr 2024 14:29:24 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:24 INFO  epoch 372 training [time: 0.17s, train loss: 1.7561]
+Thu 18 Apr 2024 14:29:24 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:24 INFO  epoch 373 training [time: 0.17s, train loss: 1.6747]
+Thu 18 Apr 2024 14:29:24 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:25 INFO  epoch 374 training [time: 0.16s, train loss: 1.6228]
+Thu 18 Apr 2024 14:29:25 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:25 INFO  epoch 375 training [time: 0.18s, train loss: 1.6064]
+Thu 18 Apr 2024 14:29:25 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:25 INFO  epoch 376 training [time: 0.17s, train loss: 1.6187]
+Thu 18 Apr 2024 14:29:25 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:25 INFO  epoch 377 training [time: 0.16s, train loss: 1.5552]
+Thu 18 Apr 2024 14:29:25 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:25 INFO  epoch 378 training [time: 0.16s, train loss: 1.6385]
+Thu 18 Apr 2024 14:29:25 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:26 INFO  epoch 379 training [time: 0.18s, train loss: 1.6282]
+Thu 18 Apr 2024 14:29:26 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:26 INFO  epoch 380 training [time: 0.17s, train loss: 1.6152]
+Thu 18 Apr 2024 14:29:26 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:26 INFO  epoch 381 training [time: 0.17s, train loss: 1.6550]
+Thu 18 Apr 2024 14:29:26 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:26 INFO  epoch 382 training [time: 0.17s, train loss: 1.5563]
+Thu 18 Apr 2024 14:29:26 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:26 INFO  epoch 383 training [time: 0.18s, train loss: 1.5877]
+Thu 18 Apr 2024 14:29:26 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:26 INFO  epoch 384 training [time: 0.16s, train loss: 1.6386]
+Thu 18 Apr 2024 14:29:26 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:27 INFO  epoch 385 training [time: 0.16s, train loss: 1.5945]
+Thu 18 Apr 2024 14:29:27 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:27 INFO  epoch 386 training [time: 0.16s, train loss: 1.5233]
+Thu 18 Apr 2024 14:29:27 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:27 INFO  epoch 387 training [time: 0.17s, train loss: 1.5996]
+Thu 18 Apr 2024 14:29:27 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:27 INFO  epoch 388 training [time: 0.16s, train loss: 1.6201]
+Thu 18 Apr 2024 14:29:27 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:27 INFO  epoch 389 training [time: 0.17s, train loss: 1.5330]
+Thu 18 Apr 2024 14:29:27 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:27 INFO  epoch 390 training [time: 0.17s, train loss: 1.5801]
+Thu 18 Apr 2024 14:29:27 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:28 INFO  epoch 391 training [time: 0.18s, train loss: 1.5681]
+Thu 18 Apr 2024 14:29:28 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:28 INFO  epoch 392 training [time: 0.17s, train loss: 1.5386]
+Thu 18 Apr 2024 14:29:28 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:28 INFO  epoch 393 training [time: 0.16s, train loss: 1.5956]
+Thu 18 Apr 2024 14:29:28 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:28 INFO  epoch 394 training [time: 0.16s, train loss: 1.5349]
+Thu 18 Apr 2024 14:29:28 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:28 INFO  epoch 395 training [time: 0.18s, train loss: 1.5336]
+Thu 18 Apr 2024 14:29:28 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:28 INFO  epoch 396 training [time: 0.17s, train loss: 1.5690]
+Thu 18 Apr 2024 14:29:28 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:29 INFO  epoch 397 training [time: 0.17s, train loss: 1.5929]
+Thu 18 Apr 2024 14:29:29 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:29 INFO  epoch 398 training [time: 0.17s, train loss: 1.5102]
+Thu 18 Apr 2024 14:29:29 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:29 INFO  epoch 399 training [time: 0.18s, train loss: 1.5299]
+Thu 18 Apr 2024 14:29:29 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:29 INFO  epoch 400 training [time: 0.17s, train loss: 1.5233]
+Thu 18 Apr 2024 14:29:29 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:29 INFO  epoch 401 training [time: 0.17s, train loss: 1.5765]
+Thu 18 Apr 2024 14:29:29 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:30 INFO  epoch 402 training [time: 0.18s, train loss: 1.5570]
+Thu 18 Apr 2024 14:29:30 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:30 INFO  epoch 403 training [time: 0.18s, train loss: 1.5159]
+Thu 18 Apr 2024 14:29:30 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:30 INFO  epoch 404 training [time: 0.17s, train loss: 1.5672]
+Thu 18 Apr 2024 14:29:30 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:30 INFO  epoch 405 training [time: 0.17s, train loss: 1.5216]
+Thu 18 Apr 2024 14:29:30 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:30 INFO  epoch 406 training [time: 0.17s, train loss: 1.5356]
+Thu 18 Apr 2024 14:29:30 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:30 INFO  epoch 407 training [time: 0.17s, train loss: 1.5725]
+Thu 18 Apr 2024 14:29:30 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:31 INFO  epoch 408 training [time: 0.16s, train loss: 1.5598]
+Thu 18 Apr 2024 14:29:31 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:31 INFO  epoch 409 training [time: 0.18s, train loss: 1.5225]
+Thu 18 Apr 2024 14:29:31 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:31 INFO  epoch 410 training [time: 0.18s, train loss: 1.5311]
+Thu 18 Apr 2024 14:29:31 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:31 INFO  epoch 411 training [time: 0.17s, train loss: 1.5220]
+Thu 18 Apr 2024 14:29:31 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:31 INFO  epoch 412 training [time: 0.16s, train loss: 1.4347]
+Thu 18 Apr 2024 14:29:31 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:31 INFO  epoch 413 training [time: 0.17s, train loss: 1.5209]
+Thu 18 Apr 2024 14:29:31 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:32 INFO  epoch 414 training [time: 0.18s, train loss: 1.5213]
+Thu 18 Apr 2024 14:29:32 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:32 INFO  epoch 415 training [time: 0.17s, train loss: 1.4872]
+Thu 18 Apr 2024 14:29:32 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:32 INFO  epoch 416 training [time: 0.17s, train loss: 1.5703]
+Thu 18 Apr 2024 14:29:32 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:32 INFO  epoch 417 training [time: 0.17s, train loss: 1.5261]
+Thu 18 Apr 2024 14:29:32 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:32 INFO  epoch 418 training [time: 0.18s, train loss: 1.4986]
+Thu 18 Apr 2024 14:29:32 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:33 INFO  epoch 419 training [time: 0.17s, train loss: 1.4165]
+Thu 18 Apr 2024 14:29:33 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:33 INFO  epoch 420 training [time: 0.17s, train loss: 1.5047]
+Thu 18 Apr 2024 14:29:33 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:33 INFO  epoch 421 training [time: 0.16s, train loss: 1.4640]
+Thu 18 Apr 2024 14:29:33 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:33 INFO  epoch 422 training [time: 0.18s, train loss: 1.4709]
+Thu 18 Apr 2024 14:29:33 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:33 INFO  epoch 423 training [time: 0.17s, train loss: 1.4872]
+Thu 18 Apr 2024 14:29:33 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:33 INFO  epoch 424 training [time: 0.17s, train loss: 1.5289]
+Thu 18 Apr 2024 14:29:33 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:34 INFO  epoch 425 training [time: 0.17s, train loss: 1.4365]
+Thu 18 Apr 2024 14:29:34 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:34 INFO  epoch 426 training [time: 0.18s, train loss: 1.4882]
+Thu 18 Apr 2024 14:29:34 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:34 INFO  epoch 427 training [time: 0.17s, train loss: 1.4681]
+Thu 18 Apr 2024 14:29:34 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:34 INFO  epoch 428 training [time: 0.16s, train loss: 1.4477]
+Thu 18 Apr 2024 14:29:34 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:34 INFO  epoch 429 training [time: 0.17s, train loss: 1.4619]
+Thu 18 Apr 2024 14:29:34 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:34 INFO  epoch 430 training [time: 0.18s, train loss: 1.4977]
+Thu 18 Apr 2024 14:29:34 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:35 INFO  epoch 431 training [time: 0.17s, train loss: 1.4925]
+Thu 18 Apr 2024 14:29:35 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:35 INFO  epoch 432 training [time: 0.16s, train loss: 1.5501]
+Thu 18 Apr 2024 14:29:35 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:35 INFO  epoch 433 training [time: 0.16s, train loss: 1.5179]
+Thu 18 Apr 2024 14:29:35 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:35 INFO  epoch 434 training [time: 0.18s, train loss: 1.4423]
+Thu 18 Apr 2024 14:29:35 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:35 INFO  epoch 435 training [time: 0.17s, train loss: 1.5027]
+Thu 18 Apr 2024 14:29:35 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:35 INFO  epoch 436 training [time: 0.16s, train loss: 1.4865]
+Thu 18 Apr 2024 14:29:35 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:36 INFO  epoch 437 training [time: 0.16s, train loss: 1.4769]
+Thu 18 Apr 2024 14:29:36 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:36 INFO  epoch 438 training [time: 0.17s, train loss: 1.4043]
+Thu 18 Apr 2024 14:29:36 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:36 INFO  epoch 439 training [time: 0.17s, train loss: 1.5460]
+Thu 18 Apr 2024 14:29:36 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:36 INFO  epoch 440 training [time: 0.17s, train loss: 1.4230]
+Thu 18 Apr 2024 14:29:36 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:36 INFO  epoch 441 training [time: 0.17s, train loss: 1.4596]
+Thu 18 Apr 2024 14:29:36 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:37 INFO  epoch 442 training [time: 0.18s, train loss: 1.4237]
+Thu 18 Apr 2024 14:29:37 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:37 INFO  epoch 443 training [time: 0.17s, train loss: 1.4501]
+Thu 18 Apr 2024 14:29:37 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:37 INFO  epoch 444 training [time: 0.17s, train loss: 1.4161]
+Thu 18 Apr 2024 14:29:37 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:37 INFO  epoch 445 training [time: 0.17s, train loss: 1.4289]
+Thu 18 Apr 2024 14:29:37 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:37 INFO  epoch 446 training [time: 0.18s, train loss: 1.3921]
+Thu 18 Apr 2024 14:29:37 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:37 INFO  epoch 447 training [time: 0.18s, train loss: 1.4745]
+Thu 18 Apr 2024 14:29:37 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:38 INFO  epoch 448 training [time: 0.17s, train loss: 1.3932]
+Thu 18 Apr 2024 14:29:38 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:38 INFO  epoch 449 training [time: 0.18s, train loss: 1.4210]
+Thu 18 Apr 2024 14:29:38 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:38 INFO  epoch 450 training [time: 0.17s, train loss: 1.4175]
+Thu 18 Apr 2024 14:29:38 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:38 INFO  epoch 451 training [time: 0.17s, train loss: 1.4412]
+Thu 18 Apr 2024 14:29:38 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:38 INFO  epoch 452 training [time: 0.17s, train loss: 1.4867]
+Thu 18 Apr 2024 14:29:38 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:38 INFO  epoch 453 training [time: 0.17s, train loss: 1.3753]
+Thu 18 Apr 2024 14:29:38 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:39 INFO  epoch 454 training [time: 0.17s, train loss: 1.4421]
+Thu 18 Apr 2024 14:29:39 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:39 INFO  epoch 455 training [time: 0.17s, train loss: 1.4325]
+Thu 18 Apr 2024 14:29:39 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:39 INFO  epoch 456 training [time: 0.17s, train loss: 1.4373]
+Thu 18 Apr 2024 14:29:39 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:39 INFO  epoch 457 training [time: 0.18s, train loss: 1.4453]
+Thu 18 Apr 2024 14:29:39 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:39 INFO  epoch 458 training [time: 0.17s, train loss: 1.4001]
+Thu 18 Apr 2024 14:29:39 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:39 INFO  epoch 459 training [time: 0.17s, train loss: 1.3945]
+Thu 18 Apr 2024 14:29:40 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:40 INFO  epoch 460 training [time: 0.17s, train loss: 1.3996]
+Thu 18 Apr 2024 14:29:40 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:40 INFO  epoch 461 training [time: 0.19s, train loss: 1.3520]
+Thu 18 Apr 2024 14:29:40 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:40 INFO  epoch 462 training [time: 0.17s, train loss: 1.3358]
+Thu 18 Apr 2024 14:29:40 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:40 INFO  epoch 463 training [time: 0.17s, train loss: 1.3668]
+Thu 18 Apr 2024 14:29:40 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:40 INFO  epoch 464 training [time: 0.16s, train loss: 1.4225]
+Thu 18 Apr 2024 14:29:40 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:41 INFO  epoch 465 training [time: 0.17s, train loss: 1.3525]
+Thu 18 Apr 2024 14:29:41 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:41 INFO  epoch 466 training [time: 0.17s, train loss: 1.3920]
+Thu 18 Apr 2024 14:29:41 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:41 INFO  epoch 467 training [time: 0.16s, train loss: 1.3826]
+Thu 18 Apr 2024 14:29:41 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:41 INFO  epoch 468 training [time: 0.16s, train loss: 1.4415]
+Thu 18 Apr 2024 14:29:41 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:41 INFO  epoch 469 training [time: 0.18s, train loss: 1.4303]
+Thu 18 Apr 2024 14:29:41 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:41 INFO  epoch 470 training [time: 0.17s, train loss: 1.3990]
+Thu 18 Apr 2024 14:29:41 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:42 INFO  epoch 471 training [time: 0.17s, train loss: 1.3548]
+Thu 18 Apr 2024 14:29:42 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:42 INFO  epoch 472 training [time: 0.18s, train loss: 1.3296]
+Thu 18 Apr 2024 14:29:42 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:42 INFO  epoch 473 training [time: 0.18s, train loss: 1.3447]
+Thu 18 Apr 2024 14:29:42 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:42 INFO  epoch 474 training [time: 0.17s, train loss: 1.3901]
+Thu 18 Apr 2024 14:29:42 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:42 INFO  epoch 475 training [time: 0.17s, train loss: 1.4051]
+Thu 18 Apr 2024 14:29:42 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:42 INFO  epoch 476 training [time: 0.17s, train loss: 1.3535]
+Thu 18 Apr 2024 14:29:42 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:43 INFO  epoch 477 training [time: 0.18s, train loss: 1.3755]
+Thu 18 Apr 2024 14:29:43 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:43 INFO  epoch 478 training [time: 0.17s, train loss: 1.3564]
+Thu 18 Apr 2024 14:29:43 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:43 INFO  epoch 479 training [time: 0.17s, train loss: 1.4331]
+Thu 18 Apr 2024 14:29:43 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:43 INFO  epoch 480 training [time: 0.18s, train loss: 1.3757]
+Thu 18 Apr 2024 14:29:43 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:43 INFO  epoch 481 training [time: 0.18s, train loss: 1.3869]
+Thu 18 Apr 2024 14:29:43 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:44 INFO  epoch 482 training [time: 0.16s, train loss: 1.3378]
+Thu 18 Apr 2024 14:29:44 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:44 INFO  epoch 483 training [time: 0.17s, train loss: 1.3393]
+Thu 18 Apr 2024 14:29:44 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:44 INFO  epoch 484 training [time: 0.17s, train loss: 1.4149]
+Thu 18 Apr 2024 14:29:44 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:44 INFO  epoch 485 training [time: 0.18s, train loss: 1.3926]
+Thu 18 Apr 2024 14:29:44 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:44 INFO  epoch 486 training [time: 0.16s, train loss: 1.3122]
+Thu 18 Apr 2024 14:29:44 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:44 INFO  epoch 487 training [time: 0.17s, train loss: 1.3729]
+Thu 18 Apr 2024 14:29:44 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:45 INFO  epoch 488 training [time: 0.16s, train loss: 1.3686]
+Thu 18 Apr 2024 14:29:45 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:45 INFO  epoch 489 training [time: 0.18s, train loss: 1.3338]
+Thu 18 Apr 2024 14:29:45 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:45 INFO  epoch 490 training [time: 0.17s, train loss: 1.3087]
+Thu 18 Apr 2024 14:29:45 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:45 INFO  epoch 491 training [time: 0.17s, train loss: 1.3404]
+Thu 18 Apr 2024 14:29:45 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:45 INFO  epoch 492 training [time: 0.17s, train loss: 1.3234]
+Thu 18 Apr 2024 14:29:45 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:45 INFO  epoch 493 training [time: 0.18s, train loss: 1.3185]
+Thu 18 Apr 2024 14:29:45 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:46 INFO  epoch 494 training [time: 0.18s, train loss: 1.3021]
+Thu 18 Apr 2024 14:29:46 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:46 INFO  epoch 495 training [time: 0.18s, train loss: 1.3320]
+Thu 18 Apr 2024 14:29:46 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:46 INFO  epoch 496 training [time: 0.17s, train loss: 1.3197]
+Thu 18 Apr 2024 14:29:46 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:46 INFO  epoch 497 training [time: 0.18s, train loss: 1.2762]
+Thu 18 Apr 2024 14:29:46 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:46 INFO  epoch 498 training [time: 0.16s, train loss: 1.2806]
+Thu 18 Apr 2024 14:29:46 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:47 INFO  epoch 499 training [time: 0.17s, train loss: 1.2858]
+Thu 18 Apr 2024 14:29:47 INFO  Saving current: saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:47 INFO  Loading model structure and parameters from saved/BPR-Apr-18-2024_14-28-18.pth
+Thu 18 Apr 2024 14:29:48 INFO  The running environment of this training is as follows:
++-------------+----------------+
+| Environment |     Usage      |
++=============+================+
+| CPU         |     1.80 %     |
++-------------+----------------+
+| GPU         | 0.01 G/15.98 G |
++-------------+----------------+
+| Memory      | 1.10 G/15.47 G |
++-------------+----------------+
+Thu 18 Apr 2024 14:29:48 INFO  best valid : None
+Thu 18 Apr 2024 14:29:48 INFO  test result: OrderedDict([('recall@20', 0.269), ('mrr@20', 0.5132), ('ndcg@20', 0.2972), ('hit@20', 0.947), ('precision@20', 0.2006)])

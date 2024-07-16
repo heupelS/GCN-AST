@@ -1,0 +1,245 @@
+Tue 07 May 2024 18:44:27 INFO  ['run_recbole.py', '--model=ANS', '--dataset=ml-100k']
+Tue 07 May 2024 18:44:27 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 2020
+state = DEBUG
+reproducibility = True
+data_path = /home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k
+checkpoint_dir = saved
+show_progress = True
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = False
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 500
+train_batch_size = 2048
+learner = adam
+learning_rate = 0.0001
+train_neg_sample_args = {'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 4}
+eval_step = 1
+stopping_step = 100
+clip_grad_norm = None
+weight_decay = 0.0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}
+repeatable = False
+metrics = ['Recall', 'MRR', 'NDCG', 'Hit', 'Precision']
+topk = [20]
+valid_metric = MRR@20
+valid_metric_bigger = True
+eval_batch_size = 4096
+metric_decimal_place = 4
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = {'rating': 4.0}
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id', 'rating']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = None
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = None
+item_inter_num_interval = None
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = True
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+kg_reverse_r = False
+entity_kg_num_interval = None
+relation_kg_num_interval = None
+benchmark_filename = None
+
+Other Hyper Parameters: 
+worker = 0
+wandb_project = recbole
+shuffle = True
+require_pow = False
+enable_amp = False
+enable_scaler = False
+transform = None
+embedding_size = 64
+n_layers = 3
+reg_weight = 0.0001
+eps = 0.3
+gamma = 0.15
+numerical_features = []
+discretization = None
+MODEL_TYPE = ModelType.GENERAL
+MODEL_INPUT_TYPE = InputType.PAIRWISE
+eval_type = EvaluatorType.RANKING
+single_spec = True
+local_rank = 0
+device = cuda
+eval_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+
+
+Tue 07 May 2024 18:44:27 DEBUG  Loading <class 'recbole.data.dataset.dataset.Dataset'> from scratch.
+Tue 07 May 2024 18:44:27 DEBUG  uid_field: user_id
+Tue 07 May 2024 18:44:27 DEBUG  iid_field: item_id
+Tue 07 May 2024 18:44:27 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.inter] (source: [FeatureSource.INTERACTION]).
+Tue 07 May 2024 18:44:27 DEBUG  [inter]: 
+Tue 07 May 2024 18:44:27 DEBUG  	 load_col: [{'rating', 'item_id', 'user_id'}]
+Tue 07 May 2024 18:44:27 DEBUG  	 unload_col: [None]
+Tue 07 May 2024 18:44:27 DEBUG  Interaction feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.inter].
+Tue 07 May 2024 18:44:27 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.user] (source: [FeatureSource.USER]).
+Tue 07 May 2024 18:44:27 DEBUG  [user]: 
+Tue 07 May 2024 18:44:27 DEBUG  	 load_col: [set()]
+Tue 07 May 2024 18:44:27 DEBUG  	 unload_col: [None]
+Tue 07 May 2024 18:44:27 DEBUG  [user] feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.user].
+Tue 07 May 2024 18:44:27 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.item] (source: [FeatureSource.ITEM]).
+Tue 07 May 2024 18:44:27 DEBUG  [item]: 
+Tue 07 May 2024 18:44:27 DEBUG  	 load_col: [set()]
+Tue 07 May 2024 18:44:27 DEBUG  	 unload_col: [None]
+Tue 07 May 2024 18:44:27 DEBUG  [item] feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.item].
+Tue 07 May 2024 18:44:27 DEBUG  drop_by_value: val={}
+Tue 07 May 2024 18:44:27 DEBUG  Filling nan
+Tue 07 May 2024 18:44:27 DEBUG  Set label by {'rating': 4.0}.
+Tue 07 May 2024 18:44:27 DEBUG  Delete column [rating].
+Tue 07 May 2024 18:44:27 DEBUG  Normalized fields: ['label']
+Tue 07 May 2024 18:44:27 INFO  ml-100k
+The number of users: 944
+Average actions of users: 106.04453870625663
+The number of items: 1683
+Average actions of items: 59.45303210463734
+The number of inters: 100000
+The sparsity of the dataset: 93.70575143257098%
+Remain Fields: ['user_id', 'item_id', 'label']
+Tue 07 May 2024 18:44:27 DEBUG  split by ratios [[0.8, 0.1, 0.1]], group_by=[user_id]
+Tue 07 May 2024 18:44:28 INFO  [Training]: train_batch_size = [2048] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 4}]
+Tue 07 May 2024 18:44:28 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Tue 07 May 2024 18:44:29 INFO  ANS(
+  (user_embedding): Embedding(944, 64)
+  (item_embedding): Embedding(1683, 64)
+  (mf_loss): BPRLoss()
+  (reg_loss): EmbLoss()
+  (user_gate): Linear(in_features=64, out_features=64, bias=True)
+  (item_gate): Linear(in_features=64, out_features=64, bias=True)
+  (pos_gate): Linear(in_features=64, out_features=64, bias=True)
+  (neg_gate): Linear(in_features=64, out_features=64, bias=True)
+  (hard_gate): Linear(in_features=64, out_features=64, bias=True)
+  (conf_gate): Linear(in_features=64, out_features=64, bias=True)
+  (easy_gate): Linear(in_features=64, out_features=64, bias=True)
+  (margin_model): Linear(in_features=64, out_features=1, bias=True)
+)
+Trainable parameters: 197313
+Tue 07 May 2024 18:44:29 INFO  FLOPs: 0.0
+Tue 07 May 2024 18:44:30 DEBUG  User ids: [785  46 287 ...  20  81 905]
+Tue 07 May 2024 18:44:30 DEBUG  User ids: [195 520 627 ... 491 340  24]
+Tue 07 May 2024 18:44:30 DEBUG  User ids: [870 769 391 ...   9 570 815]
+Tue 07 May 2024 18:44:30 DEBUG  User ids: [827 117 833 ... 650 205  60]
+Tue 07 May 2024 18:44:30 DEBUG  User ids: [165 183 709 ... 804  59 675]
+Tue 07 May 2024 18:44:30 DEBUG  User ids: [653 490 394 ... 697 885  38]
+Tue 07 May 2024 18:44:30 DEBUG  User ids: [876 821 913 ... 697 380 815]
+Tue 07 May 2024 18:44:30 DEBUG  User ids: [827 693 570 ... 403 795 336]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [407 462 470 ... 493 775 531]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [435 632  13 ... 296 779 396]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [537 830 745 ...  75 670 764]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [ 25 533  20 ... 139 120 264]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [634 696 227 ... 839 692 884]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [894 547 628 ... 115 101  12]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [130  91  38 ... 882 341 170]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [141 630 163 ... 859 731 106]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [376  98 798 ... 117 410 532]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [706 180 898 ... 805 932 506]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [651 876 533 ... 188 263 334]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [666 487 469 ...  31 733 921]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [804 416 543 ... 440  16  82]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [ 83 111 512 ... 877  41 552]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [143 827 365 ...  12 134 684]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [429 457 650 ... 884 503  38]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [743 119  81 ... 838 524 551]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [ 24 403 882 ... 182 265 587]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [454 669 376 ... 791  97 651]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [843 649 438 ... 602 780 809]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [417 395 436 ... 287 557 908]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [ 38 462  74 ... 443 888 916]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [ 19  94 168 ... 816   9 395]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [127 922  19 ... 134 101 656]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [ 24 505 888 ... 336 742  76]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [828 798 443 ... 886 380 663]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [922  84 219 ... 264 246  39]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [388  31 639 ... 530 312 106]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [865 180 737 ... 793 531  11]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [577  36 380 ... 468  25 340]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [330 538 636 ... 636   6 547]
+Tue 07 May 2024 18:44:31 DEBUG  User ids: [130  14 753 414 671 653 334  23 749 393 407 585  46 906 898 422 842 529
+  35 721 414 260 923 738  71 500 552  28  11 935 194 407 163  76 454 314
+ 577 838 189 849 624 650 296 557  69 410 139 502 385 449 177 846 326 388
+ 210  39  19  73 631 242  33 916 320 403 884 570 344 566  64 743 252 456
+ 462 938  53 223 474 906 475 512 737  40 493 398 265 238 460 621 496 209
+ 743 211 556 137 877 658  76 653  92  52 500 626  69 258 221 395 608 402
+ 127 438 706 585 878 106  66 246 343   4 535 822 675 367 535 208 403 868
+ 255  83 475 443 939 309 524 547 265 709 704 805 310 296 683 349 447  36
+ 163  59 113  24 370 484 831 930 398 901  84 557 751 456 621 815 750  27
+ 695 585 170 463   6 836 651 528 407 770 354 283 128 247 106 504 377 230
+ 908 346 371 385 187 740 758 391 103 900  13 759  38 592 432 740  69 532
+ 428  23  69 422 438  16 650 530 884 224 230 876 580 785 422  12 898   4
+ 183 546  72 438 838 388 884 443 926 405  69 886 170 645 170 422 464 410
+  11  27 744 791 370 621 284 112 533  15 919 569 429 601 597  56  60 377
+  59 940 697  83 240 651  71  89 714 915 201  12 326 127 234 634 227  22
+ 265 326  15 863 135 255 304 180 836 413 462 319 913 183 693 500 471 602
+  42 648 623  40 403 896 659 296  27 111 888 721 929 547 749 881 697 634
+ 442  71 241 341 368 797 918 438 531  59 650 192 661 803 790 531 349 898
+ 900  80 665   1 538 651 471 497  83 662 891 468 449 197 884 292 931 714
+ 820 378  88  57 908 371 211 662  76 881 898  22 644 206 394 679  13 418
+ 557 843 669 638 290  93 104  55 671 102  26 836 810 766  99 837 145 666
+ 549 118 448 711 856  49  77 909 343 678 838 714 193 342 139  36  96  89
+ 382 448 698  23 606 618  16 385 456 456 531 397 721  99 772 414 227 860
+ 114 634 568 443 619 434 855 376 654 655 366 498 407 468 798 326 360 312
+ 876 406 350 599 407 851  49 379 430 468  13 129 247  68  40 120 414 867
+  72 128 522 575 682 462 697 921 144 177 895 171  81 380 438 243 884 721
+ 739 330  81 660 509 764  98  24 820  39 129 517 117  11  39 847 424 102
+ 157 646 377 111 224 181 497 370 910  19 748 468  39  81  87 772 691 264
+  41  57 270 388 879 743  48 815 175 588 185 861 395 809  16 148 227 555
+ 132 833 287  21  95  22 301 402 870 657 909  84 422 405 392  93 582 753
+ 310 249 675 423 230 377 692 252 675  76 127 633 167 846 226 520 597 633
+ 310 365 809 465 101 876 443 688 775 585 471  94 421 388 913 326 760 352
+ 655 836  26  66 406 194 429 658  12 425  81 449 675 730 635 928 464  50
+ 894  76  86 141 237 376 881 634 414 912 539 603  69 599 531 618 420 935
+ 311 128  66 778 215 754 920 597 243  24 779 494 167 464 938 206 868 388
+ 839  91 101 170 581 181  42 427 863 281 719  38 435 579 388 663 111 271
+ 872  69 803 380 886 750 752  39 188 446  59 811 312 378 227 753 626 397
+ 134 926 801  60 763 354 787 126 434  39 832  24 365 168 227 848 138  59
+ 435 677 181 451 625 255 675 815 827 101 364 183 435  20 285 863 461 354
+ 414  69 939 583 749  16 502  66 365 655 249 367 240 440 776 877 203 350
+ 644 170  84 454 588 831 877  82 798 896  27 890  65 649 772 397 410 447
+ 310 115 250 650 538 785 161 651 468 939  82  24 651 410 349 647 342 325
+  72  41 786 227   9 531 140 150  29  69 311 841 555 758 230 431 751 606
+ 562 225 659 226 865 111 170  42 179 304 461 414  92 183  59 585  12 395
+ 709 618 232 714 802  38 570 403 704 572 132 896 905 821 716 893 537 723
+ 588 176 458 108 848  69 772 314 622 730  20   6 166 238 388 912 334 112
+ 535 489  11 403 319   8 559 855 484 377 535 881 748  86 524 749 352 518
+ 529 938 782 876  19  88 290 752 650 888 365 816 301 832 770 554 340 846
+ 636 838 888 836 832 168 622 729 326 406 651  44  39 435 253  38 645 500
+ 403 106  76 403 501 286 328  29 137 499 493 500 623 910 497 501 868 122
+ 721 674   3 334  59 100 839 253 609 755  77 234 552 314 443 249 447 367
+ 891 656 835 705 637 836 490 410 378 405 621 749 679 803  42 101 455 626]
+Tue 07 May 2024 18:44:31 INFO  epoch 0 training [time: 1.35s, train loss: 32.2292]

@@ -1,0 +1,7 @@
+Wed 10 Jul 2024 05:57:54 INFO  [Training]: train_batch_size = [4096] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 5, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}]
+Wed 10 Jul 2024 05:57:54 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Wed 10 Jul 2024 06:23:49 INFO  Loading model structure and parameters from saved/ANS-Jul-10-2024_05-57-55.pth
+Wed 10 Jul 2024 06:23:51 INFO  Early stop triggered. Stopping iterations as condition is reach.
+Wed 10 Jul 2024 06:23:51 INFO  best params: 
+Wed 10 Jul 2024 06:23:51 INFO  best result: 
+Wed 10 Jul 2024 06:23:51 INFO  {'model': 'ANS', 'best_valid_score': 0.219, 'valid_score_bigger': True, 'best_valid_result': OrderedDict([('recall@10', 0.143), ('recall@20', 0.219), ('ndcg@10', 0.128), ('ndcg@20', 0.16), ('mrr@10', 0.232), ('mrr@20', 0.243), ('hit@10', 0.492), ('hit@20', 0.656), ('precision@10', 0.07), ('precision@20', 0.054)]), 'test_result': OrderedDict([('recall@10', 0.164), ('recall@20', 0.235), ('ndcg@10', 0.148), ('ndcg@20', 0.177), ('mrr@10', 0.262), ('mrr@20', 0.271), ('hit@10', 0.546), ('hit@20', 0.678), ('precision@10', 0.08), ('precision@20', 0.057)])}

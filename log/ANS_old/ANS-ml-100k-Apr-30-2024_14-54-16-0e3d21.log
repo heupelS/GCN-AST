@@ -1,0 +1,372 @@
+Tue 30 Apr 2024 14:54:16 INFO  ['run_recbole.py', '--model=ANS', '--dataset=ml-100k']
+Tue 30 Apr 2024 14:54:16 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 2020
+state = DEBUG
+reproducibility = True
+data_path = /home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k
+checkpoint_dir = saved
+show_progress = True
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = False
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 500
+train_batch_size = 2048
+learner = adam
+learning_rate = 0.0001
+train_neg_sample_args = {'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}
+eval_step = 1
+stopping_step = 100
+clip_grad_norm = None
+weight_decay = 0.0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}
+repeatable = False
+metrics = ['Recall', 'MRR', 'NDCG', 'Hit', 'Precision']
+topk = [20]
+valid_metric = MRR@20
+valid_metric_bigger = True
+eval_batch_size = 4096
+metric_decimal_place = 4
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = {'rating': 4.0}
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id', 'rating', 'timestamp']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = None
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = None
+item_inter_num_interval = None
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = True
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+kg_reverse_r = False
+entity_kg_num_interval = None
+relation_kg_num_interval = None
+benchmark_filename = None
+
+Other Hyper Parameters: 
+worker = 0
+wandb_project = recbole
+shuffle = True
+require_pow = False
+enable_amp = False
+enable_scaler = False
+transform = None
+embedding_size = 64
+n_layers = 3
+reg_weight = 0.0001
+eps = 0.3
+gamma = 0.15
+numerical_features = []
+discretization = None
+MODEL_TYPE = ModelType.GENERAL
+MODEL_INPUT_TYPE = InputType.PAIRWISE
+eval_type = EvaluatorType.RANKING
+single_spec = True
+local_rank = 0
+device = cuda
+eval_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+
+
+Tue 30 Apr 2024 14:54:16 DEBUG  Loading <class 'recbole.data.dataset.augmented_dataset.AugmentedDataset'> from scratch.
+Tue 30 Apr 2024 14:54:16 DEBUG  uid_field: user_id
+Tue 30 Apr 2024 14:54:16 DEBUG  iid_field: item_id
+Tue 30 Apr 2024 14:54:16 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.inter] (source: [FeatureSource.INTERACTION]).
+Tue 30 Apr 2024 14:54:16 DEBUG  [inter]: 
+Tue 30 Apr 2024 14:54:16 DEBUG  	 load_col: [{'item_id', 'user_id', 'rating', 'timestamp'}]
+Tue 30 Apr 2024 14:54:16 DEBUG  	 unload_col: [None]
+Tue 30 Apr 2024 14:54:16 DEBUG  Interaction feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.inter].
+Tue 30 Apr 2024 14:54:16 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.user] (source: [FeatureSource.USER]).
+Tue 30 Apr 2024 14:54:16 DEBUG  [user]: 
+Tue 30 Apr 2024 14:54:16 DEBUG  	 load_col: [set()]
+Tue 30 Apr 2024 14:54:16 DEBUG  	 unload_col: [None]
+Tue 30 Apr 2024 14:54:16 DEBUG  [user] feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.user].
+Tue 30 Apr 2024 14:54:16 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.item] (source: [FeatureSource.ITEM]).
+Tue 30 Apr 2024 14:54:16 DEBUG  [item]: 
+Tue 30 Apr 2024 14:54:16 DEBUG  	 load_col: [set()]
+Tue 30 Apr 2024 14:54:16 DEBUG  	 unload_col: [None]
+Tue 30 Apr 2024 14:54:16 DEBUG  [item] feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.item].
+Tue 30 Apr 2024 14:54:16 DEBUG  drop_by_value: val={}
+Tue 30 Apr 2024 14:54:16 DEBUG  Filling nan
+Tue 30 Apr 2024 14:54:16 DEBUG  Set label by {'rating': 4.0}.
+Tue 30 Apr 2024 14:54:16 DEBUG  Delete column [rating].
+Tue 30 Apr 2024 14:54:16 DEBUG  Normalized fields: ['timestamp', 'label']
+Tue 30 Apr 2024 14:54:16 INFO  ml-100k
+The number of users: 944
+Average actions of users: 106.04453870625663
+The number of items: 1683
+Average actions of items: 59.45303210463734
+The number of inters: 100000
+The sparsity of the dataset: 93.70575143257098%
+Remain Fields: ['user_id', 'item_id', 'timestamp', 'label']
+Tue 30 Apr 2024 14:54:16 DEBUG  100000
+Tue 30 Apr 2024 14:54:16 DEBUG  split by ratios [[0.8, 0.1, 0.1]], group_by=[user_id]
+Tue 30 Apr 2024 14:54:17 DEBUG  Vor augmentation: 80808
+Tue 30 Apr 2024 14:55:34 DEBUG  Index(['user_id', 'item_id', 'timestamp', 'label'], dtype='object')
+Tue 30 Apr 2024 14:55:34 DEBUG  80816
+Tue 30 Apr 2024 14:55:34 DEBUG  Classname: AugmentedDataset
+Tue 30 Apr 2024 14:55:34 DEBUG  Augmented dataset
+Tue 30 Apr 2024 14:55:34 DEBUG  Nach augmentation: 83637
+Tue 30 Apr 2024 14:55:34 INFO  [Training]: train_batch_size = [2048] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}]
+Tue 30 Apr 2024 14:55:34 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Tue 30 Apr 2024 14:55:36 INFO  ANS(
+  (user_embedding): Embedding(944, 64)
+  (item_embedding): Embedding(1683, 64)
+  (mf_loss): BPRLoss()
+  (reg_loss): EmbLoss()
+  (user_gate): Linear(in_features=64, out_features=64, bias=True)
+  (item_gate): Linear(in_features=64, out_features=64, bias=True)
+  (pos_gate): Linear(in_features=64, out_features=64, bias=True)
+  (neg_gate): Linear(in_features=64, out_features=64, bias=True)
+  (hard_gate): Linear(in_features=64, out_features=64, bias=True)
+  (conf_gate): Linear(in_features=64, out_features=64, bias=True)
+  (easy_gate): Linear(in_features=64, out_features=64, bias=True)
+  (margin_model): Linear(in_features=64, out_features=1, bias=True)
+)
+Trainable parameters: 197313
+Tue 30 Apr 2024 14:55:36 INFO  FLOPs: 0.0
+Tue 30 Apr 2024 14:55:37 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:55:38 INFO  epoch 0 training [time: 1.51s, train loss: 33.0361]
+Tue 30 Apr 2024 14:55:39 INFO  epoch 0 evaluating [time: 0.48s, valid_score: 0.025300]
+Tue 30 Apr 2024 14:55:39 INFO  valid result: 
+recall@20 : 0.0121    mrr@20 : 0.0253    ndcg@20 : 0.0101    hit@20 : 0.1198    precision@20 : 0.0069
+Tue 30 Apr 2024 14:55:39 INFO  Saving current: saved/ANS-Apr-30-2024_14-55-36.pth
+Tue 30 Apr 2024 14:55:39 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:55:40 INFO  epoch 1 training [time: 0.85s, train loss: 33.0165]
+Tue 30 Apr 2024 14:55:40 INFO  epoch 1 evaluating [time: 0.42s, valid_score: 0.024700]
+Tue 30 Apr 2024 14:55:40 INFO  valid result: 
+recall@20 : 0.0122    mrr@20 : 0.0247    ndcg@20 : 0.01    hit@20 : 0.122    precision@20 : 0.0069
+Tue 30 Apr 2024 14:55:40 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:55:41 INFO  epoch 2 training [time: 0.85s, train loss: 33.0037]
+Tue 30 Apr 2024 14:55:41 INFO  epoch 2 evaluating [time: 0.46s, valid_score: 0.023700]
+Tue 30 Apr 2024 14:55:41 INFO  valid result: 
+recall@20 : 0.0114    mrr@20 : 0.0237    ndcg@20 : 0.0094    hit@20 : 0.1166    precision@20 : 0.0065
+Tue 30 Apr 2024 14:55:41 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:55:42 INFO  epoch 3 training [time: 0.90s, train loss: 32.9905]
+Tue 30 Apr 2024 14:55:43 INFO  epoch 3 evaluating [time: 0.45s, valid_score: 0.023300]
+Tue 30 Apr 2024 14:55:43 INFO  valid result: 
+recall@20 : 0.0105    mrr@20 : 0.0233    ndcg@20 : 0.0089    hit@20 : 0.1092    precision@20 : 0.006
+Tue 30 Apr 2024 14:55:43 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:55:44 INFO  epoch 4 training [time: 0.87s, train loss: 32.9806]
+Tue 30 Apr 2024 14:55:44 INFO  epoch 4 evaluating [time: 0.44s, valid_score: 0.022200]
+Tue 30 Apr 2024 14:55:44 INFO  valid result: 
+recall@20 : 0.01    mrr@20 : 0.0222    ndcg@20 : 0.0085    hit@20 : 0.1092    precision@20 : 0.006
+Tue 30 Apr 2024 14:55:44 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:55:45 INFO  epoch 5 training [time: 0.70s, train loss: 32.9699]
+Tue 30 Apr 2024 14:55:45 INFO  epoch 5 evaluating [time: 0.44s, valid_score: 0.020900]
+Tue 30 Apr 2024 14:55:45 INFO  valid result: 
+recall@20 : 0.0094    mrr@20 : 0.0209    ndcg@20 : 0.008    hit@20 : 0.105    precision@20 : 0.0058
+Tue 30 Apr 2024 14:55:45 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:55:46 INFO  epoch 6 training [time: 0.72s, train loss: 32.9606]
+Tue 30 Apr 2024 14:55:46 INFO  epoch 6 evaluating [time: 0.44s, valid_score: 0.019000]
+Tue 30 Apr 2024 14:55:46 INFO  valid result: 
+recall@20 : 0.0093    mrr@20 : 0.019    ndcg@20 : 0.0076    hit@20 : 0.106    precision@20 : 0.0058
+Tue 30 Apr 2024 14:55:46 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:55:47 INFO  epoch 7 training [time: 0.82s, train loss: 32.9548]
+Tue 30 Apr 2024 14:55:48 INFO  epoch 7 evaluating [time: 0.45s, valid_score: 0.018200]
+Tue 30 Apr 2024 14:55:48 INFO  valid result: 
+recall@20 : 0.0089    mrr@20 : 0.0182    ndcg@20 : 0.0073    hit@20 : 0.1018    precision@20 : 0.0056
+Tue 30 Apr 2024 14:55:48 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:55:48 INFO  epoch 8 training [time: 0.57s, train loss: 32.9502]
+Tue 30 Apr 2024 14:55:49 INFO  epoch 8 evaluating [time: 0.42s, valid_score: 0.017100]
+Tue 30 Apr 2024 14:55:49 INFO  valid result: 
+recall@20 : 0.0086    mrr@20 : 0.0171    ndcg@20 : 0.0069    hit@20 : 0.0976    precision@20 : 0.0054
+Tue 30 Apr 2024 14:55:49 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:55:49 INFO  epoch 9 training [time: 0.58s, train loss: 32.9459]
+Tue 30 Apr 2024 14:55:50 INFO  epoch 9 evaluating [time: 0.42s, valid_score: 0.016600]
+Tue 30 Apr 2024 14:55:50 INFO  valid result: 
+recall@20 : 0.0088    mrr@20 : 0.0166    ndcg@20 : 0.0069    hit@20 : 0.0986    precision@20 : 0.0054
+Tue 30 Apr 2024 14:55:50 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:55:50 INFO  epoch 10 training [time: 0.57s, train loss: 32.9403]
+Tue 30 Apr 2024 14:55:51 INFO  epoch 10 evaluating [time: 0.42s, valid_score: 0.015600]
+Tue 30 Apr 2024 14:55:51 INFO  valid result: 
+recall@20 : 0.0078    mrr@20 : 0.0156    ndcg@20 : 0.0063    hit@20 : 0.0912    precision@20 : 0.0049
+Tue 30 Apr 2024 14:55:51 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:55:51 INFO  epoch 11 training [time: 0.55s, train loss: 32.9315]
+Tue 30 Apr 2024 14:55:52 INFO  epoch 11 evaluating [time: 0.42s, valid_score: 0.014900]
+Tue 30 Apr 2024 14:55:52 INFO  valid result: 
+recall@20 : 0.0073    mrr@20 : 0.0149    ndcg@20 : 0.006    hit@20 : 0.087    precision@20 : 0.0047
+Tue 30 Apr 2024 14:55:52 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:55:52 INFO  epoch 12 training [time: 0.54s, train loss: 32.9263]
+Tue 30 Apr 2024 14:55:53 INFO  epoch 12 evaluating [time: 0.43s, valid_score: 0.014500]
+Tue 30 Apr 2024 14:55:53 INFO  valid result: 
+recall@20 : 0.0066    mrr@20 : 0.0145    ndcg@20 : 0.0057    hit@20 : 0.0848    precision@20 : 0.0047
+Tue 30 Apr 2024 14:55:53 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:55:53 INFO  epoch 13 training [time: 0.54s, train loss: 32.9200]
+Tue 30 Apr 2024 14:55:54 INFO  epoch 13 evaluating [time: 0.42s, valid_score: 0.014100]
+Tue 30 Apr 2024 14:55:54 INFO  valid result: 
+recall@20 : 0.006    mrr@20 : 0.0141    ndcg@20 : 0.0054    hit@20 : 0.0827    precision@20 : 0.0045
+Tue 30 Apr 2024 14:55:54 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:55:54 INFO  epoch 14 training [time: 0.53s, train loss: 32.9133]
+Tue 30 Apr 2024 14:55:55 INFO  epoch 14 evaluating [time: 0.39s, valid_score: 0.014100]
+Tue 30 Apr 2024 14:55:55 INFO  valid result: 
+recall@20 : 0.0059    mrr@20 : 0.0141    ndcg@20 : 0.0054    hit@20 : 0.0774    precision@20 : 0.0043
+Tue 30 Apr 2024 14:55:55 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:55:55 INFO  epoch 15 training [time: 0.69s, train loss: 32.9064]
+Tue 30 Apr 2024 14:55:56 INFO  epoch 15 evaluating [time: 0.40s, valid_score: 0.013800]
+Tue 30 Apr 2024 14:55:56 INFO  valid result: 
+recall@20 : 0.0058    mrr@20 : 0.0138    ndcg@20 : 0.0053    hit@20 : 0.0742    precision@20 : 0.0042
+Tue 30 Apr 2024 14:55:56 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:55:56 INFO  epoch 16 training [time: 0.75s, train loss: 32.9008]
+Tue 30 Apr 2024 14:55:57 INFO  epoch 16 evaluating [time: 0.43s, valid_score: 0.013600]
+Tue 30 Apr 2024 14:55:57 INFO  valid result: 
+recall@20 : 0.0056    mrr@20 : 0.0136    ndcg@20 : 0.0051    hit@20 : 0.0732    precision@20 : 0.0041
+Tue 30 Apr 2024 14:55:57 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:55:58 INFO  epoch 17 training [time: 0.76s, train loss: 32.8943]
+Tue 30 Apr 2024 14:55:58 INFO  epoch 17 evaluating [time: 0.42s, valid_score: 0.013400]
+Tue 30 Apr 2024 14:55:58 INFO  valid result: 
+recall@20 : 0.0052    mrr@20 : 0.0134    ndcg@20 : 0.0049    hit@20 : 0.0689    precision@20 : 0.0039
+Tue 30 Apr 2024 14:55:58 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:55:59 INFO  epoch 18 training [time: 0.77s, train loss: 32.8881]
+Tue 30 Apr 2024 14:55:59 INFO  epoch 18 evaluating [time: 0.42s, valid_score: 0.013200]
+Tue 30 Apr 2024 14:55:59 INFO  valid result: 
+recall@20 : 0.005    mrr@20 : 0.0132    ndcg@20 : 0.0047    hit@20 : 0.0679    precision@20 : 0.0037
+Tue 30 Apr 2024 14:55:59 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:00 INFO  epoch 19 training [time: 0.74s, train loss: 32.8836]
+Tue 30 Apr 2024 14:56:00 INFO  epoch 19 evaluating [time: 0.42s, valid_score: 0.013200]
+Tue 30 Apr 2024 14:56:00 INFO  valid result: 
+recall@20 : 0.005    mrr@20 : 0.0132    ndcg@20 : 0.0047    hit@20 : 0.0689    precision@20 : 0.0037
+Tue 30 Apr 2024 14:56:00 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:01 INFO  epoch 20 training [time: 0.74s, train loss: 32.8779]
+Tue 30 Apr 2024 14:56:01 INFO  epoch 20 evaluating [time: 0.42s, valid_score: 0.012900]
+Tue 30 Apr 2024 14:56:01 INFO  valid result: 
+recall@20 : 0.0051    mrr@20 : 0.0129    ndcg@20 : 0.0047    hit@20 : 0.0679    precision@20 : 0.0037
+Tue 30 Apr 2024 14:56:01 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:02 INFO  epoch 21 training [time: 0.75s, train loss: 32.8729]
+Tue 30 Apr 2024 14:56:03 INFO  epoch 21 evaluating [time: 0.43s, valid_score: 0.012900]
+Tue 30 Apr 2024 14:56:03 INFO  valid result: 
+recall@20 : 0.0048    mrr@20 : 0.0129    ndcg@20 : 0.0046    hit@20 : 0.0657    precision@20 : 0.0036
+Tue 30 Apr 2024 14:56:03 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:03 INFO  epoch 22 training [time: 0.72s, train loss: 32.8661]
+Tue 30 Apr 2024 14:56:04 INFO  epoch 22 evaluating [time: 0.42s, valid_score: 0.013000]
+Tue 30 Apr 2024 14:56:04 INFO  valid result: 
+recall@20 : 0.0049    mrr@20 : 0.013    ndcg@20 : 0.0046    hit@20 : 0.0668    precision@20 : 0.0037
+Tue 30 Apr 2024 14:56:04 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:05 INFO  epoch 23 training [time: 0.72s, train loss: 32.8627]
+Tue 30 Apr 2024 14:56:05 INFO  epoch 23 evaluating [time: 0.42s, valid_score: 0.013300]
+Tue 30 Apr 2024 14:56:05 INFO  valid result: 
+recall@20 : 0.005    mrr@20 : 0.0133    ndcg@20 : 0.0047    hit@20 : 0.0679    precision@20 : 0.0037
+Tue 30 Apr 2024 14:56:05 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:06 INFO  epoch 24 training [time: 0.72s, train loss: 32.8579]
+Tue 30 Apr 2024 14:56:06 INFO  epoch 24 evaluating [time: 0.42s, valid_score: 0.013100]
+Tue 30 Apr 2024 14:56:06 INFO  valid result: 
+recall@20 : 0.005    mrr@20 : 0.0131    ndcg@20 : 0.0047    hit@20 : 0.0679    precision@20 : 0.0037
+Tue 30 Apr 2024 14:56:06 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:07 INFO  epoch 25 training [time: 0.72s, train loss: 32.8535]
+Tue 30 Apr 2024 14:56:07 INFO  epoch 25 evaluating [time: 0.42s, valid_score: 0.013600]
+Tue 30 Apr 2024 14:56:07 INFO  valid result: 
+recall@20 : 0.0051    mrr@20 : 0.0136    ndcg@20 : 0.0048    hit@20 : 0.07    precision@20 : 0.0038
+Tue 30 Apr 2024 14:56:07 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:08 INFO  epoch 26 training [time: 0.74s, train loss: 32.8487]
+Tue 30 Apr 2024 14:56:08 INFO  epoch 26 evaluating [time: 0.45s, valid_score: 0.013300]
+Tue 30 Apr 2024 14:56:08 INFO  valid result: 
+recall@20 : 0.0053    mrr@20 : 0.0133    ndcg@20 : 0.0047    hit@20 : 0.0657    precision@20 : 0.0036
+Tue 30 Apr 2024 14:56:08 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:09 INFO  epoch 27 training [time: 0.79s, train loss: 32.8445]
+Tue 30 Apr 2024 14:56:10 INFO  epoch 27 evaluating [time: 0.42s, valid_score: 0.013200]
+Tue 30 Apr 2024 14:56:10 INFO  valid result: 
+recall@20 : 0.005    mrr@20 : 0.0132    ndcg@20 : 0.0046    hit@20 : 0.0647    precision@20 : 0.0035
+Tue 30 Apr 2024 14:56:10 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:10 INFO  epoch 28 training [time: 0.76s, train loss: 32.8398]
+Tue 30 Apr 2024 14:56:11 INFO  epoch 28 evaluating [time: 0.44s, valid_score: 0.013600]
+Tue 30 Apr 2024 14:56:11 INFO  valid result: 
+recall@20 : 0.005    mrr@20 : 0.0136    ndcg@20 : 0.0047    hit@20 : 0.0647    precision@20 : 0.0035
+Tue 30 Apr 2024 14:56:11 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:12 INFO  epoch 29 training [time: 0.89s, train loss: 32.8358]
+Tue 30 Apr 2024 14:56:12 INFO  epoch 29 evaluating [time: 0.41s, valid_score: 0.013700]
+Tue 30 Apr 2024 14:56:12 INFO  valid result: 
+recall@20 : 0.0047    mrr@20 : 0.0137    ndcg@20 : 0.0046    hit@20 : 0.0647    precision@20 : 0.0035
+Tue 30 Apr 2024 14:56:12 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:13 INFO  epoch 30 training [time: 0.73s, train loss: 32.8313]
+Tue 30 Apr 2024 14:56:13 INFO  epoch 30 evaluating [time: 0.46s, valid_score: 0.013500]
+Tue 30 Apr 2024 14:56:13 INFO  valid result: 
+recall@20 : 0.005    mrr@20 : 0.0135    ndcg@20 : 0.0046    hit@20 : 0.0657    precision@20 : 0.0036
+Tue 30 Apr 2024 14:56:13 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:14 INFO  epoch 31 training [time: 0.76s, train loss: 32.8274]
+Tue 30 Apr 2024 14:56:14 INFO  epoch 31 evaluating [time: 0.43s, valid_score: 0.013900]
+Tue 30 Apr 2024 14:56:14 INFO  valid result: 
+recall@20 : 0.0047    mrr@20 : 0.0139    ndcg@20 : 0.0047    hit@20 : 0.0679    precision@20 : 0.0037
+Tue 30 Apr 2024 14:56:14 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:15 INFO  epoch 32 training [time: 0.70s, train loss: 32.8236]
+Tue 30 Apr 2024 14:56:16 INFO  epoch 32 evaluating [time: 0.40s, valid_score: 0.014000]
+Tue 30 Apr 2024 14:56:16 INFO  valid result: 
+recall@20 : 0.0045    mrr@20 : 0.014    ndcg@20 : 0.0046    hit@20 : 0.0657    precision@20 : 0.0036
+Tue 30 Apr 2024 14:56:16 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:16 INFO  epoch 33 training [time: 0.67s, train loss: 32.8183]
+Tue 30 Apr 2024 14:56:17 INFO  epoch 33 evaluating [time: 0.41s, valid_score: 0.014100]
+Tue 30 Apr 2024 14:56:17 INFO  valid result: 
+recall@20 : 0.0052    mrr@20 : 0.0141    ndcg@20 : 0.0048    hit@20 : 0.0679    precision@20 : 0.0038
+Tue 30 Apr 2024 14:56:17 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:18 INFO  epoch 34 training [time: 0.87s, train loss: 32.8152]
+Tue 30 Apr 2024 14:56:18 INFO  epoch 34 evaluating [time: 0.41s, valid_score: 0.014100]
+Tue 30 Apr 2024 14:56:18 INFO  valid result: 
+recall@20 : 0.0051    mrr@20 : 0.0141    ndcg@20 : 0.0048    hit@20 : 0.0679    precision@20 : 0.0038
+Tue 30 Apr 2024 14:56:18 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:19 INFO  epoch 35 training [time: 0.86s, train loss: 32.8119]
+Tue 30 Apr 2024 14:56:19 INFO  epoch 35 evaluating [time: 0.42s, valid_score: 0.014500]
+Tue 30 Apr 2024 14:56:19 INFO  valid result: 
+recall@20 : 0.005    mrr@20 : 0.0145    ndcg@20 : 0.0049    hit@20 : 0.0689    precision@20 : 0.0039
+Tue 30 Apr 2024 14:56:19 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:20 INFO  epoch 36 training [time: 0.88s, train loss: 32.8078]
+Tue 30 Apr 2024 14:56:21 INFO  epoch 36 evaluating [time: 0.46s, valid_score: 0.015000]
+Tue 30 Apr 2024 14:56:21 INFO  valid result: 
+recall@20 : 0.0059    mrr@20 : 0.015    ndcg@20 : 0.0052    hit@20 : 0.0732    precision@20 : 0.0041
+Tue 30 Apr 2024 14:56:21 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:21 INFO  epoch 37 training [time: 0.90s, train loss: 32.8039]
+Tue 30 Apr 2024 14:56:22 INFO  epoch 37 evaluating [time: 0.45s, valid_score: 0.015900]
+Tue 30 Apr 2024 14:56:22 INFO  valid result: 
+recall@20 : 0.0066    mrr@20 : 0.0159    ndcg@20 : 0.0057    hit@20 : 0.0795    precision@20 : 0.0046
+Tue 30 Apr 2024 14:56:22 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:23 INFO  epoch 38 training [time: 1.01s, train loss: 32.8010]
+Tue 30 Apr 2024 14:56:23 INFO  epoch 38 evaluating [time: 0.43s, valid_score: 0.015900]
+Tue 30 Apr 2024 14:56:23 INFO  valid result: 
+recall@20 : 0.0065    mrr@20 : 0.0159    ndcg@20 : 0.0057    hit@20 : 0.0785    precision@20 : 0.0047
+Tue 30 Apr 2024 14:56:23 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:24 INFO  epoch 39 training [time: 0.87s, train loss: 32.7962]
+Tue 30 Apr 2024 14:56:25 INFO  epoch 39 evaluating [time: 0.42s, valid_score: 0.016600]
+Tue 30 Apr 2024 14:56:25 INFO  valid result: 
+recall@20 : 0.0059    mrr@20 : 0.0166    ndcg@20 : 0.0057    hit@20 : 0.0785    precision@20 : 0.0046
+Tue 30 Apr 2024 14:56:25 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:26 INFO  epoch 40 training [time: 0.91s, train loss: 32.7924]
+Tue 30 Apr 2024 14:56:26 INFO  epoch 40 evaluating [time: 0.43s, valid_score: 0.017800]
+Tue 30 Apr 2024 14:56:26 INFO  valid result: 
+recall@20 : 0.0059    mrr@20 : 0.0178    ndcg@20 : 0.0058    hit@20 : 0.0806    precision@20 : 0.0047
+Tue 30 Apr 2024 14:56:26 DEBUG  Sampler class name: RandomSampler
+Tue 30 Apr 2024 14:56:27 INFO  epoch 41 training [time: 0.87s, train loss: 32.7888]
+Tue 30 Apr 2024 14:56:27 INFO  epoch 41 evaluating [time: 0.43s, valid_score: 0.018700]
+Tue 30 Apr 2024 14:56:27 INFO  valid result: 
+recall@20 : 0.0063    mrr@20 : 0.0187    ndcg@20 : 0.0062    hit@20 : 0.0817    precision@20 : 0.005
+Tue 30 Apr 2024 14:56:27 DEBUG  Sampler class name: RandomSampler

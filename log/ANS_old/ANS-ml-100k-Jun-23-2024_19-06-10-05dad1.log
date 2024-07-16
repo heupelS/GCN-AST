@@ -1,0 +1,4 @@
+Sun 23 Jun 2024 19:06:11 INFO  [Training]: train_batch_size = [2048] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 1}]
+Sun 23 Jun 2024 19:06:11 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Sun 23 Jun 2024 19:12:32 INFO  Loading model structure and parameters from saved/ANS-Jun-23-2024_19-06-12.pth
+Sun 23 Jun 2024 19:12:33 WARNING  command line args [output_file=outputhypertest] will not be used in RecBole

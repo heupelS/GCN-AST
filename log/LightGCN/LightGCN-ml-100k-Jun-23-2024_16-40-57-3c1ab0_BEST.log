@@ -1,0 +1,3 @@
+Sun 23 Jun 2024 16:40:58 INFO  [Training]: train_batch_size = [2048] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 1}]
+Sun 23 Jun 2024 16:40:58 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Sun 23 Jun 2024 16:42:50 ERROR  job exception: Dimension out of range (expected to be in range of [-1, 0], but got 1)

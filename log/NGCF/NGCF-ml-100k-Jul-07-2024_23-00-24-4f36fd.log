@@ -1,0 +1,7 @@
+Sun 07 Jul 2024 23:00:24 INFO  [Training]: train_batch_size = [4096] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 5, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}]
+Sun 07 Jul 2024 23:00:24 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Sun 07 Jul 2024 23:01:44 INFO  Loading model structure and parameters from saved/NGCF-Jul-07-2024_23-00-25.pth
+Sun 07 Jul 2024 23:01:44 INFO  Early stop triggered. Stopping iterations as condition is reach.
+Sun 07 Jul 2024 23:01:45 INFO  best params: 
+Sun 07 Jul 2024 23:01:45 INFO  best result: 
+Sun 07 Jul 2024 23:01:45 INFO  {'model': 'NGCF', 'best_valid_score': 0.349, 'valid_score_bigger': True, 'best_valid_result': OrderedDict([('recall@10', 0.223), ('recall@20', 0.349), ('ndcg@10', 0.237), ('ndcg@20', 0.27), ('mrr@10', 0.392), ('mrr@20', 0.4), ('hit@10', 0.769), ('hit@20', 0.889), ('precision@10', 0.163), ('precision@20', 0.132)]), 'test_result': OrderedDict([('recall@10', 0.258), ('recall@20', 0.376), ('ndcg@10', 0.297), ('ndcg@20', 0.318), ('mrr@10', 0.494), ('mrr@20', 0.5), ('hit@10', 0.807), ('hit@20', 0.895), ('precision@10', 0.199), ('precision@20', 0.152)])}

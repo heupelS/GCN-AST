@@ -1,0 +1,777 @@
+Tue 07 May 2024 18:26:42 INFO  ['run_recbole.py', '--model=ANS', '--dataset=ml-100k']
+Tue 07 May 2024 18:26:42 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 2020
+state = DEBUG
+reproducibility = True
+data_path = /home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k
+checkpoint_dir = saved
+show_progress = True
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = False
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 500
+train_batch_size = 2048
+learner = adam
+learning_rate = 0.0001
+train_neg_sample_args = {'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 4}
+eval_step = 1
+stopping_step = 100
+clip_grad_norm = None
+weight_decay = 0.0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}
+repeatable = False
+metrics = ['Recall', 'MRR', 'NDCG', 'Hit', 'Precision']
+topk = [20]
+valid_metric = MRR@20
+valid_metric_bigger = True
+eval_batch_size = 4096
+metric_decimal_place = 4
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = {'rating': 4.0}
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id', 'rating']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = None
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = None
+item_inter_num_interval = None
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = True
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+kg_reverse_r = False
+entity_kg_num_interval = None
+relation_kg_num_interval = None
+benchmark_filename = None
+
+Other Hyper Parameters: 
+worker = 0
+wandb_project = recbole
+shuffle = True
+require_pow = False
+enable_amp = False
+enable_scaler = False
+transform = None
+embedding_size = 64
+n_layers = 3
+reg_weight = 0.0001
+eps = 0.3
+gamma = 0.15
+numerical_features = []
+discretization = None
+MODEL_TYPE = ModelType.GENERAL
+MODEL_INPUT_TYPE = InputType.PAIRWISE
+eval_type = EvaluatorType.RANKING
+single_spec = True
+local_rank = 0
+device = cuda
+eval_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+
+
+Tue 07 May 2024 18:26:42 DEBUG  Loading <class 'recbole.data.dataset.augmented_dataset.AugmentedDataset'> from scratch.
+Tue 07 May 2024 18:26:42 DEBUG  uid_field: user_id
+Tue 07 May 2024 18:26:42 DEBUG  iid_field: item_id
+Tue 07 May 2024 18:26:42 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.inter] (source: [FeatureSource.INTERACTION]).
+Tue 07 May 2024 18:26:42 DEBUG  [inter]: 
+Tue 07 May 2024 18:26:42 DEBUG  	 load_col: [{'user_id', 'item_id', 'rating'}]
+Tue 07 May 2024 18:26:42 DEBUG  	 unload_col: [None]
+Tue 07 May 2024 18:26:42 DEBUG  Interaction feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.inter].
+Tue 07 May 2024 18:26:42 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.user] (source: [FeatureSource.USER]).
+Tue 07 May 2024 18:26:42 DEBUG  [user]: 
+Tue 07 May 2024 18:26:42 DEBUG  	 load_col: [set()]
+Tue 07 May 2024 18:26:42 DEBUG  	 unload_col: [None]
+Tue 07 May 2024 18:26:42 DEBUG  [user] feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.user].
+Tue 07 May 2024 18:26:42 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.item] (source: [FeatureSource.ITEM]).
+Tue 07 May 2024 18:26:42 DEBUG  [item]: 
+Tue 07 May 2024 18:26:42 DEBUG  	 load_col: [set()]
+Tue 07 May 2024 18:26:42 DEBUG  	 unload_col: [None]
+Tue 07 May 2024 18:26:42 DEBUG  [item] feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.item].
+Tue 07 May 2024 18:26:42 DEBUG  drop_by_value: val={}
+Tue 07 May 2024 18:26:42 DEBUG  Filling nan
+Tue 07 May 2024 18:26:42 DEBUG  Set label by {'rating': 4.0}.
+Tue 07 May 2024 18:26:42 DEBUG  Delete column [rating].
+Tue 07 May 2024 18:26:42 DEBUG  Normalized fields: ['label']
+Tue 07 May 2024 18:26:42 INFO  ml-100k
+The number of users: 944
+Average actions of users: 106.04453870625663
+The number of items: 1683
+Average actions of items: 59.45303210463734
+The number of inters: 100000
+The sparsity of the dataset: 93.70575143257098%
+Remain Fields: ['user_id', 'item_id', 'label']
+Tue 07 May 2024 18:26:42 DEBUG  100000
+Tue 07 May 2024 18:26:42 DEBUG  split by ratios [[0.8, 0.1, 0.1]], group_by=[user_id]
+Tue 07 May 2024 18:26:42 DEBUG  Vor augmentation: 80808
+Tue 07 May 2024 18:28:03 DEBUG  Index(['user_id', 'item_id', 'label'], dtype='object')
+Tue 07 May 2024 18:28:03 DEBUG  80811
+Tue 07 May 2024 18:28:03 DEBUG  Classname: AugmentedDataset
+Tue 07 May 2024 18:28:03 DEBUG  Augmented dataset
+Tue 07 May 2024 18:28:03 DEBUG  Nach augmentation: 81751
+Tue 07 May 2024 18:28:03 INFO  [Training]: train_batch_size = [2048] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 4}]
+Tue 07 May 2024 18:28:03 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Tue 07 May 2024 18:28:04 INFO  ANS(
+  (user_embedding): Embedding(944, 64)
+  (item_embedding): Embedding(1683, 64)
+  (mf_loss): BPRLoss()
+  (reg_loss): EmbLoss()
+  (user_gate): Linear(in_features=64, out_features=64, bias=True)
+  (item_gate): Linear(in_features=64, out_features=64, bias=True)
+  (pos_gate): Linear(in_features=64, out_features=64, bias=True)
+  (neg_gate): Linear(in_features=64, out_features=64, bias=True)
+  (hard_gate): Linear(in_features=64, out_features=64, bias=True)
+  (conf_gate): Linear(in_features=64, out_features=64, bias=True)
+  (easy_gate): Linear(in_features=64, out_features=64, bias=True)
+  (margin_model): Linear(in_features=64, out_features=1, bias=True)
+)
+Trainable parameters: 197313
+Tue 07 May 2024 18:28:04 INFO  FLOPs: 0.0
+Tue 07 May 2024 18:28:05 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 865,  393, 1348,  ..., 1361, 1666,  713])
+Tue 07 May 2024 18:28:05 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:05 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1074,   20,  540,  ...,  881, 1470,  713])
+Tue 07 May 2024 18:28:05 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:05 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 736, 1404,  268,  ...,  898,  904,  808])
+Tue 07 May 2024 18:28:05 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:05 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 118,  346,  434,  ...,  372, 1041, 1129])
+Tue 07 May 2024 18:28:05 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:05 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1294,  125,  574,  ..., 1618,  244, 1602])
+Tue 07 May 2024 18:28:05 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:05 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1615, 1609, 1467,  ...,  778, 1186, 1385])
+Tue 07 May 2024 18:28:05 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:05 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 458,  451,  675,  ..., 1222, 1004,  834])
+Tue 07 May 2024 18:28:05 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:05 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1529,  922, 1668,  ...,  745,  112,  481])
+Tue 07 May 2024 18:28:05 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:05 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1027, 1102,  727,  ...,  726,  238,  537])
+Tue 07 May 2024 18:28:05 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:05 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1585, 1645, 1298,  ...,  817, 1636,  583])
+Tue 07 May 2024 18:28:05 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:05 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 207, 1635,  226,  ..., 1152,   51,  398])
+Tue 07 May 2024 18:28:05 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:05 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1565,  842,  852,  ...,  307,  494,  786])
+Tue 07 May 2024 18:28:05 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 811, 1507, 1456,  ...,  992,  418,  923])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 291, 1179, 1667,  ...,  716,  258,  349])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 155,  366,  393,  ..., 1515,  573,  960])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1230,  716,  872,  ...,   98,  671,  715])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 688,  564, 1456,  ...,  930,  859, 1138])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 809,  956,  163,  ..., 1636,   44, 1016])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1544, 1677,  435,  ...,  179,  585,  400])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1263,   94, 1655,  ...,  726, 1106, 1055])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 264,  365,  908,  ..., 1090,  126, 1553])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 849,  431,  667,  ..., 1218,  926, 1462])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 750, 1502, 1102,  ...,  410,  427, 1597])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([393, 249, 353,  ..., 655, 589, 949])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 537,  546,  565,  ..., 1432,  711,  732])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 511, 1360, 1422,  ...,  462, 1203,  456])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1064,  396,  162,  ...,  696,  573,  204])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1620,  762,  864,  ...,  110,  440, 1076])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 226, 1436,  740,  ..., 1543,  788,  733])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1276,  917,  874,  ..., 1186,  693, 1502])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 668, 1040,  325,  ..., 1583,   72, 1018])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1562,   54,  634,  ..., 1254, 1396,  616])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1553,  801,  492,  ...,  625, 1430, 1279])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 479, 1348, 1325,  ..., 1241, 1158,  741])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1160,  456,  415,  ..., 1479, 1587,  521])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1129,  641, 1270,  ...,  525,  594,  996])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1290,  164,  385,  ..., 1208,  749,  708])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 219,   49,  791,  ..., 1477,   66,  233])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 140, 1206, 1421,  ..., 1171,  402, 1062])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 1879
+    neg_item_id, torch.Size([1879]), cpu, torch.int64
+
+, neg_item_ids: tensor([1015,  637,  941,  ...,  498, 1251,  753])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([1879, 1, 4, 64]) pos_embeddings: torch.Size([1879, 4, 64]) u_embeddings: torch.Size([1879, 4, 64])
+Tue 07 May 2024 18:28:06 INFO  epoch 0 training [time: 1.27s, train loss: 32.2285]
+Tue 07 May 2024 18:28:06 INFO  epoch 0 evaluating [time: 0.45s, valid_score: 0.025900]
+Tue 07 May 2024 18:28:06 INFO  valid result: 
+recall@20 : 0.0129    mrr@20 : 0.0259    ndcg@20 : 0.0104    hit@20 : 0.1241    precision@20 : 0.0071
+Tue 07 May 2024 18:28:06 INFO  Saving current: saved/ANS-May-07-2024_18-28-04.pth
+Tue 07 May 2024 18:28:06 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1379,  987, 1304,  ..., 1464,  644,   31])
+Tue 07 May 2024 18:28:06 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([  12, 1523, 1310,  ..., 1041, 1305,  657])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 672, 1340, 1363,  ...,  957,  828,  212])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([  54, 1172,  899,  ..., 1233,  605, 1077])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 700,  131,  910,  ..., 1022,  206,  404])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1241,  684, 1529,  ...,  521, 1679, 1645])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1306,   50, 1152,  ..., 1581, 1682, 1603])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1309,  891,  748,  ..., 1284,  526, 1542])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 560,  609, 1565,  ..., 1281, 1034,  289])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 842, 1584,  743,  ...,   63, 1516, 1370])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1383, 1610, 1584,  ...,  767,  736,   52])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1442, 1554,  479,  ..., 1632, 1413,  276])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1143, 1252, 1615,  ...,  757, 1494,  799])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 244,  456,  219,  ..., 1438, 1361, 1026])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1509,  799,  340,  ...,  528, 1354, 1003])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 419, 1473, 1560,  ..., 1526, 1091, 1388])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([591, 338, 991,  ..., 883, 737, 640])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 737, 1084,   51,  ...,  406,  304, 1224])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 662,  429,  833,  ..., 1535, 1208,  128])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 203, 1220,  428,  ...,  801, 1303, 1050])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 691,  923, 1393,  ..., 1665, 1583,  430])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([  76, 1286, 1090,  ..., 1037,  820, 1247])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 406,  894,  176,  ...,  176, 1193,  324])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 464,  745,  837,  ...,  301, 1291, 1194])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 163, 1548,  247,  ..., 1245,  387, 1281])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1318, 1269, 1129,  ...,   60,  756,  469])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1111, 1079, 1549,  ...,  304, 1013,  451])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1262,  606, 1108,  ...,  668,  112,  188])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1413, 1439,  672,  ...,  182, 1322,  682])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1157, 1587,  486,  ...,  578, 1680, 1182])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([   2, 1057,  959,  ..., 1415,  584, 1235])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 947,  386,  994,  ..., 1278,  611,  462])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 474, 1580,  263,  ..., 1251, 1650,  702])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1192, 1651, 1472,  ..., 1172,  967, 1447])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 654,   20,  673,  ...,  734,  344, 1331])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1149, 1173, 1464,  ...,  917,  296,   26])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 995, 1135,  942,  ..., 1017, 1103,  345])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 188, 1231,  858,  ...,  110, 1354, 1419])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1329,  439, 1270,  ..., 1172,  631,  692])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:07 DEBUG  neg_item_feat: The batch_size of interaction: 1879
+    neg_item_id, torch.Size([1879]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 392, 1453,  925,  ...,  534,  715,  893])
+Tue 07 May 2024 18:28:07 DEBUG  neg_embeddings: torch.Size([1879, 1, 4, 64]) pos_embeddings: torch.Size([1879, 4, 64]) u_embeddings: torch.Size([1879, 4, 64])
+Tue 07 May 2024 18:28:07 INFO  epoch 1 training [time: 0.77s, train loss: 32.2108]
+Tue 07 May 2024 18:28:08 INFO  epoch 1 evaluating [time: 0.40s, valid_score: 0.024200]
+Tue 07 May 2024 18:28:08 INFO  valid result: 
+recall@20 : 0.0124    mrr@20 : 0.0242    ndcg@20 : 0.01    hit@20 : 0.1209    precision@20 : 0.0068
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 349, 1229,  810,  ...,  314, 1442,   27])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 711,  826,  859,  ..., 1287,  701,   24])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1063,  321, 1085,  ..., 1561,  933,  280])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1614,  811,  884,  ...,  447,  230, 1175])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 609, 1149,  833,  ...,  908,  840,  534])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1372,   72, 1516,  ..., 1023, 1201,  337])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1217,  968,  965,  ...,  492, 1155,  758])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 708,  847, 1479,  ...,  946,  159, 1209])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 634, 1305, 1392,  ...,  408,  253,  496])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1591,  869, 1577,  ..., 1591,   31, 1213])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1200,  465,  374,  ...,  915, 1343,  670])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1311, 1135, 1157,  ...,  506,  487,  764])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([  51,  673, 1268,  ..., 1606, 1056,  468])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 508,  673,    9,  ...,  301, 1644,  788])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 487,  798,  950,  ..., 1238, 1368,  145])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1493,  547,   29,  ..., 1204, 1445, 1512])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 424,  191, 1522,  ...,  160, 1416, 1390])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1131,  479, 1022,  ...,  532,  262,  571])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 463, 1501, 1153,  ...,  125, 1257, 1627])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 233, 1470,  522,  ..., 1490,  774, 1077])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1187, 1403,  955,  ...,  136, 1080,  477])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1527,  812,  197,  ..., 1064,    1,  499])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 602,  870, 1384,  ...,  814,  843,  623])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 181,  687,  401,  ..., 1177, 1490, 1131])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([558, 763, 312,  ..., 491, 712, 842])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 624, 1468,  521,  ..., 1037,  270, 1232])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1277, 1455, 1061,  ..., 1257,  216,  931])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 388,  601,  795,  ...,  263, 1022, 1070])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1638,  683,  621,  ...,  496, 1256,  301])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 768,  629,  831,  ...,  620,  736, 1170])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 321, 1418, 1518,  ...,  829,  985, 1629])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1659,  559, 1487,  ...,  784,  937,  704])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 842, 1010,  411,  ...,  442,  683,  367])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 639, 1572,  733,  ..., 1228, 1301,   38])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1449, 1602,  853,  ...,  882, 1149, 1246])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 149,  335,  562,  ..., 1311, 1653,  470])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1159, 1256,  910,  ..., 1331,   55,  868])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1668,  384, 1322,  ..., 1573,  660,  399])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([1476,  845, 1289,  ...,  395,  980, 1526])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([2048, 1, 4, 64]) pos_embeddings: torch.Size([2048, 4, 64]) u_embeddings: torch.Size([2048, 4, 64])
+Tue 07 May 2024 18:28:08 DEBUG  neg_item_feat: The batch_size of interaction: 1879
+    neg_item_id, torch.Size([1879]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 453,  153,  169,  ..., 1244, 1171, 1403])
+Tue 07 May 2024 18:28:08 DEBUG  neg_embeddings: torch.Size([1879, 1, 4, 64]) pos_embeddings: torch.Size([1879, 4, 64]) u_embeddings: torch.Size([1879, 4, 64])
+Tue 07 May 2024 18:28:08 INFO  epoch 2 training [time: 0.82s, train loss: 32.1983]
+Tue 07 May 2024 18:28:09 INFO  epoch 2 evaluating [time: 0.41s, valid_score: 0.023500]
+Tue 07 May 2024 18:28:09 INFO  valid result: 
+recall@20 : 0.0118    mrr@20 : 0.0235    ndcg@20 : 0.0095    hit@20 : 0.1188    precision@20 : 0.0066
+Tue 07 May 2024 18:28:09 DEBUG  neg_item_feat: The batch_size of interaction: 2048
+    neg_item_id, torch.Size([2048]), cpu, torch.int64
+
+, neg_item_ids: tensor([ 818, 1138, 1350,  ...,  687,  806, 1645])

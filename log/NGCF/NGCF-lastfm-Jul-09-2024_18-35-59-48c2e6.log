@@ -1,0 +1,6 @@
+Tue 09 Jul 2024 18:36:00 INFO  [Training]: train_batch_size = [4096] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 5, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}]
+Tue 09 Jul 2024 18:36:00 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Tue 09 Jul 2024 18:44:33 INFO  Loading model structure and parameters from saved/NGCF-Jul-09-2024_18-36-01.pth
+Tue 09 Jul 2024 18:44:35 INFO  best params: 
+Tue 09 Jul 2024 18:44:35 INFO  best result: 
+Tue 09 Jul 2024 18:44:35 INFO  {'model': 'NGCF', 'best_valid_score': 0.259, 'valid_score_bigger': True, 'best_valid_result': OrderedDict([('recall@10', 0.181), ('recall@20', 0.259), ('ndcg@10', 0.164), ('ndcg@20', 0.197), ('mrr@10', 0.29), ('mrr@20', 0.298), ('hit@10', 0.582), ('hit@20', 0.707), ('precision@10', 0.089), ('precision@20', 0.063)]), 'test_result': OrderedDict([('recall@10', 0.192), ('recall@20', 0.272), ('ndcg@10', 0.185), ('ndcg@20', 0.218), ('mrr@10', 0.334), ('mrr@20', 0.342), ('hit@10', 0.602), ('hit@20', 0.726), ('precision@10', 0.094), ('precision@20', 0.067)])}

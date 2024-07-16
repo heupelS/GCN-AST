@@ -1,0 +1,35 @@
+Tue 30 Apr 2024 16:20:57 DEBUG  Loading <class 'recbole.data.dataset.augmented_dataset.AugmentedDataset'> from scratch.
+Tue 30 Apr 2024 16:20:57 DEBUG  uid_field: user_id
+Tue 30 Apr 2024 16:20:57 DEBUG  iid_field: item_id
+Tue 30 Apr 2024 16:20:57 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.inter] (source: [FeatureSource.INTERACTION]).
+Tue 30 Apr 2024 16:20:57 DEBUG  [inter]: 
+Tue 30 Apr 2024 16:20:57 DEBUG  	 load_col: [{'rating', 'user_id', 'item_id'}]
+Tue 30 Apr 2024 16:20:57 DEBUG  	 unload_col: [None]
+Tue 30 Apr 2024 16:20:57 DEBUG  Interaction feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.inter].
+Tue 30 Apr 2024 16:20:57 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.user] (source: [FeatureSource.USER]).
+Tue 30 Apr 2024 16:20:57 DEBUG  [user]: 
+Tue 30 Apr 2024 16:20:57 DEBUG  	 load_col: [set()]
+Tue 30 Apr 2024 16:20:57 DEBUG  	 unload_col: [None]
+Tue 30 Apr 2024 16:20:57 DEBUG  [user] feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.user].
+Tue 30 Apr 2024 16:20:57 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.item] (source: [FeatureSource.ITEM]).
+Tue 30 Apr 2024 16:20:57 DEBUG  [item]: 
+Tue 30 Apr 2024 16:20:57 DEBUG  	 load_col: [set()]
+Tue 30 Apr 2024 16:20:57 DEBUG  	 unload_col: [None]
+Tue 30 Apr 2024 16:20:57 DEBUG  [item] feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.item].
+Tue 30 Apr 2024 16:20:57 DEBUG  drop_by_value: val={}
+Tue 30 Apr 2024 16:20:57 DEBUG  Filling nan
+Tue 30 Apr 2024 16:20:57 DEBUG  Set label by {'rating': 4.0}.
+Tue 30 Apr 2024 16:20:57 DEBUG  Delete column [rating].
+Tue 30 Apr 2024 16:20:57 DEBUG  Normalized fields: ['label']
+Tue 30 Apr 2024 16:20:57 DEBUG  100000
+Tue 30 Apr 2024 16:20:57 DEBUG  split by ratios [[0.8, 0.1, 0.1]], group_by=[user_id]
+Tue 30 Apr 2024 16:20:57 DEBUG  Vor augmentation: 80808
+Tue 30 Apr 2024 16:22:18 DEBUG  Index(['user_id', 'item_id', 'label'], dtype='object')
+Tue 30 Apr 2024 16:22:18 DEBUG  80811
+Tue 30 Apr 2024 16:22:18 DEBUG  Classname: AugmentedDataset
+Tue 30 Apr 2024 16:22:18 DEBUG  Augmented dataset
+Tue 30 Apr 2024 16:22:18 DEBUG  Nach augmentation: 81751
+Tue 30 Apr 2024 16:22:19 INFO  [Training]: train_batch_size = [2048] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}]
+Tue 30 Apr 2024 16:22:19 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Tue 30 Apr 2024 16:23:52 INFO  Loading model structure and parameters from saved/ANS-Apr-30-2024_16-22-20.pth
+Tue 30 Apr 2024 16:23:52 DEBUG  No progress made: 4 iteration on 10. best_loss=-0.34, best_loss_threshold=-0.34, new_loss=-0.03

@@ -1,0 +1,193 @@
+Sat 25 May 2024 19:12:53 INFO  ['run_recbole.py', '--model=ANS', '--dataset=ml-100k']
+Sat 25 May 2024 19:12:53 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 2020
+state = DEBUG
+reproducibility = True
+data_path = /home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k
+checkpoint_dir = saved
+show_progress = False
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = False
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 500
+train_batch_size = 2048
+learner = adam
+learning_rate = 0.0001
+train_neg_sample_args = {'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 1}
+eval_step = 1
+stopping_step = 100
+clip_grad_norm = None
+weight_decay = 0.0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}
+repeatable = False
+metrics = ['Recall', 'MRR', 'NDCG', 'Hit', 'Precision']
+topk = [20]
+valid_metric = MRR@20
+valid_metric_bigger = True
+eval_batch_size = 4096
+metric_decimal_place = 4
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = {'rating': 4.0}
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id', 'rating']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = None
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = None
+item_inter_num_interval = None
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = True
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+kg_reverse_r = False
+entity_kg_num_interval = None
+relation_kg_num_interval = None
+benchmark_filename = None
+
+Other Hyper Parameters: 
+worker = 0
+wandb_project = recbole
+shuffle = True
+require_pow = False
+enable_amp = False
+enable_scaler = False
+transform = None
+train_after_converge = False
+embedding_size = 64
+n_layers = 3
+reg_weight = 0.0001
+eps = 0.3
+gamma = 0.15
+numerical_features = []
+discretization = None
+MODEL_TYPE = ModelType.GENERAL
+MODEL_INPUT_TYPE = InputType.PAIRWISE
+eval_type = EvaluatorType.RANKING
+single_spec = True
+local_rank = 0
+device = cuda
+eval_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+
+
+Sat 25 May 2024 19:12:53 DEBUG  Loading <class 'recbole.data.dataset.dataset.Dataset'> from scratch.
+Sat 25 May 2024 19:12:53 DEBUG  uid_field: user_id
+Sat 25 May 2024 19:12:53 DEBUG  iid_field: item_id
+Sat 25 May 2024 19:12:53 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.inter] (source: [FeatureSource.INTERACTION]).
+Sat 25 May 2024 19:12:53 DEBUG  [inter]: 
+Sat 25 May 2024 19:12:53 DEBUG  	 load_col: [{'item_id', 'user_id', 'rating'}]
+Sat 25 May 2024 19:12:53 DEBUG  	 unload_col: [None]
+Sat 25 May 2024 19:12:53 DEBUG  Interaction feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.inter].
+Sat 25 May 2024 19:12:53 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.user] (source: [FeatureSource.USER]).
+Sat 25 May 2024 19:12:53 DEBUG  [user]: 
+Sat 25 May 2024 19:12:53 DEBUG  	 load_col: [set()]
+Sat 25 May 2024 19:12:53 DEBUG  	 unload_col: [None]
+Sat 25 May 2024 19:12:53 DEBUG  [user] feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.user].
+Sat 25 May 2024 19:12:53 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.item] (source: [FeatureSource.ITEM]).
+Sat 25 May 2024 19:12:53 DEBUG  [item]: 
+Sat 25 May 2024 19:12:53 DEBUG  	 load_col: [set()]
+Sat 25 May 2024 19:12:53 DEBUG  	 unload_col: [None]
+Sat 25 May 2024 19:12:53 DEBUG  [item] feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.item].
+Sat 25 May 2024 19:12:53 DEBUG  drop_by_value: val={}
+Sat 25 May 2024 19:12:53 DEBUG  Filling nan
+Sat 25 May 2024 19:12:53 DEBUG  Set label by {'rating': 4.0}.
+Sat 25 May 2024 19:12:53 DEBUG  Delete column [rating].
+Sat 25 May 2024 19:12:53 DEBUG  Normalized fields: ['label']
+Sat 25 May 2024 19:12:53 INFO  ml-100k
+The number of users: 944
+Average actions of users: 106.04453870625663
+The number of items: 1683
+Average actions of items: 59.45303210463734
+The number of inters: 100000
+The sparsity of the dataset: 93.70575143257098%
+Remain Fields: ['user_id', 'item_id', 'label']
+Sat 25 May 2024 19:12:53 DEBUG  split by ratios [[0.8, 0.1, 0.1]], group_by=[user_id]
+Sat 25 May 2024 19:12:53 INFO  [Training]: train_batch_size = [2048] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 1}]
+Sat 25 May 2024 19:12:53 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Sat 25 May 2024 19:12:55 INFO  ANS(
+  (user_embedding): Embedding(944, 64)
+  (item_embedding): Embedding(1683, 64)
+  (mf_loss): BPRLoss()
+  (reg_loss): EmbLoss()
+  (user_gate): Linear(in_features=64, out_features=64, bias=True)
+  (item_gate): Linear(in_features=64, out_features=64, bias=True)
+  (pos_gate): Linear(in_features=64, out_features=64, bias=True)
+  (neg_gate): Linear(in_features=64, out_features=64, bias=True)
+  (hard_gate): Linear(in_features=64, out_features=64, bias=True)
+  (conf_gate): Linear(in_features=64, out_features=64, bias=True)
+  (easy_gate): Linear(in_features=64, out_features=64, bias=True)
+  (margin_model): Linear(in_features=64, out_features=1, bias=True)
+)
+Trainable parameters: 197313
+Sat 25 May 2024 19:12:55 INFO  FLOPs: 0.0
+Sat 25 May 2024 19:12:55 DEBUG  Full sort prediction scores: tensor([[-1.1141e-03, -7.8703e-05, -1.4825e-03, -1.0667e-03, -8.8733e-05,
+          5.1397e-06,  5.3430e-04,  3.5075e-03,  8.8704e-04, -2.2839e-04,
+          9.2770e-04,  1.0853e-03, -2.2397e-04, -1.2505e-03,  2.8656e-03,
+          1.8760e-04, -1.0232e-03,  3.6487e-04, -2.2057e-03,  8.5293e-05,
+          2.9313e-04, -3.0937e-03, -5.5026e-04,  2.5380e-04,  2.3375e-04,
+         -2.1590e-04,  5.7668e-04, -2.8729e-03,  4.5729e-04, -7.1656e-04,
+          2.6340e-03, -1.9601e-04,  6.9246e-04, -2.6949e-03, -7.4754e-04,
+          7.5862e-04,  1.4926e-03,  1.3965e-03, -2.2652e-05, -2.1592e-04,
+          2.0913e-03, -1.7499e-05,  2.8556e-03,  8.6250e-05, -6.2316e-05,
+          7.2182e-04,  1.5398e-03, -1.1791e-04,  3.5131e-03, -1.5420e-03,
+          5.3159e-04, -1.7760e-03,  4.0043e-03, -2.3274e-03,  9.9450e-06,
+         -9.3257e-04, -7.2543e-04, -3.5405e-03,  3.3299e-04,  5.0058e-04,
+         -2.8717e-03, -3.1399e-03, -1.6196e-03, -1.1290e-03],
+        [-3.1784e-04,  4.2186e-03, -2.2961e-03, -2.6281e-04,  1.2635e-03,
+          2.1179e-03,  2.1283e-03, -3.2034e-04, -6.1554e-04, -7.5549e-04,
+          7.7722e-04, -1.5734e-03,  6.3007e-04, -7.0045e-04, -3.4468e-03,
+         -4.2240e-04,  1.0537e-04, -2.3928e-04, -7.6473e-04,  6.8446e-05,
+         -3.2470e-04,  3.3546e-03,  1.2871e-03,  5.0456e-04, -1.0707e-04,
+         -1.4042e-04,  1.3769e-03, -1.4424e-03,  1.6210e-03,  1.5478e-03,
+          3.2409e-03,  7.6277e-05, -6.8884e-04, -2.4360e-03, -7.0195e-04,
+          5.7551e-04, -9.6488e-04,  1.5753e-03, -8.6736e-04, -8.1189e-05,
+         -1.0409e-03, -2.4152e-03, -2.9327e-03,  3.7523e-03,  1.7372e-04,
+          1.1567e-03,  2.6560e-03, -1.0600e-03, -1.1934e-03,  2.9025e-03,
+          5.4458e-04,  2.1090e-03, -3.1158e-04, -8.5240e-04, -1.4884e-05,
+          2.1207e-03,  6.9708e-04, -7.8976e-04, -3.5931e-04,  3.0818e-03,
+         -2.9822e-03, -1.6069e-03,  2.5200e-03, -4.1038e-04]], device='cuda:0',
+       grad_fn=<SumBackward1>)
+Sat 25 May 2024 19:12:55 DEBUG  Full sort prediction scores shape: torch.Size([2, 64])
+Sat 25 May 2024 19:12:55 DEBUG  Full sort prediction scores shape: torch.Size([2, 64])
+Sat 25 May 2024 19:12:57 INFO  epoch 0 training [time: 1.35s, train loss: 32.2292]
+Sat 25 May 2024 19:12:57 INFO  epoch 0 evaluating [time: 0.33s, valid_score: 0.026400]
+Sat 25 May 2024 19:12:57 INFO  valid result: 
+recall@20 : 0.0125    mrr@20 : 0.0264    ndcg@20 : 0.0103    hit@20 : 0.1241    precision@20 : 0.007
+Sat 25 May 2024 19:12:57 INFO  Saving current: saved/ANS-May-25-2024_19-12-55.pth
+Sat 25 May 2024 19:12:58 INFO  epoch 1 training [time: 0.72s, train loss: 32.2101]
+Sat 25 May 2024 19:12:58 INFO  epoch 1 evaluating [time: 0.30s, valid_score: 0.024500]
+Sat 25 May 2024 19:12:58 INFO  valid result: 
+recall@20 : 0.0119    mrr@20 : 0.0245    ndcg@20 : 0.0099    hit@20 : 0.1241    precision@20 : 0.007
+Sat 25 May 2024 19:12:59 INFO  epoch 2 training [time: 0.73s, train loss: 32.1977]

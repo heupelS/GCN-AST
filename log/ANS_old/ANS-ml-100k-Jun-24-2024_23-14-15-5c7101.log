@@ -1,0 +1,388 @@
+Mon 24 Jun 2024 23:14:15 INFO  ['run_recbole.py', '--model=ANS', '--dataset=ml-100k']
+Mon 24 Jun 2024 23:14:15 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 2020
+state = DEBUG
+reproducibility = True
+data_path = /home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k
+checkpoint_dir = saved
+show_progress = True
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = False
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 500
+train_batch_size = 2048
+learner = adam
+learning_rate = 0.0001
+train_neg_sample_args = {'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 1}
+eval_step = 1
+stopping_step = 1
+clip_grad_norm = None
+weight_decay = 0.0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}
+repeatable = False
+metrics = ['Recall', 'MRR', 'NDCG', 'Hit', 'Precision']
+topk = [20]
+valid_metric = Recall@20
+valid_metric_bigger = True
+eval_batch_size = 4096
+metric_decimal_place = 4
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = {'rating': 4.0}
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id', 'rating']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = None
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = None
+item_inter_num_interval = None
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = True
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+kg_reverse_r = False
+entity_kg_num_interval = None
+relation_kg_num_interval = None
+benchmark_filename = None
+
+Other Hyper Parameters: 
+worker = 0
+wandb_project = recbole
+shuffle = True
+require_pow = False
+enable_amp = False
+enable_scaler = True
+transform = None
+train_after_converge = True
+positive_sampling = True
+model_name_custom = GCN_AST
+data_augmentation = False
+embedding_size = 64
+n_layers = 3
+reg_weight = 0.001
+eps = 0.3579063307361654
+gamma = 0.010950879233563415
+numerical_features = []
+discretization = None
+MODEL_TYPE = ModelType.GENERAL
+MODEL_INPUT_TYPE = InputType.PAIRWISE
+eval_type = EvaluatorType.RANKING
+single_spec = True
+local_rank = 0
+device = cpu
+eval_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+
+
+Mon 24 Jun 2024 23:14:15 DEBUG  Loading <class 'recbole.data.dataset.dataset.Dataset'> from scratch.
+Mon 24 Jun 2024 23:14:15 DEBUG  uid_field: user_id
+Mon 24 Jun 2024 23:14:15 DEBUG  iid_field: item_id
+Mon 24 Jun 2024 23:14:15 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.inter] (source: [FeatureSource.INTERACTION]).
+Mon 24 Jun 2024 23:14:15 DEBUG  [inter]: 
+Mon 24 Jun 2024 23:14:15 DEBUG  	 load_col: [{'rating', 'user_id', 'item_id'}]
+Mon 24 Jun 2024 23:14:15 DEBUG  	 unload_col: [None]
+Mon 24 Jun 2024 23:14:16 DEBUG  Interaction feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.inter].
+Mon 24 Jun 2024 23:14:16 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.user] (source: [FeatureSource.USER]).
+Mon 24 Jun 2024 23:14:16 DEBUG  [user]: 
+Mon 24 Jun 2024 23:14:16 DEBUG  	 load_col: [set()]
+Mon 24 Jun 2024 23:14:16 DEBUG  	 unload_col: [None]
+Mon 24 Jun 2024 23:14:16 DEBUG  [user] feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.user].
+Mon 24 Jun 2024 23:14:16 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.item] (source: [FeatureSource.ITEM]).
+Mon 24 Jun 2024 23:14:16 DEBUG  [item]: 
+Mon 24 Jun 2024 23:14:16 DEBUG  	 load_col: [set()]
+Mon 24 Jun 2024 23:14:16 DEBUG  	 unload_col: [None]
+Mon 24 Jun 2024 23:14:16 DEBUG  [item] feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.item].
+Mon 24 Jun 2024 23:14:16 DEBUG  drop_by_value: val={}
+Mon 24 Jun 2024 23:14:16 DEBUG  Filling nan
+Mon 24 Jun 2024 23:14:16 DEBUG  Set label by {'rating': 4.0}.
+Mon 24 Jun 2024 23:14:16 DEBUG  Delete column [rating].
+Mon 24 Jun 2024 23:14:16 DEBUG  Normalized fields: ['label']
+Mon 24 Jun 2024 23:14:16 INFO  ml-100k
+The number of users: 944
+Average actions of users: 106.04453870625663
+The number of items: 1683
+Average actions of items: 59.45303210463734
+The number of inters: 100000
+The sparsity of the dataset: 93.70575143257098%
+Remain Fields: ['user_id', 'item_id', 'label']
+Mon 24 Jun 2024 23:14:16 DEBUG  split by ratios [[0.8, 0.1, 0.1]], group_by=[user_id]
+Mon 24 Jun 2024 23:14:16 INFO  [Training]: train_batch_size = [2048] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 1}]
+Mon 24 Jun 2024 23:14:16 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Mon 24 Jun 2024 23:14:17 INFO  ANS(
+  (user_embedding): Embedding(944, 64)
+  (item_embedding): Embedding(1683, 64)
+  (mf_loss): BPRLoss()
+  (reg_loss): EmbLoss()
+  (user_gate): Linear(in_features=64, out_features=64, bias=True)
+  (item_gate): Linear(in_features=64, out_features=64, bias=True)
+  (pos_gate): Linear(in_features=64, out_features=64, bias=True)
+  (neg_gate): Linear(in_features=64, out_features=64, bias=True)
+  (hard_gate): Linear(in_features=64, out_features=64, bias=True)
+  (conf_gate): Linear(in_features=64, out_features=64, bias=True)
+  (easy_gate): Linear(in_features=64, out_features=64, bias=True)
+  (margin_model): Linear(in_features=64, out_features=1, bias=True)
+)
+Trainable parameters: 197313
+Mon 24 Jun 2024 23:14:17 DEBUG  u_embeddings shape: torch.Size([1, 4, 64])
+Mon 24 Jun 2024 23:14:17 INFO  FLOPs: 0.0
+Mon 24 Jun 2024 23:14:17 DEBUG  matplotlib data path: /home/simeon/miniconda3/envs/recbole/lib/python3.11/site-packages/matplotlib/mpl-data
+Mon 24 Jun 2024 23:14:17 DEBUG  CONFIGDIR=/home/simeon/.config/matplotlib
+Mon 24 Jun 2024 23:14:17 DEBUG  interactive is False
+Mon 24 Jun 2024 23:14:17 DEBUG  platform is linux
+Mon 24 Jun 2024 23:14:17 DEBUG  CACHEDIR=/home/simeon/.cache/matplotlib
+Mon 24 Jun 2024 23:14:17 DEBUG  Using fontManager instance from /home/simeon/.cache/matplotlib/fontlist-v330.json
+Mon 24 Jun 2024 23:14:17 DEBUG   length of inter_feat: 80808
+Mon 24 Jun 2024 23:14:17 DEBUG   length of dataset: 80808
+Mon 24 Jun 2024 23:14:19 INFO  epoch 0 training [time: 1.50s, train loss: 28.0504]
+Mon 24 Jun 2024 23:14:19 INFO  epoch 0 evaluating [time: 0.10s, valid_score: 0.011800]
+Mon 24 Jun 2024 23:14:19 INFO  valid result: 
+recall@20 : 0.0118    mrr@20 : 0.0269    ndcg@20 : 0.0102    hit@20 : 0.123    precision@20 : 0.0069
+Mon 24 Jun 2024 23:14:19 INFO  Saving current: saved/ANS-Jun-24-2024_23-14-17.pth
+Mon 24 Jun 2024 23:14:20 INFO  epoch 1 training [time: 1.50s, train loss: 28.0354]
+Mon 24 Jun 2024 23:14:21 INFO  epoch 1 evaluating [time: 0.11s, valid_score: 0.011800]
+Mon 24 Jun 2024 23:14:21 INFO  valid result: 
+recall@20 : 0.0118    mrr@20 : 0.0256    ndcg@20 : 0.01    hit@20 : 0.123    precision@20 : 0.0068
+Mon 24 Jun 2024 23:14:21 INFO  Saving current: saved/ANS-Jun-24-2024_23-14-17.pth
+Mon 24 Jun 2024 23:14:22 INFO  epoch 2 training [time: 1.46s, train loss: 28.0245]
+Mon 24 Jun 2024 23:14:22 INFO  epoch 2 evaluating [time: 0.11s, valid_score: 0.012700]
+Mon 24 Jun 2024 23:14:22 INFO  valid result: 
+recall@20 : 0.0127    mrr@20 : 0.0261    ndcg@20 : 0.0103    hit@20 : 0.1262    precision@20 : 0.0071
+Mon 24 Jun 2024 23:14:22 INFO  Saving current: saved/ANS-Jun-24-2024_23-14-17.pth
+Mon 24 Jun 2024 23:14:24 INFO  epoch 3 training [time: 1.45s, train loss: 28.0139]
+Mon 24 Jun 2024 23:14:24 INFO  epoch 3 evaluating [time: 0.11s, valid_score: 0.012400]
+Mon 24 Jun 2024 23:14:24 INFO  valid result: 
+recall@20 : 0.0124    mrr@20 : 0.0252    ndcg@20 : 0.0102    hit@20 : 0.1262    precision@20 : 0.0071
+Mon 24 Jun 2024 23:14:25 INFO  epoch 4 training [time: 1.58s, train loss: 28.0034]
+Mon 24 Jun 2024 23:14:25 INFO  epoch 4 evaluating [time: 0.10s, valid_score: 0.012500]
+Mon 24 Jun 2024 23:14:25 INFO  valid result: 
+recall@20 : 0.0125    mrr@20 : 0.0249    ndcg@20 : 0.01    hit@20 : 0.123    precision@20 : 0.0068
+Mon 24 Jun 2024 23:14:25 INFO  Finished training, best eval result in epoch 2
+Mon 24 Jun 2024 23:14:25 DEBUG  Predicting for 944 users
+Mon 24 Jun 2024 23:14:25 DEBUG  Predicting for user 1 with 1649 unused items
+Mon 24 Jun 2024 23:14:25 DEBUG  u_embeddings shape: torch.Size([1649, 4, 64])
+Mon 24 Jun 2024 23:14:25 DEBUG  shape of scores: torch.Size([1649, 64])
+Mon 24 Jun 2024 23:14:25 DEBUG  Top 8 items for user 1: tensor([ 336,  903,  698, 1568,  348,  205,  416,  726])
+Mon 24 Jun 2024 23:14:25 DEBUG  Predicting for user 2 with 1608 unused items
+Mon 24 Jun 2024 23:14:25 DEBUG  u_embeddings shape: torch.Size([1608, 4, 64])
+Mon 24 Jun 2024 23:14:25 DEBUG  shape of scores: torch.Size([1608, 64])
+Mon 24 Jun 2024 23:14:25 DEBUG  Top 8 items for user 2: tensor([ 439,  252,   12,  920, 1230, 1255,  692,  757])
+Mon 24 Jun 2024 23:14:25 DEBUG  Predicting for user 3 with 1578 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1578, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1578, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 3: tensor([1384, 1394, 1405,  133, 1345,  324, 1213,  253])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 4 with 1490 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1490, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1490, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 4: tensor([1396,  497, 1118, 1339,  339, 1405, 1530,  456])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 5 with 1666 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1666, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1666, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 5: tensor([ 377, 1003,  608,  609,  354,  288,  474, 1148])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 6 with 1579 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1579, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1579, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 6: tensor([ 483,  664,  601,   30,  619, 1361, 1162,  656])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 7 with 1608 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1608, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1608, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 7: tensor([1403,  947,  567,  866, 1576,  597,   90, 1187])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 8 with 1603 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1603, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1603, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 8: tensor([ 147,  739, 1622,  760,  583,  475, 1582, 1485])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 9 with 1504 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1504, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1504, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 9: tensor([1364, 1184, 1308, 1101,  839,  981, 1006,  897])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 10 with 1513 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1513, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1513, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 10: tensor([ 546, 1598,  482,  361, 1406,  997,  225, 1454])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 11 with 1496 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1496, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1496, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 11: tensor([ 472,  778,  849, 1012,  269,  938,  833,  468])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 12 with 1450 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1450, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1450, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 12: tensor([1575, 1221, 1648, 1370, 1236,  489, 1465, 1611])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 13 with 1508 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1508, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1508, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 13: tensor([1517,   36,  522,  827, 1468, 1613, 1316, 1229])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 14 with 1576 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1576, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1576, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 14: tensor([ 576,   76,  105,  128, 1297, 1555,  538,  163])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 15 with 1569 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1569, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1569, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 15: tensor([1652, 1603,  607,  365, 1149, 1573,  849,   48])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 16 with 1294 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1294, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1294, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 16: tensor([1653, 1547,  276, 1279,  280, 1001,   59,  957])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 17 with 1633 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1633, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1633, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 17: tensor([1226, 1202,  444, 1460, 1326,   15,  345,  979])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 18 with 1437 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1437, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1437, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 18: tensor([1615, 1509,  361, 1346,  870, 1253,  948, 1085])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 19 with 1444 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1444, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1444, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 19: tensor([ 178, 1347,  381, 1083, 1334, 1223, 1250,  703])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 20 with 1298 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1298, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1298, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 20: tensor([ 833,  165, 1237, 1181,  313,  279,  455,  740])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 21 with 1537 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1537, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1537, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 21: tensor([747, 731, 998, 186,  75, 144, 234,  33])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 22 with 1625 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1625, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1625, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 22: tensor([1584, 1395, 1475, 1502,  484,  627,  383,  984])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 23 with 1458 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1458, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1458, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 23: tensor([ 616, 1089, 1431,  546, 1400,  128,  664,  113])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 24 with 1363 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1363, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1363, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 24: tensor([1637, 1208, 1158, 1565,  739,  823, 1420,  366])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 25 with 1458 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1458, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1458, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 25: tensor([ 991,  537, 1384,  757, 1331,  650,  367,  506])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 26 with 1585 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1585, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1585, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 26: tensor([ 935,  576,  871,  974,  427, 1544, 1609, 1392])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 27 with 1508 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1508, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1508, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 27: tensor([1484, 1085,  733,  753,  502,  326,  626,  381])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 28 with 1607 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1607, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1607, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 28: tensor([1319, 1245,   40, 1033,  918,  118,  707,  952])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 29 with 1586 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1586, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1586, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 29: tensor([ 875,  690,  878, 1374, 1494, 1350,  784,  948])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 30 with 1662 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1662, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1662, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 30: tensor([ 575,  400, 1106, 1366, 1082,  224,  285,  187])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 31 with 1461 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1461, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1461, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 31: tensor([1050, 1183, 1241,  342,  760,  815, 1238, 1654])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 32 with 1659 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1659, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1659, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 32: tensor([ 653,  611, 1305, 1280,  106, 1499, 1094,  436])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 33 with 1562 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1562, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1562, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 33: tensor([1300, 1199, 1234, 1642, 1009,  959,  287, 1046])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 34 with 1631 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1631, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1631, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 34: tensor([1349, 1129,  494,  291,  285, 1650,  853, 1596])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 35 with 1641 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1641, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1641, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 35: tensor([1617,  467, 1507, 1528,  744, 1136, 1175, 1651])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 36 with 1333 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1333, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1333, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 36: tensor([1339, 1090,  363,  204,  875,  758,  307,  563])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 37 with 1663 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1663, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1663, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 37: tensor([1032,  238, 1419, 1252, 1397,  638,  896, 1466])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 38 with 1266 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1266, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1266, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 38: tensor([1182, 1619,  998,  604, 1445, 1670,  794, 1384])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 39 with 1359 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1359, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1359, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 39: tensor([1497,  293,  907,  665,  972, 1454, 1393,  643])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 40 with 1534 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1534, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1534, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 40: tensor([1323,  270,  647,  794,   41, 1493, 1124, 1123])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 41 with 1643 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1643, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1643, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 41: tensor([1031,  861,  447, 1091,  882,   92, 1352,  195])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 42 with 1372 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1372, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1372, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 42: tensor([ 998, 1521,  721, 1305, 1352, 1466, 1671, 1303])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 43 with 1632 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1632, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1632, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 43: tensor([1511,   65,  812,   37, 1590,  499,   76,  400])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 44 with 1525 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1525, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1525, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 44: tensor([1485,  121, 1677, 1250,  410, 1094, 1153, 1576])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 45 with 1666 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1666, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1666, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 45: tensor([ 509,  207,  285,  451,  522, 1374,  150, 1408])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 46 with 1553 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1553, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1553, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 46: tensor([ 359,  727, 1390, 1624,  537,  772,  502, 1304])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 47 with 1572 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1572, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1572, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 47: tensor([1334, 1614, 1628,  617,  679, 1582,  150,  773])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 48 with 1463 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1463, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1463, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 48: tensor([1323, 1306, 1432, 1482,  836,  657, 1541,  565])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 49 with 1619 unused items
+Mon 24 Jun 2024 23:14:26 DEBUG  u_embeddings shape: torch.Size([1619, 4, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  shape of scores: torch.Size([1619, 64])
+Mon 24 Jun 2024 23:14:26 DEBUG  Top 8 items for user 49: tensor([1098,  489,  184, 1168,  948, 1253, 1579, 1252])
+Mon 24 Jun 2024 23:14:26 DEBUG  Predicting for user 50 with 1634 unused items

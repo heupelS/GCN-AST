@@ -1,0 +1,1464 @@
+Sat 25 May 2024 17:29:24 INFO  ['run_recbole.py', '--model=ANS', '--dataset=ml-100k']
+Sat 25 May 2024 17:29:24 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 2020
+state = DEBUG
+reproducibility = True
+data_path = /home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k
+checkpoint_dir = saved
+show_progress = False
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = False
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 500
+train_batch_size = 2048
+learner = adam
+learning_rate = 0.0001
+train_neg_sample_args = {'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 1}
+eval_step = 1
+stopping_step = 100
+clip_grad_norm = None
+weight_decay = 0.0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}
+repeatable = False
+metrics = ['Recall', 'MRR', 'NDCG', 'Hit', 'Precision']
+topk = [20]
+valid_metric = MRR@20
+valid_metric_bigger = True
+eval_batch_size = 4096
+metric_decimal_place = 4
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = {'rating': 4.0}
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id', 'rating']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = None
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = None
+item_inter_num_interval = None
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = True
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+kg_reverse_r = False
+entity_kg_num_interval = None
+relation_kg_num_interval = None
+benchmark_filename = None
+
+Other Hyper Parameters: 
+worker = 0
+wandb_project = recbole
+shuffle = True
+require_pow = False
+enable_amp = False
+enable_scaler = False
+transform = None
+train_after_converge = False
+embedding_size = 64
+n_layers = 3
+reg_weight = 0.0001
+eps = 0.3
+gamma = 0.15
+numerical_features = []
+discretization = None
+MODEL_TYPE = ModelType.GENERAL
+MODEL_INPUT_TYPE = InputType.PAIRWISE
+eval_type = EvaluatorType.RANKING
+single_spec = True
+local_rank = 0
+device = cuda
+eval_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+
+
+Sat 25 May 2024 17:29:24 DEBUG  Loading <class 'recbole.data.dataset.dataset.Dataset'> from scratch.
+Sat 25 May 2024 17:29:24 DEBUG  uid_field: user_id
+Sat 25 May 2024 17:29:24 DEBUG  iid_field: item_id
+Sat 25 May 2024 17:29:24 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.inter] (source: [FeatureSource.INTERACTION]).
+Sat 25 May 2024 17:29:24 DEBUG  [inter]: 
+Sat 25 May 2024 17:29:24 DEBUG  	 load_col: [{'user_id', 'item_id', 'rating'}]
+Sat 25 May 2024 17:29:24 DEBUG  	 unload_col: [None]
+Sat 25 May 2024 17:29:24 DEBUG  Interaction feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.inter].
+Sat 25 May 2024 17:29:24 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.user] (source: [FeatureSource.USER]).
+Sat 25 May 2024 17:29:24 DEBUG  [user]: 
+Sat 25 May 2024 17:29:24 DEBUG  	 load_col: [set()]
+Sat 25 May 2024 17:29:24 DEBUG  	 unload_col: [None]
+Sat 25 May 2024 17:29:24 DEBUG  [user] feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.user].
+Sat 25 May 2024 17:29:24 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.item] (source: [FeatureSource.ITEM]).
+Sat 25 May 2024 17:29:24 DEBUG  [item]: 
+Sat 25 May 2024 17:29:24 DEBUG  	 load_col: [set()]
+Sat 25 May 2024 17:29:24 DEBUG  	 unload_col: [None]
+Sat 25 May 2024 17:29:24 DEBUG  [item] feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.item].
+Sat 25 May 2024 17:29:24 DEBUG  drop_by_value: val={}
+Sat 25 May 2024 17:29:24 DEBUG  Filling nan
+Sat 25 May 2024 17:29:24 DEBUG  Set label by {'rating': 4.0}.
+Sat 25 May 2024 17:29:24 DEBUG  Delete column [rating].
+Sat 25 May 2024 17:29:24 DEBUG  Normalized fields: ['label']
+Sat 25 May 2024 17:29:24 INFO  ml-100k
+The number of users: 944
+Average actions of users: 106.04453870625663
+The number of items: 1683
+Average actions of items: 59.45303210463734
+The number of inters: 100000
+The sparsity of the dataset: 93.70575143257098%
+Remain Fields: ['user_id', 'item_id', 'label']
+Sat 25 May 2024 17:29:24 DEBUG  split by ratios [[0.8, 0.1, 0.1]], group_by=[user_id]
+Sat 25 May 2024 17:29:25 INFO  [Training]: train_batch_size = [2048] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 1}]
+Sat 25 May 2024 17:29:25 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Sat 25 May 2024 17:29:26 INFO  ANS(
+  (user_embedding): Embedding(944, 64)
+  (item_embedding): Embedding(1683, 64)
+  (mf_loss): BPRLoss()
+  (reg_loss): EmbLoss()
+  (user_gate): Linear(in_features=64, out_features=64, bias=True)
+  (item_gate): Linear(in_features=64, out_features=64, bias=True)
+  (pos_gate): Linear(in_features=64, out_features=64, bias=True)
+  (neg_gate): Linear(in_features=64, out_features=64, bias=True)
+  (hard_gate): Linear(in_features=64, out_features=64, bias=True)
+  (conf_gate): Linear(in_features=64, out_features=64, bias=True)
+  (easy_gate): Linear(in_features=64, out_features=64, bias=True)
+  (margin_model): Linear(in_features=64, out_features=1, bias=True)
+)
+Trainable parameters: 197313
+Sat 25 May 2024 17:29:26 INFO  FLOPs: 0.0
+Sat 25 May 2024 17:29:27 DEBUG  Full sort prediction scores: tensor([ 0.0029, -0.0140, -0.0186,  ...,  0.0079,  0.0130,  0.0056],
+       device='cuda:0', grad_fn=<ViewBackward0>)
+Sat 25 May 2024 17:29:27 DEBUG  Full sort prediction scores shape: torch.Size([135999864])
+Sat 25 May 2024 17:29:27 DEBUG  Full sort prediction scores shape: torch.Size([80808, 1683])
+Sat 25 May 2024 17:29:27 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:28 INFO  epoch 0 training [time: 0.85s, train loss: 32.2292]
+Sat 25 May 2024 17:29:28 INFO  epoch 0 evaluating [time: 0.31s, valid_score: 0.026400]
+Sat 25 May 2024 17:29:28 INFO  valid result: 
+recall@20 : 0.0125    mrr@20 : 0.0264    ndcg@20 : 0.0103    hit@20 : 0.1241    precision@20 : 0.007
+Sat 25 May 2024 17:29:28 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:29:28 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:29 INFO  epoch 1 training [time: 0.52s, train loss: 32.2101]
+Sat 25 May 2024 17:29:29 INFO  epoch 1 evaluating [time: 0.29s, valid_score: 0.024500]
+Sat 25 May 2024 17:29:29 INFO  valid result: 
+recall@20 : 0.0119    mrr@20 : 0.0245    ndcg@20 : 0.0099    hit@20 : 0.1241    precision@20 : 0.007
+Sat 25 May 2024 17:29:29 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:30 INFO  epoch 2 training [time: 0.50s, train loss: 32.1977]
+Sat 25 May 2024 17:29:30 INFO  epoch 2 evaluating [time: 0.29s, valid_score: 0.023900]
+Sat 25 May 2024 17:29:30 INFO  valid result: 
+recall@20 : 0.012    mrr@20 : 0.0239    ndcg@20 : 0.0096    hit@20 : 0.122    precision@20 : 0.0068
+Sat 25 May 2024 17:29:30 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:31 INFO  epoch 3 training [time: 0.61s, train loss: 32.1871]
+Sat 25 May 2024 17:29:31 INFO  epoch 3 evaluating [time: 0.29s, valid_score: 0.022700]
+Sat 25 May 2024 17:29:31 INFO  valid result: 
+recall@20 : 0.0113    mrr@20 : 0.0227    ndcg@20 : 0.0092    hit@20 : 0.1177    precision@20 : 0.0065
+Sat 25 May 2024 17:29:31 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:31 INFO  epoch 4 training [time: 0.49s, train loss: 32.1758]
+Sat 25 May 2024 17:29:32 INFO  epoch 4 evaluating [time: 0.29s, valid_score: 0.021400]
+Sat 25 May 2024 17:29:32 INFO  valid result: 
+recall@20 : 0.0093    mrr@20 : 0.0214    ndcg@20 : 0.0083    hit@20 : 0.106    precision@20 : 0.0059
+Sat 25 May 2024 17:29:32 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:32 INFO  epoch 5 training [time: 0.48s, train loss: 32.1667]
+Sat 25 May 2024 17:29:32 INFO  epoch 5 evaluating [time: 0.28s, valid_score: 0.020600]
+Sat 25 May 2024 17:29:32 INFO  valid result: 
+recall@20 : 0.009    mrr@20 : 0.0206    ndcg@20 : 0.0079    hit@20 : 0.1039    precision@20 : 0.0057
+Sat 25 May 2024 17:29:32 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:33 INFO  epoch 6 training [time: 0.53s, train loss: 32.1590]
+Sat 25 May 2024 17:29:33 INFO  epoch 6 evaluating [time: 0.29s, valid_score: 0.019200]
+Sat 25 May 2024 17:29:33 INFO  valid result: 
+recall@20 : 0.0091    mrr@20 : 0.0192    ndcg@20 : 0.0077    hit@20 : 0.1039    precision@20 : 0.0057
+Sat 25 May 2024 17:29:33 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:34 INFO  epoch 7 training [time: 0.53s, train loss: 32.1525]
+Sat 25 May 2024 17:29:34 INFO  epoch 7 evaluating [time: 0.29s, valid_score: 0.017800]
+Sat 25 May 2024 17:29:34 INFO  valid result: 
+recall@20 : 0.0087    mrr@20 : 0.0178    ndcg@20 : 0.0072    hit@20 : 0.0997    precision@20 : 0.0055
+Sat 25 May 2024 17:29:34 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:35 INFO  epoch 8 training [time: 0.63s, train loss: 32.1495]
+Sat 25 May 2024 17:29:35 INFO  epoch 8 evaluating [time: 0.32s, valid_score: 0.017000]
+Sat 25 May 2024 17:29:35 INFO  valid result: 
+recall@20 : 0.0087    mrr@20 : 0.017    ndcg@20 : 0.007    hit@20 : 0.0986    precision@20 : 0.0054
+Sat 25 May 2024 17:29:35 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:36 INFO  epoch 9 training [time: 0.78s, train loss: 32.1453]
+Sat 25 May 2024 17:29:36 INFO  epoch 9 evaluating [time: 0.30s, valid_score: 0.016100]
+Sat 25 May 2024 17:29:36 INFO  valid result: 
+recall@20 : 0.008    mrr@20 : 0.0161    ndcg@20 : 0.0066    hit@20 : 0.0933    precision@20 : 0.0051
+Sat 25 May 2024 17:29:36 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:37 INFO  epoch 10 training [time: 0.53s, train loss: 32.1401]
+Sat 25 May 2024 17:29:37 INFO  epoch 10 evaluating [time: 0.29s, valid_score: 0.015500]
+Sat 25 May 2024 17:29:37 INFO  valid result: 
+recall@20 : 0.0078    mrr@20 : 0.0155    ndcg@20 : 0.0063    hit@20 : 0.0891    precision@20 : 0.0049
+Sat 25 May 2024 17:29:37 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:38 INFO  epoch 11 training [time: 0.68s, train loss: 32.1334]
+Sat 25 May 2024 17:29:38 INFO  epoch 11 evaluating [time: 0.29s, valid_score: 0.015200]
+Sat 25 May 2024 17:29:38 INFO  valid result: 
+recall@20 : 0.0078    mrr@20 : 0.0152    ndcg@20 : 0.0063    hit@20 : 0.0912    precision@20 : 0.005
+Sat 25 May 2024 17:29:38 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:38 INFO  epoch 12 training [time: 0.59s, train loss: 32.1260]
+Sat 25 May 2024 17:29:39 INFO  epoch 12 evaluating [time: 0.31s, valid_score: 0.014300]
+Sat 25 May 2024 17:29:39 INFO  valid result: 
+recall@20 : 0.007    mrr@20 : 0.0143    ndcg@20 : 0.0058    hit@20 : 0.0838    precision@20 : 0.0046
+Sat 25 May 2024 17:29:39 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:39 INFO  epoch 13 training [time: 0.57s, train loss: 32.1210]
+Sat 25 May 2024 17:29:40 INFO  epoch 13 evaluating [time: 0.31s, valid_score: 0.014000]
+Sat 25 May 2024 17:29:40 INFO  valid result: 
+recall@20 : 0.0068    mrr@20 : 0.014    ndcg@20 : 0.0056    hit@20 : 0.0795    precision@20 : 0.0044
+Sat 25 May 2024 17:29:40 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:40 INFO  epoch 14 training [time: 0.66s, train loss: 32.1129]
+Sat 25 May 2024 17:29:41 INFO  epoch 14 evaluating [time: 0.31s, valid_score: 0.013800]
+Sat 25 May 2024 17:29:41 INFO  valid result: 
+recall@20 : 0.0069    mrr@20 : 0.0138    ndcg@20 : 0.0056    hit@20 : 0.0827    precision@20 : 0.0046
+Sat 25 May 2024 17:29:41 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:41 INFO  epoch 15 training [time: 0.54s, train loss: 32.1075]
+Sat 25 May 2024 17:29:41 INFO  epoch 15 evaluating [time: 0.32s, valid_score: 0.013300]
+Sat 25 May 2024 17:29:41 INFO  valid result: 
+recall@20 : 0.0064    mrr@20 : 0.0133    ndcg@20 : 0.0053    hit@20 : 0.0774    precision@20 : 0.0043
+Sat 25 May 2024 17:29:41 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:42 INFO  epoch 16 training [time: 0.53s, train loss: 32.1011]
+Sat 25 May 2024 17:29:42 INFO  epoch 16 evaluating [time: 0.31s, valid_score: 0.012900]
+Sat 25 May 2024 17:29:42 INFO  valid result: 
+recall@20 : 0.006    mrr@20 : 0.0129    ndcg@20 : 0.0051    hit@20 : 0.0742    precision@20 : 0.0041
+Sat 25 May 2024 17:29:42 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:43 INFO  epoch 17 training [time: 0.52s, train loss: 32.0952]
+Sat 25 May 2024 17:29:43 INFO  epoch 17 evaluating [time: 0.31s, valid_score: 0.012700]
+Sat 25 May 2024 17:29:43 INFO  valid result: 
+recall@20 : 0.0063    mrr@20 : 0.0127    ndcg@20 : 0.005    hit@20 : 0.0732    precision@20 : 0.004
+Sat 25 May 2024 17:29:43 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:44 INFO  epoch 18 training [time: 0.52s, train loss: 32.0901]
+Sat 25 May 2024 17:29:44 INFO  epoch 18 evaluating [time: 0.30s, valid_score: 0.012500]
+Sat 25 May 2024 17:29:44 INFO  valid result: 
+recall@20 : 0.0064    mrr@20 : 0.0125    ndcg@20 : 0.005    hit@20 : 0.0742    precision@20 : 0.004
+Sat 25 May 2024 17:29:44 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:45 INFO  epoch 19 training [time: 0.62s, train loss: 32.0856]
+Sat 25 May 2024 17:29:45 INFO  epoch 19 evaluating [time: 0.29s, valid_score: 0.012200]
+Sat 25 May 2024 17:29:45 INFO  valid result: 
+recall@20 : 0.0062    mrr@20 : 0.0122    ndcg@20 : 0.0048    hit@20 : 0.0689    precision@20 : 0.0037
+Sat 25 May 2024 17:29:45 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:46 INFO  epoch 20 training [time: 0.70s, train loss: 32.0800]
+Sat 25 May 2024 17:29:46 INFO  epoch 20 evaluating [time: 0.30s, valid_score: 0.011900]
+Sat 25 May 2024 17:29:46 INFO  valid result: 
+recall@20 : 0.0062    mrr@20 : 0.0119    ndcg@20 : 0.0048    hit@20 : 0.07    precision@20 : 0.0038
+Sat 25 May 2024 17:29:46 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:46 INFO  epoch 21 training [time: 0.59s, train loss: 32.0749]
+Sat 25 May 2024 17:29:47 INFO  epoch 21 evaluating [time: 0.29s, valid_score: 0.011900]
+Sat 25 May 2024 17:29:47 INFO  valid result: 
+recall@20 : 0.0061    mrr@20 : 0.0119    ndcg@20 : 0.0048    hit@20 : 0.07    precision@20 : 0.0038
+Sat 25 May 2024 17:29:47 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:47 INFO  epoch 22 training [time: 0.56s, train loss: 32.0691]
+Sat 25 May 2024 17:29:48 INFO  epoch 22 evaluating [time: 0.29s, valid_score: 0.011600]
+Sat 25 May 2024 17:29:48 INFO  valid result: 
+recall@20 : 0.0059    mrr@20 : 0.0116    ndcg@20 : 0.0046    hit@20 : 0.0668    precision@20 : 0.0037
+Sat 25 May 2024 17:29:48 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:48 INFO  epoch 23 training [time: 0.51s, train loss: 32.0650]
+Sat 25 May 2024 17:29:48 INFO  epoch 23 evaluating [time: 0.29s, valid_score: 0.011400]
+Sat 25 May 2024 17:29:48 INFO  valid result: 
+recall@20 : 0.0056    mrr@20 : 0.0114    ndcg@20 : 0.0046    hit@20 : 0.0689    precision@20 : 0.0038
+Sat 25 May 2024 17:29:48 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:49 INFO  epoch 24 training [time: 0.57s, train loss: 32.0604]
+Sat 25 May 2024 17:29:49 INFO  epoch 24 evaluating [time: 0.30s, valid_score: 0.011100]
+Sat 25 May 2024 17:29:49 INFO  valid result: 
+recall@20 : 0.0056    mrr@20 : 0.0111    ndcg@20 : 0.0045    hit@20 : 0.0668    precision@20 : 0.0037
+Sat 25 May 2024 17:29:49 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:50 INFO  epoch 25 training [time: 0.71s, train loss: 32.0553]
+Sat 25 May 2024 17:29:50 INFO  epoch 25 evaluating [time: 0.31s, valid_score: 0.011000]
+Sat 25 May 2024 17:29:50 INFO  valid result: 
+recall@20 : 0.0056    mrr@20 : 0.011    ndcg@20 : 0.0045    hit@20 : 0.0689    precision@20 : 0.0038
+Sat 25 May 2024 17:29:50 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:51 INFO  epoch 26 training [time: 0.53s, train loss: 32.0511]
+Sat 25 May 2024 17:29:51 INFO  epoch 26 evaluating [time: 0.31s, valid_score: 0.010900]
+Sat 25 May 2024 17:29:51 INFO  valid result: 
+recall@20 : 0.0051    mrr@20 : 0.0109    ndcg@20 : 0.0043    hit@20 : 0.0636    precision@20 : 0.0036
+Sat 25 May 2024 17:29:51 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:52 INFO  epoch 27 training [time: 0.58s, train loss: 32.0478]
+Sat 25 May 2024 17:29:52 INFO  epoch 27 evaluating [time: 0.31s, valid_score: 0.011400]
+Sat 25 May 2024 17:29:52 INFO  valid result: 
+recall@20 : 0.0054    mrr@20 : 0.0114    ndcg@20 : 0.0045    hit@20 : 0.0657    precision@20 : 0.0038
+Sat 25 May 2024 17:29:52 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:53 INFO  epoch 28 training [time: 0.69s, train loss: 32.0415]
+Sat 25 May 2024 17:29:53 INFO  epoch 28 evaluating [time: 0.33s, valid_score: 0.012000]
+Sat 25 May 2024 17:29:53 INFO  valid result: 
+recall@20 : 0.0055    mrr@20 : 0.012    ndcg@20 : 0.0047    hit@20 : 0.07    precision@20 : 0.0039
+Sat 25 May 2024 17:29:53 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:54 INFO  epoch 29 training [time: 0.55s, train loss: 32.0375]
+Sat 25 May 2024 17:29:54 INFO  epoch 29 evaluating [time: 0.29s, valid_score: 0.011600]
+Sat 25 May 2024 17:29:54 INFO  valid result: 
+recall@20 : 0.0049    mrr@20 : 0.0116    ndcg@20 : 0.0044    hit@20 : 0.0626    precision@20 : 0.0037
+Sat 25 May 2024 17:29:54 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:54 INFO  epoch 30 training [time: 0.56s, train loss: 32.0337]
+Sat 25 May 2024 17:29:55 INFO  epoch 30 evaluating [time: 0.29s, valid_score: 0.011900]
+Sat 25 May 2024 17:29:55 INFO  valid result: 
+recall@20 : 0.0051    mrr@20 : 0.0119    ndcg@20 : 0.0045    hit@20 : 0.0657    precision@20 : 0.0038
+Sat 25 May 2024 17:29:55 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:55 INFO  epoch 31 training [time: 0.54s, train loss: 32.0291]
+Sat 25 May 2024 17:29:56 INFO  epoch 31 evaluating [time: 0.28s, valid_score: 0.011800]
+Sat 25 May 2024 17:29:56 INFO  valid result: 
+recall@20 : 0.0053    mrr@20 : 0.0118    ndcg@20 : 0.0046    hit@20 : 0.0647    precision@20 : 0.0037
+Sat 25 May 2024 17:29:56 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:56 INFO  epoch 32 training [time: 0.63s, train loss: 32.0248]
+Sat 25 May 2024 17:29:56 INFO  epoch 32 evaluating [time: 0.29s, valid_score: 0.012000]
+Sat 25 May 2024 17:29:56 INFO  valid result: 
+recall@20 : 0.0053    mrr@20 : 0.012    ndcg@20 : 0.0046    hit@20 : 0.0647    precision@20 : 0.0037
+Sat 25 May 2024 17:29:56 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:57 INFO  epoch 33 training [time: 0.51s, train loss: 32.0220]
+Sat 25 May 2024 17:29:57 INFO  epoch 33 evaluating [time: 0.29s, valid_score: 0.013300]
+Sat 25 May 2024 17:29:57 INFO  valid result: 
+recall@20 : 0.0057    mrr@20 : 0.0133    ndcg@20 : 0.005    hit@20 : 0.0689    precision@20 : 0.004
+Sat 25 May 2024 17:29:57 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:58 INFO  epoch 34 training [time: 0.52s, train loss: 32.0180]
+Sat 25 May 2024 17:29:58 INFO  epoch 34 evaluating [time: 0.29s, valid_score: 0.013900]
+Sat 25 May 2024 17:29:58 INFO  valid result: 
+recall@20 : 0.0059    mrr@20 : 0.0139    ndcg@20 : 0.0051    hit@20 : 0.0721    precision@20 : 0.0042
+Sat 25 May 2024 17:29:58 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:29:59 INFO  epoch 35 training [time: 0.53s, train loss: 32.0144]
+Sat 25 May 2024 17:29:59 INFO  epoch 35 evaluating [time: 0.29s, valid_score: 0.014000]
+Sat 25 May 2024 17:29:59 INFO  valid result: 
+recall@20 : 0.0065    mrr@20 : 0.014    ndcg@20 : 0.0054    hit@20 : 0.0753    precision@20 : 0.0043
+Sat 25 May 2024 17:29:59 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:00 INFO  epoch 36 training [time: 0.80s, train loss: 32.0099]
+Sat 25 May 2024 17:30:00 INFO  epoch 36 evaluating [time: 0.29s, valid_score: 0.014000]
+Sat 25 May 2024 17:30:00 INFO  valid result: 
+recall@20 : 0.0065    mrr@20 : 0.014    ndcg@20 : 0.0053    hit@20 : 0.0742    precision@20 : 0.0042
+Sat 25 May 2024 17:30:00 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:01 INFO  epoch 37 training [time: 0.69s, train loss: 32.0052]
+Sat 25 May 2024 17:30:01 INFO  epoch 37 evaluating [time: 0.29s, valid_score: 0.014600]
+Sat 25 May 2024 17:30:01 INFO  valid result: 
+recall@20 : 0.0066    mrr@20 : 0.0146    ndcg@20 : 0.0056    hit@20 : 0.0764    precision@20 : 0.0046
+Sat 25 May 2024 17:30:01 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:02 INFO  epoch 38 training [time: 0.76s, train loss: 32.0023]
+Sat 25 May 2024 17:30:02 INFO  epoch 38 evaluating [time: 0.29s, valid_score: 0.015100]
+Sat 25 May 2024 17:30:02 INFO  valid result: 
+recall@20 : 0.0068    mrr@20 : 0.0151    ndcg@20 : 0.0058    hit@20 : 0.0795    precision@20 : 0.0048
+Sat 25 May 2024 17:30:02 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:03 INFO  epoch 39 training [time: 0.71s, train loss: 31.9986]
+Sat 25 May 2024 17:30:03 INFO  epoch 39 evaluating [time: 0.29s, valid_score: 0.016100]
+Sat 25 May 2024 17:30:03 INFO  valid result: 
+recall@20 : 0.0066    mrr@20 : 0.0161    ndcg@20 : 0.0059    hit@20 : 0.0817    precision@20 : 0.0049
+Sat 25 May 2024 17:30:03 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:04 INFO  epoch 40 training [time: 0.74s, train loss: 31.9943]
+Sat 25 May 2024 17:30:04 INFO  epoch 40 evaluating [time: 0.30s, valid_score: 0.016400]
+Sat 25 May 2024 17:30:04 INFO  valid result: 
+recall@20 : 0.0065    mrr@20 : 0.0164    ndcg@20 : 0.006    hit@20 : 0.0827    precision@20 : 0.005
+Sat 25 May 2024 17:30:04 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:05 INFO  epoch 41 training [time: 0.82s, train loss: 31.9910]
+Sat 25 May 2024 17:30:05 INFO  epoch 41 evaluating [time: 0.30s, valid_score: 0.016900]
+Sat 25 May 2024 17:30:05 INFO  valid result: 
+recall@20 : 0.0063    mrr@20 : 0.0169    ndcg@20 : 0.006    hit@20 : 0.0838    precision@20 : 0.005
+Sat 25 May 2024 17:30:05 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:06 INFO  epoch 42 training [time: 0.60s, train loss: 31.9888]
+Sat 25 May 2024 17:30:06 INFO  epoch 42 evaluating [time: 0.29s, valid_score: 0.017400]
+Sat 25 May 2024 17:30:06 INFO  valid result: 
+recall@20 : 0.0064    mrr@20 : 0.0174    ndcg@20 : 0.0061    hit@20 : 0.0838    precision@20 : 0.0051
+Sat 25 May 2024 17:30:06 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:07 INFO  epoch 43 training [time: 0.57s, train loss: 31.9847]
+Sat 25 May 2024 17:30:07 INFO  epoch 43 evaluating [time: 0.28s, valid_score: 0.018200]
+Sat 25 May 2024 17:30:07 INFO  valid result: 
+recall@20 : 0.0066    mrr@20 : 0.0182    ndcg@20 : 0.0065    hit@20 : 0.0859    precision@20 : 0.0056
+Sat 25 May 2024 17:30:07 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:07 INFO  epoch 44 training [time: 0.51s, train loss: 31.9809]
+Sat 25 May 2024 17:30:08 INFO  epoch 44 evaluating [time: 0.29s, valid_score: 0.018500]
+Sat 25 May 2024 17:30:08 INFO  valid result: 
+recall@20 : 0.0061    mrr@20 : 0.0185    ndcg@20 : 0.0065    hit@20 : 0.087    precision@20 : 0.0056
+Sat 25 May 2024 17:30:08 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:08 INFO  epoch 45 training [time: 0.50s, train loss: 31.9767]
+Sat 25 May 2024 17:30:09 INFO  epoch 45 evaluating [time: 0.29s, valid_score: 0.019000]
+Sat 25 May 2024 17:30:09 INFO  valid result: 
+recall@20 : 0.0063    mrr@20 : 0.019    ndcg@20 : 0.0067    hit@20 : 0.0912    precision@20 : 0.0058
+Sat 25 May 2024 17:30:09 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:09 INFO  epoch 46 training [time: 0.46s, train loss: 31.9733]
+Sat 25 May 2024 17:30:09 INFO  epoch 46 evaluating [time: 0.29s, valid_score: 0.020700]
+Sat 25 May 2024 17:30:09 INFO  valid result: 
+recall@20 : 0.0065    mrr@20 : 0.0207    ndcg@20 : 0.0071    hit@20 : 0.0944    precision@20 : 0.006
+Sat 25 May 2024 17:30:09 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:10 INFO  epoch 47 training [time: 0.60s, train loss: 31.9688]
+Sat 25 May 2024 17:30:10 INFO  epoch 47 evaluating [time: 0.29s, valid_score: 0.021400]
+Sat 25 May 2024 17:30:10 INFO  valid result: 
+recall@20 : 0.0066    mrr@20 : 0.0214    ndcg@20 : 0.0073    hit@20 : 0.0954    precision@20 : 0.0061
+Sat 25 May 2024 17:30:10 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:11 INFO  epoch 48 training [time: 0.51s, train loss: 31.9648]
+Sat 25 May 2024 17:30:11 INFO  epoch 48 evaluating [time: 0.29s, valid_score: 0.022600]
+Sat 25 May 2024 17:30:11 INFO  valid result: 
+recall@20 : 0.0068    mrr@20 : 0.0226    ndcg@20 : 0.0077    hit@20 : 0.0976    precision@20 : 0.0064
+Sat 25 May 2024 17:30:11 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:11 INFO  epoch 49 training [time: 0.55s, train loss: 31.9617]
+Sat 25 May 2024 17:30:12 INFO  epoch 49 evaluating [time: 0.29s, valid_score: 0.022800]
+Sat 25 May 2024 17:30:12 INFO  valid result: 
+recall@20 : 0.0072    mrr@20 : 0.0228    ndcg@20 : 0.0081    hit@20 : 0.1018    precision@20 : 0.007
+Sat 25 May 2024 17:30:12 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:12 INFO  epoch 50 training [time: 0.55s, train loss: 31.9578]
+Sat 25 May 2024 17:30:13 INFO  epoch 50 evaluating [time: 0.29s, valid_score: 0.023500]
+Sat 25 May 2024 17:30:13 INFO  valid result: 
+recall@20 : 0.0073    mrr@20 : 0.0235    ndcg@20 : 0.0085    hit@20 : 0.1029    precision@20 : 0.0073
+Sat 25 May 2024 17:30:13 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:13 INFO  epoch 51 training [time: 0.53s, train loss: 31.9538]
+Sat 25 May 2024 17:30:13 INFO  epoch 51 evaluating [time: 0.28s, valid_score: 0.024700]
+Sat 25 May 2024 17:30:13 INFO  valid result: 
+recall@20 : 0.0075    mrr@20 : 0.0247    ndcg@20 : 0.0086    hit@20 : 0.1039    precision@20 : 0.0072
+Sat 25 May 2024 17:30:13 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:14 INFO  epoch 52 training [time: 0.54s, train loss: 31.9480]
+Sat 25 May 2024 17:30:14 INFO  epoch 52 evaluating [time: 0.29s, valid_score: 0.025400]
+Sat 25 May 2024 17:30:14 INFO  valid result: 
+recall@20 : 0.0081    mrr@20 : 0.0254    ndcg@20 : 0.0091    hit@20 : 0.1113    precision@20 : 0.0078
+Sat 25 May 2024 17:30:14 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:15 INFO  epoch 53 training [time: 0.52s, train loss: 31.9423]
+Sat 25 May 2024 17:30:15 INFO  epoch 53 evaluating [time: 0.29s, valid_score: 0.027000]
+Sat 25 May 2024 17:30:15 INFO  valid result: 
+recall@20 : 0.0085    mrr@20 : 0.027    ndcg@20 : 0.0096    hit@20 : 0.1145    precision@20 : 0.0082
+Sat 25 May 2024 17:30:15 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:15 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:16 INFO  epoch 54 training [time: 0.52s, train loss: 31.9379]
+Sat 25 May 2024 17:30:16 INFO  epoch 54 evaluating [time: 0.29s, valid_score: 0.028300]
+Sat 25 May 2024 17:30:16 INFO  valid result: 
+recall@20 : 0.0092    mrr@20 : 0.0283    ndcg@20 : 0.0104    hit@20 : 0.122    precision@20 : 0.009
+Sat 25 May 2024 17:30:16 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:16 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:16 INFO  epoch 55 training [time: 0.52s, train loss: 31.9331]
+Sat 25 May 2024 17:30:17 INFO  epoch 55 evaluating [time: 0.29s, valid_score: 0.029800]
+Sat 25 May 2024 17:30:17 INFO  valid result: 
+recall@20 : 0.0093    mrr@20 : 0.0298    ndcg@20 : 0.0107    hit@20 : 0.122    precision@20 : 0.0092
+Sat 25 May 2024 17:30:17 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:17 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:17 INFO  epoch 56 training [time: 0.56s, train loss: 31.9261]
+Sat 25 May 2024 17:30:18 INFO  epoch 56 evaluating [time: 0.29s, valid_score: 0.031000]
+Sat 25 May 2024 17:30:18 INFO  valid result: 
+recall@20 : 0.0098    mrr@20 : 0.031    ndcg@20 : 0.0112    hit@20 : 0.1273    precision@20 : 0.0096
+Sat 25 May 2024 17:30:18 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:18 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:18 INFO  epoch 57 training [time: 0.58s, train loss: 31.9198]
+Sat 25 May 2024 17:30:18 INFO  epoch 57 evaluating [time: 0.29s, valid_score: 0.032100]
+Sat 25 May 2024 17:30:18 INFO  valid result: 
+recall@20 : 0.0101    mrr@20 : 0.0321    ndcg@20 : 0.0117    hit@20 : 0.1294    precision@20 : 0.01
+Sat 25 May 2024 17:30:18 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:18 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:19 INFO  epoch 58 training [time: 0.83s, train loss: 31.9138]
+Sat 25 May 2024 17:30:20 INFO  epoch 58 evaluating [time: 0.29s, valid_score: 0.032700]
+Sat 25 May 2024 17:30:20 INFO  valid result: 
+recall@20 : 0.0101    mrr@20 : 0.0327    ndcg@20 : 0.0119    hit@20 : 0.1283    precision@20 : 0.01
+Sat 25 May 2024 17:30:20 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:20 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:20 INFO  epoch 59 training [time: 0.62s, train loss: 31.9067]
+Sat 25 May 2024 17:30:21 INFO  epoch 59 evaluating [time: 0.29s, valid_score: 0.033400]
+Sat 25 May 2024 17:30:21 INFO  valid result: 
+recall@20 : 0.0107    mrr@20 : 0.0334    ndcg@20 : 0.0124    hit@20 : 0.1368    precision@20 : 0.0108
+Sat 25 May 2024 17:30:21 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:21 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:21 INFO  epoch 60 training [time: 0.50s, train loss: 31.8985]
+Sat 25 May 2024 17:30:21 INFO  epoch 60 evaluating [time: 0.30s, valid_score: 0.034800]
+Sat 25 May 2024 17:30:21 INFO  valid result: 
+recall@20 : 0.011    mrr@20 : 0.0348    ndcg@20 : 0.013    hit@20 : 0.1389    precision@20 : 0.0113
+Sat 25 May 2024 17:30:21 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:21 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:22 INFO  epoch 61 training [time: 0.50s, train loss: 31.8891]
+Sat 25 May 2024 17:30:22 INFO  epoch 61 evaluating [time: 0.29s, valid_score: 0.036700]
+Sat 25 May 2024 17:30:22 INFO  valid result: 
+recall@20 : 0.0115    mrr@20 : 0.0367    ndcg@20 : 0.0137    hit@20 : 0.1463    precision@20 : 0.012
+Sat 25 May 2024 17:30:22 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:22 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:23 INFO  epoch 62 training [time: 0.50s, train loss: 31.8811]
+Sat 25 May 2024 17:30:23 INFO  epoch 62 evaluating [time: 0.29s, valid_score: 0.038300]
+Sat 25 May 2024 17:30:23 INFO  valid result: 
+recall@20 : 0.012    mrr@20 : 0.0383    ndcg@20 : 0.0144    hit@20 : 0.1516    precision@20 : 0.0128
+Sat 25 May 2024 17:30:23 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:23 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:23 INFO  epoch 63 training [time: 0.49s, train loss: 31.8686]
+Sat 25 May 2024 17:30:24 INFO  epoch 63 evaluating [time: 0.29s, valid_score: 0.039100]
+Sat 25 May 2024 17:30:24 INFO  valid result: 
+recall@20 : 0.0122    mrr@20 : 0.0391    ndcg@20 : 0.0149    hit@20 : 0.158    precision@20 : 0.0133
+Sat 25 May 2024 17:30:24 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:24 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:24 INFO  epoch 64 training [time: 0.49s, train loss: 31.8560]
+Sat 25 May 2024 17:30:24 INFO  epoch 64 evaluating [time: 0.29s, valid_score: 0.040300]
+Sat 25 May 2024 17:30:24 INFO  valid result: 
+recall@20 : 0.0119    mrr@20 : 0.0403    ndcg@20 : 0.0153    hit@20 : 0.1591    precision@20 : 0.0139
+Sat 25 May 2024 17:30:24 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:24 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:25 INFO  epoch 65 training [time: 0.50s, train loss: 31.8439]
+Sat 25 May 2024 17:30:25 INFO  epoch 65 evaluating [time: 0.29s, valid_score: 0.042000]
+Sat 25 May 2024 17:30:25 INFO  valid result: 
+recall@20 : 0.0128    mrr@20 : 0.042    ndcg@20 : 0.0162    hit@20 : 0.1612    precision@20 : 0.0149
+Sat 25 May 2024 17:30:25 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:25 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:26 INFO  epoch 66 training [time: 0.54s, train loss: 31.8309]
+Sat 25 May 2024 17:30:26 INFO  epoch 66 evaluating [time: 0.32s, valid_score: 0.042200]
+Sat 25 May 2024 17:30:26 INFO  valid result: 
+recall@20 : 0.0126    mrr@20 : 0.0422    ndcg@20 : 0.0165    hit@20 : 0.1622    precision@20 : 0.0154
+Sat 25 May 2024 17:30:26 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:26 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:27 INFO  epoch 67 training [time: 0.56s, train loss: 31.8129]
+Sat 25 May 2024 17:30:27 INFO  epoch 67 evaluating [time: 0.31s, valid_score: 0.042800]
+Sat 25 May 2024 17:30:27 INFO  valid result: 
+recall@20 : 0.0135    mrr@20 : 0.0428    ndcg@20 : 0.0172    hit@20 : 0.1686    precision@20 : 0.0163
+Sat 25 May 2024 17:30:27 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:27 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:28 INFO  epoch 68 training [time: 0.52s, train loss: 31.7945]
+Sat 25 May 2024 17:30:28 INFO  epoch 68 evaluating [time: 0.31s, valid_score: 0.043800]
+Sat 25 May 2024 17:30:28 INFO  valid result: 
+recall@20 : 0.0142    mrr@20 : 0.0438    ndcg@20 : 0.018    hit@20 : 0.1771    precision@20 : 0.0171
+Sat 25 May 2024 17:30:28 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:28 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:28 INFO  epoch 69 training [time: 0.53s, train loss: 31.7749]
+Sat 25 May 2024 17:30:29 INFO  epoch 69 evaluating [time: 0.31s, valid_score: 0.045800]
+Sat 25 May 2024 17:30:29 INFO  valid result: 
+recall@20 : 0.0148    mrr@20 : 0.0458    ndcg@20 : 0.0186    hit@20 : 0.1813    precision@20 : 0.0174
+Sat 25 May 2024 17:30:29 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:29 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:29 INFO  epoch 70 training [time: 0.65s, train loss: 31.7477]
+Sat 25 May 2024 17:30:30 INFO  epoch 70 evaluating [time: 0.31s, valid_score: 0.048100]
+Sat 25 May 2024 17:30:30 INFO  valid result: 
+recall@20 : 0.0158    mrr@20 : 0.0481    ndcg@20 : 0.0198    hit@20 : 0.1866    precision@20 : 0.0186
+Sat 25 May 2024 17:30:30 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:30 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:30 INFO  epoch 71 training [time: 0.51s, train loss: 31.7161]
+Sat 25 May 2024 17:30:31 INFO  epoch 71 evaluating [time: 0.31s, valid_score: 0.049300]
+Sat 25 May 2024 17:30:31 INFO  valid result: 
+recall@20 : 0.0165    mrr@20 : 0.0493    ndcg@20 : 0.0208    hit@20 : 0.1877    precision@20 : 0.0196
+Sat 25 May 2024 17:30:31 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:31 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:31 INFO  epoch 72 training [time: 0.52s, train loss: 31.6804]
+Sat 25 May 2024 17:30:31 INFO  epoch 72 evaluating [time: 0.29s, valid_score: 0.050000]
+Sat 25 May 2024 17:30:31 INFO  valid result: 
+recall@20 : 0.0176    mrr@20 : 0.05    ndcg@20 : 0.0218    hit@20 : 0.1983    precision@20 : 0.0208
+Sat 25 May 2024 17:30:31 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:31 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:32 INFO  epoch 73 training [time: 0.54s, train loss: 31.6320]
+Sat 25 May 2024 17:30:32 INFO  epoch 73 evaluating [time: 0.29s, valid_score: 0.050600]
+Sat 25 May 2024 17:30:32 INFO  valid result: 
+recall@20 : 0.019    mrr@20 : 0.0506    ndcg@20 : 0.023    hit@20 : 0.2036    precision@20 : 0.0221
+Sat 25 May 2024 17:30:32 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:32 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:33 INFO  epoch 74 training [time: 0.55s, train loss: 31.5643]
+Sat 25 May 2024 17:30:33 INFO  epoch 74 evaluating [time: 0.29s, valid_score: 0.052200]
+Sat 25 May 2024 17:30:33 INFO  valid result: 
+recall@20 : 0.0203    mrr@20 : 0.0522    ndcg@20 : 0.024    hit@20 : 0.211    precision@20 : 0.023
+Sat 25 May 2024 17:30:33 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:33 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:34 INFO  epoch 75 training [time: 0.51s, train loss: 31.4606]
+Sat 25 May 2024 17:30:34 INFO  epoch 75 evaluating [time: 0.29s, valid_score: 0.056300]
+Sat 25 May 2024 17:30:34 INFO  valid result: 
+recall@20 : 0.0225    mrr@20 : 0.0563    ndcg@20 : 0.0261    hit@20 : 0.2269    precision@20 : 0.0247
+Sat 25 May 2024 17:30:34 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:34 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:34 INFO  epoch 76 training [time: 0.51s, train loss: 31.3124]
+Sat 25 May 2024 17:30:35 INFO  epoch 76 evaluating [time: 0.29s, valid_score: 0.062200]
+Sat 25 May 2024 17:30:35 INFO  valid result: 
+recall@20 : 0.0243    mrr@20 : 0.0622    ndcg@20 : 0.0282    hit@20 : 0.2322    precision@20 : 0.026
+Sat 25 May 2024 17:30:35 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:35 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:35 INFO  epoch 77 training [time: 0.52s, train loss: 31.0867]
+Sat 25 May 2024 17:30:35 INFO  epoch 77 evaluating [time: 0.30s, valid_score: 0.064000]
+Sat 25 May 2024 17:30:35 INFO  valid result: 
+recall@20 : 0.0267    mrr@20 : 0.064    ndcg@20 : 0.03    hit@20 : 0.2481    precision@20 : 0.0275
+Sat 25 May 2024 17:30:35 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:35 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:36 INFO  epoch 78 training [time: 0.59s, train loss: 30.7741]
+Sat 25 May 2024 17:30:36 INFO  epoch 78 evaluating [time: 0.30s, valid_score: 0.067500]
+Sat 25 May 2024 17:30:36 INFO  valid result: 
+recall@20 : 0.0278    mrr@20 : 0.0675    ndcg@20 : 0.0314    hit@20 : 0.2577    precision@20 : 0.0283
+Sat 25 May 2024 17:30:36 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:36 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:37 INFO  epoch 79 training [time: 0.57s, train loss: 30.3164]
+Sat 25 May 2024 17:30:37 INFO  epoch 79 evaluating [time: 0.29s, valid_score: 0.072300]
+Sat 25 May 2024 17:30:37 INFO  valid result: 
+recall@20 : 0.0289    mrr@20 : 0.0723    ndcg@20 : 0.033    hit@20 : 0.2609    precision@20 : 0.0296
+Sat 25 May 2024 17:30:37 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:37 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:38 INFO  epoch 80 training [time: 0.61s, train loss: 29.7461]
+Sat 25 May 2024 17:30:38 INFO  epoch 80 evaluating [time: 0.31s, valid_score: 0.073100]
+Sat 25 May 2024 17:30:38 INFO  valid result: 
+recall@20 : 0.0309    mrr@20 : 0.0731    ndcg@20 : 0.0344    hit@20 : 0.2704    precision@20 : 0.0308
+Sat 25 May 2024 17:30:38 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:38 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:39 INFO  epoch 81 training [time: 0.69s, train loss: 29.0151]
+Sat 25 May 2024 17:30:39 INFO  epoch 81 evaluating [time: 0.31s, valid_score: 0.077500]
+Sat 25 May 2024 17:30:39 INFO  valid result: 
+recall@20 : 0.0322    mrr@20 : 0.0775    ndcg@20 : 0.0358    hit@20 : 0.2747    precision@20 : 0.032
+Sat 25 May 2024 17:30:39 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:39 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:40 INFO  epoch 82 training [time: 0.55s, train loss: 28.1763]
+Sat 25 May 2024 17:30:40 INFO  epoch 82 evaluating [time: 0.31s, valid_score: 0.080400]
+Sat 25 May 2024 17:30:40 INFO  valid result: 
+recall@20 : 0.0373    mrr@20 : 0.0804    ndcg@20 : 0.0385    hit@20 : 0.2937    precision@20 : 0.0343
+Sat 25 May 2024 17:30:40 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:40 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:41 INFO  epoch 83 training [time: 0.55s, train loss: 27.2538]
+Sat 25 May 2024 17:30:41 INFO  epoch 83 evaluating [time: 0.29s, valid_score: 0.084100]
+Sat 25 May 2024 17:30:41 INFO  valid result: 
+recall@20 : 0.0404    mrr@20 : 0.0841    ndcg@20 : 0.0407    hit@20 : 0.3086    precision@20 : 0.0355
+Sat 25 May 2024 17:30:41 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:41 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:41 INFO  epoch 84 training [time: 0.55s, train loss: 26.2890]
+Sat 25 May 2024 17:30:42 INFO  epoch 84 evaluating [time: 0.29s, valid_score: 0.084800]
+Sat 25 May 2024 17:30:42 INFO  valid result: 
+recall@20 : 0.0417    mrr@20 : 0.0848    ndcg@20 : 0.042    hit@20 : 0.3128    precision@20 : 0.0369
+Sat 25 May 2024 17:30:42 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:42 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:42 INFO  epoch 85 training [time: 0.54s, train loss: 25.4662]
+Sat 25 May 2024 17:30:43 INFO  epoch 85 evaluating [time: 0.29s, valid_score: 0.086600]
+Sat 25 May 2024 17:30:43 INFO  valid result: 
+recall@20 : 0.0435    mrr@20 : 0.0866    ndcg@20 : 0.0432    hit@20 : 0.3224    precision@20 : 0.0379
+Sat 25 May 2024 17:30:43 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:43 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:43 INFO  epoch 86 training [time: 0.56s, train loss: 24.6080]
+Sat 25 May 2024 17:30:43 INFO  epoch 86 evaluating [time: 0.29s, valid_score: 0.088300]
+Sat 25 May 2024 17:30:43 INFO  valid result: 
+recall@20 : 0.0453    mrr@20 : 0.0883    ndcg@20 : 0.0447    hit@20 : 0.3277    precision@20 : 0.0392
+Sat 25 May 2024 17:30:43 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:43 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:44 INFO  epoch 87 training [time: 0.54s, train loss: 23.8432]
+Sat 25 May 2024 17:30:44 INFO  epoch 87 evaluating [time: 0.29s, valid_score: 0.091700]
+Sat 25 May 2024 17:30:44 INFO  valid result: 
+recall@20 : 0.0465    mrr@20 : 0.0917    ndcg@20 : 0.0464    hit@20 : 0.3309    precision@20 : 0.0407
+Sat 25 May 2024 17:30:44 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:44 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:45 INFO  epoch 88 training [time: 0.54s, train loss: 23.1911]
+Sat 25 May 2024 17:30:45 INFO  epoch 88 evaluating [time: 0.29s, valid_score: 0.097800]
+Sat 25 May 2024 17:30:45 INFO  valid result: 
+recall@20 : 0.0477    mrr@20 : 0.0978    ndcg@20 : 0.048    hit@20 : 0.334    precision@20 : 0.0416
+Sat 25 May 2024 17:30:45 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:45 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:46 INFO  epoch 89 training [time: 0.55s, train loss: 22.6340]
+Sat 25 May 2024 17:30:46 INFO  epoch 89 evaluating [time: 0.29s, valid_score: 0.097900]
+Sat 25 May 2024 17:30:46 INFO  valid result: 
+recall@20 : 0.05    mrr@20 : 0.0979    ndcg@20 : 0.0495    hit@20 : 0.3425    precision@20 : 0.0432
+Sat 25 May 2024 17:30:46 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:46 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:46 INFO  epoch 90 training [time: 0.50s, train loss: 22.1399]
+Sat 25 May 2024 17:30:47 INFO  epoch 90 evaluating [time: 0.29s, valid_score: 0.101600]
+Sat 25 May 2024 17:30:47 INFO  valid result: 
+recall@20 : 0.0522    mrr@20 : 0.1016    ndcg@20 : 0.0515    hit@20 : 0.3584    precision@20 : 0.0448
+Sat 25 May 2024 17:30:47 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:47 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:47 INFO  epoch 91 training [time: 0.54s, train loss: 21.7009]
+Sat 25 May 2024 17:30:48 INFO  epoch 91 evaluating [time: 0.29s, valid_score: 0.105100]
+Sat 25 May 2024 17:30:48 INFO  valid result: 
+recall@20 : 0.0534    mrr@20 : 0.1051    ndcg@20 : 0.0529    hit@20 : 0.3574    precision@20 : 0.0456
+Sat 25 May 2024 17:30:48 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:48 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:48 INFO  epoch 92 training [time: 0.63s, train loss: 21.3894]
+Sat 25 May 2024 17:30:49 INFO  epoch 92 evaluating [time: 0.29s, valid_score: 0.107100]
+Sat 25 May 2024 17:30:49 INFO  valid result: 
+recall@20 : 0.0562    mrr@20 : 0.1071    ndcg@20 : 0.0548    hit@20 : 0.368    precision@20 : 0.0472
+Sat 25 May 2024 17:30:49 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:49 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:49 INFO  epoch 93 training [time: 0.48s, train loss: 21.1820]
+Sat 25 May 2024 17:30:49 INFO  epoch 93 evaluating [time: 0.29s, valid_score: 0.108300]
+Sat 25 May 2024 17:30:49 INFO  valid result: 
+recall@20 : 0.0577    mrr@20 : 0.1083    ndcg@20 : 0.0561    hit@20 : 0.3669    precision@20 : 0.0483
+Sat 25 May 2024 17:30:49 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:49 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:50 INFO  epoch 94 training [time: 0.50s, train loss: 20.8331]
+Sat 25 May 2024 17:30:50 INFO  epoch 94 evaluating [time: 0.29s, valid_score: 0.110500]
+Sat 25 May 2024 17:30:50 INFO  valid result: 
+recall@20 : 0.0591    mrr@20 : 0.1105    ndcg@20 : 0.0573    hit@20 : 0.3722    precision@20 : 0.049
+Sat 25 May 2024 17:30:50 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:50 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:51 INFO  epoch 95 training [time: 0.53s, train loss: 20.7334]
+Sat 25 May 2024 17:30:51 INFO  epoch 95 evaluating [time: 0.29s, valid_score: 0.113300]
+Sat 25 May 2024 17:30:51 INFO  valid result: 
+recall@20 : 0.0607    mrr@20 : 0.1133    ndcg@20 : 0.059    hit@20 : 0.3754    precision@20 : 0.0502
+Sat 25 May 2024 17:30:51 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:51 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:51 INFO  epoch 96 training [time: 0.52s, train loss: 20.4951]
+Sat 25 May 2024 17:30:52 INFO  epoch 96 evaluating [time: 0.31s, valid_score: 0.118800]
+Sat 25 May 2024 17:30:52 INFO  valid result: 
+recall@20 : 0.062    mrr@20 : 0.1188    ndcg@20 : 0.0607    hit@20 : 0.3754    precision@20 : 0.051
+Sat 25 May 2024 17:30:52 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:52 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:52 INFO  epoch 97 training [time: 0.50s, train loss: 20.2506]
+Sat 25 May 2024 17:30:53 INFO  epoch 97 evaluating [time: 0.31s, valid_score: 0.122100]
+Sat 25 May 2024 17:30:53 INFO  valid result: 
+recall@20 : 0.0638    mrr@20 : 0.1221    ndcg@20 : 0.0625    hit@20 : 0.3818    precision@20 : 0.052
+Sat 25 May 2024 17:30:53 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:53 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:53 INFO  epoch 98 training [time: 0.51s, train loss: 20.0556]
+Sat 25 May 2024 17:30:53 INFO  epoch 98 evaluating [time: 0.31s, valid_score: 0.124900]
+Sat 25 May 2024 17:30:53 INFO  valid result: 
+recall@20 : 0.0668    mrr@20 : 0.1249    ndcg@20 : 0.0645    hit@20 : 0.3977    precision@20 : 0.053
+Sat 25 May 2024 17:30:53 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:53 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:54 INFO  epoch 99 training [time: 0.51s, train loss: 20.0491]
+Sat 25 May 2024 17:30:54 INFO  epoch 99 evaluating [time: 0.31s, valid_score: 0.129600]
+Sat 25 May 2024 17:30:54 INFO  valid result: 
+recall@20 : 0.0682    mrr@20 : 0.1296    ndcg@20 : 0.0665    hit@20 : 0.4008    precision@20 : 0.054
+Sat 25 May 2024 17:30:54 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:54 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:55 INFO  epoch 100 training [time: 0.50s, train loss: 19.9655]
+Sat 25 May 2024 17:30:55 INFO  epoch 100 evaluating [time: 0.31s, valid_score: 0.131700]
+Sat 25 May 2024 17:30:55 INFO  valid result: 
+recall@20 : 0.0704    mrr@20 : 0.1317    ndcg@20 : 0.0679    hit@20 : 0.4051    precision@20 : 0.055
+Sat 25 May 2024 17:30:55 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:55 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:56 INFO  epoch 101 training [time: 0.51s, train loss: 19.8949]
+Sat 25 May 2024 17:30:56 INFO  epoch 101 evaluating [time: 0.31s, valid_score: 0.133300]
+Sat 25 May 2024 17:30:56 INFO  valid result: 
+recall@20 : 0.0751    mrr@20 : 0.1333    ndcg@20 : 0.0702    hit@20 : 0.4189    precision@20 : 0.0565
+Sat 25 May 2024 17:30:56 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:56 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:56 INFO  epoch 102 training [time: 0.54s, train loss: 19.8183]
+Sat 25 May 2024 17:30:57 INFO  epoch 102 evaluating [time: 0.29s, valid_score: 0.137000]
+Sat 25 May 2024 17:30:57 INFO  valid result: 
+recall@20 : 0.0798    mrr@20 : 0.137    ndcg@20 : 0.0729    hit@20 : 0.4337    precision@20 : 0.0578
+Sat 25 May 2024 17:30:57 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:57 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:57 INFO  epoch 103 training [time: 0.63s, train loss: 19.7190]
+Sat 25 May 2024 17:30:58 INFO  epoch 103 evaluating [time: 0.30s, valid_score: 0.140800]
+Sat 25 May 2024 17:30:58 INFO  valid result: 
+recall@20 : 0.0813    mrr@20 : 0.1408    ndcg@20 : 0.0746    hit@20 : 0.439    precision@20 : 0.0587
+Sat 25 May 2024 17:30:58 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:58 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:58 INFO  epoch 104 training [time: 0.53s, train loss: 19.6212]
+Sat 25 May 2024 17:30:58 INFO  epoch 104 evaluating [time: 0.29s, valid_score: 0.142600]
+Sat 25 May 2024 17:30:58 INFO  valid result: 
+recall@20 : 0.088    mrr@20 : 0.1426    ndcg@20 : 0.0783    hit@20 : 0.4528    precision@20 : 0.0609
+Sat 25 May 2024 17:30:58 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:58 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:30:59 INFO  epoch 105 training [time: 0.54s, train loss: 19.6485]
+Sat 25 May 2024 17:30:59 INFO  epoch 105 evaluating [time: 0.29s, valid_score: 0.144500]
+Sat 25 May 2024 17:30:59 INFO  valid result: 
+recall@20 : 0.0921    mrr@20 : 0.1445    ndcg@20 : 0.0804    hit@20 : 0.4571    precision@20 : 0.0618
+Sat 25 May 2024 17:30:59 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:30:59 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:00 INFO  epoch 106 training [time: 0.58s, train loss: 19.4852]
+Sat 25 May 2024 17:31:00 INFO  epoch 106 evaluating [time: 0.32s, valid_score: 0.149600]
+Sat 25 May 2024 17:31:00 INFO  valid result: 
+recall@20 : 0.0978    mrr@20 : 0.1496    ndcg@20 : 0.0841    hit@20 : 0.4751    precision@20 : 0.0635
+Sat 25 May 2024 17:31:00 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:00 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:01 INFO  epoch 107 training [time: 0.56s, train loss: 19.3978]
+Sat 25 May 2024 17:31:01 INFO  epoch 107 evaluating [time: 0.31s, valid_score: 0.157000]
+Sat 25 May 2024 17:31:01 INFO  valid result: 
+recall@20 : 0.103    mrr@20 : 0.157    ndcg@20 : 0.0888    hit@20 : 0.4931    precision@20 : 0.0649
+Sat 25 May 2024 17:31:01 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:01 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:02 INFO  epoch 108 training [time: 0.55s, train loss: 19.3996]
+Sat 25 May 2024 17:31:02 INFO  epoch 108 evaluating [time: 0.32s, valid_score: 0.167300]
+Sat 25 May 2024 17:31:02 INFO  valid result: 
+recall@20 : 0.109    mrr@20 : 0.1673    ndcg@20 : 0.0944    hit@20 : 0.509    precision@20 : 0.0661
+Sat 25 May 2024 17:31:02 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:02 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:03 INFO  epoch 109 training [time: 0.57s, train loss: 19.4158]
+Sat 25 May 2024 17:31:03 INFO  epoch 109 evaluating [time: 0.31s, valid_score: 0.173600]
+Sat 25 May 2024 17:31:03 INFO  valid result: 
+recall@20 : 0.1143    mrr@20 : 0.1736    ndcg@20 : 0.099    hit@20 : 0.527    precision@20 : 0.0674
+Sat 25 May 2024 17:31:03 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:03 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:03 INFO  epoch 110 training [time: 0.57s, train loss: 19.2827]
+Sat 25 May 2024 17:31:04 INFO  epoch 110 evaluating [time: 0.31s, valid_score: 0.184100]
+Sat 25 May 2024 17:31:04 INFO  valid result: 
+recall@20 : 0.1203    mrr@20 : 0.1841    ndcg@20 : 0.1049    hit@20 : 0.5376    precision@20 : 0.0697
+Sat 25 May 2024 17:31:04 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:04 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:04 INFO  epoch 111 training [time: 0.64s, train loss: 19.3111]
+Sat 25 May 2024 17:31:05 INFO  epoch 111 evaluating [time: 0.30s, valid_score: 0.200200]
+Sat 25 May 2024 17:31:05 INFO  valid result: 
+recall@20 : 0.1246    mrr@20 : 0.2002    ndcg@20 : 0.1105    hit@20 : 0.5546    precision@20 : 0.0699
+Sat 25 May 2024 17:31:05 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:05 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:05 INFO  epoch 112 training [time: 0.56s, train loss: 19.2745]
+Sat 25 May 2024 17:31:06 INFO  epoch 112 evaluating [time: 0.30s, valid_score: 0.211300]
+Sat 25 May 2024 17:31:06 INFO  valid result: 
+recall@20 : 0.1333    mrr@20 : 0.2113    ndcg@20 : 0.1169    hit@20 : 0.5758    precision@20 : 0.072
+Sat 25 May 2024 17:31:06 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:06 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:06 INFO  epoch 113 training [time: 0.75s, train loss: 19.1827]
+Sat 25 May 2024 17:31:07 INFO  epoch 113 evaluating [time: 0.30s, valid_score: 0.223600]
+Sat 25 May 2024 17:31:07 INFO  valid result: 
+recall@20 : 0.1372    mrr@20 : 0.2236    ndcg@20 : 0.1219    hit@20 : 0.5832    precision@20 : 0.0726
+Sat 25 May 2024 17:31:07 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:07 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:07 INFO  epoch 114 training [time: 0.70s, train loss: 19.2174]
+Sat 25 May 2024 17:31:08 INFO  epoch 114 evaluating [time: 0.29s, valid_score: 0.235400]
+Sat 25 May 2024 17:31:08 INFO  valid result: 
+recall@20 : 0.1427    mrr@20 : 0.2354    ndcg@20 : 0.1276    hit@20 : 0.5896    precision@20 : 0.0744
+Sat 25 May 2024 17:31:08 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:08 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:08 INFO  epoch 115 training [time: 0.52s, train loss: 19.1134]
+Sat 25 May 2024 17:31:08 INFO  epoch 115 evaluating [time: 0.29s, valid_score: 0.243800]
+Sat 25 May 2024 17:31:08 INFO  valid result: 
+recall@20 : 0.1507    mrr@20 : 0.2438    ndcg@20 : 0.1328    hit@20 : 0.6098    precision@20 : 0.0759
+Sat 25 May 2024 17:31:08 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:08 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:09 INFO  epoch 116 training [time: 0.51s, train loss: 19.0962]
+Sat 25 May 2024 17:31:09 INFO  epoch 116 evaluating [time: 0.29s, valid_score: 0.247700]
+Sat 25 May 2024 17:31:09 INFO  valid result: 
+recall@20 : 0.1536    mrr@20 : 0.2477    ndcg@20 : 0.1352    hit@20 : 0.6151    precision@20 : 0.0768
+Sat 25 May 2024 17:31:09 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:09 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:10 INFO  epoch 117 training [time: 0.50s, train loss: 19.0710]
+Sat 25 May 2024 17:31:10 INFO  epoch 117 evaluating [time: 0.29s, valid_score: 0.252300]
+Sat 25 May 2024 17:31:10 INFO  valid result: 
+recall@20 : 0.1616    mrr@20 : 0.2523    ndcg@20 : 0.1399    hit@20 : 0.6331    precision@20 : 0.0784
+Sat 25 May 2024 17:31:10 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:10 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:11 INFO  epoch 118 training [time: 0.51s, train loss: 19.1176]
+Sat 25 May 2024 17:31:11 INFO  epoch 118 evaluating [time: 0.29s, valid_score: 0.257100]
+Sat 25 May 2024 17:31:11 INFO  valid result: 
+recall@20 : 0.1688    mrr@20 : 0.2571    ndcg@20 : 0.1447    hit@20 : 0.6511    precision@20 : 0.0803
+Sat 25 May 2024 17:31:11 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:11 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:11 INFO  epoch 119 training [time: 0.51s, train loss: 19.0504]
+Sat 25 May 2024 17:31:12 INFO  epoch 119 evaluating [time: 0.29s, valid_score: 0.259400]
+Sat 25 May 2024 17:31:12 INFO  valid result: 
+recall@20 : 0.1711    mrr@20 : 0.2594    ndcg@20 : 0.1471    hit@20 : 0.6532    precision@20 : 0.0807
+Sat 25 May 2024 17:31:12 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:12 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:12 INFO  epoch 120 training [time: 0.50s, train loss: 18.8913]
+Sat 25 May 2024 17:31:12 INFO  epoch 120 evaluating [time: 0.29s, valid_score: 0.261600]
+Sat 25 May 2024 17:31:12 INFO  valid result: 
+recall@20 : 0.1782    mrr@20 : 0.2616    ndcg@20 : 0.1513    hit@20 : 0.6638    precision@20 : 0.0826
+Sat 25 May 2024 17:31:12 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:12 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:13 INFO  epoch 121 training [time: 0.50s, train loss: 18.9771]
+Sat 25 May 2024 17:31:13 INFO  epoch 121 evaluating [time: 0.29s, valid_score: 0.268600]
+Sat 25 May 2024 17:31:13 INFO  valid result: 
+recall@20 : 0.1877    mrr@20 : 0.2686    ndcg@20 : 0.1568    hit@20 : 0.6787    precision@20 : 0.0846
+Sat 25 May 2024 17:31:13 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:13 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:14 INFO  epoch 122 training [time: 0.50s, train loss: 19.0973]
+Sat 25 May 2024 17:31:14 INFO  epoch 122 evaluating [time: 0.29s, valid_score: 0.277300]
+Sat 25 May 2024 17:31:14 INFO  valid result: 
+recall@20 : 0.1916    mrr@20 : 0.2773    ndcg@20 : 0.1598    hit@20 : 0.6882    precision@20 : 0.0849
+Sat 25 May 2024 17:31:14 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:14 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:15 INFO  epoch 123 training [time: 0.54s, train loss: 18.9009]
+Sat 25 May 2024 17:31:15 INFO  epoch 123 evaluating [time: 0.29s, valid_score: 0.281300]
+Sat 25 May 2024 17:31:15 INFO  valid result: 
+recall@20 : 0.1984    mrr@20 : 0.2813    ndcg@20 : 0.1639    hit@20 : 0.7031    precision@20 : 0.0865
+Sat 25 May 2024 17:31:15 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:15 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:15 INFO  epoch 124 training [time: 0.52s, train loss: 18.8263]
+Sat 25 May 2024 17:31:16 INFO  epoch 124 evaluating [time: 0.29s, valid_score: 0.284700]
+Sat 25 May 2024 17:31:16 INFO  valid result: 
+recall@20 : 0.2049    mrr@20 : 0.2847    ndcg@20 : 0.1681    hit@20 : 0.7147    precision@20 : 0.0882
+Sat 25 May 2024 17:31:16 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:16 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:16 INFO  epoch 125 training [time: 0.62s, train loss: 18.7244]
+Sat 25 May 2024 17:31:17 INFO  epoch 125 evaluating [time: 0.29s, valid_score: 0.283900]
+Sat 25 May 2024 17:31:17 INFO  valid result: 
+recall@20 : 0.2093    mrr@20 : 0.2839    ndcg@20 : 0.1709    hit@20 : 0.7179    precision@20 : 0.0897
+Sat 25 May 2024 17:31:17 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:17 INFO  epoch 126 training [time: 0.51s, train loss: 18.7346]
+Sat 25 May 2024 17:31:17 INFO  epoch 126 evaluating [time: 0.29s, valid_score: 0.285600]
+Sat 25 May 2024 17:31:17 INFO  valid result: 
+recall@20 : 0.2155    mrr@20 : 0.2856    ndcg@20 : 0.1744    hit@20 : 0.7296    precision@20 : 0.0911
+Sat 25 May 2024 17:31:17 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:17 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:18 INFO  epoch 127 training [time: 0.51s, train loss: 18.6779]
+Sat 25 May 2024 17:31:18 INFO  epoch 127 evaluating [time: 0.29s, valid_score: 0.287500]
+Sat 25 May 2024 17:31:18 INFO  valid result: 
+recall@20 : 0.219    mrr@20 : 0.2875    ndcg@20 : 0.1769    hit@20 : 0.7296    precision@20 : 0.0924
+Sat 25 May 2024 17:31:18 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:18 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:19 INFO  epoch 128 training [time: 0.51s, train loss: 18.6598]
+Sat 25 May 2024 17:31:19 INFO  epoch 128 evaluating [time: 0.29s, valid_score: 0.293000]
+Sat 25 May 2024 17:31:19 INFO  valid result: 
+recall@20 : 0.2268    mrr@20 : 0.293    ndcg@20 : 0.1807    hit@20 : 0.7423    precision@20 : 0.0945
+Sat 25 May 2024 17:31:19 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:19 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:20 INFO  epoch 129 training [time: 0.56s, train loss: 18.7146]
+Sat 25 May 2024 17:31:20 INFO  epoch 129 evaluating [time: 0.31s, valid_score: 0.297300]
+Sat 25 May 2024 17:31:20 INFO  valid result: 
+recall@20 : 0.2294    mrr@20 : 0.2973    ndcg@20 : 0.1826    hit@20 : 0.7497    precision@20 : 0.0951
+Sat 25 May 2024 17:31:20 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:20 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:20 INFO  epoch 130 training [time: 0.51s, train loss: 18.5334]
+Sat 25 May 2024 17:31:21 INFO  epoch 130 evaluating [time: 0.29s, valid_score: 0.296600]
+Sat 25 May 2024 17:31:21 INFO  valid result: 
+recall@20 : 0.2307    mrr@20 : 0.2966    ndcg@20 : 0.1835    hit@20 : 0.7476    precision@20 : 0.0957
+Sat 25 May 2024 17:31:21 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:21 INFO  epoch 131 training [time: 0.51s, train loss: 18.5708]
+Sat 25 May 2024 17:31:22 INFO  epoch 131 evaluating [time: 0.29s, valid_score: 0.296300]
+Sat 25 May 2024 17:31:22 INFO  valid result: 
+recall@20 : 0.2343    mrr@20 : 0.2963    ndcg@20 : 0.1849    hit@20 : 0.7529    precision@20 : 0.0962
+Sat 25 May 2024 17:31:22 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:22 INFO  epoch 132 training [time: 0.54s, train loss: 18.4928]
+Sat 25 May 2024 17:31:22 INFO  epoch 132 evaluating [time: 0.31s, valid_score: 0.297900]
+Sat 25 May 2024 17:31:22 INFO  valid result: 
+recall@20 : 0.2396    mrr@20 : 0.2979    ndcg@20 : 0.1874    hit@20 : 0.7614    precision@20 : 0.098
+Sat 25 May 2024 17:31:22 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:22 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:23 INFO  epoch 133 training [time: 0.55s, train loss: 18.4040]
+Sat 25 May 2024 17:31:23 INFO  epoch 133 evaluating [time: 0.31s, valid_score: 0.301600]
+Sat 25 May 2024 17:31:23 INFO  valid result: 
+recall@20 : 0.2409    mrr@20 : 0.3016    ndcg@20 : 0.1884    hit@20 : 0.7625    precision@20 : 0.0983
+Sat 25 May 2024 17:31:23 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:23 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:24 INFO  epoch 134 training [time: 0.56s, train loss: 18.5057]
+Sat 25 May 2024 17:31:24 INFO  epoch 134 evaluating [time: 0.31s, valid_score: 0.297300]
+Sat 25 May 2024 17:31:24 INFO  valid result: 
+recall@20 : 0.2441    mrr@20 : 0.2973    ndcg@20 : 0.1892    hit@20 : 0.7656    precision@20 : 0.1001
+Sat 25 May 2024 17:31:24 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:25 INFO  epoch 135 training [time: 0.69s, train loss: 18.3475]
+Sat 25 May 2024 17:31:25 INFO  epoch 135 evaluating [time: 0.31s, valid_score: 0.297000]
+Sat 25 May 2024 17:31:25 INFO  valid result: 
+recall@20 : 0.2431    mrr@20 : 0.297    ndcg@20 : 0.1893    hit@20 : 0.7582    precision@20 : 0.0998
+Sat 25 May 2024 17:31:25 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:26 INFO  epoch 136 training [time: 0.64s, train loss: 18.2913]
+Sat 25 May 2024 17:31:26 INFO  epoch 136 evaluating [time: 0.30s, valid_score: 0.296000]
+Sat 25 May 2024 17:31:26 INFO  valid result: 
+recall@20 : 0.2447    mrr@20 : 0.296    ndcg@20 : 0.1896    hit@20 : 0.7678    precision@20 : 0.1001
+Sat 25 May 2024 17:31:26 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:27 INFO  epoch 137 training [time: 0.59s, train loss: 18.2222]
+Sat 25 May 2024 17:31:27 INFO  epoch 137 evaluating [time: 0.29s, valid_score: 0.301800]
+Sat 25 May 2024 17:31:27 INFO  valid result: 
+recall@20 : 0.2441    mrr@20 : 0.3018    ndcg@20 : 0.1898    hit@20 : 0.7678    precision@20 : 0.1
+Sat 25 May 2024 17:31:27 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:27 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:27 INFO  epoch 138 training [time: 0.54s, train loss: 18.2495]
+Sat 25 May 2024 17:31:28 INFO  epoch 138 evaluating [time: 0.29s, valid_score: 0.303900]
+Sat 25 May 2024 17:31:28 INFO  valid result: 
+recall@20 : 0.2462    mrr@20 : 0.3039    ndcg@20 : 0.1912    hit@20 : 0.7699    precision@20 : 0.1003
+Sat 25 May 2024 17:31:28 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:28 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:28 INFO  epoch 139 training [time: 0.54s, train loss: 18.1633]
+Sat 25 May 2024 17:31:29 INFO  epoch 139 evaluating [time: 0.29s, valid_score: 0.303700]
+Sat 25 May 2024 17:31:29 INFO  valid result: 
+recall@20 : 0.2466    mrr@20 : 0.3037    ndcg@20 : 0.191    hit@20 : 0.772    precision@20 : 0.1003
+Sat 25 May 2024 17:31:29 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:29 INFO  epoch 140 training [time: 0.54s, train loss: 18.0928]
+Sat 25 May 2024 17:31:29 INFO  epoch 140 evaluating [time: 0.29s, valid_score: 0.307400]
+Sat 25 May 2024 17:31:29 INFO  valid result: 
+recall@20 : 0.2454    mrr@20 : 0.3074    ndcg@20 : 0.1914    hit@20 : 0.7678    precision@20 : 0.1
+Sat 25 May 2024 17:31:29 INFO  Saving current: saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:31:29 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:30 INFO  epoch 141 training [time: 0.54s, train loss: 18.1335]
+Sat 25 May 2024 17:31:30 INFO  epoch 141 evaluating [time: 0.29s, valid_score: 0.306400]
+Sat 25 May 2024 17:31:30 INFO  valid result: 
+recall@20 : 0.2469    mrr@20 : 0.3064    ndcg@20 : 0.1914    hit@20 : 0.7678    precision@20 : 0.1001
+Sat 25 May 2024 17:31:30 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:31 INFO  epoch 142 training [time: 0.55s, train loss: 18.1314]
+Sat 25 May 2024 17:31:31 INFO  epoch 142 evaluating [time: 0.29s, valid_score: 0.304700]
+Sat 25 May 2024 17:31:31 INFO  valid result: 
+recall@20 : 0.2481    mrr@20 : 0.3047    ndcg@20 : 0.1919    hit@20 : 0.7688    precision@20 : 0.101
+Sat 25 May 2024 17:31:31 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:32 INFO  epoch 143 training [time: 0.57s, train loss: 18.0928]
+Sat 25 May 2024 17:31:32 INFO  epoch 143 evaluating [time: 0.29s, valid_score: 0.301300]
+Sat 25 May 2024 17:31:32 INFO  valid result: 
+recall@20 : 0.2478    mrr@20 : 0.3013    ndcg@20 : 0.1909    hit@20 : 0.772    precision@20 : 0.1012
+Sat 25 May 2024 17:31:32 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:33 INFO  epoch 144 training [time: 0.56s, train loss: 17.9389]
+Sat 25 May 2024 17:31:33 INFO  epoch 144 evaluating [time: 0.29s, valid_score: 0.299900]
+Sat 25 May 2024 17:31:33 INFO  valid result: 
+recall@20 : 0.2449    mrr@20 : 0.2999    ndcg@20 : 0.1891    hit@20 : 0.7699    precision@20 : 0.1005
+Sat 25 May 2024 17:31:33 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:33 INFO  epoch 145 training [time: 0.59s, train loss: 17.9011]
+Sat 25 May 2024 17:31:34 INFO  epoch 145 evaluating [time: 0.32s, valid_score: 0.301400]
+Sat 25 May 2024 17:31:34 INFO  valid result: 
+recall@20 : 0.2476    mrr@20 : 0.3014    ndcg@20 : 0.19    hit@20 : 0.7752    precision@20 : 0.1011
+Sat 25 May 2024 17:31:34 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:34 INFO  epoch 146 training [time: 0.69s, train loss: 17.8200]
+Sat 25 May 2024 17:31:35 INFO  epoch 146 evaluating [time: 0.32s, valid_score: 0.300300]
+Sat 25 May 2024 17:31:35 INFO  valid result: 
+recall@20 : 0.2457    mrr@20 : 0.3003    ndcg@20 : 0.1893    hit@20 : 0.7731    precision@20 : 0.1008
+Sat 25 May 2024 17:31:35 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:35 INFO  epoch 147 training [time: 0.68s, train loss: 17.8683]
+Sat 25 May 2024 17:31:36 INFO  epoch 147 evaluating [time: 0.30s, valid_score: 0.299100]
+Sat 25 May 2024 17:31:36 INFO  valid result: 
+recall@20 : 0.2475    mrr@20 : 0.2991    ndcg@20 : 0.1899    hit@20 : 0.7752    precision@20 : 0.1016
+Sat 25 May 2024 17:31:36 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:36 INFO  epoch 148 training [time: 0.64s, train loss: 17.7646]
+Sat 25 May 2024 17:31:37 INFO  epoch 148 evaluating [time: 0.29s, valid_score: 0.300700]
+Sat 25 May 2024 17:31:37 INFO  valid result: 
+recall@20 : 0.246    mrr@20 : 0.3007    ndcg@20 : 0.1899    hit@20 : 0.7709    precision@20 : 0.1009
+Sat 25 May 2024 17:31:37 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:37 INFO  epoch 149 training [time: 0.54s, train loss: 17.7886]
+Sat 25 May 2024 17:31:37 INFO  epoch 149 evaluating [time: 0.29s, valid_score: 0.296800]
+Sat 25 May 2024 17:31:37 INFO  valid result: 
+recall@20 : 0.2461    mrr@20 : 0.2968    ndcg@20 : 0.1889    hit@20 : 0.7709    precision@20 : 0.1007
+Sat 25 May 2024 17:31:37 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:38 INFO  epoch 150 training [time: 0.55s, train loss: 17.7213]
+Sat 25 May 2024 17:31:38 INFO  epoch 150 evaluating [time: 0.29s, valid_score: 0.291900]
+Sat 25 May 2024 17:31:38 INFO  valid result: 
+recall@20 : 0.2449    mrr@20 : 0.2919    ndcg@20 : 0.188    hit@20 : 0.7667    precision@20 : 0.1004
+Sat 25 May 2024 17:31:38 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:39 INFO  epoch 151 training [time: 0.52s, train loss: 17.7299]
+Sat 25 May 2024 17:31:39 INFO  epoch 151 evaluating [time: 0.29s, valid_score: 0.293900]
+Sat 25 May 2024 17:31:39 INFO  valid result: 
+recall@20 : 0.2458    mrr@20 : 0.2939    ndcg@20 : 0.1887    hit@20 : 0.7699    precision@20 : 0.1009
+Sat 25 May 2024 17:31:39 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:40 INFO  epoch 152 training [time: 0.51s, train loss: 17.6344]
+Sat 25 May 2024 17:31:40 INFO  epoch 152 evaluating [time: 0.29s, valid_score: 0.289700]
+Sat 25 May 2024 17:31:40 INFO  valid result: 
+recall@20 : 0.2456    mrr@20 : 0.2897    ndcg@20 : 0.1882    hit@20 : 0.7667    precision@20 : 0.1018
+Sat 25 May 2024 17:31:40 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:40 INFO  epoch 153 training [time: 0.53s, train loss: 17.5891]
+Sat 25 May 2024 17:31:41 INFO  epoch 153 evaluating [time: 0.29s, valid_score: 0.288500]
+Sat 25 May 2024 17:31:41 INFO  valid result: 
+recall@20 : 0.2436    mrr@20 : 0.2885    ndcg@20 : 0.1869    hit@20 : 0.7625    precision@20 : 0.1012
+Sat 25 May 2024 17:31:41 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:41 INFO  epoch 154 training [time: 0.51s, train loss: 17.6639]
+Sat 25 May 2024 17:31:42 INFO  epoch 154 evaluating [time: 0.29s, valid_score: 0.291200]
+Sat 25 May 2024 17:31:42 INFO  valid result: 
+recall@20 : 0.2429    mrr@20 : 0.2912    ndcg@20 : 0.187    hit@20 : 0.7603    precision@20 : 0.101
+Sat 25 May 2024 17:31:42 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:42 INFO  epoch 155 training [time: 0.49s, train loss: 17.4800]
+Sat 25 May 2024 17:31:42 INFO  epoch 155 evaluating [time: 0.29s, valid_score: 0.293400]
+Sat 25 May 2024 17:31:42 INFO  valid result: 
+recall@20 : 0.2435    mrr@20 : 0.2934    ndcg@20 : 0.1872    hit@20 : 0.7614    precision@20 : 0.1009
+Sat 25 May 2024 17:31:42 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:43 INFO  epoch 156 training [time: 0.48s, train loss: 17.4294]
+Sat 25 May 2024 17:31:43 INFO  epoch 156 evaluating [time: 0.29s, valid_score: 0.294300]
+Sat 25 May 2024 17:31:43 INFO  valid result: 
+recall@20 : 0.2429    mrr@20 : 0.2943    ndcg@20 : 0.1868    hit@20 : 0.7635    precision@20 : 0.1011
+Sat 25 May 2024 17:31:43 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:44 INFO  epoch 157 training [time: 0.53s, train loss: 17.4225]
+Sat 25 May 2024 17:31:44 INFO  epoch 157 evaluating [time: 0.29s, valid_score: 0.293500]
+Sat 25 May 2024 17:31:44 INFO  valid result: 
+recall@20 : 0.2412    mrr@20 : 0.2935    ndcg@20 : 0.1862    hit@20 : 0.7614    precision@20 : 0.1008
+Sat 25 May 2024 17:31:44 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:45 INFO  epoch 158 training [time: 0.62s, train loss: 17.4462]
+Sat 25 May 2024 17:31:45 INFO  epoch 158 evaluating [time: 0.29s, valid_score: 0.293600]
+Sat 25 May 2024 17:31:45 INFO  valid result: 
+recall@20 : 0.2433    mrr@20 : 0.2936    ndcg@20 : 0.1869    hit@20 : 0.7688    precision@20 : 0.1012
+Sat 25 May 2024 17:31:45 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:45 INFO  epoch 159 training [time: 0.54s, train loss: 17.2988]
+Sat 25 May 2024 17:31:46 INFO  epoch 159 evaluating [time: 0.29s, valid_score: 0.288600]
+Sat 25 May 2024 17:31:46 INFO  valid result: 
+recall@20 : 0.2424    mrr@20 : 0.2886    ndcg@20 : 0.1852    hit@20 : 0.7678    precision@20 : 0.1011
+Sat 25 May 2024 17:31:46 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:46 INFO  epoch 160 training [time: 0.54s, train loss: 17.2777]
+Sat 25 May 2024 17:31:46 INFO  epoch 160 evaluating [time: 0.29s, valid_score: 0.285300]
+Sat 25 May 2024 17:31:46 INFO  valid result: 
+recall@20 : 0.2432    mrr@20 : 0.2853    ndcg@20 : 0.1845    hit@20 : 0.7709    precision@20 : 0.1011
+Sat 25 May 2024 17:31:46 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:47 INFO  epoch 161 training [time: 0.59s, train loss: 17.2550]
+Sat 25 May 2024 17:31:47 INFO  epoch 161 evaluating [time: 0.29s, valid_score: 0.286300]
+Sat 25 May 2024 17:31:47 INFO  valid result: 
+recall@20 : 0.2445    mrr@20 : 0.2863    ndcg@20 : 0.1849    hit@20 : 0.7752    precision@20 : 0.101
+Sat 25 May 2024 17:31:47 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:48 INFO  epoch 162 training [time: 0.62s, train loss: 17.1516]
+Sat 25 May 2024 17:31:48 INFO  epoch 162 evaluating [time: 0.29s, valid_score: 0.281100]
+Sat 25 May 2024 17:31:48 INFO  valid result: 
+recall@20 : 0.2443    mrr@20 : 0.2811    ndcg@20 : 0.1841    hit@20 : 0.7699    precision@20 : 0.1012
+Sat 25 May 2024 17:31:48 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:49 INFO  epoch 163 training [time: 0.58s, train loss: 17.1473]
+Sat 25 May 2024 17:31:49 INFO  epoch 163 evaluating [time: 0.30s, valid_score: 0.287700]
+Sat 25 May 2024 17:31:49 INFO  valid result: 
+recall@20 : 0.2443    mrr@20 : 0.2877    ndcg@20 : 0.185    hit@20 : 0.7656    precision@20 : 0.1015
+Sat 25 May 2024 17:31:49 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:50 INFO  epoch 164 training [time: 0.59s, train loss: 17.1519]
+Sat 25 May 2024 17:31:50 INFO  epoch 164 evaluating [time: 0.29s, valid_score: 0.287800]
+Sat 25 May 2024 17:31:50 INFO  valid result: 
+recall@20 : 0.2426    mrr@20 : 0.2878    ndcg@20 : 0.1839    hit@20 : 0.7656    precision@20 : 0.1014
+Sat 25 May 2024 17:31:50 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:51 INFO  epoch 165 training [time: 0.58s, train loss: 17.0926]
+Sat 25 May 2024 17:31:51 INFO  epoch 165 evaluating [time: 0.29s, valid_score: 0.285300]
+Sat 25 May 2024 17:31:51 INFO  valid result: 
+recall@20 : 0.2449    mrr@20 : 0.2853    ndcg@20 : 0.1841    hit@20 : 0.7667    precision@20 : 0.1019
+Sat 25 May 2024 17:31:51 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:52 INFO  epoch 166 training [time: 0.63s, train loss: 17.0176]
+Sat 25 May 2024 17:31:52 INFO  epoch 166 evaluating [time: 0.31s, valid_score: 0.285100]
+Sat 25 May 2024 17:31:52 INFO  valid result: 
+recall@20 : 0.2429    mrr@20 : 0.2851    ndcg@20 : 0.183    hit@20 : 0.7646    precision@20 : 0.1015
+Sat 25 May 2024 17:31:52 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:53 INFO  epoch 167 training [time: 0.66s, train loss: 17.0792]
+Sat 25 May 2024 17:31:53 INFO  epoch 167 evaluating [time: 0.30s, valid_score: 0.286300]
+Sat 25 May 2024 17:31:53 INFO  valid result: 
+recall@20 : 0.2402    mrr@20 : 0.2863    ndcg@20 : 0.1826    hit@20 : 0.7572    precision@20 : 0.1006
+Sat 25 May 2024 17:31:53 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:53 INFO  epoch 168 training [time: 0.66s, train loss: 16.9756]
+Sat 25 May 2024 17:31:54 INFO  epoch 168 evaluating [time: 0.29s, valid_score: 0.286200]
+Sat 25 May 2024 17:31:54 INFO  valid result: 
+recall@20 : 0.2417    mrr@20 : 0.2862    ndcg@20 : 0.1831    hit@20 : 0.7593    precision@20 : 0.1015
+Sat 25 May 2024 17:31:54 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:55 INFO  epoch 169 training [time: 0.82s, train loss: 16.7945]
+Sat 25 May 2024 17:31:55 INFO  epoch 169 evaluating [time: 0.30s, valid_score: 0.287500]
+Sat 25 May 2024 17:31:55 INFO  valid result: 
+recall@20 : 0.2416    mrr@20 : 0.2875    ndcg@20 : 0.1832    hit@20 : 0.7582    precision@20 : 0.1012
+Sat 25 May 2024 17:31:55 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:56 INFO  epoch 170 training [time: 0.76s, train loss: 16.8796]
+Sat 25 May 2024 17:31:56 INFO  epoch 170 evaluating [time: 0.30s, valid_score: 0.283900]
+Sat 25 May 2024 17:31:56 INFO  valid result: 
+recall@20 : 0.2395    mrr@20 : 0.2839    ndcg@20 : 0.1816    hit@20 : 0.755    precision@20 : 0.1005
+Sat 25 May 2024 17:31:56 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:57 INFO  epoch 171 training [time: 0.69s, train loss: 16.8249]
+Sat 25 May 2024 17:31:57 INFO  epoch 171 evaluating [time: 0.29s, valid_score: 0.280600]
+Sat 25 May 2024 17:31:57 INFO  valid result: 
+recall@20 : 0.2391    mrr@20 : 0.2806    ndcg@20 : 0.1807    hit@20 : 0.755    precision@20 : 0.1005
+Sat 25 May 2024 17:31:57 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:58 INFO  epoch 172 training [time: 0.81s, train loss: 16.9570]
+Sat 25 May 2024 17:31:58 INFO  epoch 172 evaluating [time: 0.30s, valid_score: 0.280200]
+Sat 25 May 2024 17:31:58 INFO  valid result: 
+recall@20 : 0.24    mrr@20 : 0.2802    ndcg@20 : 0.1809    hit@20 : 0.7561    precision@20 : 0.1007
+Sat 25 May 2024 17:31:58 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:31:59 INFO  epoch 173 training [time: 0.66s, train loss: 16.7845]
+Sat 25 May 2024 17:31:59 INFO  epoch 173 evaluating [time: 0.29s, valid_score: 0.280600]
+Sat 25 May 2024 17:31:59 INFO  valid result: 
+recall@20 : 0.2384    mrr@20 : 0.2806    ndcg@20 : 0.1803    hit@20 : 0.7497    precision@20 : 0.1002
+Sat 25 May 2024 17:31:59 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:00 INFO  epoch 174 training [time: 0.82s, train loss: 16.7006]
+Sat 25 May 2024 17:32:00 INFO  epoch 174 evaluating [time: 0.30s, valid_score: 0.277500]
+Sat 25 May 2024 17:32:00 INFO  valid result: 
+recall@20 : 0.2376    mrr@20 : 0.2775    ndcg@20 : 0.1788    hit@20 : 0.7497    precision@20 : 0.0995
+Sat 25 May 2024 17:32:00 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:01 INFO  epoch 175 training [time: 0.78s, train loss: 16.7500]
+Sat 25 May 2024 17:32:01 INFO  epoch 175 evaluating [time: 0.30s, valid_score: 0.276000]
+Sat 25 May 2024 17:32:01 INFO  valid result: 
+recall@20 : 0.2367    mrr@20 : 0.276    ndcg@20 : 0.1785    hit@20 : 0.7508    precision@20 : 0.0994
+Sat 25 May 2024 17:32:01 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:02 INFO  epoch 176 training [time: 0.81s, train loss: 16.7663]
+Sat 25 May 2024 17:32:02 INFO  epoch 176 evaluating [time: 0.29s, valid_score: 0.276700]
+Sat 25 May 2024 17:32:02 INFO  valid result: 
+recall@20 : 0.2367    mrr@20 : 0.2767    ndcg@20 : 0.1784    hit@20 : 0.7519    precision@20 : 0.0994
+Sat 25 May 2024 17:32:02 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:03 INFO  epoch 177 training [time: 0.82s, train loss: 16.6890]
+Sat 25 May 2024 17:32:03 INFO  epoch 177 evaluating [time: 0.30s, valid_score: 0.273800]
+Sat 25 May 2024 17:32:03 INFO  valid result: 
+recall@20 : 0.237    mrr@20 : 0.2738    ndcg@20 : 0.1778    hit@20 : 0.7529    precision@20 : 0.0994
+Sat 25 May 2024 17:32:03 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:04 INFO  epoch 178 training [time: 0.74s, train loss: 16.5446]
+Sat 25 May 2024 17:32:04 INFO  epoch 178 evaluating [time: 0.29s, valid_score: 0.275900]
+Sat 25 May 2024 17:32:04 INFO  valid result: 
+recall@20 : 0.2356    mrr@20 : 0.2759    ndcg@20 : 0.1776    hit@20 : 0.755    precision@20 : 0.0993
+Sat 25 May 2024 17:32:04 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:05 INFO  epoch 179 training [time: 0.73s, train loss: 16.5108]
+Sat 25 May 2024 17:32:05 INFO  epoch 179 evaluating [time: 0.29s, valid_score: 0.274700]
+Sat 25 May 2024 17:32:05 INFO  valid result: 
+recall@20 : 0.2331    mrr@20 : 0.2747    ndcg@20 : 0.1759    hit@20 : 0.7466    precision@20 : 0.0983
+Sat 25 May 2024 17:32:05 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:06 INFO  epoch 180 training [time: 0.66s, train loss: 16.5589]
+Sat 25 May 2024 17:32:06 INFO  epoch 180 evaluating [time: 0.29s, valid_score: 0.273500]
+Sat 25 May 2024 17:32:06 INFO  valid result: 
+recall@20 : 0.2335    mrr@20 : 0.2735    ndcg@20 : 0.1762    hit@20 : 0.7455    precision@20 : 0.0984
+Sat 25 May 2024 17:32:06 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:07 INFO  epoch 181 training [time: 0.52s, train loss: 16.5757]
+Sat 25 May 2024 17:32:07 INFO  epoch 181 evaluating [time: 0.29s, valid_score: 0.271100]
+Sat 25 May 2024 17:32:07 INFO  valid result: 
+recall@20 : 0.2325    mrr@20 : 0.2711    ndcg@20 : 0.1752    hit@20 : 0.7434    precision@20 : 0.0978
+Sat 25 May 2024 17:32:07 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:08 INFO  epoch 182 training [time: 0.53s, train loss: 16.4576]
+Sat 25 May 2024 17:32:08 INFO  epoch 182 evaluating [time: 0.29s, valid_score: 0.273200]
+Sat 25 May 2024 17:32:08 INFO  valid result: 
+recall@20 : 0.2336    mrr@20 : 0.2732    ndcg@20 : 0.1755    hit@20 : 0.7466    precision@20 : 0.0978
+Sat 25 May 2024 17:32:08 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:09 INFO  epoch 183 training [time: 0.51s, train loss: 16.5708]
+Sat 25 May 2024 17:32:09 INFO  epoch 183 evaluating [time: 0.29s, valid_score: 0.274000]
+Sat 25 May 2024 17:32:09 INFO  valid result: 
+recall@20 : 0.2296    mrr@20 : 0.274    ndcg@20 : 0.1743    hit@20 : 0.7434    precision@20 : 0.0966
+Sat 25 May 2024 17:32:09 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:09 INFO  epoch 184 training [time: 0.53s, train loss: 16.5718]
+Sat 25 May 2024 17:32:10 INFO  epoch 184 evaluating [time: 0.30s, valid_score: 0.270600]
+Sat 25 May 2024 17:32:10 INFO  valid result: 
+recall@20 : 0.2307    mrr@20 : 0.2706    ndcg@20 : 0.1738    hit@20 : 0.7444    precision@20 : 0.097
+Sat 25 May 2024 17:32:10 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:10 INFO  epoch 185 training [time: 0.55s, train loss: 16.3900]
+Sat 25 May 2024 17:32:11 INFO  epoch 185 evaluating [time: 0.29s, valid_score: 0.270400]
+Sat 25 May 2024 17:32:11 INFO  valid result: 
+recall@20 : 0.2303    mrr@20 : 0.2704    ndcg@20 : 0.1733    hit@20 : 0.7476    precision@20 : 0.0971
+Sat 25 May 2024 17:32:11 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:11 INFO  epoch 186 training [time: 0.55s, train loss: 16.4042]
+Sat 25 May 2024 17:32:11 INFO  epoch 186 evaluating [time: 0.29s, valid_score: 0.273300]
+Sat 25 May 2024 17:32:11 INFO  valid result: 
+recall@20 : 0.2324    mrr@20 : 0.2733    ndcg@20 : 0.1744    hit@20 : 0.7487    precision@20 : 0.0977
+Sat 25 May 2024 17:32:11 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:12 INFO  epoch 187 training [time: 0.56s, train loss: 16.4377]
+Sat 25 May 2024 17:32:12 INFO  epoch 187 evaluating [time: 0.29s, valid_score: 0.273700]
+Sat 25 May 2024 17:32:12 INFO  valid result: 
+recall@20 : 0.2326    mrr@20 : 0.2737    ndcg@20 : 0.1745    hit@20 : 0.7497    precision@20 : 0.0978
+Sat 25 May 2024 17:32:12 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:13 INFO  epoch 188 training [time: 0.57s, train loss: 16.3806]
+Sat 25 May 2024 17:32:13 INFO  epoch 188 evaluating [time: 0.30s, valid_score: 0.277100]
+Sat 25 May 2024 17:32:13 INFO  valid result: 
+recall@20 : 0.2323    mrr@20 : 0.2771    ndcg@20 : 0.1746    hit@20 : 0.7476    precision@20 : 0.0975
+Sat 25 May 2024 17:32:13 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:14 INFO  epoch 189 training [time: 0.62s, train loss: 16.3749]
+Sat 25 May 2024 17:32:14 INFO  epoch 189 evaluating [time: 0.29s, valid_score: 0.276200]
+Sat 25 May 2024 17:32:14 INFO  valid result: 
+recall@20 : 0.2316    mrr@20 : 0.2762    ndcg@20 : 0.1743    hit@20 : 0.7466    precision@20 : 0.0968
+Sat 25 May 2024 17:32:14 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:15 INFO  epoch 190 training [time: 0.55s, train loss: 16.2348]
+Sat 25 May 2024 17:32:15 INFO  epoch 190 evaluating [time: 0.29s, valid_score: 0.271900]
+Sat 25 May 2024 17:32:15 INFO  valid result: 
+recall@20 : 0.2327    mrr@20 : 0.2719    ndcg@20 : 0.1735    hit@20 : 0.7476    precision@20 : 0.0973
+Sat 25 May 2024 17:32:15 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:16 INFO  epoch 191 training [time: 0.67s, train loss: 16.2925]
+Sat 25 May 2024 17:32:16 INFO  epoch 191 evaluating [time: 0.29s, valid_score: 0.269800]
+Sat 25 May 2024 17:32:16 INFO  valid result: 
+recall@20 : 0.2319    mrr@20 : 0.2698    ndcg@20 : 0.1728    hit@20 : 0.7487    precision@20 : 0.0974
+Sat 25 May 2024 17:32:16 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:16 INFO  epoch 192 training [time: 0.54s, train loss: 16.2792]
+Sat 25 May 2024 17:32:17 INFO  epoch 192 evaluating [time: 0.29s, valid_score: 0.269300]
+Sat 25 May 2024 17:32:17 INFO  valid result: 
+recall@20 : 0.2328    mrr@20 : 0.2693    ndcg@20 : 0.1729    hit@20 : 0.7487    precision@20 : 0.0973
+Sat 25 May 2024 17:32:17 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:17 INFO  epoch 193 training [time: 0.54s, train loss: 16.2466]
+Sat 25 May 2024 17:32:17 INFO  epoch 193 evaluating [time: 0.29s, valid_score: 0.274100]
+Sat 25 May 2024 17:32:17 INFO  valid result: 
+recall@20 : 0.2328    mrr@20 : 0.2741    ndcg@20 : 0.1732    hit@20 : 0.7487    precision@20 : 0.0966
+Sat 25 May 2024 17:32:17 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:18 INFO  epoch 194 training [time: 0.56s, train loss: 16.1745]
+Sat 25 May 2024 17:32:18 INFO  epoch 194 evaluating [time: 0.29s, valid_score: 0.268900]
+Sat 25 May 2024 17:32:18 INFO  valid result: 
+recall@20 : 0.2323    mrr@20 : 0.2689    ndcg@20 : 0.1721    hit@20 : 0.7466    precision@20 : 0.0963
+Sat 25 May 2024 17:32:18 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:19 INFO  epoch 195 training [time: 0.55s, train loss: 16.1271]
+Sat 25 May 2024 17:32:19 INFO  epoch 195 evaluating [time: 0.29s, valid_score: 0.270900]
+Sat 25 May 2024 17:32:19 INFO  valid result: 
+recall@20 : 0.2328    mrr@20 : 0.2709    ndcg@20 : 0.1722    hit@20 : 0.7497    precision@20 : 0.0962
+Sat 25 May 2024 17:32:19 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:20 INFO  epoch 196 training [time: 0.54s, train loss: 16.1714]
+Sat 25 May 2024 17:32:20 INFO  epoch 196 evaluating [time: 0.29s, valid_score: 0.269700]
+Sat 25 May 2024 17:32:20 INFO  valid result: 
+recall@20 : 0.2319    mrr@20 : 0.2697    ndcg@20 : 0.1715    hit@20 : 0.7444    precision@20 : 0.0958
+Sat 25 May 2024 17:32:20 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:21 INFO  epoch 197 training [time: 0.55s, train loss: 16.1199]
+Sat 25 May 2024 17:32:21 INFO  epoch 197 evaluating [time: 0.29s, valid_score: 0.272500]
+Sat 25 May 2024 17:32:21 INFO  valid result: 
+recall@20 : 0.2326    mrr@20 : 0.2725    ndcg@20 : 0.1723    hit@20 : 0.7476    precision@20 : 0.0959
+Sat 25 May 2024 17:32:21 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:21 INFO  epoch 198 training [time: 0.57s, train loss: 16.1091]
+Sat 25 May 2024 17:32:22 INFO  epoch 198 evaluating [time: 0.29s, valid_score: 0.274100]
+Sat 25 May 2024 17:32:22 INFO  valid result: 
+recall@20 : 0.2306    mrr@20 : 0.2741    ndcg@20 : 0.172    hit@20 : 0.7434    precision@20 : 0.0953
+Sat 25 May 2024 17:32:22 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:22 INFO  epoch 199 training [time: 0.55s, train loss: 16.0719]
+Sat 25 May 2024 17:32:23 INFO  epoch 199 evaluating [time: 0.29s, valid_score: 0.273800]
+Sat 25 May 2024 17:32:23 INFO  valid result: 
+recall@20 : 0.2288    mrr@20 : 0.2738    ndcg@20 : 0.1713    hit@20 : 0.7423    precision@20 : 0.0952
+Sat 25 May 2024 17:32:23 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:23 INFO  epoch 200 training [time: 0.56s, train loss: 16.0598]
+Sat 25 May 2024 17:32:23 INFO  epoch 200 evaluating [time: 0.32s, valid_score: 0.274200]
+Sat 25 May 2024 17:32:23 INFO  valid result: 
+recall@20 : 0.2283    mrr@20 : 0.2742    ndcg@20 : 0.1709    hit@20 : 0.7434    precision@20 : 0.0951
+Sat 25 May 2024 17:32:23 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:24 INFO  epoch 201 training [time: 0.60s, train loss: 16.1873]
+Sat 25 May 2024 17:32:24 INFO  epoch 201 evaluating [time: 0.30s, valid_score: 0.271800]
+Sat 25 May 2024 17:32:24 INFO  valid result: 
+recall@20 : 0.2291    mrr@20 : 0.2718    ndcg@20 : 0.1712    hit@20 : 0.7423    precision@20 : 0.0954
+Sat 25 May 2024 17:32:24 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:25 INFO  epoch 202 training [time: 0.77s, train loss: 15.9898]
+Sat 25 May 2024 17:32:25 INFO  epoch 202 evaluating [time: 0.30s, valid_score: 0.266400]
+Sat 25 May 2024 17:32:25 INFO  valid result: 
+recall@20 : 0.2282    mrr@20 : 0.2664    ndcg@20 : 0.1694    hit@20 : 0.7391    precision@20 : 0.0949
+Sat 25 May 2024 17:32:25 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:26 INFO  epoch 203 training [time: 0.72s, train loss: 15.9528]
+Sat 25 May 2024 17:32:26 INFO  epoch 203 evaluating [time: 0.31s, valid_score: 0.268100]
+Sat 25 May 2024 17:32:26 INFO  valid result: 
+recall@20 : 0.2286    mrr@20 : 0.2681    ndcg@20 : 0.1699    hit@20 : 0.7391    precision@20 : 0.0948
+Sat 25 May 2024 17:32:26 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:27 INFO  epoch 204 training [time: 0.59s, train loss: 15.9455]
+Sat 25 May 2024 17:32:27 INFO  epoch 204 evaluating [time: 0.29s, valid_score: 0.266400]
+Sat 25 May 2024 17:32:27 INFO  valid result: 
+recall@20 : 0.2291    mrr@20 : 0.2664    ndcg@20 : 0.1695    hit@20 : 0.7402    precision@20 : 0.0943
+Sat 25 May 2024 17:32:27 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:28 INFO  epoch 205 training [time: 0.59s, train loss: 15.9937]
+Sat 25 May 2024 17:32:28 INFO  epoch 205 evaluating [time: 0.29s, valid_score: 0.265000]
+Sat 25 May 2024 17:32:28 INFO  valid result: 
+recall@20 : 0.2282    mrr@20 : 0.265    ndcg@20 : 0.1689    hit@20 : 0.7423    precision@20 : 0.0943
+Sat 25 May 2024 17:32:28 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:29 INFO  epoch 206 training [time: 0.49s, train loss: 15.9067]
+Sat 25 May 2024 17:32:29 INFO  epoch 206 evaluating [time: 0.29s, valid_score: 0.265500]
+Sat 25 May 2024 17:32:29 INFO  valid result: 
+recall@20 : 0.2276    mrr@20 : 0.2655    ndcg@20 : 0.1688    hit@20 : 0.7434    precision@20 : 0.0944
+Sat 25 May 2024 17:32:29 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:29 INFO  epoch 207 training [time: 0.52s, train loss: 15.8354]
+Sat 25 May 2024 17:32:30 INFO  epoch 207 evaluating [time: 0.30s, valid_score: 0.263400]
+Sat 25 May 2024 17:32:30 INFO  valid result: 
+recall@20 : 0.2277    mrr@20 : 0.2634    ndcg@20 : 0.1685    hit@20 : 0.7434    precision@20 : 0.0942
+Sat 25 May 2024 17:32:30 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:30 INFO  epoch 208 training [time: 0.59s, train loss: 15.9673]
+Sat 25 May 2024 17:32:31 INFO  epoch 208 evaluating [time: 0.30s, valid_score: 0.265400]
+Sat 25 May 2024 17:32:31 INFO  valid result: 
+recall@20 : 0.2263    mrr@20 : 0.2654    ndcg@20 : 0.168    hit@20 : 0.7423    precision@20 : 0.0941
+Sat 25 May 2024 17:32:31 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:31 INFO  epoch 209 training [time: 0.57s, train loss: 15.8754]
+Sat 25 May 2024 17:32:31 INFO  epoch 209 evaluating [time: 0.29s, valid_score: 0.262700]
+Sat 25 May 2024 17:32:31 INFO  valid result: 
+recall@20 : 0.2274    mrr@20 : 0.2627    ndcg@20 : 0.1675    hit@20 : 0.7455    precision@20 : 0.0944
+Sat 25 May 2024 17:32:31 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:32 INFO  epoch 210 training [time: 0.55s, train loss: 15.7423]
+Sat 25 May 2024 17:32:32 INFO  epoch 210 evaluating [time: 0.29s, valid_score: 0.260000]
+Sat 25 May 2024 17:32:32 INFO  valid result: 
+recall@20 : 0.2269    mrr@20 : 0.26    ndcg@20 : 0.1668    hit@20 : 0.7455    precision@20 : 0.0943
+Sat 25 May 2024 17:32:32 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:33 INFO  epoch 211 training [time: 0.50s, train loss: 15.8071]
+Sat 25 May 2024 17:32:33 INFO  epoch 211 evaluating [time: 0.29s, valid_score: 0.261900]
+Sat 25 May 2024 17:32:33 INFO  valid result: 
+recall@20 : 0.2275    mrr@20 : 0.2619    ndcg@20 : 0.1675    hit@20 : 0.7455    precision@20 : 0.0942
+Sat 25 May 2024 17:32:33 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:34 INFO  epoch 212 training [time: 0.50s, train loss: 15.8318]
+Sat 25 May 2024 17:32:34 INFO  epoch 212 evaluating [time: 0.29s, valid_score: 0.262100]
+Sat 25 May 2024 17:32:34 INFO  valid result: 
+recall@20 : 0.2274    mrr@20 : 0.2621    ndcg@20 : 0.1674    hit@20 : 0.7413    precision@20 : 0.0943
+Sat 25 May 2024 17:32:34 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:35 INFO  epoch 213 training [time: 0.61s, train loss: 15.7203]
+Sat 25 May 2024 17:32:35 INFO  epoch 213 evaluating [time: 0.29s, valid_score: 0.262500]
+Sat 25 May 2024 17:32:35 INFO  valid result: 
+recall@20 : 0.2275    mrr@20 : 0.2625    ndcg@20 : 0.1673    hit@20 : 0.7423    precision@20 : 0.0942
+Sat 25 May 2024 17:32:35 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:35 INFO  epoch 214 training [time: 0.49s, train loss: 15.8003]
+Sat 25 May 2024 17:32:36 INFO  epoch 214 evaluating [time: 0.29s, valid_score: 0.264700]
+Sat 25 May 2024 17:32:36 INFO  valid result: 
+recall@20 : 0.2258    mrr@20 : 0.2647    ndcg@20 : 0.1672    hit@20 : 0.7402    precision@20 : 0.094
+Sat 25 May 2024 17:32:36 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:36 INFO  epoch 215 training [time: 0.49s, train loss: 15.6711]
+Sat 25 May 2024 17:32:36 INFO  epoch 215 evaluating [time: 0.29s, valid_score: 0.263400]
+Sat 25 May 2024 17:32:36 INFO  valid result: 
+recall@20 : 0.2253    mrr@20 : 0.2634    ndcg@20 : 0.1667    hit@20 : 0.7391    precision@20 : 0.0937
+Sat 25 May 2024 17:32:36 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:37 INFO  epoch 216 training [time: 0.51s, train loss: 15.6131]
+Sat 25 May 2024 17:32:37 INFO  epoch 216 evaluating [time: 0.29s, valid_score: 0.264500]
+Sat 25 May 2024 17:32:37 INFO  valid result: 
+recall@20 : 0.2237    mrr@20 : 0.2645    ndcg@20 : 0.166    hit@20 : 0.7391    precision@20 : 0.093
+Sat 25 May 2024 17:32:37 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:38 INFO  epoch 217 training [time: 0.52s, train loss: 15.7322]
+Sat 25 May 2024 17:32:38 INFO  epoch 217 evaluating [time: 0.29s, valid_score: 0.260700]
+Sat 25 May 2024 17:32:38 INFO  valid result: 
+recall@20 : 0.2235    mrr@20 : 0.2607    ndcg@20 : 0.1651    hit@20 : 0.7349    precision@20 : 0.0927
+Sat 25 May 2024 17:32:38 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:39 INFO  epoch 218 training [time: 0.52s, train loss: 15.6145]
+Sat 25 May 2024 17:32:39 INFO  epoch 218 evaluating [time: 0.29s, valid_score: 0.263000]
+Sat 25 May 2024 17:32:39 INFO  valid result: 
+recall@20 : 0.2229    mrr@20 : 0.263    ndcg@20 : 0.1651    hit@20 : 0.7328    precision@20 : 0.0923
+Sat 25 May 2024 17:32:39 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:39 INFO  epoch 219 training [time: 0.49s, train loss: 15.6582]
+Sat 25 May 2024 17:32:40 INFO  epoch 219 evaluating [time: 0.29s, valid_score: 0.263900]
+Sat 25 May 2024 17:32:40 INFO  valid result: 
+recall@20 : 0.224    mrr@20 : 0.2639    ndcg@20 : 0.1656    hit@20 : 0.7349    precision@20 : 0.0928
+Sat 25 May 2024 17:32:40 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:40 INFO  epoch 220 training [time: 0.50s, train loss: 15.6431]
+Sat 25 May 2024 17:32:40 INFO  epoch 220 evaluating [time: 0.29s, valid_score: 0.265500]
+Sat 25 May 2024 17:32:40 INFO  valid result: 
+recall@20 : 0.2234    mrr@20 : 0.2655    ndcg@20 : 0.1652    hit@20 : 0.7349    precision@20 : 0.0924
+Sat 25 May 2024 17:32:40 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:41 INFO  epoch 221 training [time: 0.50s, train loss: 15.6417]
+Sat 25 May 2024 17:32:41 INFO  epoch 221 evaluating [time: 0.29s, valid_score: 0.265200]
+Sat 25 May 2024 17:32:41 INFO  valid result: 
+recall@20 : 0.2234    mrr@20 : 0.2652    ndcg@20 : 0.1652    hit@20 : 0.7338    precision@20 : 0.0924
+Sat 25 May 2024 17:32:41 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:42 INFO  epoch 222 training [time: 0.49s, train loss: 15.6498]
+Sat 25 May 2024 17:32:42 INFO  epoch 222 evaluating [time: 0.29s, valid_score: 0.266600]
+Sat 25 May 2024 17:32:42 INFO  valid result: 
+recall@20 : 0.2243    mrr@20 : 0.2666    ndcg@20 : 0.1655    hit@20 : 0.737    precision@20 : 0.0923
+Sat 25 May 2024 17:32:42 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:42 INFO  epoch 223 training [time: 0.49s, train loss: 15.4823]
+Sat 25 May 2024 17:32:43 INFO  epoch 223 evaluating [time: 0.29s, valid_score: 0.263300]
+Sat 25 May 2024 17:32:43 INFO  valid result: 
+recall@20 : 0.2256    mrr@20 : 0.2633    ndcg@20 : 0.1648    hit@20 : 0.7423    precision@20 : 0.0927
+Sat 25 May 2024 17:32:43 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:43 INFO  epoch 224 training [time: 0.60s, train loss: 15.5381]
+Sat 25 May 2024 17:32:44 INFO  epoch 224 evaluating [time: 0.29s, valid_score: 0.265900]
+Sat 25 May 2024 17:32:44 INFO  valid result: 
+recall@20 : 0.2241    mrr@20 : 0.2659    ndcg@20 : 0.1646    hit@20 : 0.7381    precision@20 : 0.0922
+Sat 25 May 2024 17:32:44 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:44 INFO  epoch 225 training [time: 0.48s, train loss: 15.5350]
+Sat 25 May 2024 17:32:44 INFO  epoch 225 evaluating [time: 0.29s, valid_score: 0.266900]
+Sat 25 May 2024 17:32:44 INFO  valid result: 
+recall@20 : 0.2231    mrr@20 : 0.2669    ndcg@20 : 0.1642    hit@20 : 0.7338    precision@20 : 0.0918
+Sat 25 May 2024 17:32:44 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:45 INFO  epoch 226 training [time: 0.49s, train loss: 15.5651]
+Sat 25 May 2024 17:32:45 INFO  epoch 226 evaluating [time: 0.29s, valid_score: 0.263600]
+Sat 25 May 2024 17:32:45 INFO  valid result: 
+recall@20 : 0.2232    mrr@20 : 0.2636    ndcg@20 : 0.1638    hit@20 : 0.7349    precision@20 : 0.0919
+Sat 25 May 2024 17:32:45 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:46 INFO  epoch 227 training [time: 0.48s, train loss: 15.5008]
+Sat 25 May 2024 17:32:46 INFO  epoch 227 evaluating [time: 0.29s, valid_score: 0.264100]
+Sat 25 May 2024 17:32:46 INFO  valid result: 
+recall@20 : 0.2224    mrr@20 : 0.2641    ndcg@20 : 0.1635    hit@20 : 0.7328    precision@20 : 0.0917
+Sat 25 May 2024 17:32:46 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:46 INFO  epoch 228 training [time: 0.49s, train loss: 15.3900]
+Sat 25 May 2024 17:32:47 INFO  epoch 228 evaluating [time: 0.29s, valid_score: 0.264500]
+Sat 25 May 2024 17:32:47 INFO  valid result: 
+recall@20 : 0.221    mrr@20 : 0.2645    ndcg@20 : 0.1633    hit@20 : 0.7285    precision@20 : 0.0913
+Sat 25 May 2024 17:32:47 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:47 INFO  epoch 229 training [time: 0.50s, train loss: 15.4244]
+Sat 25 May 2024 17:32:47 INFO  epoch 229 evaluating [time: 0.29s, valid_score: 0.263000]
+Sat 25 May 2024 17:32:47 INFO  valid result: 
+recall@20 : 0.2218    mrr@20 : 0.263    ndcg@20 : 0.1632    hit@20 : 0.7338    precision@20 : 0.0911
+Sat 25 May 2024 17:32:47 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:48 INFO  epoch 230 training [time: 0.53s, train loss: 15.3809]
+Sat 25 May 2024 17:32:48 INFO  epoch 230 evaluating [time: 0.29s, valid_score: 0.263100]
+Sat 25 May 2024 17:32:48 INFO  valid result: 
+recall@20 : 0.2232    mrr@20 : 0.2631    ndcg@20 : 0.1638    hit@20 : 0.7349    precision@20 : 0.0918
+Sat 25 May 2024 17:32:48 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:49 INFO  epoch 231 training [time: 0.53s, train loss: 15.4210]
+Sat 25 May 2024 17:32:49 INFO  epoch 231 evaluating [time: 0.30s, valid_score: 0.262400]
+Sat 25 May 2024 17:32:49 INFO  valid result: 
+recall@20 : 0.2232    mrr@20 : 0.2624    ndcg@20 : 0.1634    hit@20 : 0.7317    precision@20 : 0.0917
+Sat 25 May 2024 17:32:49 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:50 INFO  epoch 232 training [time: 0.51s, train loss: 15.4356]
+Sat 25 May 2024 17:32:50 INFO  epoch 232 evaluating [time: 0.29s, valid_score: 0.261500]
+Sat 25 May 2024 17:32:50 INFO  valid result: 
+recall@20 : 0.2218    mrr@20 : 0.2615    ndcg@20 : 0.1628    hit@20 : 0.7285    precision@20 : 0.0916
+Sat 25 May 2024 17:32:50 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:50 INFO  epoch 233 training [time: 0.50s, train loss: 15.3556]
+Sat 25 May 2024 17:32:51 INFO  epoch 233 evaluating [time: 0.29s, valid_score: 0.263200]
+Sat 25 May 2024 17:32:51 INFO  valid result: 
+recall@20 : 0.2214    mrr@20 : 0.2632    ndcg@20 : 0.1633    hit@20 : 0.7264    precision@20 : 0.0914
+Sat 25 May 2024 17:32:51 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:51 INFO  epoch 234 training [time: 0.52s, train loss: 15.4128]
+Sat 25 May 2024 17:32:52 INFO  epoch 234 evaluating [time: 0.29s, valid_score: 0.260000]
+Sat 25 May 2024 17:32:52 INFO  valid result: 
+recall@20 : 0.2193    mrr@20 : 0.26    ndcg@20 : 0.1617    hit@20 : 0.7253    precision@20 : 0.0908
+Sat 25 May 2024 17:32:52 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:52 INFO  epoch 235 training [time: 0.64s, train loss: 15.4205]
+Sat 25 May 2024 17:32:52 INFO  epoch 235 evaluating [time: 0.29s, valid_score: 0.263000]
+Sat 25 May 2024 17:32:52 INFO  valid result: 
+recall@20 : 0.2187    mrr@20 : 0.263    ndcg@20 : 0.1621    hit@20 : 0.7253    precision@20 : 0.0906
+Sat 25 May 2024 17:32:52 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:53 INFO  epoch 236 training [time: 0.55s, train loss: 15.3326]
+Sat 25 May 2024 17:32:53 INFO  epoch 236 evaluating [time: 0.29s, valid_score: 0.261600]
+Sat 25 May 2024 17:32:53 INFO  valid result: 
+recall@20 : 0.219    mrr@20 : 0.2616    ndcg@20 : 0.162    hit@20 : 0.7264    precision@20 : 0.0907
+Sat 25 May 2024 17:32:53 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:54 INFO  epoch 237 training [time: 0.52s, train loss: 15.3548]
+Sat 25 May 2024 17:32:54 INFO  epoch 237 evaluating [time: 0.29s, valid_score: 0.261500]
+Sat 25 May 2024 17:32:54 INFO  valid result: 
+recall@20 : 0.2184    mrr@20 : 0.2615    ndcg@20 : 0.1619    hit@20 : 0.7264    precision@20 : 0.0908
+Sat 25 May 2024 17:32:54 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:55 INFO  epoch 238 training [time: 0.50s, train loss: 15.3756]
+Sat 25 May 2024 17:32:55 INFO  epoch 238 evaluating [time: 0.29s, valid_score: 0.260400]
+Sat 25 May 2024 17:32:55 INFO  valid result: 
+recall@20 : 0.2168    mrr@20 : 0.2604    ndcg@20 : 0.1614    hit@20 : 0.7211    precision@20 : 0.0902
+Sat 25 May 2024 17:32:55 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:55 INFO  epoch 239 training [time: 0.52s, train loss: 15.3091]
+Sat 25 May 2024 17:32:56 INFO  epoch 239 evaluating [time: 0.29s, valid_score: 0.261400]
+Sat 25 May 2024 17:32:56 INFO  valid result: 
+recall@20 : 0.2176    mrr@20 : 0.2614    ndcg@20 : 0.1617    hit@20 : 0.7253    precision@20 : 0.0902
+Sat 25 May 2024 17:32:56 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:56 INFO  epoch 240 training [time: 0.55s, train loss: 15.3066]
+Sat 25 May 2024 17:32:57 INFO  epoch 240 evaluating [time: 0.29s, valid_score: 0.257100]
+Sat 25 May 2024 17:32:57 INFO  valid result: 
+recall@20 : 0.2194    mrr@20 : 0.2571    ndcg@20 : 0.1613    hit@20 : 0.7264    precision@20 : 0.0907
+Sat 25 May 2024 17:32:57 DEBUG  len train_data: 80808
+Sat 25 May 2024 17:32:57 INFO  epoch 241 training [time: 0.53s, train loss: 15.2178]
+Sat 25 May 2024 17:32:57 INFO  epoch 241 evaluating [time: 0.29s, valid_score: 0.260100]
+Sat 25 May 2024 17:32:57 INFO  valid result: 
+recall@20 : 0.219    mrr@20 : 0.2601    ndcg@20 : 0.1618    hit@20 : 0.7264    precision@20 : 0.0909
+Sat 25 May 2024 17:32:57 INFO  Finished training, best eval result in epoch 140
+Sat 25 May 2024 17:32:57 INFO  Loading model structure and parameters from saved/ANS-May-25-2024_17-29-26.pth
+Sat 25 May 2024 17:32:59 INFO  The running environment of this training is as follows:
++-------------+----------------+
+| Environment |     Usage      |
++=============+================+
+| CPU         |     1.60 %     |
++-------------+----------------+
+| GPU         | 0.61 G/15.98 G |
++-------------+----------------+
+| Memory      | 1.28 G/15.47 G |
++-------------+----------------+
+Sat 25 May 2024 17:32:59 INFO  best valid : OrderedDict([('recall@20', 0.2454), ('mrr@20', 0.3074), ('ndcg@20', 0.1914), ('hit@20', 0.7678), ('precision@20', 0.1)])
+Sat 25 May 2024 17:32:59 INFO  test result: OrderedDict([('recall@20', 0.2798), ('mrr@20', 0.36), ('ndcg@20', 0.2267), ('hit@20', 0.8091), ('precision@20', 0.1165)])

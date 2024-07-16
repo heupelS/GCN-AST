@@ -6,7 +6,6 @@
 .vscode/
 .idea/
 *.pyc
-*.log
 log_tensorboard
 saved/
 *.lprof
@@ -14,4 +13,3 @@ saved/
 docs/build/
 wandb/*
 /ray_log*
-/log/*

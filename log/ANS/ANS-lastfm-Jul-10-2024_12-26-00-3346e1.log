@@ -1,0 +1,22 @@
+Wed 10 Jul 2024 12:26:00 DEBUG  Loading <class 'recbole.data.dataset.dataset.Dataset'> from scratch.
+Wed 10 Jul 2024 12:26:00 DEBUG  uid_field: user_id
+Wed 10 Jul 2024 12:26:00 DEBUG  iid_field: artist_id
+Wed 10 Jul 2024 12:26:00 DEBUG  Loading feature from [dataset/lastfm/lastfm.inter] (source: [FeatureSource.INTERACTION]).
+Wed 10 Jul 2024 12:26:00 DEBUG  [inter]: 
+Wed 10 Jul 2024 12:26:00 DEBUG  	 load_col: [{'user_id', 'artist_id'}]
+Wed 10 Jul 2024 12:26:00 DEBUG  	 unload_col: [None]
+Wed 10 Jul 2024 12:26:00 DEBUG  Interaction feature loaded successfully from [dataset/lastfm/lastfm.inter].
+Wed 10 Jul 2024 12:26:00 DEBUG  [dataset/lastfm/lastfm.user] not found, [user] features are not loaded.
+Wed 10 Jul 2024 12:26:00 DEBUG  Loading feature from [dataset/lastfm/lastfm.item] (source: [FeatureSource.ITEM]).
+Wed 10 Jul 2024 12:26:00 DEBUG  [item]: 
+Wed 10 Jul 2024 12:26:00 DEBUG  	 load_col: [set()]
+Wed 10 Jul 2024 12:26:00 DEBUG  	 unload_col: [None]
+Wed 10 Jul 2024 12:26:00 DEBUG  [item] feature loaded successfully from [dataset/lastfm/lastfm.item].
+Wed 10 Jul 2024 12:26:00 DEBUG  drop_by_value: val={}
+Wed 10 Jul 2024 12:26:00 DEBUG  Filling nan
+Wed 10 Jul 2024 12:26:00 DEBUG  Normalized fields: []
+Wed 10 Jul 2024 12:26:00 DEBUG  split by ratios [[0.8, 0.1, 0.1]], group_by=[user_id]
+Wed 10 Jul 2024 12:26:01 INFO  [Training]: train_batch_size = [4096] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 5, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}]
+Wed 10 Jul 2024 12:26:01 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Wed 10 Jul 2024 12:26:03 DEBUG   length of inter_feat: 74295
+Wed 10 Jul 2024 12:26:03 DEBUG   length of dataset: 74295

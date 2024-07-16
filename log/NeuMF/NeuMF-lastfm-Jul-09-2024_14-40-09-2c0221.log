@@ -1,0 +1,6 @@
+Tue 09 Jul 2024 14:40:09 INFO  [Training]: train_batch_size = [4096] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 5, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}]
+Tue 09 Jul 2024 14:40:09 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Tue 09 Jul 2024 14:44:52 INFO  Loading model structure and parameters from saved/NeuMF-Jul-09-2024_14-40-09.pth
+Tue 09 Jul 2024 14:44:56 INFO  best params: 
+Tue 09 Jul 2024 14:44:56 INFO  best result: 
+Tue 09 Jul 2024 14:44:56 INFO  {'model': 'NeuMF', 'best_valid_score': 0.24, 'valid_score_bigger': True, 'best_valid_result': OrderedDict([('recall@10', 0.167), ('recall@20', 0.24), ('ndcg@10', 0.153), ('ndcg@20', 0.184), ('mrr@10', 0.272), ('mrr@20', 0.282), ('hit@10', 0.543), ('hit@20', 0.676), ('precision@10', 0.083), ('precision@20', 0.059)]), 'test_result': OrderedDict([('recall@10', 0.18), ('recall@20', 0.251), ('ndcg@10', 0.173), ('ndcg@20', 0.203), ('mrr@10', 0.312), ('mrr@20', 0.321), ('hit@10', 0.559), ('hit@20', 0.682), ('precision@10', 0.088), ('precision@20', 0.062)])}

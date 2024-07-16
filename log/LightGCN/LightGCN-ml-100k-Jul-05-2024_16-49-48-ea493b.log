@@ -1,0 +1,1134 @@
+Fri 05 Jul 2024 16:49:48 INFO  ['run_recbole.py', '--model=LightGCN', '--dataset=ml-100k']
+Fri 05 Jul 2024 16:49:48 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 2020
+state = DEBUG
+reproducibility = True
+data_path = /home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k
+checkpoint_dir = saved
+show_progress = True
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = False
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 500
+train_batch_size = 2048
+learner = adam
+learning_rate = 0.0001
+train_neg_sample_args = {'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}
+eval_step = 1
+stopping_step = 1
+clip_grad_norm = None
+weight_decay = 0.0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}
+repeatable = False
+metrics = ['Recall', 'MRR', 'NDCG', 'Hit', 'Precision']
+topk = [20]
+valid_metric = Recall@20
+valid_metric_bigger = True
+eval_batch_size = 4096
+metric_decimal_place = 4
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = None
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = None
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = None
+item_inter_num_interval = None
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = True
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+kg_reverse_r = False
+entity_kg_num_interval = None
+relation_kg_num_interval = None
+benchmark_filename = None
+
+Other Hyper Parameters: 
+worker = 0
+wandb_project = recbole
+shuffle = True
+require_pow = False
+enable_amp = False
+enable_scaler = True
+transform = None
+train_after_converge = True
+positive_sampling = True
+model_name_custom = GCN_wo_ANS
+data_augmentation = False
+Q = 5
+K = 1
+P = 15
+embedding_size = 64
+n_layers = 3
+reg_weight = 1e-05
+numerical_features = []
+discretization = None
+MODEL_TYPE = ModelType.GENERAL
+MODEL_INPUT_TYPE = InputType.PAIRWISE
+eval_type = EvaluatorType.RANKING
+single_spec = True
+local_rank = 0
+device = cpu
+eval_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+
+
+Fri 05 Jul 2024 16:49:48 DEBUG  Loading <class 'recbole.data.dataset.dataset.Dataset'> from scratch.
+Fri 05 Jul 2024 16:49:48 DEBUG  uid_field: user_id
+Fri 05 Jul 2024 16:49:48 DEBUG  iid_field: item_id
+Fri 05 Jul 2024 16:49:48 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.inter] (source: [FeatureSource.INTERACTION]).
+Fri 05 Jul 2024 16:49:48 DEBUG  [inter]: 
+Fri 05 Jul 2024 16:49:48 DEBUG  	 load_col: [{'item_id', 'user_id'}]
+Fri 05 Jul 2024 16:49:48 DEBUG  	 unload_col: [None]
+Fri 05 Jul 2024 16:49:49 DEBUG  Interaction feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.inter].
+Fri 05 Jul 2024 16:49:49 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.user] (source: [FeatureSource.USER]).
+Fri 05 Jul 2024 16:49:49 DEBUG  [user]: 
+Fri 05 Jul 2024 16:49:49 DEBUG  	 load_col: [set()]
+Fri 05 Jul 2024 16:49:49 DEBUG  	 unload_col: [None]
+Fri 05 Jul 2024 16:49:49 DEBUG  [user] feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.user].
+Fri 05 Jul 2024 16:49:49 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.item] (source: [FeatureSource.ITEM]).
+Fri 05 Jul 2024 16:49:49 DEBUG  [item]: 
+Fri 05 Jul 2024 16:49:49 DEBUG  	 load_col: [set()]
+Fri 05 Jul 2024 16:49:49 DEBUG  	 unload_col: [None]
+Fri 05 Jul 2024 16:49:49 DEBUG  [item] feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.item].
+Fri 05 Jul 2024 16:49:49 DEBUG  drop_by_value: val={}
+Fri 05 Jul 2024 16:49:49 DEBUG  Filling nan
+Fri 05 Jul 2024 16:49:49 DEBUG  Normalized fields: []
+Fri 05 Jul 2024 16:49:49 INFO  ml-100k
+The number of users: 944
+Average actions of users: 106.04453870625663
+The number of items: 1683
+Average actions of items: 59.45303210463734
+The number of inters: 100000
+The sparsity of the dataset: 93.70575143257098%
+Remain Fields: ['user_id', 'item_id']
+Fri 05 Jul 2024 16:49:49 DEBUG  split by ratios [[0.8, 0.1, 0.1]], group_by=[user_id]
+Fri 05 Jul 2024 16:49:49 INFO  [Training]: train_batch_size = [2048] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}]
+Fri 05 Jul 2024 16:49:49 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Fri 05 Jul 2024 16:49:50 INFO  LightGCN(
+  (user_embedding): Embedding(944, 64)
+  (item_embedding): Embedding(1683, 64)
+  (mf_loss): BPRLoss()
+  (reg_loss): EmbLoss()
+)
+Trainable parameters: 168128
+Fri 05 Jul 2024 16:49:50 INFO  FLOPs: 0.0
+Fri 05 Jul 2024 16:49:50 DEBUG  matplotlib data path: /home/simeon/miniconda3/envs/recbole/lib/python3.11/site-packages/matplotlib/mpl-data
+Fri 05 Jul 2024 16:49:50 DEBUG  CONFIGDIR=/home/simeon/.config/matplotlib
+Fri 05 Jul 2024 16:49:50 DEBUG  interactive is False
+Fri 05 Jul 2024 16:49:50 DEBUG  platform is linux
+Fri 05 Jul 2024 16:49:50 DEBUG  CACHEDIR=/home/simeon/.cache/matplotlib
+Fri 05 Jul 2024 16:49:50 DEBUG  Using fontManager instance from /home/simeon/.cache/matplotlib/fontlist-v330.json
+Fri 05 Jul 2024 16:49:50 DEBUG   length of inter_feat: 80808
+Fri 05 Jul 2024 16:49:50 DEBUG   length of dataset: 80808
+Fri 05 Jul 2024 16:49:51 INFO  epoch 0 training [time: 0.74s, train loss: 27.7209]
+Fri 05 Jul 2024 16:49:51 INFO  epoch 0 evaluating [time: 0.12s, valid_score: 0.025600]
+Fri 05 Jul 2024 16:49:51 INFO  valid result: 
+recall@20 : 0.0256    mrr@20 : 0.0513    ndcg@20 : 0.0216    hit@20 : 0.2004    precision@20 : 0.0137
+Fri 05 Jul 2024 16:49:51 INFO  Saving current: saved/LightGCN-Jul-05-2024_16-49-50.pth
+Fri 05 Jul 2024 16:49:52 INFO  epoch 1 training [time: 0.81s, train loss: 27.7120]
+Fri 05 Jul 2024 16:49:52 INFO  epoch 1 evaluating [time: 0.13s, valid_score: 0.072800]
+Fri 05 Jul 2024 16:49:52 INFO  valid result: 
+recall@20 : 0.0728    mrr@20 : 0.123    ndcg@20 : 0.0604    hit@20 : 0.4178    precision@20 : 0.0379
+Fri 05 Jul 2024 16:49:52 INFO  Saving current: saved/LightGCN-Jul-05-2024_16-49-50.pth
+Fri 05 Jul 2024 16:49:53 INFO  epoch 2 training [time: 0.79s, train loss: 27.6842]
+Fri 05 Jul 2024 16:49:53 INFO  epoch 2 evaluating [time: 0.11s, valid_score: 0.145100]
+Fri 05 Jul 2024 16:49:53 INFO  valid result: 
+recall@20 : 0.1451    mrr@20 : 0.2142    ndcg@20 : 0.1168    hit@20 : 0.6331    precision@20 : 0.062
+Fri 05 Jul 2024 16:49:53 INFO  Saving current: saved/LightGCN-Jul-05-2024_16-49-50.pth
+Fri 05 Jul 2024 16:49:54 INFO  epoch 3 training [time: 0.78s, train loss: 27.6133]
+Fri 05 Jul 2024 16:49:54 INFO  epoch 3 evaluating [time: 0.11s, valid_score: 0.174200]
+Fri 05 Jul 2024 16:49:54 INFO  valid result: 
+recall@20 : 0.1742    mrr@20 : 0.2377    ndcg@20 : 0.1355    hit@20 : 0.6819    precision@20 : 0.0704
+Fri 05 Jul 2024 16:49:54 INFO  Saving current: saved/LightGCN-Jul-05-2024_16-49-50.pth
+Fri 05 Jul 2024 16:49:55 INFO  epoch 4 training [time: 0.75s, train loss: 27.4801]
+Fri 05 Jul 2024 16:49:55 INFO  epoch 4 evaluating [time: 0.11s, valid_score: 0.180100]
+Fri 05 Jul 2024 16:49:55 INFO  valid result: 
+recall@20 : 0.1801    mrr@20 : 0.2471    ndcg@20 : 0.1395    hit@20 : 0.6882    precision@20 : 0.071
+Fri 05 Jul 2024 16:49:55 INFO  Saving current: saved/LightGCN-Jul-05-2024_16-49-50.pth
+Fri 05 Jul 2024 16:49:56 INFO  epoch 5 training [time: 0.73s, train loss: 27.2725]
+Fri 05 Jul 2024 16:49:56 INFO  epoch 5 evaluating [time: 0.11s, valid_score: 0.178400]
+Fri 05 Jul 2024 16:49:56 INFO  valid result: 
+recall@20 : 0.1784    mrr@20 : 0.2403    ndcg@20 : 0.1371    hit@20 : 0.6872    precision@20 : 0.0699
+Fri 05 Jul 2024 16:49:56 INFO  epoch 6 training [time: 0.74s, train loss: 26.9925]
+Fri 05 Jul 2024 16:49:57 INFO  epoch 6 evaluating [time: 0.11s, valid_score: 0.176500]
+Fri 05 Jul 2024 16:49:57 INFO  valid result: 
+recall@20 : 0.1765    mrr@20 : 0.236    ndcg@20 : 0.1354    hit@20 : 0.6787    precision@20 : 0.069
+Fri 05 Jul 2024 16:49:57 INFO  Finished training, best eval result in epoch 4
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for 944 users
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 1 with 1649 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 2 with 1608 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 3 with 1578 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 4 with 1490 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 5 with 1666 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 6 with 1579 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 7 with 1608 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 8 with 1603 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 9 with 1504 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 10 with 1513 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 11 with 1496 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 12 with 1450 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 13 with 1508 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 14 with 1576 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 15 with 1569 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 16 with 1294 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 17 with 1633 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 18 with 1437 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 19 with 1444 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 20 with 1298 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 21 with 1537 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 22 with 1625 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 23 with 1458 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 24 with 1363 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 25 with 1458 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 26 with 1585 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 27 with 1508 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 28 with 1607 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 29 with 1586 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 30 with 1662 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 31 with 1461 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 32 with 1659 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 33 with 1562 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 34 with 1631 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 35 with 1641 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 36 with 1333 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 37 with 1663 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 38 with 1266 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 39 with 1359 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 40 with 1534 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 41 with 1643 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 42 with 1372 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 43 with 1632 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 44 with 1525 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 45 with 1666 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 46 with 1553 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 47 with 1572 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 48 with 1463 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 49 with 1619 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 50 with 1634 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 51 with 1662 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 52 with 1618 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 53 with 1376 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 54 with 1571 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 55 with 1513 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 56 with 1535 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 57 with 1582 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 58 with 1642 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 59 with 1172 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 60 with 1641 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 61 with 1514 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 62 with 1596 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 63 with 1597 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 64 with 1531 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 65 with 1617 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 66 with 1370 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 67 with 1663 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 68 with 1553 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 69 with 1370 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 70 with 1663 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 71 with 1371 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 72 with 1533 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 73 with 1537 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 74 with 1633 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 75 with 1648 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 76 with 1334 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 77 with 1428 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 78 with 1617 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 79 with 1637 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 80 with 1649 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 81 with 1442 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 82 with 1577 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 83 with 1584 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 84 with 1458 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 85 with 1644 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 86 with 1537 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 87 with 1625 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 88 with 1575 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 89 with 1558 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 90 with 1642 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 91 with 1362 unused items
+Fri 05 Jul 2024 16:49:57 DEBUG  Predicting for user 92 with 1534 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 93 with 1561 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 94 with 1586 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 95 with 1640 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 96 with 1546 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 97 with 1554 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 98 with 1539 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 99 with 1505 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 100 with 1626 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 101 with 1423 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 102 with 1644 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 103 with 1450 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 104 with 1580 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 105 with 1622 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 106 with 1509 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 107 with 1664 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 108 with 1654 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 109 with 1659 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 110 with 1666 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 111 with 1418 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 112 with 1541 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 113 with 1657 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 114 with 1650 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 115 with 1459 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 116 with 1595 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 117 with 1399 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 118 with 1515 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 119 with 1464 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 120 with 1531 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 121 with 1598 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 122 with 1498 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 123 with 1607 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 124 with 1636 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 125 with 1634 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 126 with 1629 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 127 with 1536 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 128 with 1557 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 129 with 1641 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 130 with 1435 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 131 with 1629 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 132 with 1570 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 133 with 1602 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 134 with 1562 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 135 with 1658 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 136 with 1666 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 137 with 1577 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 138 with 1602 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 139 with 1524 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 140 with 1594 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 141 with 1578 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 142 with 1653 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 143 with 1633 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 144 with 1592 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 145 with 1528 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 146 with 1585 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 147 with 1641 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 148 with 1605 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 149 with 1658 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 150 with 1639 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 151 with 1638 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 152 with 1543 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 153 with 1665 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 154 with 1561 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 155 with 1563 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 156 with 1662 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 157 with 1641 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 158 with 1624 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 159 with 1570 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 160 with 1636 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 161 with 1664 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 162 with 1627 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 163 with 1481 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 164 with 1644 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 165 with 1660 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 166 with 1607 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 167 with 1629 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 168 with 1593 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 169 with 1662 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 170 with 1516 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 171 with 1659 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 172 with 1665 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 173 with 1655 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 174 with 1589 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 175 with 1647 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 176 with 1537 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 177 with 1586 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 178 with 1661 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 179 with 1631 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 180 with 1582 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 181 with 1583 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 182 with 1494 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 183 with 1522 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 184 with 1642 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 185 with 1553 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 186 with 1612 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 187 with 1618 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 188 with 1643 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 189 with 1635 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 190 with 1662 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 191 with 1656 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 192 with 1636 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 193 with 1567 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 194 with 1628 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 195 with 1564 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 196 with 1606 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 197 with 1631 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 198 with 1660 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 199 with 1658 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 200 with 1658 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 201 with 1642 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 202 with 1658 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 203 with 1575 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 204 with 1645 unused items
+Fri 05 Jul 2024 16:49:58 DEBUG  Predicting for user 205 with 1665 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 206 with 1474 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 207 with 1621 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 208 with 1596 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 209 with 1620 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 210 with 1637 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 211 with 1617 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 212 with 1664 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 213 with 1664 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 214 with 1665 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 215 with 1625 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 216 with 1639 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 217 with 1658 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 218 with 1664 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 219 with 1642 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 220 with 1656 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 221 with 1647 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 222 with 1642 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 223 with 1656 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 224 with 1625 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 225 with 1592 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 226 with 1628 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 227 with 1446 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 228 with 1658 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 229 with 1655 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 230 with 1632 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 231 with 1664 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 232 with 1636 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 233 with 1666 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 234 with 1595 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 235 with 1657 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 236 with 1654 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 237 with 1651 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 238 with 1635 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 239 with 1595 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 240 with 1604 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 241 with 1655 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 242 with 1661 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 243 with 1615 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 244 with 1620 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 245 with 1665 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 246 with 1633 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 247 with 1626 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 248 with 1658 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 249 with 1472 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 250 with 1658 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 251 with 1662 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 252 with 1652 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 253 with 1631 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 254 with 1630 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 255 with 1503 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 256 with 1650 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 257 with 1663 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 258 with 1664 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 259 with 1666 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 260 with 1650 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 261 with 1666 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 262 with 1638 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 263 with 1630 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 264 with 1616 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 265 with 1485 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 266 with 1653 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 267 with 1648 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 268 with 1662 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 269 with 1660 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 270 with 1638 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 271 with 1634 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 272 with 1665 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 273 with 1661 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 274 with 1665 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 275 with 1661 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 276 with 1666 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 277 with 1663 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 278 with 1666 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 279 with 1650 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 280 with 1663 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 281 with 1648 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 282 with 1611 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 283 with 1652 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 284 with 1621 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 285 with 1657 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 286 with 1542 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 287 with 1647 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 288 with 1660 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 289 with 1659 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 290 with 1659 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 291 with 1655 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 292 with 1659 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 293 with 1665 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 294 with 1664 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 295 with 1660 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 296 with 1581 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 297 with 1663 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 298 with 1649 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 299 with 1657 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 300 with 1663 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 301 with 1609 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 302 with 1658 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 303 with 1651 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 304 with 1659 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 305 with 1641 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 306 with 1653 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 307 with 1663 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 308 with 1665 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 309 with 1568 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 310 with 1558 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 311 with 1531 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 312 with 1454 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 313 with 1639 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 314 with 1455 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 315 with 1641 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 316 with 1563 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 317 with 1661 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 318 with 1626 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 319 with 1535 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 320 with 1629 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 321 with 1663 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 322 with 1662 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 323 with 1666 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 324 with 1663 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 325 with 1660 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 326 with 1415 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 327 with 1664 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 328 with 1628 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 329 with 1664 unused items
+Fri 05 Jul 2024 16:49:59 DEBUG  Predicting for user 330 with 1578 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 331 with 1664 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 332 with 1651 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 333 with 1621 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 334 with 1478 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 335 with 1666 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 336 with 1521 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 337 with 1646 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 338 with 1664 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 339 with 1665 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 340 with 1491 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 341 with 1530 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 342 with 1496 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 343 with 1527 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 344 with 1521 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 345 with 1664 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 346 with 1665 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 347 with 1649 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 348 with 1634 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 349 with 1495 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 350 with 1646 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 351 with 1647 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 352 with 1648 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 353 with 1600 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 354 with 1433 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 355 with 1660 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 356 with 1661 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 357 with 1620 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 358 with 1662 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 359 with 1585 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 360 with 1634 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 361 with 1642 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 362 with 1634 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 363 with 1645 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 364 with 1641 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 365 with 1495 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 366 with 1621 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 367 with 1462 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 368 with 1628 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 369 with 1654 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 370 with 1381 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 371 with 1655 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 372 with 1655 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 373 with 1658 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 374 with 1659 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 375 with 1524 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 376 with 1552 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 377 with 1579 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 378 with 1457 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 379 with 1639 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 380 with 1438 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 381 with 1666 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 382 with 1664 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 383 with 1640 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 384 with 1663 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 385 with 1465 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 386 with 1625 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 387 with 1657 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 388 with 1322 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 389 with 1593 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 390 with 1658 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 391 with 1561 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 392 with 1585 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 393 with 1544 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 394 with 1600 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 395 with 1425 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 396 with 1638 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 397 with 1559 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 398 with 1626 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 399 with 1664 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 400 with 1635 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 401 with 1661 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 402 with 1642 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 403 with 1091 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 404 with 1664 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 405 with 1408 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 406 with 1500 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 407 with 1519 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 408 with 1646 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 409 with 1642 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 410 with 1287 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 411 with 1659 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 412 with 1658 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 413 with 1634 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 414 with 1389 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 415 with 1641 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 416 with 1652 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 417 with 1603 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 418 with 1518 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 419 with 1656 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 420 with 1662 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 421 with 1630 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 422 with 1350 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 423 with 1637 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 424 with 1657 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 425 with 1666 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 426 with 1646 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 427 with 1632 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 428 with 1632 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 429 with 1377 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 430 with 1649 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 431 with 1601 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 432 with 1565 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 433 with 1629 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 434 with 1646 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 435 with 1471 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 436 with 1655 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 437 with 1665 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 438 with 1567 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 439 with 1641 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 440 with 1573 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 441 with 1569 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 442 with 1621 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 443 with 1250 unused items
+Fri 05 Jul 2024 16:50:00 DEBUG  Predicting for user 444 with 1652 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 445 with 1657 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 446 with 1602 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 447 with 1516 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 448 with 1492 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 449 with 1556 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 450 with 1661 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 451 with 1529 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 452 with 1662 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 453 with 1650 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 454 with 1459 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 455 with 1507 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 456 with 1535 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 457 with 1655 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 458 with 1586 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 459 with 1626 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 460 with 1663 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 461 with 1646 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 462 with 1567 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 463 with 1601 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 464 with 1471 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 465 with 1618 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 466 with 1575 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 467 with 1657 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 468 with 1419 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 469 with 1647 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 470 with 1639 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 471 with 1615 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 472 with 1591 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 473 with 1653 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 474 with 1635 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 475 with 1634 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 476 with 1666 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 477 with 1520 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 478 with 1569 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 479 with 1529 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 480 with 1497 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 481 with 1660 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 482 with 1636 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 483 with 1637 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 484 with 1573 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 485 with 1635 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 486 with 1593 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 487 with 1633 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 488 with 1577 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 489 with 1643 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 490 with 1511 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 491 with 1653 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 492 with 1457 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 493 with 1558 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 494 with 1561 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 495 with 1600 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 496 with 1655 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 497 with 1501 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 498 with 1651 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 499 with 1554 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 500 with 1481 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 501 with 1592 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 502 with 1488 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 503 with 1662 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 504 with 1634 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 505 with 1526 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 506 with 1611 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 507 with 1662 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 508 with 1650 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 509 with 1665 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 510 with 1664 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 511 with 1666 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 512 with 1602 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 513 with 1623 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 514 with 1655 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 515 with 1665 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 516 with 1658 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 517 with 1436 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 518 with 1623 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 519 with 1638 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 520 with 1562 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 521 with 1663 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 522 with 1641 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 523 with 1639 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 524 with 1462 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 525 with 1645 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 526 with 1658 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 527 with 1647 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 528 with 1651 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 529 with 1571 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 530 with 1660 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 531 with 1474 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 532 with 1506 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 533 with 1551 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 534 with 1626 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 535 with 1290 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 536 with 1618 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 537 with 1575 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 538 with 1617 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 539 with 1573 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 540 with 1552 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 541 with 1636 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 542 with 1663 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 543 with 1523 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 544 with 1557 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 545 with 1633 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 546 with 1658 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 547 with 1414 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 548 with 1657 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 549 with 1602 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 550 with 1614 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 551 with 1631 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 552 with 1590 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 553 with 1650 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 554 with 1646 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 555 with 1620 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 556 with 1601 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 557 with 1395 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 558 with 1658 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 559 with 1561 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 560 with 1639 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 561 with 1666 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 562 with 1654 unused items
+Fri 05 Jul 2024 16:50:01 DEBUG  Predicting for user 563 with 1653 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 564 with 1641 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 565 with 1661 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 566 with 1557 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 567 with 1626 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 568 with 1624 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 569 with 1652 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 570 with 1530 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 571 with 1622 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 572 with 1644 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 573 with 1640 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 574 with 1666 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 575 with 1660 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 576 with 1662 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 577 with 1501 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 578 with 1602 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 579 with 1617 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 580 with 1548 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 581 with 1618 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 582 with 1632 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 583 with 1614 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 584 with 1658 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 585 with 1394 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 586 with 1643 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 587 with 1642 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 588 with 1556 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 589 with 1659 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 590 with 1666 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 591 with 1664 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 592 with 1643 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 593 with 1647 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 594 with 1661 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 595 with 1649 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 596 with 1662 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 597 with 1562 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 598 with 1657 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 599 with 1609 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 600 with 1610 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 601 with 1643 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 602 with 1604 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 603 with 1492 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 604 with 1551 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 605 with 1651 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 606 with 1621 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 607 with 1648 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 608 with 1594 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 609 with 1508 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 610 with 1649 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 611 with 1658 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 612 with 1599 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 613 with 1647 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 614 with 1594 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 615 with 1666 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 616 with 1609 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 617 with 1658 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 618 with 1498 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 619 with 1545 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 620 with 1659 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 621 with 1569 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 622 with 1659 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 623 with 1537 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 624 with 1645 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 625 with 1659 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 626 with 1596 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 627 with 1585 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 628 with 1634 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 629 with 1586 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 630 with 1666 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 631 with 1573 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 632 with 1562 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 633 with 1594 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 634 with 1426 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 635 with 1598 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 636 with 1593 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 637 with 1656 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 638 with 1516 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 639 with 1661 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 640 with 1627 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 641 with 1654 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 642 with 1648 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 643 with 1666 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 644 with 1584 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 645 with 1443 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 646 with 1634 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 647 with 1433 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 648 with 1665 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 649 with 1563 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 650 with 1455 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 651 with 1133 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 652 with 1662 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 653 with 1625 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 654 with 1662 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 655 with 1502 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 656 with 1529 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 657 with 1650 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 658 with 1554 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 659 with 1548 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 660 with 1657 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 661 with 1568 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 662 with 1485 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 663 with 1585 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 664 with 1663 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 665 with 1643 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 666 with 1650 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 667 with 1644 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 668 with 1653 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 669 with 1582 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 670 with 1602 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 671 with 1619 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 672 with 1649 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 673 with 1664 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 674 with 1641 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 675 with 1361 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 676 with 1632 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 677 with 1612 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 678 with 1666 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 679 with 1621 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 680 with 1656 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 681 with 1657 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 682 with 1650 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 683 with 1589 unused items
+Fri 05 Jul 2024 16:50:02 DEBUG  Predicting for user 684 with 1652 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 685 with 1625 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 686 with 1558 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 687 with 1662 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 688 with 1597 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 689 with 1579 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 690 with 1644 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 691 with 1555 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 692 with 1650 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 693 with 1590 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 694 with 1655 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 695 with 1561 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 696 with 1610 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 697 with 1492 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 698 with 1665 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 699 with 1665 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 700 with 1650 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 701 with 1654 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 702 with 1597 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 703 with 1570 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 704 with 1505 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 705 with 1612 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 706 with 1552 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 707 with 1547 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 708 with 1658 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 709 with 1465 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 710 with 1664 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 711 with 1658 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 712 with 1627 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 713 with 1657 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 714 with 1546 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 715 with 1646 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 716 with 1607 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 717 with 1649 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 718 with 1657 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 719 with 1648 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 720 with 1613 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 721 with 1424 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 722 with 1661 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 723 with 1657 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 724 with 1658 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 725 with 1665 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 726 with 1662 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 727 with 1660 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 728 with 1643 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 729 with 1562 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 730 with 1662 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 731 with 1630 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 732 with 1650 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 733 with 1653 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 734 with 1660 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 735 with 1655 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 736 with 1595 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 737 with 1634 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 738 with 1666 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 739 with 1639 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 740 with 1447 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 741 with 1664 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 742 with 1653 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 743 with 1437 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 744 with 1594 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 745 with 1627 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 746 with 1615 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 747 with 1655 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 748 with 1598 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 749 with 1546 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 750 with 1593 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 751 with 1548 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 752 with 1623 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 753 with 1395 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 754 with 1666 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 755 with 1665 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 756 with 1659 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 757 with 1654 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 758 with 1635 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 759 with 1577 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 760 with 1593 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 761 with 1651 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 762 with 1657 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 763 with 1650 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 764 with 1626 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 765 with 1630 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 766 with 1553 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 767 with 1663 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 768 with 1655 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 769 with 1541 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 770 with 1502 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 771 with 1649 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 772 with 1628 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 773 with 1652 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 774 with 1656 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 775 with 1597 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 776 with 1637 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 777 with 1651 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 778 with 1629 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 779 with 1496 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 780 with 1587 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 781 with 1649 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 782 with 1630 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 783 with 1481 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 784 with 1655 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 785 with 1497 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 786 with 1635 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 787 with 1658 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 788 with 1659 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 789 with 1649 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 790 with 1648 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 791 with 1394 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 792 with 1553 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 793 with 1637 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 794 with 1489 unused items
+Fri 05 Jul 2024 16:50:03 DEBUG  Predicting for user 795 with 1661 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 796 with 1621 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 797 with 1658 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 798 with 1416 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 799 with 1655 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 800 with 1658 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 801 with 1643 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 802 with 1662 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 803 with 1463 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 804 with 1570 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 805 with 1518 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 806 with 1660 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 807 with 1660 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 808 with 1666 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 809 with 1535 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 810 with 1652 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 811 with 1632 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 812 with 1665 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 813 with 1653 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 814 with 1666 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 815 with 1533 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 816 with 1565 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 817 with 1658 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 818 with 1630 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 819 with 1665 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 820 with 1596 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 821 with 1589 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 822 with 1623 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 823 with 1658 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 824 with 1598 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 825 with 1663 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 826 with 1600 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 827 with 1467 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 828 with 1642 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 829 with 1661 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 830 with 1607 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 831 with 1635 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 832 with 1523 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 833 with 1661 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 834 with 1660 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 835 with 1617 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 836 with 1518 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 837 with 1638 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 838 with 1357 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 839 with 1644 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 840 with 1657 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 841 with 1659 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 842 with 1564 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 843 with 1562 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 844 with 1661 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 845 with 1641 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 846 with 1513 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 847 with 1663 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 848 with 1507 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 849 with 1641 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 850 with 1665 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 851 with 1649 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 852 with 1663 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 853 with 1666 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 854 with 1657 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 855 with 1657 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 856 with 1649 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 857 with 1549 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 858 with 1660 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 859 with 1665 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 860 with 1595 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 861 with 1625 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 862 with 1664 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 863 with 1446 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 864 with 1628 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 865 with 1514 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 866 with 1605 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 867 with 1647 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 868 with 1465 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 869 with 1589 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 870 with 1609 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 871 with 1665 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 872 with 1625 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 873 with 1666 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 874 with 1617 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 875 with 1666 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 876 with 1386 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 877 with 1574 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 878 with 1643 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 879 with 1473 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 880 with 1657 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 881 with 1466 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 882 with 1571 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 883 with 1647 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 884 with 1490 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 885 with 1600 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 886 with 1420 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 887 with 1654 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 888 with 1500 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 889 with 1585 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 890 with 1633 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 891 with 1545 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 892 with 1643 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 893 with 1485 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 894 with 1392 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 895 with 1533 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 896 with 1582 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 897 with 1573 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 898 with 1572 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 899 with 1643 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 900 with 1563 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 901 with 1650 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 902 with 1641 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 903 with 1658 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 904 with 1666 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 905 with 1649 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 906 with 1645 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 907 with 1622 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 908 with 1427 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 909 with 1602 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 910 with 1639 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 911 with 1663 unused items
+Fri 05 Jul 2024 16:50:04 DEBUG  Predicting for user 912 with 1599 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 913 with 1507 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 914 with 1594 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 915 with 1634 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 916 with 1576 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 917 with 1660 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 918 with 1579 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 919 with 1622 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 920 with 1656 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 921 with 1586 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 922 with 1616 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 923 with 1641 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 924 with 1633 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 925 with 1653 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 926 with 1489 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 927 with 1660 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 928 with 1542 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 929 with 1534 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 930 with 1649 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 931 with 1594 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 932 with 1595 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 933 with 1666 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 934 with 1656 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 935 with 1617 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 936 with 1650 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 937 with 1666 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 938 with 1546 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 939 with 1641 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 940 with 1568 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 941 with 1631 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 942 with 1660 unused items
+Fri 05 Jul 2024 16:50:05 DEBUG  Predicting for user 943 with 1664 unused items

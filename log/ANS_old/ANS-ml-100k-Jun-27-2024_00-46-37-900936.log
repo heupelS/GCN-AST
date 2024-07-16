@@ -1,0 +1,2 @@
+Thu 27 Jun 2024 00:46:38 INFO  [Training]: train_batch_size = [2048] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 15, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 15}]
+Thu 27 Jun 2024 00:46:38 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]

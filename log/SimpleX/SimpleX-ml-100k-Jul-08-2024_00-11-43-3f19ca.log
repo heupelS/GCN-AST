@@ -1,0 +1,6 @@
+Mon 08 Jul 2024 00:11:44 INFO  [Training]: train_batch_size = [4096] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 5, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}]
+Mon 08 Jul 2024 00:11:44 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Mon 08 Jul 2024 00:12:42 INFO  Loading model structure and parameters from saved/SimpleX-Jul-08-2024_00-11-44.pth
+Mon 08 Jul 2024 00:12:43 INFO  best params: 
+Mon 08 Jul 2024 00:12:43 INFO  best result: 
+Mon 08 Jul 2024 00:12:43 INFO  {'model': 'SimpleX', 'best_valid_score': 0.332, 'valid_score_bigger': True, 'best_valid_result': OrderedDict([('recall@10', 0.208), ('recall@20', 0.332), ('ndcg@10', 0.225), ('ndcg@20', 0.256), ('mrr@10', 0.382), ('mrr@20', 0.392), ('hit@10', 0.734), ('hit@20', 0.867), ('precision@10', 0.161), ('precision@20', 0.132)]), 'test_result': OrderedDict([('recall@10', 0.246), ('recall@20', 0.379), ('ndcg@10', 0.293), ('ndcg@20', 0.316), ('mrr@10', 0.487), ('mrr@20', 0.494), ('hit@10', 0.778), ('hit@20', 0.885), ('precision@10', 0.202), ('precision@20', 0.156)])}

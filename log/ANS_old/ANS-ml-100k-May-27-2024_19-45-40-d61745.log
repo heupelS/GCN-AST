@@ -1,0 +1,432 @@
+Mon 27 May 2024 19:45:40 INFO  ['run_recbole.py', '--model=ANS', '--dataset=ml-100k']
+Mon 27 May 2024 19:45:40 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 2020
+state = DEBUG
+reproducibility = True
+data_path = /home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k
+checkpoint_dir = saved
+show_progress = False
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = False
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 500
+train_batch_size = 2048
+learner = adam
+learning_rate = 0.0001
+train_neg_sample_args = {'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 1}
+eval_step = 1
+stopping_step = 100
+clip_grad_norm = None
+weight_decay = 0.0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}
+repeatable = False
+metrics = ['Recall', 'MRR', 'NDCG', 'Hit', 'Precision']
+topk = [20]
+valid_metric = Recall@20
+valid_metric_bigger = True
+eval_batch_size = 4096
+metric_decimal_place = 4
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = {'rating': 4.0}
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id', 'rating']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = None
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = None
+item_inter_num_interval = None
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = True
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+kg_reverse_r = False
+entity_kg_num_interval = None
+relation_kg_num_interval = None
+benchmark_filename = None
+
+Other Hyper Parameters: 
+worker = 0
+wandb_project = recbole
+shuffle = True
+require_pow = False
+enable_amp = False
+enable_scaler = False
+transform = None
+train_after_converge = True
+positive_sampling = True
+embedding_size = 64
+n_layers = 3
+reg_weight = 0.0001
+eps = 0.3
+gamma = 0.15
+numerical_features = []
+discretization = None
+MODEL_TYPE = ModelType.GENERAL
+MODEL_INPUT_TYPE = InputType.PAIRWISE
+eval_type = EvaluatorType.RANKING
+single_spec = True
+local_rank = 0
+device = cuda
+eval_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+
+
+Mon 27 May 2024 19:45:40 DEBUG  Loading <class 'recbole.data.dataset.dataset.Dataset'> from scratch.
+Mon 27 May 2024 19:45:40 DEBUG  uid_field: user_id
+Mon 27 May 2024 19:45:40 DEBUG  iid_field: item_id
+Mon 27 May 2024 19:45:40 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.inter] (source: [FeatureSource.INTERACTION]).
+Mon 27 May 2024 19:45:40 DEBUG  [inter]: 
+Mon 27 May 2024 19:45:40 DEBUG  	 load_col: [{'rating', 'user_id', 'item_id'}]
+Mon 27 May 2024 19:45:40 DEBUG  	 unload_col: [None]
+Mon 27 May 2024 19:45:40 DEBUG  Interaction feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.inter].
+Mon 27 May 2024 19:45:40 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.user] (source: [FeatureSource.USER]).
+Mon 27 May 2024 19:45:40 DEBUG  [user]: 
+Mon 27 May 2024 19:45:40 DEBUG  	 load_col: [set()]
+Mon 27 May 2024 19:45:40 DEBUG  	 unload_col: [None]
+Mon 27 May 2024 19:45:40 DEBUG  [user] feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.user].
+Mon 27 May 2024 19:45:40 DEBUG  Loading feature from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.item] (source: [FeatureSource.ITEM]).
+Mon 27 May 2024 19:45:40 DEBUG  [item]: 
+Mon 27 May 2024 19:45:40 DEBUG  	 load_col: [set()]
+Mon 27 May 2024 19:45:40 DEBUG  	 unload_col: [None]
+Mon 27 May 2024 19:45:40 DEBUG  [item] feature loaded successfully from [/home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k/ml-100k.item].
+Mon 27 May 2024 19:45:40 DEBUG  drop_by_value: val={}
+Mon 27 May 2024 19:45:40 DEBUG  Filling nan
+Mon 27 May 2024 19:45:40 DEBUG  Set label by {'rating': 4.0}.
+Mon 27 May 2024 19:45:40 DEBUG  Delete column [rating].
+Mon 27 May 2024 19:45:40 DEBUG  Normalized fields: ['label']
+Mon 27 May 2024 19:45:40 INFO  ml-100k
+The number of users: 944
+Average actions of users: 106.04453870625663
+The number of items: 1683
+Average actions of items: 59.45303210463734
+The number of inters: 100000
+The sparsity of the dataset: 93.70575143257098%
+Remain Fields: ['user_id', 'item_id', 'label']
+Mon 27 May 2024 19:45:40 DEBUG  split by ratios [[0.8, 0.1, 0.1]], group_by=[user_id]
+Mon 27 May 2024 19:45:41 INFO  [Training]: train_batch_size = [2048] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 1}]
+Mon 27 May 2024 19:45:41 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Mon 27 May 2024 19:45:42 INFO  ANS(
+  (user_embedding): Embedding(944, 64)
+  (item_embedding): Embedding(1683, 64)
+  (mf_loss): BPRLoss()
+  (reg_loss): EmbLoss()
+  (user_gate): Linear(in_features=64, out_features=64, bias=True)
+  (item_gate): Linear(in_features=64, out_features=64, bias=True)
+  (pos_gate): Linear(in_features=64, out_features=64, bias=True)
+  (neg_gate): Linear(in_features=64, out_features=64, bias=True)
+  (hard_gate): Linear(in_features=64, out_features=64, bias=True)
+  (conf_gate): Linear(in_features=64, out_features=64, bias=True)
+  (easy_gate): Linear(in_features=64, out_features=64, bias=True)
+  (margin_model): Linear(in_features=64, out_features=1, bias=True)
+)
+Trainable parameters: 197313
+Mon 27 May 2024 19:45:42 INFO  FLOPs: 0.0
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for 944 users
+Mon 27 May 2024 19:45:43 DEBUG  len of user 80808
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 0 with 1683 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 0: tensor([1230, 1112, 1370,  568,  777, 1364, 1494, 1160], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 1 with 1650 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 1: tensor([ 336,  698,  348, 1568,  205,  903,  138,  416], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 2 with 1609 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 2: tensor([ 439,  252,   12,  920,  692, 1230, 1255,  757], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 3 with 1579 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 3: tensor([1384, 1394,  133, 1405, 1345,  324, 1213,  253], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 4 with 1491 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 4: tensor([ 339,  497, 1339, 1396, 1278, 1118,  333, 1530], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 5 with 1667 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 5: tensor([ 377,  608, 1003,  354,  609, 1148, 1269,  288], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 6 with 1580 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 6: tensor([ 483,   30,  601, 1361, 1162, 1617,  656,  619], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 7 with 1609 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 7: tensor([1403,  947,  567,  866, 1576,   90,  597, 1524], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 8 with 1604 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 8: tensor([ 147,  739, 1622,  760,  583,  475, 1658,  279], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 9 with 1505 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 9: tensor([1364, 1184,  823, 1101,  981, 1308, 1006,  839], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 10 with 1514 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 10: tensor([ 546, 1598,  361,  482, 1406,  997, 1454,  225], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 11 with 1497 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 11: tensor([ 472,  778,  269,  849, 1012,  833,  468,  721], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 12 with 1451 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 12: tensor([1575, 1221,  489, 1648, 1236,  961,  266, 1370], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 13 with 1509 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 13: tensor([1517,   36,  522,  827, 1468, 1613,  807, 1316], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 14 with 1577 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 14: tensor([ 576,   76,  128,  538,  105, 1297, 1555,  163], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 15 with 1570 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 15: tensor([1603, 1652, 1149,  607,  365,  849,   48, 1573], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 16 with 1295 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 16: tensor([1653, 1547,  276, 1279,   59, 1001,  280,  823], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 17 with 1634 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 17: tensor([1226, 1326,   15,  345, 1202,  444, 1460,  979], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 18 with 1438 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 18: tensor([1615,  361,  948, 1509,  870, 1253, 1355, 1085], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 19 with 1445 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 19: tensor([ 178, 1347,  381, 1334,  703, 1083,  768,  342], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 20 with 1299 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 20: tensor([ 833,  279,  455, 1237,  165,  346, 1181, 1281], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 21 with 1538 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 21: tensor([747, 731, 998, 186, 144,  75,  33, 234], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 22 with 1626 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 22: tensor([1584, 1395, 1502, 1475,  627,  484,  383, 1470], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 23 with 1459 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 23: tensor([ 616, 1089,  113, 1431,  664,  546, 1400,  281], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 24 with 1364 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 24: tensor([1637,  823, 1208,  739, 1158, 1565,   14, 1518], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 25 with 1459 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 25: tensor([ 991,  537, 1384,  757,  650, 1331,  367, 1584], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 26 with 1586 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 26: tensor([ 935,  576,  427, 1154,  871,  974,  868,  121], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 27 with 1509 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 27: tensor([1484, 1085,  733,  753,  326,  626,  423,  502], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 28 with 1608 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 28: tensor([1319, 1245,   40, 1033,  118,  918,  707,  952], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 29 with 1587 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 29: tensor([ 875,  690,  878, 1446,  784, 1374, 1071, 1494], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 30 with 1663 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 30: tensor([ 575,  400, 1366, 1106, 1082,   89,  224,  547], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 31 with 1462 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 31: tensor([1050, 1183,  760,  342, 1238,  815, 1241,  857], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 32 with 1660 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 32: tensor([ 611,  653, 1280, 1305,  436, 1499,  106, 1094], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 33 with 1563 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 33: tensor([1300, 1199, 1234, 1009, 1642,  959,  287, 1148], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 34 with 1632 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 34: tensor([1349, 1129,  291,  494,  285, 1596, 1650,  520], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 35 with 1642 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 35: tensor([1617,  467, 1507, 1528,  744,  493, 1651,  887], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 36 with 1334 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 36: tensor([1339, 1090,  307,  758,  363,  875,  329,  204], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 37 with 1664 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 37: tensor([1032,  238, 1419, 1397,  638,  896, 1466,  805], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 38 with 1267 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 38: tensor([1182,  998, 1445, 1619, 1670,  604,  566,  794], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 39 with 1360 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 39: tensor([ 293,  907,  665,  972,  643, 1497,  730, 1393], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 40 with 1535 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 40: tensor([1323,  270,  647,  794,   41, 1124, 1493, 1431], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 41 with 1644 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 41: tensor([ 861, 1031,  882,  447,   92,  755,  534,  195], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 42 with 1373 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 42: tensor([1352,  998, 1521,  721, 1303, 1466, 1227, 1305], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 43 with 1633 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 43: tensor([1511,   65,   37,  812,  400,  867, 1590,  499], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 44 with 1526 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 44: tensor([1485,  121, 1677,  410, 1576, 1250, 1481, 1153], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 45 with 1667 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 45: tensor([ 207,  285,  509,  451,  414,  522, 1492,  847], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 46 with 1554 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 46: tensor([ 359,  727, 1390,  502, 1624,  664,  772, 1304], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 47 with 1573 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 47: tensor([1334, 1614, 1628,  617, 1582,  679,  150,  773], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 48 with 1464 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 48: tensor([1323, 1306,  836, 1432, 1482,  657,  153, 1541], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 49 with 1620 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 49: tensor([1098,  489,  184,  948, 1168, 1253, 1579,  522], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 50 with 1635 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 50: tensor([1294,  778, 1465,  474,   73,  329,  581,   40], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 51 with 1663 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 51: tensor([1064,  849,  228, 1673, 1152, 1591,  222, 1379], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 52 with 1619 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 52: tensor([1114,  354,  620,  456,  902, 1522,  474,  768], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 53 with 1377 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 53: tensor([1415,  474,  640, 1454, 1611,  500,  756,  733], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 54 with 1572 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 54: tensor([ 909, 1420,  147,  685, 1267,  840,  571,  433], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 55 with 1514 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 55: tensor([1009,  164, 1443,  253, 1538,  242,  985,   62], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 56 with 1536 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 56: tensor([  54, 1188, 1100,  666, 1302, 1300, 1377,  125], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 57 with 1583 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 57: tensor([ 775,  325, 1471, 1072, 1029,  330, 1650, 1521], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 58 with 1643 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 58: tensor([1096, 1515, 1325, 1248, 1045, 1041,  778, 1457], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 59 with 1173 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 59: tensor([1286,  200,  684, 1658,  899,  809,  795, 1011], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 60 with 1642 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 60: tensor([1465,  404, 1185, 1367,  331, 1262,  981, 1298], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 61 with 1515 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 61: tensor([  14,  484,  524, 1016,  416, 1416, 1136, 1544], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 62 with 1597 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 62: tensor([ 914, 1473, 1412,  689, 1244, 1326,  882,  278], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 63 with 1598 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 63: tensor([ 877, 1483, 1153,  112,  859, 1603, 1243,  769], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 64 with 1532 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 64: tensor([ 604,  143, 1384,  800, 1555, 1041,  138, 1352], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 65 with 1618 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 65: tensor([ 488,  539, 1533, 1652,  144, 1312,   22, 1569], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 66 with 1371 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 66: tensor([1671, 1155, 1181, 1241,  997, 1009,  369,  547], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 67 with 1664 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 67: tensor([1665, 1493, 1384, 1335,  201,   69,  185,  801], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 68 with 1554 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 68: tensor([1173,  694,  152, 1198, 1619, 1320, 1513, 1395], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 69 with 1371 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 69: tensor([1265, 1169,  403, 1172,  567,  777,  679,  442], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 70 with 1664 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 70: tensor([ 810,  709, 1258, 1193,  522, 1099, 1400,  130], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 71 with 1372 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 71: tensor([ 935,  522, 1353, 1344, 1550, 1247, 1258,  640], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 72 with 1534 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 72: tensor([ 904, 1554,  290,   22, 1506, 1072,  801,  738], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 73 with 1538 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 73: tensor([ 505, 1035,  272,  820, 1415,  320, 1210,  521], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 74 with 1634 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 74: tensor([ 334, 1018,  620,  155, 1400, 1348,  917, 1086], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 75 with 1649 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 75: tensor([ 268,   87,  791,  916, 1669, 1569,  233,  929], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 76 with 1335 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 76: tensor([ 382, 1617,  224,   19,  883,   55, 1003, 1552], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 77 with 1429 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 77: tensor([1573,  270,  689, 1045,   20,  721, 1379, 1029], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 78 with 1618 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 78: tensor([ 558,  726,  306, 1382,  809,  203,  801, 1471], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 79 with 1638 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 79: tensor([1008, 1600,  935,  803, 1289, 1240,   70, 1209], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 80 with 1650 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 80: tensor([ 150,  843, 1308,  628, 1307,  812, 1129, 1617], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 81 with 1443 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 81: tensor([ 677,  474,  222, 1278, 1545, 1030,  354, 1250], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 82 with 1578 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 82: tensor([1544,  822, 1336,  508,  868,  610, 1009, 1133], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 83 with 1585 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 83: tensor([1526,  168,  392, 1338,  192, 1345,  529,  950], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 84 with 1459 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 84: tensor([1150,  104,  861,  927,  252,   22,  381,  359], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 85 with 1645 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 85: tensor([1670, 1209,  352, 1108,  749, 1637, 1406,  566], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 86 with 1538 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 86: tensor([1400, 1025, 1648, 1408, 1234, 1041,  482, 1343], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 87 with 1626 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 87: tensor([ 666,  382,   52,  329, 1116, 1523, 1424,  706], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 88 with 1576 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 88: tensor([1164,  363, 1105,  329, 1251,  351, 1134, 1193], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 89 with 1559 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 89: tensor([1328, 1375,  168, 1220, 1509,  975, 1613,  777], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 90 with 1643 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 90: tensor([ 829, 1095,  986,  883,  718,  300,  910,  444], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 91 with 1363 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 91: tensor([ 676,  320, 1294, 1229, 1501, 1004, 1214,  595], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 92 with 1535 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 92: tensor([1409, 1383,  405, 1027, 1164,  938,  985,  189], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 93 with 1562 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 93: tensor([ 907,  789,  158, 1152, 1374,  223,  329, 1663], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 94 with 1587 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 94: tensor([1180,  689,  467,  821, 1472,  699,  717,  288], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 95 with 1641 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 95: tensor([1377, 1560, 1251,  690,  328, 1177, 1067,  549], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 96 with 1547 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 96: tensor([ 460,  731, 1135, 1607,  948,  277,  648,  815], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 97 with 1555 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 97: tensor([1552, 1602,  417, 1148,  689,  797,  761,  966], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 98 with 1540 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 98: tensor([1028, 1186, 1632,  260,  150,  474, 1157, 1501], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 99 with 1506 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 99: tensor([1206,  518, 1142,  746,  806,  983, 1481,  301], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 100 with 1627 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 100: tensor([1242,  278,  938, 1249,  975,  486,  584,  480], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 101 with 1424 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 101: tensor([1590, 1462,  136, 1251, 1084,  445,  302,  160], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 102 with 1645 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 102: tensor([ 590,  162,  550, 1133, 1571,  323,   84,  529], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 103 with 1451 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 103: tensor([  55,    3, 1434, 1554, 1185,  387,  393, 1250], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 104 with 1581 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 104: tensor([1602,  734, 1633,  784, 1395,  643,  666,  472], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 105 with 1623 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 105: tensor([1332, 1305,  702, 1290, 1162, 1289,  382, 1343], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 106 with 1510 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 106: tensor([ 791,  875, 1235,  976,  879, 1289,   76,  933], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 107 with 1665 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 107: tensor([  27,  341,   41, 1236, 1603, 1630, 1106,  707], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 108 with 1655 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 108: tensor([1153, 1196, 1572, 1096, 1379, 1305,  722, 1479], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 109 with 1660 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 109: tensor([ 938,  579,  877, 1457,  865,  172,  131, 1286], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 110 with 1667 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 110: tensor([1071, 1135, 1215,  744, 1638, 1130,  120, 1132], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 111 with 1419 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 111: tensor([ 951,  347, 1085, 1019, 1307, 1607,   30, 1297], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 112 with 1542 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 112: tensor([1467,  966, 1254, 1534, 1440, 1327, 1578, 1331], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 113 with 1658 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 113: tensor([ 464, 1336,  619, 1328, 1002,  397, 1169,  415], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 114 with 1651 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 114: tensor([  43,  514,  153, 1198,  943,  474, 1384,  164], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 115 with 1460 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 115: tensor([1144,  884,  291,   73,  359,  260, 1483, 1269], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 116 with 1596 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 116: tensor([ 760, 1257, 1123,  172, 1179, 1318,  118,  875], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 117 with 1400 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 117: tensor([ 426,  330,  526,  953, 1055,  675,  989, 1347], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 118 with 1516 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 118: tensor([  59, 1217, 1671,  478, 1040,  608,  998, 1515], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 119 with 1465 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 119: tensor([ 948,  144,  510,  848, 1146,  938,   22, 1353], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 120 with 1532 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 120: tensor([1033,  975,  742,  540,  700, 1556, 1509,  701], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 121 with 1599 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 121: tensor([1356,  952,  754,  243,  153,  209,   66, 1504], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 122 with 1499 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 122: tensor([1271, 1659,  722, 1481,  701,  854,  733,  621], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 123 with 1608 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 123: tensor([ 674, 1043, 1160, 1500,  482,  922,  665, 1559], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 124 with 1637 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 124: tensor([1315, 1265, 1505, 1216, 1159,  980, 1666,  729], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 125 with 1635 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 125: tensor([1252, 1653, 1539, 1237,  445,  155, 1593,  423], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 126 with 1630 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 126: tensor([ 546,  199, 1582, 1527,  147,  473,  874, 1167], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 127 with 1537 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 127: tensor([ 447,   38,  381,  778, 1323,   78,  568, 1200], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 128 with 1558 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 128: tensor([ 952,  301, 1319,  162,  820,  451,   22, 1185], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 129 with 1642 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 129: tensor([ 182,   76, 1302, 1155,  364, 1004,  507, 1501], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 130 with 1436 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 130: tensor([1625,   27,  919, 1113,  120,  809,  436,  864], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 131 with 1630 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 131: tensor([1158,   55,  566, 1541, 1221,  177,   65,  512], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 132 with 1571 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 132: tensor([ 689, 1576,  999, 1647, 1024, 1573, 1203,  116], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 133 with 1603 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 133: tensor([1412, 1153, 1664, 1639, 1624, 1306, 1641,  302], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 134 with 1563 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 134: tensor([ 604, 1487, 1079,  975, 1090, 1659, 1529,  757], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 135 with 1659 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 135: tensor([1249, 1588,  319,  265,  928,  696,  560,  233], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 136 with 1667 unused items
+Mon 27 May 2024 19:45:43 DEBUG  Top 8 items for user 136: tensor([1099,  117,   51, 1068,  785,  853,  549,  506], device='cuda:0')
+Mon 27 May 2024 19:45:43 DEBUG  Predicting for user 137 with 1578 unused items

@@ -1,0 +1,402 @@
+Wed 10 Jul 2024 20:35:43 INFO  ['run_recbole.py', '--model=ANS', '--dataset=lastfm']
+Wed 10 Jul 2024 20:35:43 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 2020
+state = INFO
+reproducibility = True
+data_path = dataset/lastfm
+checkpoint_dir = saved
+show_progress = True
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = False
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 500
+train_batch_size = 4096
+learner = adam
+learning_rate = 0.001
+train_neg_sample_args = {'distribution': 'uniform', 'sample_num': 5, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}
+eval_step = 4
+stopping_step = 10
+clip_grad_norm = None
+weight_decay = 0.0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}
+repeatable = False
+metrics = ['Recall', 'NDCG', 'MRR', 'Hit', 'Precision']
+topk = [10, 20]
+valid_metric = Recall@20
+valid_metric_bigger = True
+eval_batch_size = 4096
+metric_decimal_place = 3
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = artist_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = None
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'artist_id']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = None
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = None
+item_inter_num_interval = None
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = True
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+kg_reverse_r = False
+entity_kg_num_interval = None
+relation_kg_num_interval = None
+benchmark_filename = None
+
+Other Hyper Parameters: 
+worker = 0
+wandb_project = recbole
+shuffle = True
+plot_learning_curve = False
+require_pow = False
+enable_amp = False
+enable_scaler = True
+transform = None
+train_after_converge = True
+positive_sampling = True
+model_name_custom = -
+data_augmentation = False
+Q = 8
+K = 3
+P = 20
+embedding_size = 64
+n_layers = 3
+reg_weight = 1e-05
+eps = 0.55
+gamma = 0.11
+numerical_features = []
+discretization = None
+MODEL_TYPE = ModelType.GENERAL
+MODEL_INPUT_TYPE = InputType.PAIRWISE
+eval_type = EvaluatorType.RANKING
+single_spec = True
+local_rank = 0
+device = cuda
+eval_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+
+
+Wed 10 Jul 2024 20:35:43 INFO  lastfm
+The number of users: 1893
+Average actions of users: 49.06659619450317
+The number of items: 17633
+Average actions of items: 5.265086206896552
+The number of inters: 92834
+The sparsity of the dataset: 99.72188126708227%
+Remain Fields: ['user_id', 'artist_id']
+Wed 10 Jul 2024 20:35:44 INFO  [Training]: train_batch_size = [4096] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 5, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}]
+Wed 10 Jul 2024 20:35:44 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Wed 10 Jul 2024 20:35:45 INFO  ANS(
+  (user_embedding): Embedding(1893, 64)
+  (item_embedding): Embedding(17633, 64)
+  (mf_loss): BPRLoss()
+  (reg_loss): EmbLoss()
+  (user_gate): Linear(in_features=64, out_features=64, bias=True)
+  (item_gate): Linear(in_features=64, out_features=64, bias=True)
+  (pos_gate): Linear(in_features=64, out_features=64, bias=True)
+  (neg_gate): Linear(in_features=64, out_features=64, bias=True)
+  (hard_gate): Linear(in_features=64, out_features=64, bias=True)
+  (conf_gate): Linear(in_features=64, out_features=64, bias=True)
+  (easy_gate): Linear(in_features=64, out_features=64, bias=True)
+  (margin_model): Linear(in_features=64, out_features=1, bias=True)
+)
+Trainable parameters: 1278849
+Wed 10 Jul 2024 20:35:45 INFO  FLOPs: 0.0
+Wed 10 Jul 2024 20:35:49 INFO  epoch 0 training [time: 2.60s, train loss: 81.2723]
+Wed 10 Jul 2024 20:35:50 INFO  epoch 1 training [time: 1.88s, train loss: 80.6502]
+Wed 10 Jul 2024 20:35:52 INFO  epoch 2 training [time: 1.82s, train loss: 67.4982]
+Wed 10 Jul 2024 20:35:54 INFO  epoch 3 training [time: 1.71s, train loss: 53.5708]
+Wed 10 Jul 2024 20:35:56 INFO  epoch 3 evaluating [time: 2.24s, valid_score: 0.144000]
+Wed 10 Jul 2024 20:35:56 INFO  valid result: 
+recall@10 : 0.087    recall@20 : 0.144    ndcg@10 : 0.071    ndcg@20 : 0.095    mrr@10 : 0.126    mrr@20 : 0.137    hit@10 : 0.338    hit@20 : 0.494    precision@10 : 0.043    precision@20 : 0.036
+Wed 10 Jul 2024 20:35:56 INFO  Saving current: saved/ANS-Jul-10-2024_20-35-45.pth
+Wed 10 Jul 2024 20:35:58 INFO  epoch 4 training [time: 1.78s, train loss: 47.4537]
+Wed 10 Jul 2024 20:36:00 INFO  epoch 5 training [time: 1.90s, train loss: 43.9343]
+Wed 10 Jul 2024 20:36:02 INFO  epoch 6 training [time: 1.77s, train loss: 41.3966]
+Wed 10 Jul 2024 20:36:04 INFO  epoch 7 training [time: 1.89s, train loss: 39.4615]
+Wed 10 Jul 2024 20:36:06 INFO  epoch 7 evaluating [time: 2.19s, valid_score: 0.135000]
+Wed 10 Jul 2024 20:36:06 INFO  valid result: 
+recall@10 : 0.085    recall@20 : 0.135    ndcg@10 : 0.07    ndcg@20 : 0.092    mrr@10 : 0.126    mrr@20 : 0.136    hit@10 : 0.332    hit@20 : 0.485    precision@10 : 0.042    precision@20 : 0.033
+Wed 10 Jul 2024 20:36:08 INFO  epoch 8 training [time: 1.92s, train loss: 37.9258]
+Wed 10 Jul 2024 20:36:10 INFO  epoch 9 training [time: 2.53s, train loss: 36.3456]
+Wed 10 Jul 2024 20:36:13 INFO  epoch 10 training [time: 2.56s, train loss: 35.2453]
+Wed 10 Jul 2024 20:36:15 INFO  epoch 11 training [time: 2.54s, train loss: 34.4219]
+Wed 10 Jul 2024 20:36:18 INFO  epoch 11 evaluating [time: 2.21s, valid_score: 0.132000]
+Wed 10 Jul 2024 20:36:18 INFO  valid result: 
+recall@10 : 0.08    recall@20 : 0.132    ndcg@10 : 0.065    ndcg@20 : 0.087    mrr@10 : 0.117    mrr@20 : 0.127    hit@10 : 0.323    hit@20 : 0.473    precision@10 : 0.04    precision@20 : 0.032
+Wed 10 Jul 2024 20:36:20 INFO  epoch 12 training [time: 2.35s, train loss: 33.4938]
+Wed 10 Jul 2024 20:36:22 INFO  epoch 13 training [time: 2.37s, train loss: 32.6669]
+Wed 10 Jul 2024 20:36:24 INFO  epoch 14 training [time: 2.10s, train loss: 31.9469]
+Wed 10 Jul 2024 20:36:27 INFO  epoch 15 training [time: 2.49s, train loss: 31.4295]
+Wed 10 Jul 2024 20:36:29 INFO  epoch 15 evaluating [time: 2.19s, valid_score: 0.123000]
+Wed 10 Jul 2024 20:36:29 INFO  valid result: 
+recall@10 : 0.074    recall@20 : 0.123    ndcg@10 : 0.061    ndcg@20 : 0.082    mrr@10 : 0.112    mrr@20 : 0.122    hit@10 : 0.305    hit@20 : 0.458    precision@10 : 0.036    precision@20 : 0.03
+Wed 10 Jul 2024 20:36:31 INFO  epoch 16 training [time: 1.57s, train loss: 30.8226]
+Wed 10 Jul 2024 20:36:32 INFO  epoch 17 training [time: 1.55s, train loss: 30.5791]
+Wed 10 Jul 2024 20:36:34 INFO  epoch 18 training [time: 1.60s, train loss: 30.0168]
+Wed 10 Jul 2024 20:36:35 INFO  epoch 19 training [time: 1.55s, train loss: 29.4584]
+Wed 10 Jul 2024 20:36:38 INFO  epoch 19 evaluating [time: 2.21s, valid_score: 0.119000]
+Wed 10 Jul 2024 20:36:38 INFO  valid result: 
+recall@10 : 0.071    recall@20 : 0.119    ndcg@10 : 0.059    ndcg@20 : 0.08    mrr@10 : 0.111    mrr@20 : 0.121    hit@10 : 0.298    hit@20 : 0.447    precision@10 : 0.035    precision@20 : 0.03
+Wed 10 Jul 2024 20:36:39 INFO  epoch 20 training [time: 1.68s, train loss: 29.1680]
+Wed 10 Jul 2024 20:36:41 INFO  epoch 21 training [time: 1.54s, train loss: 28.7979]
+Wed 10 Jul 2024 20:36:42 INFO  epoch 22 training [time: 1.57s, train loss: 28.6028]
+Wed 10 Jul 2024 20:36:44 INFO  epoch 23 training [time: 1.58s, train loss: 28.2638]
+Wed 10 Jul 2024 20:36:46 INFO  epoch 23 evaluating [time: 2.17s, valid_score: 0.115000]
+Wed 10 Jul 2024 20:36:46 INFO  valid result: 
+recall@10 : 0.069    recall@20 : 0.115    ndcg@10 : 0.058    ndcg@20 : 0.077    mrr@10 : 0.107    mrr@20 : 0.118    hit@10 : 0.283    hit@20 : 0.43    precision@10 : 0.034    precision@20 : 0.028
+Wed 10 Jul 2024 20:36:48 INFO  epoch 24 training [time: 1.58s, train loss: 28.0691]
+Wed 10 Jul 2024 20:36:49 INFO  epoch 25 training [time: 1.56s, train loss: 27.9050]
+Wed 10 Jul 2024 20:36:51 INFO  epoch 26 training [time: 1.59s, train loss: 27.5219]
+Wed 10 Jul 2024 20:36:53 INFO  epoch 27 training [time: 1.70s, train loss: 27.4486]
+Wed 10 Jul 2024 20:36:55 INFO  epoch 27 evaluating [time: 2.19s, valid_score: 0.111000]
+Wed 10 Jul 2024 20:36:55 INFO  valid result: 
+recall@10 : 0.068    recall@20 : 0.111    ndcg@10 : 0.056    ndcg@20 : 0.074    mrr@10 : 0.104    mrr@20 : 0.113    hit@10 : 0.284    hit@20 : 0.424    precision@10 : 0.034    precision@20 : 0.027
+Wed 10 Jul 2024 20:36:56 INFO  epoch 28 training [time: 1.68s, train loss: 27.3923]
+Wed 10 Jul 2024 20:36:58 INFO  epoch 29 training [time: 1.67s, train loss: 27.0182]
+Wed 10 Jul 2024 20:37:00 INFO  epoch 30 training [time: 1.58s, train loss: 26.8606]
+Wed 10 Jul 2024 20:37:01 INFO  epoch 31 training [time: 1.55s, train loss: 26.8435]
+Wed 10 Jul 2024 20:37:03 INFO  epoch 31 evaluating [time: 2.20s, valid_score: 0.109000]
+Wed 10 Jul 2024 20:37:03 INFO  valid result: 
+recall@10 : 0.068    recall@20 : 0.109    ndcg@10 : 0.055    ndcg@20 : 0.072    mrr@10 : 0.098    mrr@20 : 0.107    hit@10 : 0.284    hit@20 : 0.409    precision@10 : 0.034    precision@20 : 0.027
+Wed 10 Jul 2024 20:37:05 INFO  epoch 32 training [time: 1.63s, train loss: 26.7099]
+Wed 10 Jul 2024 20:37:07 INFO  epoch 33 training [time: 1.62s, train loss: 26.5555]
+Wed 10 Jul 2024 20:37:08 INFO  epoch 34 training [time: 1.59s, train loss: 26.5025]
+Wed 10 Jul 2024 20:37:10 INFO  epoch 35 training [time: 1.75s, train loss: 26.3655]
+Wed 10 Jul 2024 20:37:12 INFO  epoch 35 evaluating [time: 2.20s, valid_score: 0.104000]
+Wed 10 Jul 2024 20:37:12 INFO  valid result: 
+recall@10 : 0.064    recall@20 : 0.104    ndcg@10 : 0.053    ndcg@20 : 0.07    mrr@10 : 0.099    mrr@20 : 0.108    hit@10 : 0.275    hit@20 : 0.399    precision@10 : 0.032    precision@20 : 0.026
+Wed 10 Jul 2024 20:37:14 INFO  epoch 36 training [time: 1.63s, train loss: 26.3223]
+Wed 10 Jul 2024 20:37:15 INFO  epoch 37 training [time: 1.64s, train loss: 26.1038]
+Wed 10 Jul 2024 20:37:17 INFO  epoch 38 training [time: 1.66s, train loss: 26.0673]
+Wed 10 Jul 2024 20:37:19 INFO  epoch 39 training [time: 1.67s, train loss: 25.9030]
+Wed 10 Jul 2024 20:37:21 INFO  epoch 39 evaluating [time: 2.18s, valid_score: 0.104000]
+Wed 10 Jul 2024 20:37:21 INFO  valid result: 
+recall@10 : 0.062    recall@20 : 0.104    ndcg@10 : 0.052    ndcg@20 : 0.069    mrr@10 : 0.097    mrr@20 : 0.107    hit@10 : 0.266    hit@20 : 0.397    precision@10 : 0.031    precision@20 : 0.026
+Wed 10 Jul 2024 20:37:23 INFO  epoch 40 training [time: 1.99s, train loss: 25.8201]
+Wed 10 Jul 2024 20:37:25 INFO  epoch 41 training [time: 1.80s, train loss: 25.7008]
+Wed 10 Jul 2024 20:37:26 INFO  epoch 42 training [time: 1.65s, train loss: 25.7442]
+Wed 10 Jul 2024 20:37:28 INFO  epoch 43 training [time: 1.77s, train loss: 25.5627]
+Wed 10 Jul 2024 20:37:30 INFO  epoch 43 evaluating [time: 2.29s, valid_score: 0.104000]
+Wed 10 Jul 2024 20:37:30 INFO  valid result: 
+recall@10 : 0.062    recall@20 : 0.104    ndcg@10 : 0.052    ndcg@20 : 0.07    mrr@10 : 0.101    mrr@20 : 0.11    hit@10 : 0.265    hit@20 : 0.399    precision@10 : 0.031    precision@20 : 0.026
+Wed 10 Jul 2024 20:37:32 INFO  epoch 44 training [time: 1.79s, train loss: 25.5321]
+Wed 10 Jul 2024 20:37:34 INFO  epoch 45 training [time: 1.78s, train loss: 25.4027]
+Wed 10 Jul 2024 20:37:36 INFO  epoch 46 training [time: 1.73s, train loss: 25.4516]
+Wed 10 Jul 2024 20:37:38 INFO  epoch 47 training [time: 1.79s, train loss: 25.3359]
+Wed 10 Jul 2024 20:37:40 INFO  epoch 47 evaluating [time: 2.21s, valid_score: 0.102000]
+Wed 10 Jul 2024 20:37:40 INFO  valid result: 
+recall@10 : 0.061    recall@20 : 0.102    ndcg@10 : 0.051    ndcg@20 : 0.068    mrr@10 : 0.097    mrr@20 : 0.106    hit@10 : 0.259    hit@20 : 0.392    precision@10 : 0.03    precision@20 : 0.025
+Wed 10 Jul 2024 20:37:40 INFO  Finished training, best eval result in epoch 3
+Wed 10 Jul 2024 20:38:04 INFO  epoch 48 training [time: 1.90s, train loss: 30.0590]
+Wed 10 Jul 2024 20:38:05 INFO  epoch 49 training [time: 1.83s, train loss: 30.0384]
+Wed 10 Jul 2024 20:38:07 INFO  epoch 50 training [time: 1.84s, train loss: 30.0698]
+Wed 10 Jul 2024 20:38:09 INFO  epoch 51 training [time: 1.99s, train loss: 30.1215]
+Wed 10 Jul 2024 20:38:11 INFO  epoch 51 evaluating [time: 2.25s, valid_score: 0.109000]
+Wed 10 Jul 2024 20:38:11 INFO  valid result: 
+recall@10 : 0.064    recall@20 : 0.109    ndcg@10 : 0.054    ndcg@20 : 0.073    mrr@10 : 0.102    mrr@20 : 0.112    hit@10 : 0.272    hit@20 : 0.416    precision@10 : 0.032    precision@20 : 0.027
+Wed 10 Jul 2024 20:38:13 INFO  epoch 52 training [time: 1.93s, train loss: 30.1179]
+Wed 10 Jul 2024 20:38:15 INFO  epoch 53 training [time: 1.96s, train loss: 30.0140]
+Wed 10 Jul 2024 20:38:17 INFO  epoch 54 training [time: 1.91s, train loss: 29.9415]
+Wed 10 Jul 2024 20:38:19 INFO  epoch 55 training [time: 1.93s, train loss: 29.8190]
+Wed 10 Jul 2024 20:38:22 INFO  epoch 55 evaluating [time: 2.30s, valid_score: 0.111000]
+Wed 10 Jul 2024 20:38:22 INFO  valid result: 
+recall@10 : 0.069    recall@20 : 0.111    ndcg@10 : 0.057    ndcg@20 : 0.074    mrr@10 : 0.104    mrr@20 : 0.113    hit@10 : 0.29    hit@20 : 0.418    precision@10 : 0.034    precision@20 : 0.027
+Wed 10 Jul 2024 20:38:24 INFO  epoch 56 training [time: 1.97s, train loss: 29.8507]
+Wed 10 Jul 2024 20:38:25 INFO  epoch 57 training [time: 1.97s, train loss: 29.8180]
+Wed 10 Jul 2024 20:38:27 INFO  epoch 58 training [time: 1.85s, train loss: 29.7231]
+Wed 10 Jul 2024 20:38:29 INFO  epoch 59 training [time: 2.01s, train loss: 29.7349]
+Wed 10 Jul 2024 20:38:32 INFO  epoch 59 evaluating [time: 2.20s, valid_score: 0.114000]
+Wed 10 Jul 2024 20:38:32 INFO  valid result: 
+recall@10 : 0.068    recall@20 : 0.114    ndcg@10 : 0.057    ndcg@20 : 0.076    mrr@10 : 0.105    mrr@20 : 0.115    hit@10 : 0.285    hit@20 : 0.423    precision@10 : 0.034    precision@20 : 0.028
+Wed 10 Jul 2024 20:38:34 INFO  epoch 60 training [time: 2.17s, train loss: 29.6278]
+Wed 10 Jul 2024 20:38:36 INFO  epoch 61 training [time: 2.04s, train loss: 29.5877]
+Wed 10 Jul 2024 20:38:38 INFO  epoch 62 training [time: 2.03s, train loss: 29.5450]
+Wed 10 Jul 2024 20:38:40 INFO  epoch 63 training [time: 2.06s, train loss: 29.5265]
+Wed 10 Jul 2024 20:38:42 INFO  epoch 63 evaluating [time: 2.26s, valid_score: 0.115000]
+Wed 10 Jul 2024 20:38:42 INFO  valid result: 
+recall@10 : 0.071    recall@20 : 0.115    ndcg@10 : 0.059    ndcg@20 : 0.077    mrr@10 : 0.109    mrr@20 : 0.119    hit@10 : 0.29    hit@20 : 0.429    precision@10 : 0.035    precision@20 : 0.028
+Wed 10 Jul 2024 20:38:44 INFO  epoch 64 training [time: 2.03s, train loss: 29.5221]
+Wed 10 Jul 2024 20:38:46 INFO  epoch 65 training [time: 2.02s, train loss: 29.4352]
+Wed 10 Jul 2024 20:38:48 INFO  epoch 66 training [time: 2.13s, train loss: 29.4236]
+Wed 10 Jul 2024 20:38:50 INFO  epoch 67 training [time: 2.09s, train loss: 29.4126]
+Wed 10 Jul 2024 20:38:53 INFO  epoch 67 evaluating [time: 2.21s, valid_score: 0.116000]
+Wed 10 Jul 2024 20:38:53 INFO  valid result: 
+recall@10 : 0.074    recall@20 : 0.116    ndcg@10 : 0.061    ndcg@20 : 0.079    mrr@10 : 0.112    mrr@20 : 0.121    hit@10 : 0.304    hit@20 : 0.432    precision@10 : 0.036    precision@20 : 0.029
+Wed 10 Jul 2024 20:38:55 INFO  epoch 68 training [time: 2.15s, train loss: 29.4341]
+Wed 10 Jul 2024 20:38:57 INFO  epoch 69 training [time: 2.04s, train loss: 29.3628]
+Wed 10 Jul 2024 20:38:59 INFO  epoch 70 training [time: 2.11s, train loss: 29.2978]
+Wed 10 Jul 2024 20:39:01 INFO  epoch 71 training [time: 2.14s, train loss: 29.2459]
+Wed 10 Jul 2024 20:39:03 INFO  epoch 71 evaluating [time: 2.19s, valid_score: 0.118000]
+Wed 10 Jul 2024 20:39:03 INFO  valid result: 
+recall@10 : 0.073    recall@20 : 0.118    ndcg@10 : 0.062    ndcg@20 : 0.081    mrr@10 : 0.116    mrr@20 : 0.125    hit@10 : 0.296    hit@20 : 0.437    precision@10 : 0.036    precision@20 : 0.029
+Wed 10 Jul 2024 20:39:06 INFO  epoch 72 training [time: 2.32s, train loss: 29.2543]
+Wed 10 Jul 2024 20:39:08 INFO  epoch 73 training [time: 2.52s, train loss: 29.2405]
+Wed 10 Jul 2024 20:39:11 INFO  epoch 74 training [time: 3.09s, train loss: 29.1648]
+Wed 10 Jul 2024 20:39:14 INFO  epoch 75 training [time: 3.07s, train loss: 29.1859]
+Wed 10 Jul 2024 20:39:16 INFO  epoch 75 evaluating [time: 2.22s, valid_score: 0.119000]
+Wed 10 Jul 2024 20:39:16 INFO  valid result: 
+recall@10 : 0.074    recall@20 : 0.119    ndcg@10 : 0.063    ndcg@20 : 0.082    mrr@10 : 0.118    mrr@20 : 0.127    hit@10 : 0.301    hit@20 : 0.435    precision@10 : 0.036    precision@20 : 0.029
+Wed 10 Jul 2024 20:39:19 INFO  epoch 76 training [time: 2.95s, train loss: 29.1433]
+Wed 10 Jul 2024 20:39:22 INFO  epoch 77 training [time: 2.91s, train loss: 29.0901]
+Wed 10 Jul 2024 20:39:25 INFO  epoch 78 training [time: 3.06s, train loss: 29.0509]
+Wed 10 Jul 2024 20:39:28 INFO  epoch 79 training [time: 3.05s, train loss: 29.0937]
+Wed 10 Jul 2024 20:39:31 INFO  epoch 79 evaluating [time: 2.20s, valid_score: 0.122000]
+Wed 10 Jul 2024 20:39:31 INFO  valid result: 
+recall@10 : 0.076    recall@20 : 0.122    ndcg@10 : 0.063    ndcg@20 : 0.082    mrr@10 : 0.116    mrr@20 : 0.125    hit@10 : 0.307    hit@20 : 0.441    precision@10 : 0.038    precision@20 : 0.03
+Wed 10 Jul 2024 20:39:33 INFO  epoch 80 training [time: 2.45s, train loss: 29.0541]
+Wed 10 Jul 2024 20:39:35 INFO  epoch 81 training [time: 1.90s, train loss: 29.0421]
+Wed 10 Jul 2024 20:39:37 INFO  epoch 82 training [time: 1.91s, train loss: 28.9011]
+Wed 10 Jul 2024 20:39:39 INFO  epoch 83 training [time: 1.89s, train loss: 28.9606]
+Wed 10 Jul 2024 20:39:41 INFO  epoch 83 evaluating [time: 2.21s, valid_score: 0.122000]
+Wed 10 Jul 2024 20:39:41 INFO  valid result: 
+recall@10 : 0.078    recall@20 : 0.122    ndcg@10 : 0.065    ndcg@20 : 0.083    mrr@10 : 0.118    mrr@20 : 0.126    hit@10 : 0.313    hit@20 : 0.44    precision@10 : 0.038    precision@20 : 0.03
+Wed 10 Jul 2024 20:39:43 INFO  epoch 84 training [time: 1.91s, train loss: 28.9465]
+Wed 10 Jul 2024 20:39:45 INFO  epoch 85 training [time: 2.03s, train loss: 28.9210]
+Wed 10 Jul 2024 20:39:47 INFO  epoch 86 training [time: 1.91s, train loss: 28.9614]
+Wed 10 Jul 2024 20:39:49 INFO  epoch 87 training [time: 1.90s, train loss: 28.8756]
+Wed 10 Jul 2024 20:39:51 INFO  epoch 87 evaluating [time: 2.19s, valid_score: 0.123000]
+Wed 10 Jul 2024 20:39:51 INFO  valid result: 
+recall@10 : 0.079    recall@20 : 0.123    ndcg@10 : 0.066    ndcg@20 : 0.085    mrr@10 : 0.121    mrr@20 : 0.13    hit@10 : 0.313    hit@20 : 0.449    precision@10 : 0.039    precision@20 : 0.03
+Wed 10 Jul 2024 20:39:53 INFO  epoch 88 training [time: 1.98s, train loss: 28.8535]
+Wed 10 Jul 2024 20:39:55 INFO  epoch 89 training [time: 1.93s, train loss: 28.8306]
+Wed 10 Jul 2024 20:39:57 INFO  epoch 90 training [time: 1.95s, train loss: 28.7917]
+Wed 10 Jul 2024 20:39:59 INFO  epoch 91 training [time: 2.03s, train loss: 28.8064]
+Wed 10 Jul 2024 20:40:01 INFO  epoch 91 evaluating [time: 2.31s, valid_score: 0.128000]
+Wed 10 Jul 2024 20:40:01 INFO  valid result: 
+recall@10 : 0.084    recall@20 : 0.128    ndcg@10 : 0.069    ndcg@20 : 0.088    mrr@10 : 0.124    mrr@20 : 0.133    hit@10 : 0.329    hit@20 : 0.463    precision@10 : 0.041    precision@20 : 0.032
+Wed 10 Jul 2024 20:40:03 INFO  epoch 92 training [time: 1.92s, train loss: 28.7629]
+Wed 10 Jul 2024 20:40:05 INFO  epoch 93 training [time: 1.99s, train loss: 28.7890]
+Wed 10 Jul 2024 20:40:07 INFO  epoch 94 training [time: 2.07s, train loss: 28.6915]
+Wed 10 Jul 2024 20:40:09 INFO  epoch 95 training [time: 1.98s, train loss: 28.7713]
+Wed 10 Jul 2024 20:40:11 INFO  epoch 95 evaluating [time: 2.30s, valid_score: 0.128000]
+Wed 10 Jul 2024 20:40:11 INFO  valid result: 
+recall@10 : 0.082    recall@20 : 0.128    ndcg@10 : 0.069    ndcg@20 : 0.089    mrr@10 : 0.126    mrr@20 : 0.136    hit@10 : 0.323    hit@20 : 0.464    precision@10 : 0.04    precision@20 : 0.032
+Wed 10 Jul 2024 20:40:13 INFO  epoch 96 training [time: 2.07s, train loss: 28.7245]
+Wed 10 Jul 2024 20:40:15 INFO  epoch 97 training [time: 2.02s, train loss: 28.6977]
+Wed 10 Jul 2024 20:40:17 INFO  epoch 98 training [time: 1.97s, train loss: 28.7079]
+Wed 10 Jul 2024 20:40:20 INFO  epoch 99 training [time: 2.06s, train loss: 28.7189]
+Wed 10 Jul 2024 20:40:22 INFO  epoch 99 evaluating [time: 2.23s, valid_score: 0.129000]
+Wed 10 Jul 2024 20:40:22 INFO  valid result: 
+recall@10 : 0.082    recall@20 : 0.129    ndcg@10 : 0.069    ndcg@20 : 0.089    mrr@10 : 0.126    mrr@20 : 0.135    hit@10 : 0.326    hit@20 : 0.459    precision@10 : 0.041    precision@20 : 0.032
+Wed 10 Jul 2024 20:40:24 INFO  epoch 100 training [time: 2.15s, train loss: 28.6732]
+Wed 10 Jul 2024 20:40:26 INFO  epoch 101 training [time: 2.33s, train loss: 28.6217]
+Wed 10 Jul 2024 20:40:28 INFO  epoch 102 training [time: 2.14s, train loss: 28.5603]
+Wed 10 Jul 2024 20:40:30 INFO  epoch 103 training [time: 2.09s, train loss: 28.6089]
+Wed 10 Jul 2024 20:40:33 INFO  epoch 103 evaluating [time: 2.21s, valid_score: 0.132000]
+Wed 10 Jul 2024 20:40:33 INFO  valid result: 
+recall@10 : 0.084    recall@20 : 0.132    ndcg@10 : 0.071    ndcg@20 : 0.091    mrr@10 : 0.131    mrr@20 : 0.141    hit@10 : 0.334    hit@20 : 0.471    precision@10 : 0.041    precision@20 : 0.033
+Wed 10 Jul 2024 20:40:35 INFO  epoch 104 training [time: 2.04s, train loss: 28.6240]
+Wed 10 Jul 2024 20:40:37 INFO  epoch 105 training [time: 2.15s, train loss: 28.5899]
+Wed 10 Jul 2024 20:40:39 INFO  epoch 106 training [time: 2.12s, train loss: 28.5632]
+Wed 10 Jul 2024 20:40:41 INFO  epoch 107 training [time: 2.13s, train loss: 28.5712]
+Wed 10 Jul 2024 20:40:43 INFO  epoch 107 evaluating [time: 2.28s, valid_score: 0.131000]
+Wed 10 Jul 2024 20:40:43 INFO  valid result: 
+recall@10 : 0.085    recall@20 : 0.131    ndcg@10 : 0.072    ndcg@20 : 0.092    mrr@10 : 0.133    mrr@20 : 0.142    hit@10 : 0.329    hit@20 : 0.465    precision@10 : 0.042    precision@20 : 0.032
+Wed 10 Jul 2024 20:40:46 INFO  epoch 108 training [time: 2.27s, train loss: 28.5515]
+Wed 10 Jul 2024 20:40:48 INFO  epoch 109 training [time: 2.28s, train loss: 28.5083]
+Wed 10 Jul 2024 20:40:51 INFO  epoch 110 training [time: 2.58s, train loss: 28.4847]
+Wed 10 Jul 2024 20:40:53 INFO  epoch 111 training [time: 2.55s, train loss: 28.4354]
+Wed 10 Jul 2024 20:40:55 INFO  epoch 111 evaluating [time: 2.17s, valid_score: 0.133000]
+Wed 10 Jul 2024 20:40:55 INFO  valid result: 
+recall@10 : 0.086    recall@20 : 0.133    ndcg@10 : 0.073    ndcg@20 : 0.093    mrr@10 : 0.136    mrr@20 : 0.145    hit@10 : 0.335    hit@20 : 0.469    precision@10 : 0.042    precision@20 : 0.033
+Wed 10 Jul 2024 20:40:58 INFO  epoch 112 training [time: 2.57s, train loss: 28.4471]
+Wed 10 Jul 2024 20:41:01 INFO  epoch 113 training [time: 2.99s, train loss: 28.4470]
+Wed 10 Jul 2024 20:41:04 INFO  epoch 114 training [time: 3.05s, train loss: 28.4578]
+Wed 10 Jul 2024 20:41:07 INFO  epoch 115 training [time: 3.09s, train loss: 28.4623]
+Wed 10 Jul 2024 20:41:09 INFO  epoch 115 evaluating [time: 2.24s, valid_score: 0.131000]
+Wed 10 Jul 2024 20:41:09 INFO  valid result: 
+recall@10 : 0.085    recall@20 : 0.131    ndcg@10 : 0.072    ndcg@20 : 0.092    mrr@10 : 0.133    mrr@20 : 0.142    hit@10 : 0.339    hit@20 : 0.466    precision@10 : 0.042    precision@20 : 0.032
+Wed 10 Jul 2024 20:41:12 INFO  epoch 116 training [time: 2.81s, train loss: 28.3929]
+Wed 10 Jul 2024 20:41:15 INFO  epoch 117 training [time: 2.89s, train loss: 28.3451]
+Wed 10 Jul 2024 20:41:18 INFO  epoch 118 training [time: 2.70s, train loss: 28.3659]
+Wed 10 Jul 2024 20:41:19 INFO  epoch 119 training [time: 1.91s, train loss: 28.3418]
+Wed 10 Jul 2024 20:41:22 INFO  epoch 119 evaluating [time: 2.23s, valid_score: 0.134000]
+Wed 10 Jul 2024 20:41:22 INFO  valid result: 
+recall@10 : 0.085    recall@20 : 0.134    ndcg@10 : 0.073    ndcg@20 : 0.094    mrr@10 : 0.135    mrr@20 : 0.145    hit@10 : 0.334    hit@20 : 0.471    precision@10 : 0.042    precision@20 : 0.033
+Wed 10 Jul 2024 20:41:24 INFO  epoch 120 training [time: 2.07s, train loss: 28.3456]
+Wed 10 Jul 2024 20:41:26 INFO  epoch 121 training [time: 2.04s, train loss: 28.3007]
+Wed 10 Jul 2024 20:41:28 INFO  epoch 122 training [time: 2.23s, train loss: 28.2897]
+Wed 10 Jul 2024 20:41:30 INFO  epoch 123 training [time: 2.16s, train loss: 28.2780]
+Wed 10 Jul 2024 20:41:32 INFO  epoch 123 evaluating [time: 2.26s, valid_score: 0.135000]
+Wed 10 Jul 2024 20:41:32 INFO  valid result: 
+recall@10 : 0.089    recall@20 : 0.135    ndcg@10 : 0.074    ndcg@20 : 0.094    mrr@10 : 0.136    mrr@20 : 0.145    hit@10 : 0.342    hit@20 : 0.477    precision@10 : 0.043    precision@20 : 0.033
+Wed 10 Jul 2024 20:41:34 INFO  epoch 124 training [time: 1.94s, train loss: 28.2212]
+Wed 10 Jul 2024 20:41:36 INFO  epoch 125 training [time: 1.92s, train loss: 28.2538]
+Wed 10 Jul 2024 20:41:38 INFO  epoch 126 training [time: 1.92s, train loss: 28.2442]
+Wed 10 Jul 2024 20:41:40 INFO  epoch 127 training [time: 1.92s, train loss: 28.2668]
+Wed 10 Jul 2024 20:41:42 INFO  epoch 127 evaluating [time: 2.29s, valid_score: 0.135000]
+Wed 10 Jul 2024 20:41:42 INFO  valid result: 
+recall@10 : 0.088    recall@20 : 0.135    ndcg@10 : 0.074    ndcg@20 : 0.094    mrr@10 : 0.135    mrr@20 : 0.144    hit@10 : 0.346    hit@20 : 0.477    precision@10 : 0.044    precision@20 : 0.033
+Wed 10 Jul 2024 20:41:44 INFO  epoch 128 training [time: 1.97s, train loss: 28.2329]
+Wed 10 Jul 2024 20:41:46 INFO  epoch 129 training [time: 1.92s, train loss: 28.1834]
+Wed 10 Jul 2024 20:41:48 INFO  epoch 130 training [time: 1.97s, train loss: 28.1763]
+Wed 10 Jul 2024 20:41:50 INFO  epoch 131 training [time: 2.00s, train loss: 28.1613]
+Wed 10 Jul 2024 20:41:53 INFO  epoch 131 evaluating [time: 2.25s, valid_score: 0.136000]
+Wed 10 Jul 2024 20:41:53 INFO  valid result: 
+recall@10 : 0.086    recall@20 : 0.136    ndcg@10 : 0.074    ndcg@20 : 0.095    mrr@10 : 0.135    mrr@20 : 0.145    hit@10 : 0.333    hit@20 : 0.477    precision@10 : 0.043    precision@20 : 0.034
+Wed 10 Jul 2024 20:41:55 INFO  epoch 132 training [time: 2.04s, train loss: 28.1094]
+Wed 10 Jul 2024 20:41:57 INFO  epoch 133 training [time: 2.03s, train loss: 28.1372]
+Wed 10 Jul 2024 20:41:59 INFO  epoch 134 training [time: 1.94s, train loss: 28.1784]
+Wed 10 Jul 2024 20:42:01 INFO  epoch 135 training [time: 2.40s, train loss: 28.1296]
+Wed 10 Jul 2024 20:42:03 INFO  epoch 135 evaluating [time: 2.20s, valid_score: 0.134000]
+Wed 10 Jul 2024 20:42:03 INFO  valid result: 
+recall@10 : 0.087    recall@20 : 0.134    ndcg@10 : 0.074    ndcg@20 : 0.095    mrr@10 : 0.138    mrr@20 : 0.148    hit@10 : 0.334    hit@20 : 0.475    precision@10 : 0.043    precision@20 : 0.033
+Wed 10 Jul 2024 20:42:06 INFO  epoch 136 training [time: 2.74s, train loss: 28.1061]
+Wed 10 Jul 2024 20:42:08 INFO  epoch 137 training [time: 1.90s, train loss: 28.0971]
+Wed 10 Jul 2024 20:42:10 INFO  epoch 138 training [time: 1.98s, train loss: 28.0562]
+Wed 10 Jul 2024 20:42:12 INFO  epoch 139 training [time: 1.84s, train loss: 28.0794]
+Wed 10 Jul 2024 20:42:14 INFO  epoch 139 evaluating [time: 2.18s, valid_score: 0.136000]
+Wed 10 Jul 2024 20:42:14 INFO  valid result: 
+recall@10 : 0.087    recall@20 : 0.136    ndcg@10 : 0.074    ndcg@20 : 0.094    mrr@10 : 0.133    mrr@20 : 0.143    hit@10 : 0.337    hit@20 : 0.477    precision@10 : 0.043    precision@20 : 0.033
+Wed 10 Jul 2024 20:42:16 INFO  epoch 140 training [time: 1.95s, train loss: 28.0345]
+Wed 10 Jul 2024 20:42:18 INFO  epoch 141 training [time: 1.90s, train loss: 27.9939]
+Wed 10 Jul 2024 20:42:20 INFO  epoch 142 training [time: 1.87s, train loss: 28.0167]
+Wed 10 Jul 2024 20:42:21 INFO  epoch 143 training [time: 1.89s, train loss: 27.9803]
+Wed 10 Jul 2024 20:42:24 INFO  epoch 143 evaluating [time: 2.22s, valid_score: 0.135000]
+Wed 10 Jul 2024 20:42:24 INFO  valid result: 
+recall@10 : 0.087    recall@20 : 0.135    ndcg@10 : 0.074    ndcg@20 : 0.095    mrr@10 : 0.135    mrr@20 : 0.145    hit@10 : 0.34    hit@20 : 0.478    precision@10 : 0.043    precision@20 : 0.033
+Wed 10 Jul 2024 20:42:26 INFO  epoch 144 training [time: 1.93s, train loss: 27.9771]
+Wed 10 Jul 2024 20:42:28 INFO  epoch 145 training [time: 2.07s, train loss: 27.9697]
+Wed 10 Jul 2024 20:42:30 INFO  epoch 146 training [time: 2.09s, train loss: 27.9537]
+Wed 10 Jul 2024 20:42:32 INFO  epoch 147 training [time: 1.98s, train loss: 27.9503]
+Wed 10 Jul 2024 20:42:34 INFO  epoch 147 evaluating [time: 2.29s, valid_score: 0.135000]
+Wed 10 Jul 2024 20:42:34 INFO  valid result: 
+recall@10 : 0.088    recall@20 : 0.135    ndcg@10 : 0.075    ndcg@20 : 0.094    mrr@10 : 0.135    mrr@20 : 0.145    hit@10 : 0.343    hit@20 : 0.477    precision@10 : 0.043    precision@20 : 0.033
+Wed 10 Jul 2024 20:42:36 INFO  epoch 148 training [time: 2.05s, train loss: 27.9249]
+Wed 10 Jul 2024 20:42:38 INFO  epoch 149 training [time: 1.98s, train loss: 27.8989]
+Wed 10 Jul 2024 20:42:40 INFO  epoch 150 training [time: 1.99s, train loss: 27.9084]
+Wed 10 Jul 2024 20:42:42 INFO  epoch 151 training [time: 1.95s, train loss: 27.8834]

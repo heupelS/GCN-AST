@@ -1,0 +1,1132 @@
+Tue 23 Apr 2024 16:41:34 INFO  ['run_recbole.py', '--model=LightGCN', '--dataset=ml-100k']
+Tue 23 Apr 2024 16:41:34 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 2020
+state = INFO
+reproducibility = True
+data_path = /home/simeon/Git_Repositories/ANS-Recbole/recbole/config/../dataset_example/ml-100k
+checkpoint_dir = saved
+show_progress = True
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = False
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 500
+train_batch_size = 1024
+learner = adam
+learning_rate = 0.001
+train_neg_sample_args = {'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}
+eval_step = 1
+stopping_step = 100
+clip_grad_norm = None
+weight_decay = 0.0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.0, 0.2]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}
+repeatable = False
+metrics = ['Recall', 'MRR', 'NDCG', 'Hit', 'Precision']
+topk = [20]
+valid_metric = MRR@20
+valid_metric_bigger = True
+eval_batch_size = 4096
+metric_decimal_place = 4
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = None
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id', 'rating', 'timestamp']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = None
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = None
+item_inter_num_interval = None
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = True
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+kg_reverse_r = False
+entity_kg_num_interval = None
+relation_kg_num_interval = None
+benchmark_filename = None
+
+Other Hyper Parameters: 
+worker = 0
+wandb_project = recbole
+shuffle = True
+require_pow = False
+enable_amp = False
+enable_scaler = False
+transform = None
+embedding_size = 64
+n_layers = 2
+reg_weight = 1e-05
+numerical_features = []
+discretization = None
+MODEL_TYPE = ModelType.GENERAL
+MODEL_INPUT_TYPE = InputType.PAIRWISE
+eval_type = EvaluatorType.RANKING
+single_spec = True
+local_rank = 0
+device = cuda
+eval_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+
+
+Tue 23 Apr 2024 16:41:34 INFO  ml-100k
+The number of users: 944
+Average actions of users: 106.04453870625663
+The number of items: 1683
+Average actions of items: 59.45303210463734
+The number of inters: 100000
+The sparsity of the dataset: 93.70575143257098%
+Remain Fields: ['user_id', 'item_id', 'rating', 'timestamp']
+Tue 23 Apr 2024 16:41:34 INFO  [Training]: train_batch_size = [1024] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}]
+Tue 23 Apr 2024 16:41:34 INFO  [Evaluation]: eval_batch_size = [4096] eval_args: [{'split': {'RS': [0.8, 0.0, 0.2]}, 'group_by': 'user', 'order': 'RO', 'mode': 'full'}]
+Tue 23 Apr 2024 16:41:35 INFO  LightGCN(
+  (user_embedding): Embedding(944, 64)
+  (item_embedding): Embedding(1683, 64)
+  (mf_loss): BPRLoss()
+  (reg_loss): EmbLoss()
+)
+Trainable parameters: 168128
+Tue 23 Apr 2024 16:41:36 INFO  FLOPs: 0.0
+Tue 23 Apr 2024 16:41:37 INFO  epoch 0 training [time: 0.69s, train loss: 53.4208]
+Tue 23 Apr 2024 16:41:37 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:37 INFO  epoch 1 training [time: 0.47s, train loss: 39.4003]
+Tue 23 Apr 2024 16:41:37 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:38 INFO  epoch 2 training [time: 0.47s, train loss: 29.3670]
+Tue 23 Apr 2024 16:41:38 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:38 INFO  epoch 3 training [time: 0.48s, train loss: 27.0309]
+Tue 23 Apr 2024 16:41:38 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:39 INFO  epoch 4 training [time: 0.55s, train loss: 26.5369]
+Tue 23 Apr 2024 16:41:39 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:40 INFO  epoch 5 training [time: 0.53s, train loss: 25.6104]
+Tue 23 Apr 2024 16:41:40 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:40 INFO  epoch 6 training [time: 0.57s, train loss: 24.9062]
+Tue 23 Apr 2024 16:41:40 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:41 INFO  epoch 7 training [time: 0.53s, train loss: 24.7307]
+Tue 23 Apr 2024 16:41:41 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:41 INFO  epoch 8 training [time: 0.56s, train loss: 24.1600]
+Tue 23 Apr 2024 16:41:41 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:42 INFO  epoch 9 training [time: 0.57s, train loss: 23.5215]
+Tue 23 Apr 2024 16:41:42 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:42 INFO  epoch 10 training [time: 0.55s, train loss: 23.0571]
+Tue 23 Apr 2024 16:41:42 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:43 INFO  epoch 11 training [time: 0.54s, train loss: 22.7343]
+Tue 23 Apr 2024 16:41:43 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:43 INFO  epoch 12 training [time: 0.57s, train loss: 22.3361]
+Tue 23 Apr 2024 16:41:43 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:44 INFO  epoch 13 training [time: 0.50s, train loss: 22.1478]
+Tue 23 Apr 2024 16:41:44 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:45 INFO  epoch 14 training [time: 0.55s, train loss: 22.0025]
+Tue 23 Apr 2024 16:41:45 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:45 INFO  epoch 15 training [time: 0.53s, train loss: 21.4821]
+Tue 23 Apr 2024 16:41:45 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:46 INFO  epoch 16 training [time: 0.51s, train loss: 21.4651]
+Tue 23 Apr 2024 16:41:46 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:46 INFO  epoch 17 training [time: 0.60s, train loss: 21.2261]
+Tue 23 Apr 2024 16:41:46 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:47 INFO  epoch 18 training [time: 0.55s, train loss: 20.7276]
+Tue 23 Apr 2024 16:41:47 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:47 INFO  epoch 19 training [time: 0.53s, train loss: 20.8000]
+Tue 23 Apr 2024 16:41:47 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:48 INFO  epoch 20 training [time: 0.51s, train loss: 20.4061]
+Tue 23 Apr 2024 16:41:48 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:48 INFO  epoch 21 training [time: 0.54s, train loss: 20.1809]
+Tue 23 Apr 2024 16:41:48 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:49 INFO  epoch 22 training [time: 0.55s, train loss: 19.9372]
+Tue 23 Apr 2024 16:41:49 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:49 INFO  epoch 23 training [time: 0.52s, train loss: 19.4403]
+Tue 23 Apr 2024 16:41:49 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:50 INFO  epoch 24 training [time: 0.50s, train loss: 19.2469]
+Tue 23 Apr 2024 16:41:50 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:50 INFO  epoch 25 training [time: 0.54s, train loss: 18.9791]
+Tue 23 Apr 2024 16:41:50 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:51 INFO  epoch 26 training [time: 0.52s, train loss: 18.9304]
+Tue 23 Apr 2024 16:41:51 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:52 INFO  epoch 27 training [time: 0.53s, train loss: 18.6932]
+Tue 23 Apr 2024 16:41:52 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:52 INFO  epoch 28 training [time: 0.54s, train loss: 18.4099]
+Tue 23 Apr 2024 16:41:52 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:53 INFO  epoch 29 training [time: 0.52s, train loss: 18.2187]
+Tue 23 Apr 2024 16:41:53 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:53 INFO  epoch 30 training [time: 0.70s, train loss: 17.9691]
+Tue 23 Apr 2024 16:41:53 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:54 INFO  epoch 31 training [time: 0.61s, train loss: 18.0269]
+Tue 23 Apr 2024 16:41:54 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:54 INFO  epoch 32 training [time: 0.57s, train loss: 18.0147]
+Tue 23 Apr 2024 16:41:54 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:55 INFO  epoch 33 training [time: 0.56s, train loss: 17.7394]
+Tue 23 Apr 2024 16:41:55 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:56 INFO  epoch 34 training [time: 0.53s, train loss: 17.6209]
+Tue 23 Apr 2024 16:41:56 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:56 INFO  epoch 35 training [time: 0.58s, train loss: 17.7201]
+Tue 23 Apr 2024 16:41:56 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:57 INFO  epoch 36 training [time: 0.54s, train loss: 17.2896]
+Tue 23 Apr 2024 16:41:57 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:57 INFO  epoch 37 training [time: 0.58s, train loss: 17.2198]
+Tue 23 Apr 2024 16:41:57 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:58 INFO  epoch 38 training [time: 0.57s, train loss: 17.2055]
+Tue 23 Apr 2024 16:41:58 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:58 INFO  epoch 39 training [time: 0.55s, train loss: 17.1526]
+Tue 23 Apr 2024 16:41:58 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:59 INFO  epoch 40 training [time: 0.54s, train loss: 17.2650]
+Tue 23 Apr 2024 16:41:59 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:41:59 INFO  epoch 41 training [time: 0.44s, train loss: 16.9454]
+Tue 23 Apr 2024 16:41:59 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:00 INFO  epoch 42 training [time: 0.51s, train loss: 16.6722]
+Tue 23 Apr 2024 16:42:00 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:00 INFO  epoch 43 training [time: 0.51s, train loss: 16.9045]
+Tue 23 Apr 2024 16:42:00 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:01 INFO  epoch 44 training [time: 0.42s, train loss: 16.6667]
+Tue 23 Apr 2024 16:42:01 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:01 INFO  epoch 45 training [time: 0.41s, train loss: 16.6270]
+Tue 23 Apr 2024 16:42:01 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:02 INFO  epoch 46 training [time: 0.42s, train loss: 16.4362]
+Tue 23 Apr 2024 16:42:02 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:02 INFO  epoch 47 training [time: 0.47s, train loss: 16.2711]
+Tue 23 Apr 2024 16:42:02 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:03 INFO  epoch 48 training [time: 0.45s, train loss: 16.0390]
+Tue 23 Apr 2024 16:42:03 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:03 INFO  epoch 49 training [time: 0.41s, train loss: 16.1555]
+Tue 23 Apr 2024 16:42:03 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:04 INFO  epoch 50 training [time: 0.45s, train loss: 15.9889]
+Tue 23 Apr 2024 16:42:04 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:04 INFO  epoch 51 training [time: 0.42s, train loss: 16.0314]
+Tue 23 Apr 2024 16:42:04 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:04 INFO  epoch 52 training [time: 0.45s, train loss: 15.9294]
+Tue 23 Apr 2024 16:42:04 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:05 INFO  epoch 53 training [time: 0.46s, train loss: 15.5538]
+Tue 23 Apr 2024 16:42:05 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:05 INFO  epoch 54 training [time: 0.41s, train loss: 15.6643]
+Tue 23 Apr 2024 16:42:05 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:06 INFO  epoch 55 training [time: 0.44s, train loss: 15.6973]
+Tue 23 Apr 2024 16:42:06 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:06 INFO  epoch 56 training [time: 0.42s, train loss: 15.3543]
+Tue 23 Apr 2024 16:42:06 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:07 INFO  epoch 57 training [time: 0.47s, train loss: 15.1525]
+Tue 23 Apr 2024 16:42:07 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:07 INFO  epoch 58 training [time: 0.49s, train loss: 15.0523]
+Tue 23 Apr 2024 16:42:07 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:08 INFO  epoch 59 training [time: 0.42s, train loss: 15.2333]
+Tue 23 Apr 2024 16:42:08 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:08 INFO  epoch 60 training [time: 0.43s, train loss: 15.1755]
+Tue 23 Apr 2024 16:42:08 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:08 INFO  epoch 61 training [time: 0.41s, train loss: 14.9275]
+Tue 23 Apr 2024 16:42:08 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:09 INFO  epoch 62 training [time: 0.42s, train loss: 14.7549]
+Tue 23 Apr 2024 16:42:09 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:09 INFO  epoch 63 training [time: 0.38s, train loss: 15.0019]
+Tue 23 Apr 2024 16:42:09 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:10 INFO  epoch 64 training [time: 0.44s, train loss: 14.5983]
+Tue 23 Apr 2024 16:42:10 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:10 INFO  epoch 65 training [time: 0.40s, train loss: 14.7572]
+Tue 23 Apr 2024 16:42:10 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:10 INFO  epoch 66 training [time: 0.45s, train loss: 14.6060]
+Tue 23 Apr 2024 16:42:10 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:11 INFO  epoch 67 training [time: 0.46s, train loss: 14.4549]
+Tue 23 Apr 2024 16:42:11 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:11 INFO  epoch 68 training [time: 0.42s, train loss: 14.4790]
+Tue 23 Apr 2024 16:42:11 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:12 INFO  epoch 69 training [time: 0.44s, train loss: 14.4925]
+Tue 23 Apr 2024 16:42:12 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:12 INFO  epoch 70 training [time: 0.43s, train loss: 14.2800]
+Tue 23 Apr 2024 16:42:12 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:13 INFO  epoch 71 training [time: 0.44s, train loss: 14.0484]
+Tue 23 Apr 2024 16:42:13 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:13 INFO  epoch 72 training [time: 0.46s, train loss: 14.0596]
+Tue 23 Apr 2024 16:42:13 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:14 INFO  epoch 73 training [time: 0.50s, train loss: 13.9115]
+Tue 23 Apr 2024 16:42:14 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:14 INFO  epoch 74 training [time: 0.48s, train loss: 13.9994]
+Tue 23 Apr 2024 16:42:14 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:15 INFO  epoch 75 training [time: 0.47s, train loss: 13.9200]
+Tue 23 Apr 2024 16:42:15 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:15 INFO  epoch 76 training [time: 0.46s, train loss: 13.8126]
+Tue 23 Apr 2024 16:42:15 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:16 INFO  epoch 77 training [time: 0.44s, train loss: 13.5306]
+Tue 23 Apr 2024 16:42:16 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:16 INFO  epoch 78 training [time: 0.46s, train loss: 13.6965]
+Tue 23 Apr 2024 16:42:16 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:16 INFO  epoch 79 training [time: 0.45s, train loss: 13.5914]
+Tue 23 Apr 2024 16:42:16 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:17 INFO  epoch 80 training [time: 0.43s, train loss: 13.7034]
+Tue 23 Apr 2024 16:42:17 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:17 INFO  epoch 81 training [time: 0.42s, train loss: 13.5673]
+Tue 23 Apr 2024 16:42:17 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:18 INFO  epoch 82 training [time: 0.43s, train loss: 13.1337]
+Tue 23 Apr 2024 16:42:18 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:18 INFO  epoch 83 training [time: 0.43s, train loss: 13.2024]
+Tue 23 Apr 2024 16:42:18 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:19 INFO  epoch 84 training [time: 0.40s, train loss: 13.3644]
+Tue 23 Apr 2024 16:42:19 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:19 INFO  epoch 85 training [time: 0.45s, train loss: 13.1953]
+Tue 23 Apr 2024 16:42:19 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:19 INFO  epoch 86 training [time: 0.44s, train loss: 13.0643]
+Tue 23 Apr 2024 16:42:19 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:20 INFO  epoch 87 training [time: 0.46s, train loss: 13.0081]
+Tue 23 Apr 2024 16:42:20 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:20 INFO  epoch 88 training [time: 0.46s, train loss: 13.1776]
+Tue 23 Apr 2024 16:42:20 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:21 INFO  epoch 89 training [time: 0.44s, train loss: 13.0708]
+Tue 23 Apr 2024 16:42:21 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:21 INFO  epoch 90 training [time: 0.46s, train loss: 12.8330]
+Tue 23 Apr 2024 16:42:21 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:22 INFO  epoch 91 training [time: 0.46s, train loss: 12.8632]
+Tue 23 Apr 2024 16:42:22 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:22 INFO  epoch 92 training [time: 0.43s, train loss: 12.8252]
+Tue 23 Apr 2024 16:42:22 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:23 INFO  epoch 93 training [time: 0.45s, train loss: 12.7747]
+Tue 23 Apr 2024 16:42:23 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:23 INFO  epoch 94 training [time: 0.46s, train loss: 12.7746]
+Tue 23 Apr 2024 16:42:23 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:24 INFO  epoch 95 training [time: 0.46s, train loss: 12.5985]
+Tue 23 Apr 2024 16:42:24 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:24 INFO  epoch 96 training [time: 0.48s, train loss: 12.5942]
+Tue 23 Apr 2024 16:42:24 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:25 INFO  epoch 97 training [time: 0.45s, train loss: 12.5248]
+Tue 23 Apr 2024 16:42:25 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:25 INFO  epoch 98 training [time: 0.46s, train loss: 12.3713]
+Tue 23 Apr 2024 16:42:25 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:25 INFO  epoch 99 training [time: 0.44s, train loss: 12.4237]
+Tue 23 Apr 2024 16:42:25 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:26 INFO  epoch 100 training [time: 0.43s, train loss: 12.4010]
+Tue 23 Apr 2024 16:42:26 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:26 INFO  epoch 101 training [time: 0.43s, train loss: 12.1022]
+Tue 23 Apr 2024 16:42:26 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:27 INFO  epoch 102 training [time: 0.42s, train loss: 12.2472]
+Tue 23 Apr 2024 16:42:27 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:27 INFO  epoch 103 training [time: 0.46s, train loss: 12.3395]
+Tue 23 Apr 2024 16:42:27 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:28 INFO  epoch 104 training [time: 0.48s, train loss: 12.0688]
+Tue 23 Apr 2024 16:42:28 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:28 INFO  epoch 105 training [time: 0.47s, train loss: 12.0315]
+Tue 23 Apr 2024 16:42:28 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:29 INFO  epoch 106 training [time: 0.47s, train loss: 11.8976]
+Tue 23 Apr 2024 16:42:29 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:29 INFO  epoch 107 training [time: 0.46s, train loss: 11.8314]
+Tue 23 Apr 2024 16:42:29 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:30 INFO  epoch 108 training [time: 0.47s, train loss: 11.6686]
+Tue 23 Apr 2024 16:42:30 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:30 INFO  epoch 109 training [time: 0.45s, train loss: 11.6311]
+Tue 23 Apr 2024 16:42:30 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:30 INFO  epoch 110 training [time: 0.43s, train loss: 11.7276]
+Tue 23 Apr 2024 16:42:30 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:31 INFO  epoch 111 training [time: 0.44s, train loss: 11.5476]
+Tue 23 Apr 2024 16:42:31 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:31 INFO  epoch 112 training [time: 0.46s, train loss: 11.7013]
+Tue 23 Apr 2024 16:42:31 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:32 INFO  epoch 113 training [time: 0.45s, train loss: 11.5572]
+Tue 23 Apr 2024 16:42:32 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:32 INFO  epoch 114 training [time: 0.45s, train loss: 11.5373]
+Tue 23 Apr 2024 16:42:32 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:33 INFO  epoch 115 training [time: 0.44s, train loss: 11.4142]
+Tue 23 Apr 2024 16:42:33 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:33 INFO  epoch 116 training [time: 0.45s, train loss: 11.4910]
+Tue 23 Apr 2024 16:42:33 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:34 INFO  epoch 117 training [time: 0.46s, train loss: 11.4502]
+Tue 23 Apr 2024 16:42:34 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:34 INFO  epoch 118 training [time: 0.43s, train loss: 11.5271]
+Tue 23 Apr 2024 16:42:34 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:35 INFO  epoch 119 training [time: 0.45s, train loss: 11.2849]
+Tue 23 Apr 2024 16:42:35 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:35 INFO  epoch 120 training [time: 0.47s, train loss: 11.1644]
+Tue 23 Apr 2024 16:42:35 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:35 INFO  epoch 121 training [time: 0.43s, train loss: 11.1687]
+Tue 23 Apr 2024 16:42:35 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:36 INFO  epoch 122 training [time: 0.45s, train loss: 11.2075]
+Tue 23 Apr 2024 16:42:36 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:36 INFO  epoch 123 training [time: 0.46s, train loss: 11.1264]
+Tue 23 Apr 2024 16:42:36 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:37 INFO  epoch 124 training [time: 0.47s, train loss: 10.8370]
+Tue 23 Apr 2024 16:42:37 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:37 INFO  epoch 125 training [time: 0.49s, train loss: 11.0559]
+Tue 23 Apr 2024 16:42:37 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:38 INFO  epoch 126 training [time: 0.45s, train loss: 10.8474]
+Tue 23 Apr 2024 16:42:38 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:38 INFO  epoch 127 training [time: 0.40s, train loss: 10.9050]
+Tue 23 Apr 2024 16:42:38 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:39 INFO  epoch 128 training [time: 0.42s, train loss: 10.7560]
+Tue 23 Apr 2024 16:42:39 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:39 INFO  epoch 129 training [time: 0.44s, train loss: 10.7229]
+Tue 23 Apr 2024 16:42:39 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:40 INFO  epoch 130 training [time: 0.46s, train loss: 10.6903]
+Tue 23 Apr 2024 16:42:40 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:40 INFO  epoch 131 training [time: 0.45s, train loss: 10.7295]
+Tue 23 Apr 2024 16:42:40 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:40 INFO  epoch 132 training [time: 0.45s, train loss: 10.5114]
+Tue 23 Apr 2024 16:42:40 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:41 INFO  epoch 133 training [time: 0.46s, train loss: 10.5791]
+Tue 23 Apr 2024 16:42:41 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:41 INFO  epoch 134 training [time: 0.44s, train loss: 10.5405]
+Tue 23 Apr 2024 16:42:41 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:42 INFO  epoch 135 training [time: 0.43s, train loss: 10.4404]
+Tue 23 Apr 2024 16:42:42 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:42 INFO  epoch 136 training [time: 0.40s, train loss: 10.5222]
+Tue 23 Apr 2024 16:42:42 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:43 INFO  epoch 137 training [time: 0.44s, train loss: 10.2701]
+Tue 23 Apr 2024 16:42:43 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:43 INFO  epoch 138 training [time: 0.47s, train loss: 10.3509]
+Tue 23 Apr 2024 16:42:43 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:44 INFO  epoch 139 training [time: 0.46s, train loss: 10.1358]
+Tue 23 Apr 2024 16:42:44 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:44 INFO  epoch 140 training [time: 0.48s, train loss: 10.1520]
+Tue 23 Apr 2024 16:42:44 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:45 INFO  epoch 141 training [time: 0.46s, train loss: 10.0843]
+Tue 23 Apr 2024 16:42:45 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:45 INFO  epoch 142 training [time: 0.44s, train loss: 10.1203]
+Tue 23 Apr 2024 16:42:45 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:45 INFO  epoch 143 training [time: 0.46s, train loss: 10.0787]
+Tue 23 Apr 2024 16:42:45 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:46 INFO  epoch 144 training [time: 0.45s, train loss: 10.0488]
+Tue 23 Apr 2024 16:42:46 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:46 INFO  epoch 145 training [time: 0.44s, train loss: 9.9274]
+Tue 23 Apr 2024 16:42:46 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:47 INFO  epoch 146 training [time: 0.43s, train loss: 9.9542]
+Tue 23 Apr 2024 16:42:47 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:47 INFO  epoch 147 training [time: 0.46s, train loss: 9.9613]
+Tue 23 Apr 2024 16:42:47 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:48 INFO  epoch 148 training [time: 0.47s, train loss: 9.7176]
+Tue 23 Apr 2024 16:42:48 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:48 INFO  epoch 149 training [time: 0.47s, train loss: 9.7425]
+Tue 23 Apr 2024 16:42:48 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:49 INFO  epoch 150 training [time: 0.46s, train loss: 9.7064]
+Tue 23 Apr 2024 16:42:49 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:49 INFO  epoch 151 training [time: 0.47s, train loss: 9.7086]
+Tue 23 Apr 2024 16:42:49 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:50 INFO  epoch 152 training [time: 0.46s, train loss: 9.6390]
+Tue 23 Apr 2024 16:42:50 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:50 INFO  epoch 153 training [time: 0.48s, train loss: 9.6457]
+Tue 23 Apr 2024 16:42:50 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:51 INFO  epoch 154 training [time: 0.47s, train loss: 9.4793]
+Tue 23 Apr 2024 16:42:51 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:51 INFO  epoch 155 training [time: 0.42s, train loss: 9.5651]
+Tue 23 Apr 2024 16:42:51 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:51 INFO  epoch 156 training [time: 0.47s, train loss: 9.3284]
+Tue 23 Apr 2024 16:42:51 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:52 INFO  epoch 157 training [time: 0.46s, train loss: 9.3679]
+Tue 23 Apr 2024 16:42:52 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:52 INFO  epoch 158 training [time: 0.44s, train loss: 9.3416]
+Tue 23 Apr 2024 16:42:52 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:53 INFO  epoch 159 training [time: 0.50s, train loss: 9.2936]
+Tue 23 Apr 2024 16:42:53 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:53 INFO  epoch 160 training [time: 0.50s, train loss: 9.1727]
+Tue 23 Apr 2024 16:42:53 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:54 INFO  epoch 161 training [time: 0.43s, train loss: 9.1820]
+Tue 23 Apr 2024 16:42:54 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:54 INFO  epoch 162 training [time: 0.46s, train loss: 9.1652]
+Tue 23 Apr 2024 16:42:54 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:55 INFO  epoch 163 training [time: 0.44s, train loss: 9.1581]
+Tue 23 Apr 2024 16:42:55 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:55 INFO  epoch 164 training [time: 0.48s, train loss: 8.9678]
+Tue 23 Apr 2024 16:42:55 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:56 INFO  epoch 165 training [time: 0.48s, train loss: 9.1037]
+Tue 23 Apr 2024 16:42:56 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:56 INFO  epoch 166 training [time: 0.44s, train loss: 8.9782]
+Tue 23 Apr 2024 16:42:56 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:57 INFO  epoch 167 training [time: 0.46s, train loss: 8.9793]
+Tue 23 Apr 2024 16:42:57 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:57 INFO  epoch 168 training [time: 0.44s, train loss: 8.7065]
+Tue 23 Apr 2024 16:42:57 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:58 INFO  epoch 169 training [time: 0.47s, train loss: 8.9468]
+Tue 23 Apr 2024 16:42:58 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:58 INFO  epoch 170 training [time: 0.48s, train loss: 8.7406]
+Tue 23 Apr 2024 16:42:58 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:59 INFO  epoch 171 training [time: 0.48s, train loss: 8.7640]
+Tue 23 Apr 2024 16:42:59 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:59 INFO  epoch 172 training [time: 0.49s, train loss: 8.8392]
+Tue 23 Apr 2024 16:42:59 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:42:59 INFO  epoch 173 training [time: 0.49s, train loss: 8.8327]
+Tue 23 Apr 2024 16:42:59 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:00 INFO  epoch 174 training [time: 0.45s, train loss: 8.5629]
+Tue 23 Apr 2024 16:43:00 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:00 INFO  epoch 175 training [time: 0.46s, train loss: 8.3594]
+Tue 23 Apr 2024 16:43:00 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:01 INFO  epoch 176 training [time: 0.47s, train loss: 8.5749]
+Tue 23 Apr 2024 16:43:01 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:01 INFO  epoch 177 training [time: 0.48s, train loss: 8.4481]
+Tue 23 Apr 2024 16:43:01 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:02 INFO  epoch 178 training [time: 0.45s, train loss: 8.4399]
+Tue 23 Apr 2024 16:43:02 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:02 INFO  epoch 179 training [time: 0.45s, train loss: 8.3162]
+Tue 23 Apr 2024 16:43:02 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:03 INFO  epoch 180 training [time: 0.46s, train loss: 8.1514]
+Tue 23 Apr 2024 16:43:03 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:03 INFO  epoch 181 training [time: 0.41s, train loss: 8.4104]
+Tue 23 Apr 2024 16:43:03 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:04 INFO  epoch 182 training [time: 0.44s, train loss: 8.2645]
+Tue 23 Apr 2024 16:43:04 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:04 INFO  epoch 183 training [time: 0.47s, train loss: 8.1538]
+Tue 23 Apr 2024 16:43:04 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:05 INFO  epoch 184 training [time: 0.45s, train loss: 8.1009]
+Tue 23 Apr 2024 16:43:05 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:05 INFO  epoch 185 training [time: 0.46s, train loss: 8.1762]
+Tue 23 Apr 2024 16:43:05 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:05 INFO  epoch 186 training [time: 0.45s, train loss: 8.1378]
+Tue 23 Apr 2024 16:43:05 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:06 INFO  epoch 187 training [time: 0.47s, train loss: 7.9289]
+Tue 23 Apr 2024 16:43:06 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:06 INFO  epoch 188 training [time: 0.48s, train loss: 7.9817]
+Tue 23 Apr 2024 16:43:06 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:07 INFO  epoch 189 training [time: 0.45s, train loss: 8.0222]
+Tue 23 Apr 2024 16:43:07 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:07 INFO  epoch 190 training [time: 0.46s, train loss: 7.9715]
+Tue 23 Apr 2024 16:43:07 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:08 INFO  epoch 191 training [time: 0.46s, train loss: 7.8842]
+Tue 23 Apr 2024 16:43:08 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:08 INFO  epoch 192 training [time: 0.45s, train loss: 7.8007]
+Tue 23 Apr 2024 16:43:08 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:09 INFO  epoch 193 training [time: 0.47s, train loss: 7.8595]
+Tue 23 Apr 2024 16:43:09 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:09 INFO  epoch 194 training [time: 0.49s, train loss: 7.8818]
+Tue 23 Apr 2024 16:43:09 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:10 INFO  epoch 195 training [time: 0.45s, train loss: 7.8942]
+Tue 23 Apr 2024 16:43:10 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:10 INFO  epoch 196 training [time: 0.48s, train loss: 7.7212]
+Tue 23 Apr 2024 16:43:10 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:11 INFO  epoch 197 training [time: 0.47s, train loss: 7.7225]
+Tue 23 Apr 2024 16:43:11 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:11 INFO  epoch 198 training [time: 0.45s, train loss: 7.7312]
+Tue 23 Apr 2024 16:43:11 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:12 INFO  epoch 199 training [time: 0.47s, train loss: 7.7119]
+Tue 23 Apr 2024 16:43:12 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:12 INFO  epoch 200 training [time: 0.46s, train loss: 7.6378]
+Tue 23 Apr 2024 16:43:12 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:13 INFO  epoch 201 training [time: 0.48s, train loss: 7.7116]
+Tue 23 Apr 2024 16:43:13 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:13 INFO  epoch 202 training [time: 0.49s, train loss: 7.5361]
+Tue 23 Apr 2024 16:43:13 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:13 INFO  epoch 203 training [time: 0.46s, train loss: 7.5424]
+Tue 23 Apr 2024 16:43:13 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:14 INFO  epoch 204 training [time: 0.51s, train loss: 7.4681]
+Tue 23 Apr 2024 16:43:14 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:14 INFO  epoch 205 training [time: 0.47s, train loss: 7.3936]
+Tue 23 Apr 2024 16:43:14 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:15 INFO  epoch 206 training [time: 0.45s, train loss: 7.3959]
+Tue 23 Apr 2024 16:43:15 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:15 INFO  epoch 207 training [time: 0.47s, train loss: 7.2754]
+Tue 23 Apr 2024 16:43:15 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:16 INFO  epoch 208 training [time: 0.43s, train loss: 7.3093]
+Tue 23 Apr 2024 16:43:16 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:16 INFO  epoch 209 training [time: 0.47s, train loss: 7.4197]
+Tue 23 Apr 2024 16:43:16 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:17 INFO  epoch 210 training [time: 0.48s, train loss: 7.3229]
+Tue 23 Apr 2024 16:43:17 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:17 INFO  epoch 211 training [time: 0.47s, train loss: 6.9393]
+Tue 23 Apr 2024 16:43:17 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:18 INFO  epoch 212 training [time: 0.46s, train loss: 7.2196]
+Tue 23 Apr 2024 16:43:18 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:18 INFO  epoch 213 training [time: 0.48s, train loss: 7.1942]
+Tue 23 Apr 2024 16:43:18 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:19 INFO  epoch 214 training [time: 0.48s, train loss: 7.1476]
+Tue 23 Apr 2024 16:43:19 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:19 INFO  epoch 215 training [time: 0.53s, train loss: 7.1464]
+Tue 23 Apr 2024 16:43:19 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:20 INFO  epoch 216 training [time: 0.54s, train loss: 6.8952]
+Tue 23 Apr 2024 16:43:20 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:20 INFO  epoch 217 training [time: 0.52s, train loss: 6.9579]
+Tue 23 Apr 2024 16:43:20 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:21 INFO  epoch 218 training [time: 0.52s, train loss: 7.0665]
+Tue 23 Apr 2024 16:43:21 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:21 INFO  epoch 219 training [time: 0.54s, train loss: 6.9786]
+Tue 23 Apr 2024 16:43:21 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:22 INFO  epoch 220 training [time: 0.51s, train loss: 6.8429]
+Tue 23 Apr 2024 16:43:22 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:22 INFO  epoch 221 training [time: 0.54s, train loss: 6.8277]
+Tue 23 Apr 2024 16:43:22 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:23 INFO  epoch 222 training [time: 0.54s, train loss: 6.8236]
+Tue 23 Apr 2024 16:43:23 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:24 INFO  epoch 223 training [time: 0.53s, train loss: 6.8026]
+Tue 23 Apr 2024 16:43:24 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:24 INFO  epoch 224 training [time: 0.56s, train loss: 6.8380]
+Tue 23 Apr 2024 16:43:24 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:25 INFO  epoch 225 training [time: 0.55s, train loss: 6.6088]
+Tue 23 Apr 2024 16:43:25 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:25 INFO  epoch 226 training [time: 0.55s, train loss: 6.7566]
+Tue 23 Apr 2024 16:43:25 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:26 INFO  epoch 227 training [time: 0.52s, train loss: 6.6121]
+Tue 23 Apr 2024 16:43:26 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:26 INFO  epoch 228 training [time: 0.54s, train loss: 6.7966]
+Tue 23 Apr 2024 16:43:26 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:27 INFO  epoch 229 training [time: 0.54s, train loss: 6.7052]
+Tue 23 Apr 2024 16:43:27 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:27 INFO  epoch 230 training [time: 0.52s, train loss: 6.6480]
+Tue 23 Apr 2024 16:43:27 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:28 INFO  epoch 231 training [time: 0.56s, train loss: 6.5899]
+Tue 23 Apr 2024 16:43:28 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:28 INFO  epoch 232 training [time: 0.52s, train loss: 6.4979]
+Tue 23 Apr 2024 16:43:28 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:29 INFO  epoch 233 training [time: 0.53s, train loss: 6.6188]
+Tue 23 Apr 2024 16:43:29 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:29 INFO  epoch 234 training [time: 0.53s, train loss: 6.4526]
+Tue 23 Apr 2024 16:43:29 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:30 INFO  epoch 235 training [time: 0.54s, train loss: 6.4442]
+Tue 23 Apr 2024 16:43:30 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:31 INFO  epoch 236 training [time: 0.53s, train loss: 6.3716]
+Tue 23 Apr 2024 16:43:31 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:31 INFO  epoch 237 training [time: 0.58s, train loss: 6.3802]
+Tue 23 Apr 2024 16:43:31 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:32 INFO  epoch 238 training [time: 0.55s, train loss: 6.2399]
+Tue 23 Apr 2024 16:43:32 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:32 INFO  epoch 239 training [time: 0.54s, train loss: 6.3389]
+Tue 23 Apr 2024 16:43:32 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:33 INFO  epoch 240 training [time: 0.55s, train loss: 6.2364]
+Tue 23 Apr 2024 16:43:33 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:33 INFO  epoch 241 training [time: 0.57s, train loss: 6.2809]
+Tue 23 Apr 2024 16:43:33 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:34 INFO  epoch 242 training [time: 0.57s, train loss: 6.2270]
+Tue 23 Apr 2024 16:43:34 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:34 INFO  epoch 243 training [time: 0.53s, train loss: 6.1058]
+Tue 23 Apr 2024 16:43:34 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:35 INFO  epoch 244 training [time: 0.55s, train loss: 6.2416]
+Tue 23 Apr 2024 16:43:35 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:36 INFO  epoch 245 training [time: 0.56s, train loss: 6.1666]
+Tue 23 Apr 2024 16:43:36 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:36 INFO  epoch 246 training [time: 0.57s, train loss: 6.1770]
+Tue 23 Apr 2024 16:43:36 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:37 INFO  epoch 247 training [time: 0.55s, train loss: 6.1757]
+Tue 23 Apr 2024 16:43:37 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:37 INFO  epoch 248 training [time: 0.56s, train loss: 6.0646]
+Tue 23 Apr 2024 16:43:37 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:38 INFO  epoch 249 training [time: 0.52s, train loss: 6.0592]
+Tue 23 Apr 2024 16:43:38 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:38 INFO  epoch 250 training [time: 0.53s, train loss: 6.1081]
+Tue 23 Apr 2024 16:43:38 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:39 INFO  epoch 251 training [time: 0.52s, train loss: 5.9252]
+Tue 23 Apr 2024 16:43:39 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:39 INFO  epoch 252 training [time: 0.40s, train loss: 5.9291]
+Tue 23 Apr 2024 16:43:39 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:40 INFO  epoch 253 training [time: 0.46s, train loss: 6.0738]
+Tue 23 Apr 2024 16:43:40 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:40 INFO  epoch 254 training [time: 0.44s, train loss: 5.8601]
+Tue 23 Apr 2024 16:43:40 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:41 INFO  epoch 255 training [time: 0.41s, train loss: 5.9198]
+Tue 23 Apr 2024 16:43:41 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:41 INFO  epoch 256 training [time: 0.42s, train loss: 5.9853]
+Tue 23 Apr 2024 16:43:41 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:41 INFO  epoch 257 training [time: 0.42s, train loss: 5.8515]
+Tue 23 Apr 2024 16:43:41 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:42 INFO  epoch 258 training [time: 0.44s, train loss: 5.8564]
+Tue 23 Apr 2024 16:43:42 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:42 INFO  epoch 259 training [time: 0.45s, train loss: 5.8181]
+Tue 23 Apr 2024 16:43:42 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:43 INFO  epoch 260 training [time: 0.42s, train loss: 5.7302]
+Tue 23 Apr 2024 16:43:43 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:43 INFO  epoch 261 training [time: 0.46s, train loss: 5.7037]
+Tue 23 Apr 2024 16:43:43 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:44 INFO  epoch 262 training [time: 0.43s, train loss: 5.7818]
+Tue 23 Apr 2024 16:43:44 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:44 INFO  epoch 263 training [time: 0.46s, train loss: 5.8107]
+Tue 23 Apr 2024 16:43:44 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:45 INFO  epoch 264 training [time: 0.44s, train loss: 5.6279]
+Tue 23 Apr 2024 16:43:45 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:45 INFO  epoch 265 training [time: 0.44s, train loss: 5.6697]
+Tue 23 Apr 2024 16:43:45 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:46 INFO  epoch 266 training [time: 0.45s, train loss: 5.7161]
+Tue 23 Apr 2024 16:43:46 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:46 INFO  epoch 267 training [time: 0.41s, train loss: 5.6412]
+Tue 23 Apr 2024 16:43:46 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:46 INFO  epoch 268 training [time: 0.44s, train loss: 5.6381]
+Tue 23 Apr 2024 16:43:46 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:47 INFO  epoch 269 training [time: 0.44s, train loss: 5.5632]
+Tue 23 Apr 2024 16:43:47 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:47 INFO  epoch 270 training [time: 0.41s, train loss: 5.6088]
+Tue 23 Apr 2024 16:43:47 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:48 INFO  epoch 271 training [time: 0.43s, train loss: 5.5209]
+Tue 23 Apr 2024 16:43:48 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:48 INFO  epoch 272 training [time: 0.44s, train loss: 5.4652]
+Tue 23 Apr 2024 16:43:48 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:49 INFO  epoch 273 training [time: 0.43s, train loss: 5.5684]
+Tue 23 Apr 2024 16:43:49 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:49 INFO  epoch 274 training [time: 0.44s, train loss: 5.5156]
+Tue 23 Apr 2024 16:43:49 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:49 INFO  epoch 275 training [time: 0.46s, train loss: 5.5760]
+Tue 23 Apr 2024 16:43:49 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:50 INFO  epoch 276 training [time: 0.46s, train loss: 5.5031]
+Tue 23 Apr 2024 16:43:50 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:50 INFO  epoch 277 training [time: 0.43s, train loss: 5.3319]
+Tue 23 Apr 2024 16:43:50 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:51 INFO  epoch 278 training [time: 0.46s, train loss: 5.4228]
+Tue 23 Apr 2024 16:43:51 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:51 INFO  epoch 279 training [time: 0.44s, train loss: 5.3211]
+Tue 23 Apr 2024 16:43:51 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:52 INFO  epoch 280 training [time: 0.44s, train loss: 5.3080]
+Tue 23 Apr 2024 16:43:52 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:52 INFO  epoch 281 training [time: 0.45s, train loss: 5.2427]
+Tue 23 Apr 2024 16:43:52 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:53 INFO  epoch 282 training [time: 0.41s, train loss: 5.2845]
+Tue 23 Apr 2024 16:43:53 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:53 INFO  epoch 283 training [time: 0.44s, train loss: 5.2636]
+Tue 23 Apr 2024 16:43:53 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:53 INFO  epoch 284 training [time: 0.45s, train loss: 5.2320]
+Tue 23 Apr 2024 16:43:53 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:54 INFO  epoch 285 training [time: 0.44s, train loss: 5.2129]
+Tue 23 Apr 2024 16:43:54 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:54 INFO  epoch 286 training [time: 0.44s, train loss: 5.1476]
+Tue 23 Apr 2024 16:43:54 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:55 INFO  epoch 287 training [time: 0.44s, train loss: 5.2233]
+Tue 23 Apr 2024 16:43:55 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:55 INFO  epoch 288 training [time: 0.45s, train loss: 5.2316]
+Tue 23 Apr 2024 16:43:55 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:56 INFO  epoch 289 training [time: 0.44s, train loss: 5.1212]
+Tue 23 Apr 2024 16:43:56 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:56 INFO  epoch 290 training [time: 0.44s, train loss: 5.1187]
+Tue 23 Apr 2024 16:43:56 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:57 INFO  epoch 291 training [time: 0.44s, train loss: 5.1124]
+Tue 23 Apr 2024 16:43:57 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:57 INFO  epoch 292 training [time: 0.41s, train loss: 5.0333]
+Tue 23 Apr 2024 16:43:57 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:58 INFO  epoch 293 training [time: 0.46s, train loss: 5.0831]
+Tue 23 Apr 2024 16:43:58 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:58 INFO  epoch 294 training [time: 0.45s, train loss: 5.0808]
+Tue 23 Apr 2024 16:43:58 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:58 INFO  epoch 295 training [time: 0.41s, train loss: 5.1124]
+Tue 23 Apr 2024 16:43:58 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:59 INFO  epoch 296 training [time: 0.44s, train loss: 5.0881]
+Tue 23 Apr 2024 16:43:59 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:43:59 INFO  epoch 297 training [time: 0.44s, train loss: 5.0657]
+Tue 23 Apr 2024 16:43:59 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:00 INFO  epoch 298 training [time: 0.45s, train loss: 4.9725]
+Tue 23 Apr 2024 16:44:00 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:00 INFO  epoch 299 training [time: 0.45s, train loss: 4.9814]
+Tue 23 Apr 2024 16:44:00 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:01 INFO  epoch 300 training [time: 0.44s, train loss: 4.8938]
+Tue 23 Apr 2024 16:44:01 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:01 INFO  epoch 301 training [time: 0.46s, train loss: 4.9694]
+Tue 23 Apr 2024 16:44:01 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:02 INFO  epoch 302 training [time: 0.47s, train loss: 4.8785]
+Tue 23 Apr 2024 16:44:02 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:02 INFO  epoch 303 training [time: 0.43s, train loss: 4.8804]
+Tue 23 Apr 2024 16:44:02 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:02 INFO  epoch 304 training [time: 0.45s, train loss: 4.9325]
+Tue 23 Apr 2024 16:44:02 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:03 INFO  epoch 305 training [time: 0.44s, train loss: 4.8021]
+Tue 23 Apr 2024 16:44:03 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:03 INFO  epoch 306 training [time: 0.44s, train loss: 4.8034]
+Tue 23 Apr 2024 16:44:03 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:04 INFO  epoch 307 training [time: 0.47s, train loss: 4.8219]
+Tue 23 Apr 2024 16:44:04 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:04 INFO  epoch 308 training [time: 0.47s, train loss: 4.7357]
+Tue 23 Apr 2024 16:44:04 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:05 INFO  epoch 309 training [time: 0.44s, train loss: 4.8284]
+Tue 23 Apr 2024 16:44:05 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:05 INFO  epoch 310 training [time: 0.46s, train loss: 4.7596]
+Tue 23 Apr 2024 16:44:05 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:06 INFO  epoch 311 training [time: 0.45s, train loss: 4.7583]
+Tue 23 Apr 2024 16:44:06 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:06 INFO  epoch 312 training [time: 0.44s, train loss: 4.6724]
+Tue 23 Apr 2024 16:44:06 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:07 INFO  epoch 313 training [time: 0.43s, train loss: 4.7743]
+Tue 23 Apr 2024 16:44:07 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:07 INFO  epoch 314 training [time: 0.44s, train loss: 4.6521]
+Tue 23 Apr 2024 16:44:07 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:07 INFO  epoch 315 training [time: 0.46s, train loss: 4.6254]
+Tue 23 Apr 2024 16:44:07 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:08 INFO  epoch 316 training [time: 0.42s, train loss: 4.6288]
+Tue 23 Apr 2024 16:44:08 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:08 INFO  epoch 317 training [time: 0.44s, train loss: 4.6604]
+Tue 23 Apr 2024 16:44:08 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:09 INFO  epoch 318 training [time: 0.39s, train loss: 4.5318]
+Tue 23 Apr 2024 16:44:09 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:09 INFO  epoch 319 training [time: 0.46s, train loss: 4.5818]
+Tue 23 Apr 2024 16:44:09 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:10 INFO  epoch 320 training [time: 0.45s, train loss: 4.5910]
+Tue 23 Apr 2024 16:44:10 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:10 INFO  epoch 321 training [time: 0.45s, train loss: 4.5498]
+Tue 23 Apr 2024 16:44:10 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:11 INFO  epoch 322 training [time: 0.45s, train loss: 4.5084]
+Tue 23 Apr 2024 16:44:11 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:11 INFO  epoch 323 training [time: 0.44s, train loss: 4.4840]
+Tue 23 Apr 2024 16:44:11 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:11 INFO  epoch 324 training [time: 0.44s, train loss: 4.5913]
+Tue 23 Apr 2024 16:44:11 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:12 INFO  epoch 325 training [time: 0.46s, train loss: 4.5075]
+Tue 23 Apr 2024 16:44:12 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:12 INFO  epoch 326 training [time: 0.45s, train loss: 4.5459]
+Tue 23 Apr 2024 16:44:12 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:13 INFO  epoch 327 training [time: 0.46s, train loss: 4.4535]
+Tue 23 Apr 2024 16:44:13 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:13 INFO  epoch 328 training [time: 0.47s, train loss: 4.4844]
+Tue 23 Apr 2024 16:44:13 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:14 INFO  epoch 329 training [time: 0.44s, train loss: 4.4104]
+Tue 23 Apr 2024 16:44:14 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:14 INFO  epoch 330 training [time: 0.45s, train loss: 4.4589]
+Tue 23 Apr 2024 16:44:14 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:15 INFO  epoch 331 training [time: 0.43s, train loss: 4.3819]
+Tue 23 Apr 2024 16:44:15 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:15 INFO  epoch 332 training [time: 0.46s, train loss: 4.4211]
+Tue 23 Apr 2024 16:44:15 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:16 INFO  epoch 333 training [time: 0.46s, train loss: 4.2800]
+Tue 23 Apr 2024 16:44:16 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:16 INFO  epoch 334 training [time: 0.45s, train loss: 4.3926]
+Tue 23 Apr 2024 16:44:16 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:16 INFO  epoch 335 training [time: 0.47s, train loss: 4.3619]
+Tue 23 Apr 2024 16:44:16 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:17 INFO  epoch 336 training [time: 0.45s, train loss: 4.3726]
+Tue 23 Apr 2024 16:44:17 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:17 INFO  epoch 337 training [time: 0.47s, train loss: 4.3690]
+Tue 23 Apr 2024 16:44:17 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:18 INFO  epoch 338 training [time: 0.46s, train loss: 4.2314]
+Tue 23 Apr 2024 16:44:18 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:18 INFO  epoch 339 training [time: 0.45s, train loss: 4.3533]
+Tue 23 Apr 2024 16:44:18 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:19 INFO  epoch 340 training [time: 0.46s, train loss: 4.2288]
+Tue 23 Apr 2024 16:44:19 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:19 INFO  epoch 341 training [time: 0.48s, train loss: 4.3007]
+Tue 23 Apr 2024 16:44:19 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:20 INFO  epoch 342 training [time: 0.47s, train loss: 4.3003]
+Tue 23 Apr 2024 16:44:20 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:20 INFO  epoch 343 training [time: 0.44s, train loss: 4.1584]
+Tue 23 Apr 2024 16:44:20 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:21 INFO  epoch 344 training [time: 0.48s, train loss: 4.2776]
+Tue 23 Apr 2024 16:44:21 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:21 INFO  epoch 345 training [time: 0.46s, train loss: 4.1777]
+Tue 23 Apr 2024 16:44:21 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:22 INFO  epoch 346 training [time: 0.46s, train loss: 4.1793]
+Tue 23 Apr 2024 16:44:22 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:22 INFO  epoch 347 training [time: 0.46s, train loss: 4.0897]
+Tue 23 Apr 2024 16:44:22 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:23 INFO  epoch 348 training [time: 0.45s, train loss: 4.0865]
+Tue 23 Apr 2024 16:44:23 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:23 INFO  epoch 349 training [time: 0.47s, train loss: 4.0913]
+Tue 23 Apr 2024 16:44:23 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:23 INFO  epoch 350 training [time: 0.45s, train loss: 4.0852]
+Tue 23 Apr 2024 16:44:23 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:24 INFO  epoch 351 training [time: 0.43s, train loss: 4.1389]
+Tue 23 Apr 2024 16:44:24 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:24 INFO  epoch 352 training [time: 0.46s, train loss: 4.1248]
+Tue 23 Apr 2024 16:44:24 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:25 INFO  epoch 353 training [time: 0.46s, train loss: 4.1356]
+Tue 23 Apr 2024 16:44:25 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:25 INFO  epoch 354 training [time: 0.44s, train loss: 3.9066]
+Tue 23 Apr 2024 16:44:25 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:26 INFO  epoch 355 training [time: 0.48s, train loss: 4.0215]
+Tue 23 Apr 2024 16:44:26 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:26 INFO  epoch 356 training [time: 0.47s, train loss: 3.9824]
+Tue 23 Apr 2024 16:44:26 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:27 INFO  epoch 357 training [time: 0.45s, train loss: 3.9447]
+Tue 23 Apr 2024 16:44:27 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:27 INFO  epoch 358 training [time: 0.46s, train loss: 4.0462]
+Tue 23 Apr 2024 16:44:27 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:28 INFO  epoch 359 training [time: 0.45s, train loss: 4.0078]
+Tue 23 Apr 2024 16:44:28 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:28 INFO  epoch 360 training [time: 0.47s, train loss: 4.0981]
+Tue 23 Apr 2024 16:44:28 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:29 INFO  epoch 361 training [time: 0.48s, train loss: 3.9440]
+Tue 23 Apr 2024 16:44:29 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:29 INFO  epoch 362 training [time: 0.45s, train loss: 3.9200]
+Tue 23 Apr 2024 16:44:29 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:30 INFO  epoch 363 training [time: 0.48s, train loss: 3.9849]
+Tue 23 Apr 2024 16:44:30 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:30 INFO  epoch 364 training [time: 0.51s, train loss: 3.9248]
+Tue 23 Apr 2024 16:44:30 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:31 INFO  epoch 365 training [time: 0.48s, train loss: 3.9523]
+Tue 23 Apr 2024 16:44:31 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:31 INFO  epoch 366 training [time: 0.47s, train loss: 3.9833]
+Tue 23 Apr 2024 16:44:31 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:31 INFO  epoch 367 training [time: 0.46s, train loss: 3.9280]
+Tue 23 Apr 2024 16:44:31 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:32 INFO  epoch 368 training [time: 0.47s, train loss: 3.9417]
+Tue 23 Apr 2024 16:44:32 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:32 INFO  epoch 369 training [time: 0.49s, train loss: 3.8587]
+Tue 23 Apr 2024 16:44:32 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:33 INFO  epoch 370 training [time: 0.48s, train loss: 3.9234]
+Tue 23 Apr 2024 16:44:33 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:33 INFO  epoch 371 training [time: 0.45s, train loss: 3.8693]
+Tue 23 Apr 2024 16:44:33 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:34 INFO  epoch 372 training [time: 0.46s, train loss: 3.9966]
+Tue 23 Apr 2024 16:44:34 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:34 INFO  epoch 373 training [time: 0.47s, train loss: 3.8556]
+Tue 23 Apr 2024 16:44:34 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:35 INFO  epoch 374 training [time: 0.47s, train loss: 3.7596]
+Tue 23 Apr 2024 16:44:35 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:35 INFO  epoch 375 training [time: 0.52s, train loss: 3.7529]
+Tue 23 Apr 2024 16:44:35 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:36 INFO  epoch 376 training [time: 0.50s, train loss: 3.8298]
+Tue 23 Apr 2024 16:44:36 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:36 INFO  epoch 377 training [time: 0.49s, train loss: 3.7096]
+Tue 23 Apr 2024 16:44:36 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:37 INFO  epoch 378 training [time: 0.50s, train loss: 3.7521]
+Tue 23 Apr 2024 16:44:37 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:37 INFO  epoch 379 training [time: 0.48s, train loss: 3.7354]
+Tue 23 Apr 2024 16:44:37 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:38 INFO  epoch 380 training [time: 0.50s, train loss: 3.7138]
+Tue 23 Apr 2024 16:44:38 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:38 INFO  epoch 381 training [time: 0.48s, train loss: 3.7798]
+Tue 23 Apr 2024 16:44:38 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:39 INFO  epoch 382 training [time: 0.53s, train loss: 3.6548]
+Tue 23 Apr 2024 16:44:39 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:39 INFO  epoch 383 training [time: 0.53s, train loss: 3.7533]
+Tue 23 Apr 2024 16:44:39 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:40 INFO  epoch 384 training [time: 0.53s, train loss: 3.7363]
+Tue 23 Apr 2024 16:44:40 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:40 INFO  epoch 385 training [time: 0.53s, train loss: 3.6825]
+Tue 23 Apr 2024 16:44:40 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:41 INFO  epoch 386 training [time: 0.49s, train loss: 3.6463]
+Tue 23 Apr 2024 16:44:41 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:41 INFO  epoch 387 training [time: 0.51s, train loss: 3.6691]
+Tue 23 Apr 2024 16:44:41 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:42 INFO  epoch 388 training [time: 0.47s, train loss: 3.7490]
+Tue 23 Apr 2024 16:44:42 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:42 INFO  epoch 389 training [time: 0.45s, train loss: 3.6441]
+Tue 23 Apr 2024 16:44:42 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:43 INFO  epoch 390 training [time: 0.50s, train loss: 3.6050]
+Tue 23 Apr 2024 16:44:43 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:43 INFO  epoch 391 training [time: 0.51s, train loss: 3.6025]
+Tue 23 Apr 2024 16:44:43 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:44 INFO  epoch 392 training [time: 0.44s, train loss: 3.5874]
+Tue 23 Apr 2024 16:44:44 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:44 INFO  epoch 393 training [time: 0.57s, train loss: 3.6943]
+Tue 23 Apr 2024 16:44:44 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:45 INFO  epoch 394 training [time: 0.51s, train loss: 3.5512]
+Tue 23 Apr 2024 16:44:45 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:45 INFO  epoch 395 training [time: 0.53s, train loss: 3.5532]
+Tue 23 Apr 2024 16:44:45 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:46 INFO  epoch 396 training [time: 0.52s, train loss: 3.5404]
+Tue 23 Apr 2024 16:44:46 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:46 INFO  epoch 397 training [time: 0.49s, train loss: 3.5770]
+Tue 23 Apr 2024 16:44:46 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:47 INFO  epoch 398 training [time: 0.50s, train loss: 3.4651]
+Tue 23 Apr 2024 16:44:47 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:47 INFO  epoch 399 training [time: 0.50s, train loss: 3.5199]
+Tue 23 Apr 2024 16:44:47 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:48 INFO  epoch 400 training [time: 0.50s, train loss: 3.4747]
+Tue 23 Apr 2024 16:44:48 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:49 INFO  epoch 401 training [time: 0.56s, train loss: 3.4750]
+Tue 23 Apr 2024 16:44:49 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:49 INFO  epoch 402 training [time: 0.49s, train loss: 3.5853]
+Tue 23 Apr 2024 16:44:49 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:50 INFO  epoch 403 training [time: 0.51s, train loss: 3.5238]
+Tue 23 Apr 2024 16:44:50 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:50 INFO  epoch 404 training [time: 0.52s, train loss: 3.5257]
+Tue 23 Apr 2024 16:44:50 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:51 INFO  epoch 405 training [time: 0.46s, train loss: 3.4831]
+Tue 23 Apr 2024 16:44:51 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:51 INFO  epoch 406 training [time: 0.45s, train loss: 3.5126]
+Tue 23 Apr 2024 16:44:51 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:52 INFO  epoch 407 training [time: 0.49s, train loss: 3.4387]
+Tue 23 Apr 2024 16:44:52 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:52 INFO  epoch 408 training [time: 0.54s, train loss: 3.4837]
+Tue 23 Apr 2024 16:44:52 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:53 INFO  epoch 409 training [time: 0.47s, train loss: 3.4400]
+Tue 23 Apr 2024 16:44:53 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:53 INFO  epoch 410 training [time: 0.47s, train loss: 3.5124]
+Tue 23 Apr 2024 16:44:53 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:54 INFO  epoch 411 training [time: 0.48s, train loss: 3.3896]
+Tue 23 Apr 2024 16:44:54 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:54 INFO  epoch 412 training [time: 0.47s, train loss: 3.3139]
+Tue 23 Apr 2024 16:44:54 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:54 INFO  epoch 413 training [time: 0.44s, train loss: 3.3239]
+Tue 23 Apr 2024 16:44:54 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:55 INFO  epoch 414 training [time: 0.49s, train loss: 3.4083]
+Tue 23 Apr 2024 16:44:55 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:55 INFO  epoch 415 training [time: 0.49s, train loss: 3.3832]
+Tue 23 Apr 2024 16:44:55 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:56 INFO  epoch 416 training [time: 0.47s, train loss: 3.3445]
+Tue 23 Apr 2024 16:44:56 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:56 INFO  epoch 417 training [time: 0.49s, train loss: 3.3219]
+Tue 23 Apr 2024 16:44:56 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:57 INFO  epoch 418 training [time: 0.50s, train loss: 3.2985]
+Tue 23 Apr 2024 16:44:57 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:57 INFO  epoch 419 training [time: 0.46s, train loss: 3.2967]
+Tue 23 Apr 2024 16:44:57 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:58 INFO  epoch 420 training [time: 0.47s, train loss: 3.3264]
+Tue 23 Apr 2024 16:44:58 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:58 INFO  epoch 421 training [time: 0.46s, train loss: 3.2836]
+Tue 23 Apr 2024 16:44:58 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:59 INFO  epoch 422 training [time: 0.49s, train loss: 3.2807]
+Tue 23 Apr 2024 16:44:59 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:44:59 INFO  epoch 423 training [time: 0.56s, train loss: 3.2457]
+Tue 23 Apr 2024 16:44:59 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:00 INFO  epoch 424 training [time: 0.56s, train loss: 3.2860]
+Tue 23 Apr 2024 16:45:00 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:00 INFO  epoch 425 training [time: 0.54s, train loss: 3.1937]
+Tue 23 Apr 2024 16:45:00 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:01 INFO  epoch 426 training [time: 0.54s, train loss: 3.2681]
+Tue 23 Apr 2024 16:45:01 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:02 INFO  epoch 427 training [time: 0.56s, train loss: 3.2684]
+Tue 23 Apr 2024 16:45:02 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:02 INFO  epoch 428 training [time: 0.56s, train loss: 3.2503]
+Tue 23 Apr 2024 16:45:02 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:03 INFO  epoch 429 training [time: 0.58s, train loss: 3.2537]
+Tue 23 Apr 2024 16:45:03 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:03 INFO  epoch 430 training [time: 0.59s, train loss: 3.2571]
+Tue 23 Apr 2024 16:45:03 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:04 INFO  epoch 431 training [time: 0.58s, train loss: 3.2152]
+Tue 23 Apr 2024 16:45:04 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:05 INFO  epoch 432 training [time: 0.64s, train loss: 3.3083]
+Tue 23 Apr 2024 16:45:05 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:05 INFO  epoch 433 training [time: 0.61s, train loss: 3.2049]
+Tue 23 Apr 2024 16:45:05 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:06 INFO  epoch 434 training [time: 0.58s, train loss: 3.2134]
+Tue 23 Apr 2024 16:45:06 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:06 INFO  epoch 435 training [time: 0.54s, train loss: 3.2330]
+Tue 23 Apr 2024 16:45:06 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:07 INFO  epoch 436 training [time: 0.55s, train loss: 3.2781]
+Tue 23 Apr 2024 16:45:07 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:07 INFO  epoch 437 training [time: 0.55s, train loss: 3.2558]
+Tue 23 Apr 2024 16:45:07 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:08 INFO  epoch 438 training [time: 0.54s, train loss: 3.1076]
+Tue 23 Apr 2024 16:45:08 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:09 INFO  epoch 439 training [time: 0.58s, train loss: 3.1769]
+Tue 23 Apr 2024 16:45:09 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:09 INFO  epoch 440 training [time: 0.59s, train loss: 3.1309]
+Tue 23 Apr 2024 16:45:09 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:10 INFO  epoch 441 training [time: 0.51s, train loss: 3.2655]
+Tue 23 Apr 2024 16:45:10 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:10 INFO  epoch 442 training [time: 0.54s, train loss: 3.1938]
+Tue 23 Apr 2024 16:45:10 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:11 INFO  epoch 443 training [time: 0.56s, train loss: 3.1388]
+Tue 23 Apr 2024 16:45:11 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:11 INFO  epoch 444 training [time: 0.53s, train loss: 3.0905]
+Tue 23 Apr 2024 16:45:11 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:12 INFO  epoch 445 training [time: 0.61s, train loss: 3.1494]
+Tue 23 Apr 2024 16:45:12 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:13 INFO  epoch 446 training [time: 0.61s, train loss: 3.0756]
+Tue 23 Apr 2024 16:45:13 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:13 INFO  epoch 447 training [time: 0.58s, train loss: 3.1076]
+Tue 23 Apr 2024 16:45:13 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:14 INFO  epoch 448 training [time: 0.63s, train loss: 3.0412]
+Tue 23 Apr 2024 16:45:14 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:14 INFO  epoch 449 training [time: 0.57s, train loss: 3.0184]
+Tue 23 Apr 2024 16:45:14 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:15 INFO  epoch 450 training [time: 0.59s, train loss: 3.0231]
+Tue 23 Apr 2024 16:45:15 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:15 INFO  epoch 451 training [time: 0.58s, train loss: 3.0863]
+Tue 23 Apr 2024 16:45:15 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:16 INFO  epoch 452 training [time: 0.58s, train loss: 3.0583]
+Tue 23 Apr 2024 16:45:16 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:17 INFO  epoch 453 training [time: 0.57s, train loss: 3.0164]
+Tue 23 Apr 2024 16:45:17 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:17 INFO  epoch 454 training [time: 0.57s, train loss: 3.0122]
+Tue 23 Apr 2024 16:45:17 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:18 INFO  epoch 455 training [time: 0.54s, train loss: 3.0595]
+Tue 23 Apr 2024 16:45:18 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:18 INFO  epoch 456 training [time: 0.56s, train loss: 3.0267]
+Tue 23 Apr 2024 16:45:18 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:19 INFO  epoch 457 training [time: 0.54s, train loss: 2.9952]
+Tue 23 Apr 2024 16:45:19 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:19 INFO  epoch 458 training [time: 0.47s, train loss: 3.0276]
+Tue 23 Apr 2024 16:45:19 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:20 INFO  epoch 459 training [time: 0.48s, train loss: 2.9662]
+Tue 23 Apr 2024 16:45:20 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:20 INFO  epoch 460 training [time: 0.48s, train loss: 3.0033]
+Tue 23 Apr 2024 16:45:20 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:21 INFO  epoch 461 training [time: 0.44s, train loss: 2.8350]
+Tue 23 Apr 2024 16:45:21 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:21 INFO  epoch 462 training [time: 0.46s, train loss: 2.9554]
+Tue 23 Apr 2024 16:45:21 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:22 INFO  epoch 463 training [time: 0.47s, train loss: 3.0070]
+Tue 23 Apr 2024 16:45:22 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:22 INFO  epoch 464 training [time: 0.43s, train loss: 2.9548]
+Tue 23 Apr 2024 16:45:22 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:23 INFO  epoch 465 training [time: 0.46s, train loss: 2.9742]
+Tue 23 Apr 2024 16:45:23 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:23 INFO  epoch 466 training [time: 0.46s, train loss: 2.9444]
+Tue 23 Apr 2024 16:45:23 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:23 INFO  epoch 467 training [time: 0.43s, train loss: 2.9677]
+Tue 23 Apr 2024 16:45:23 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:24 INFO  epoch 468 training [time: 0.49s, train loss: 3.0129]
+Tue 23 Apr 2024 16:45:24 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:24 INFO  epoch 469 training [time: 0.48s, train loss: 2.9670]
+Tue 23 Apr 2024 16:45:24 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:25 INFO  epoch 470 training [time: 0.42s, train loss: 2.9101]
+Tue 23 Apr 2024 16:45:25 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:25 INFO  epoch 471 training [time: 0.45s, train loss: 2.8896]
+Tue 23 Apr 2024 16:45:25 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:26 INFO  epoch 472 training [time: 0.46s, train loss: 2.8839]
+Tue 23 Apr 2024 16:45:26 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:26 INFO  epoch 473 training [time: 0.40s, train loss: 2.8611]
+Tue 23 Apr 2024 16:45:26 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:27 INFO  epoch 474 training [time: 0.41s, train loss: 2.9363]
+Tue 23 Apr 2024 16:45:27 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:27 INFO  epoch 475 training [time: 0.43s, train loss: 2.9719]
+Tue 23 Apr 2024 16:45:27 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:28 INFO  epoch 476 training [time: 0.44s, train loss: 2.8857]
+Tue 23 Apr 2024 16:45:28 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:28 INFO  epoch 477 training [time: 0.45s, train loss: 2.8609]
+Tue 23 Apr 2024 16:45:28 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:28 INFO  epoch 478 training [time: 0.47s, train loss: 2.8794]
+Tue 23 Apr 2024 16:45:28 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:29 INFO  epoch 479 training [time: 0.44s, train loss: 2.9301]
+Tue 23 Apr 2024 16:45:29 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:29 INFO  epoch 480 training [time: 0.44s, train loss: 2.8773]
+Tue 23 Apr 2024 16:45:29 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:30 INFO  epoch 481 training [time: 0.44s, train loss: 2.8874]
+Tue 23 Apr 2024 16:45:30 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:30 INFO  epoch 482 training [time: 0.45s, train loss: 2.9334]
+Tue 23 Apr 2024 16:45:30 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:31 INFO  epoch 483 training [time: 0.47s, train loss: 2.8130]
+Tue 23 Apr 2024 16:45:31 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:31 INFO  epoch 484 training [time: 0.45s, train loss: 2.8593]
+Tue 23 Apr 2024 16:45:31 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:32 INFO  epoch 485 training [time: 0.43s, train loss: 2.8667]
+Tue 23 Apr 2024 16:45:32 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:32 INFO  epoch 486 training [time: 0.47s, train loss: 2.7543]
+Tue 23 Apr 2024 16:45:32 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:33 INFO  epoch 487 training [time: 0.47s, train loss: 2.7951]
+Tue 23 Apr 2024 16:45:33 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:33 INFO  epoch 488 training [time: 0.45s, train loss: 2.9107]
+Tue 23 Apr 2024 16:45:33 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:33 INFO  epoch 489 training [time: 0.43s, train loss: 2.8273]
+Tue 23 Apr 2024 16:45:33 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:34 INFO  epoch 490 training [time: 0.45s, train loss: 2.7353]
+Tue 23 Apr 2024 16:45:34 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:34 INFO  epoch 491 training [time: 0.44s, train loss: 2.7873]
+Tue 23 Apr 2024 16:45:34 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:35 INFO  epoch 492 training [time: 0.45s, train loss: 2.7731]
+Tue 23 Apr 2024 16:45:35 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:35 INFO  epoch 493 training [time: 0.46s, train loss: 2.7914]
+Tue 23 Apr 2024 16:45:35 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:36 INFO  epoch 494 training [time: 0.40s, train loss: 2.7927]
+Tue 23 Apr 2024 16:45:36 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:36 INFO  epoch 495 training [time: 0.45s, train loss: 2.7583]
+Tue 23 Apr 2024 16:45:36 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:37 INFO  epoch 496 training [time: 0.46s, train loss: 2.7289]
+Tue 23 Apr 2024 16:45:37 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:37 INFO  epoch 497 training [time: 0.44s, train loss: 2.6691]
+Tue 23 Apr 2024 16:45:37 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:38 INFO  epoch 498 training [time: 0.49s, train loss: 2.7725]
+Tue 23 Apr 2024 16:45:38 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:38 INFO  epoch 499 training [time: 0.48s, train loss: 2.7499]
+Tue 23 Apr 2024 16:45:38 INFO  Saving current: saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:38 INFO  Loading model structure and parameters from saved/LightGCN-Apr-23-2024_16-41-36.pth
+Tue 23 Apr 2024 16:45:40 INFO  The running environment of this training is as follows:
++-------------+----------------+
+| Environment |     Usage      |
++=============+================+
+| CPU         |     1.00 %     |
++-------------+----------------+
+| GPU         | 0.03 G/15.98 G |
++-------------+----------------+
+| Memory      | 1.15 G/15.47 G |
++-------------+----------------+
+Tue 23 Apr 2024 16:45:40 INFO  best valid : None
+Tue 23 Apr 2024 16:45:40 INFO  test result: OrderedDict([('recall@20', 0.3153), ('mrr@20', 0.591), ('ndcg@20', 0.3567), ('hit@20', 0.9597), ('precision@20', 0.236)])
