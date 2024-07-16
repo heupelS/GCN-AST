@@ -16,12 +16,13 @@ log_wandb: False                # (bool) Whether or not to use Weights & Biases(
 wandb_project: 'recbole'        # (str) The project to conduct experiments in W&B.
 shuffle: True                   # (bool) Whether or not to shuffle the training data before each epoch.
 plot_learning_curve: False       # (bool) Whether or not to plot and save data for train loss curve
+model_name_custom: "-"          # (str) Name of model for visualization purposes
 
 # Training Settings
 epochs: 500                     # (int) The number of training epochs.
 train_batch_size: 4096          # (int) The training batch size.
 learner: adam                   # (str) The name of used optimizer.
-learning_rate: 0.0015            # (float) Learning rate.
+learning_rate: 0.0001            # (float) Learning rate.
 train_neg_sample_args:          # (dict) Negative sampling configuration for model training.
   distribution: uniform         # (str) The distribution of negative items.
   sample_num: 5                 # (int) The sampled num of negative items.
@@ -37,13 +38,7 @@ require_pow: False              # (bool) Whether or not to perform power operati
 enable_amp: False               # (bool) Whether or not to use mixed precision training.
 enable_scaler: True            # (bool) Whether or not to use GradScaler in mixed precision training.
 transform: ~                    # (str) The transform operation for batch data process.
-train_after_converge: False      # (bool) Whether or not to continue training after early stopping.
 positive_sampling: True         # (bool) Whether or not to perform positive sampling
-model_name_custom: "-"          # (str) Name of model for visualization purposes
-data_augmentation: False         # (bool) Whether or not to perform data augmentation before training.
-Q: 8                            # (int) number of items to add for PSST at sampling level.
-K: 3                            # (int) number of top k items to be added by SBGA
-P: 20                           # (int) number of candidate items for SBGA
 
 # Evaluation Settings
 eval_args:                      # (dict) 4 keys: group_by, order, split, and mode

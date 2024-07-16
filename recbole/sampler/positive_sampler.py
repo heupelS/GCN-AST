@@ -6,12 +6,32 @@ from recbole.data.interaction import Interaction, cat_interactions
 from logging import getLogger
 
 
-class PositiveSampler(Sampler):
+class PSST(Sampler):
+    """
+    A sampler for generating positive interactions for recommendation models.
+    This is the PSST component of the GCN-AST model.
+
+    Args:
+        phases (list): List of phases for which the sampler is used.
+        datasets (list): List of datasets for each phase.
+        distribution (str, optional): Distribution of sampling. Defaults to "uniform".
+        alpha (float, optional): Parameter for distribution. Defaults to 1.0.
+    """
+
     def __init__(self, phases, datasets, distribution="uniform", alpha=1.0):
         super().__init__(phases, datasets, distribution, alpha)
         self.logger = getLogger()
 
     def predict_for_unused_ids(self, top_k):
+        """
+        Predicts top-K items for users based on unused item IDs.
+
+        Args:
+            top_k (int): Number of top items to predict.
+
+        Returns:
+            dict: Dictionary containing the top-K item IDs and their scores for each user.
+        """
         # Get used and unused item IDs
         used_item_id, unused_item_id = self.get_used_and_unused_ids()
         
@@ -33,7 +53,6 @@ class PositiveSampler(Sampler):
             
             # Call the predict function
             with torch.no_grad():
-                
                 scores = self.model.predict(interaction)
                 
                 if self.model.__class__.__name__ == "ANS":
@@ -56,6 +75,15 @@ class PositiveSampler(Sampler):
         return results
 
     def get_top_k_interactions(self, top_k):
+        """
+        Gets the top-K predicted interactions for each user.
+
+        Args:
+            top_k (int): Number of top interactions to retrieve.
+
+        Returns:
+            Interaction: Concatenated interactions containing the top-K predicted interactions for all users.
+        """
         top_k_predictions = self.predict_for_unused_ids(top_k)
         interactions = []
         for uid, data in top_k_predictions.items():
@@ -67,6 +95,15 @@ class PositiveSampler(Sampler):
         return interactions
     
     def add_potential_positives_to_dataset(self, top_k):
+        """
+        Adds potential positive interactions to the dataset.
+
+        Args:
+            top_k (int): Number of top interactions to add.
+
+        Returns:
+            Interaction: Updated interaction feature matrix with the added potential positive interactions.
+        """
         self.model.eval()
         interactions = self.get_top_k_interactions(top_k)
         self.logger.debug(f"Adding {len(interactions)} potential positive interactions to the dataset")
@@ -78,6 +115,8 @@ class PositiveSampler(Sampler):
 
     def get_used_and_unused_ids(self):
         """
+        Returns the used and unused item IDs.
+
         Returns:
             tuple: (used_ids, unused_ids)
             - used_ids (dict): Used item_ids is the same as positive item_ids.
@@ -110,9 +149,21 @@ class PositiveSampler(Sampler):
         return used_item_id, unused_item_id
     
     def set_model(self, model):
+        """
+        Sets the recommendation model.
+
+        Args:
+            model: The recommendation model to be set.
+        """
         self.model = model
 
     def update_sampler_inter_feat(self, inter_feat):
+        """
+        Updates the interaction feature matrix of the sampler.
+
+        Args:
+            inter_feat: The updated interaction feature matrix.
+        """
         self.datasets[0].inter_feat = inter_feat
         self.uid_field = self.datasets[0].uid_field
         self.iid_field = self.datasets[0].iid_field

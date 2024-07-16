@@ -1,0 +1,22 @@
+### Custom Model Parameters of GCN-AST
+model: ANS                      # (str) model name
+dataset: ml-100k                # (str) dataset name
+
+### LightGCN Hyperparameters
+embedding_size: 64              # (int) The embedding size of users and items.
+n_layers: 2                     # (int) The number of layers in LightGCN.
+reg_weight: 0.001               # (float) The L2 regularization weight lambda.
+
+### ANS Hyperparameters
+eps: 0.3579063307361654         # (float) ANS hyperparameter
+gamma: 0.03                     # (float) ANS hyperparameter
+
+#### The following components are model agnostic. They can be used in combination with every model
+### PSST Hyperparameters
+enable_PSST: True               # (bool) Whether or not to continue training after early stopping.
+Q: 8                            # (int) number of items to add for PSST at sampling level.
+
+### SBGA Hyperparameters
+enable_SBGA: False              # (bool) Whether or not to perform data augmentation before training.
+K: 3                            # (int) number of top k items to be added by SBGA
+P: 20                           # (int) number of candidate items for SBGA

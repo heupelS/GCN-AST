@@ -8,8 +8,18 @@ import heapq
 
 from recbole.data.dataset import Dataset
 
-class AugmentedDataset(Dataset):
+class SBGA(Dataset):
+    """
+    Dataset class for building an augmented dataset.
+    This is the SBGA component of the GCN-AST model.
 
+    Args:
+        config (dict): Configuration dictionary.
+
+    Attributes:
+        K (int): Number of similar items to consider for each positive item.
+        P (int): Number of similar items to retrieve for each positive item.
+    """
 
     def __init__(self, config):
         super().__init__(config)
@@ -17,7 +27,12 @@ class AugmentedDataset(Dataset):
         self.P = config['P']
     
     def build(self):
-        
+        """
+        Build the augmented dataset.
+
+        Returns:
+            list: List of built datasets.
+        """
         self.logger.debug(len(self.inter_feat))
 
         datasets = super().build()
@@ -50,8 +65,6 @@ class AugmentedDataset(Dataset):
         augmented_dataset = self._extend_train_dataset(similarity_matrix, dataset, K=K, P=P)
 
         return augmented_dataset
-
-    
 
     def _calculate_item_similarity_matrix(self, co_occurrence_matrix, degrees):
         """
@@ -89,9 +102,20 @@ class AugmentedDataset(Dataset):
         return similarities_matrix
 
     def _extend_train_dataset(self, similarity_matrix, dataset, K=1, P=15):
-        
+        """
+        Extend the train dataset with augmented data.
+
+        Args:
+            similarity_matrix (csr_matrix): Matrix of similarities between all items.
+            dataset (Dataset): Original train dataset.
+            K (int, optional): Number of similar items to consider for each positive item. Defaults to 1.
+            P (int, optional): Number of similar items to retrieve for each positive item. Defaults to 15.
+
+        Returns:
+            Dataset: Augmented train dataset.
+        """
         total_new_items = K * self.user_num
-        print("Total new items: " + str(total_new_items))
+        self.logger.debug("Total new items: " + str(total_new_items))
         augmented_data = []  # List to store data to add to DataFrame
 
         # Iterate through each user index with interactions
@@ -125,7 +149,7 @@ class AugmentedDataset(Dataset):
             for score, item_index in top_N_items:
                 augmented_data.append({dataset.uid_field: user_id, dataset.iid_field: item_index})
 
-        print(type(dataset))
+        self.logger.debug(type(dataset))
         # Add the data to the DataFrame
         dataset.inter_feat = pd.concat([dataset.inter_feat, pd.DataFrame(augmented_data)], ignore_index=True)   
         

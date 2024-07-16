@@ -134,7 +134,7 @@ class Trainer(AbstractTrainer):
         saved_model_file = "{}-{}.pth".format(self.config["model"], get_local_time())
         self.saved_model_file = os.path.join(self.checkpoint_dir, saved_model_file)
         self.weight_decay = config["weight_decay"]
-        self.train_after_converge = config["train_after_converge"]
+        self.enable_PSST = config["enable_PSST"]
 
         self.start_epoch = 0
         self.cur_step = 0
@@ -434,7 +434,7 @@ class Trainer(AbstractTrainer):
             self._save_checkpoint(-1, verbose=verbose)
 
         self.eval_collector.data_collect(train_data)
-        if self.config["train_neg_sample_args"].get("dynamic", False) or self.config["train_after_converge"]:
+        if self.config["train_neg_sample_args"].get("dynamic", False) or self.config["enable_PSST"]:
             train_data.get_model(self.model)
             train_data._sampler.set_model(self.model)
         valid_step = 0
@@ -527,7 +527,7 @@ class Trainer(AbstractTrainer):
                     if verbose:
                         self.logger.info(stop_output)
 
-                    if not self.train_after_converge:
+                    if not self.enable_PSST:
                         break
                     else:
                         self.stopping_step += 200
@@ -538,7 +538,7 @@ class Trainer(AbstractTrainer):
                         )
                         self.logger.debug(f" length of inter_feat: {len(train_data._dataset.inter_feat)}")
 
-                    self.train_after_converge = False
+                    self.enable_PSST = False
                     stop_flag = False
 
                 valid_step += 1

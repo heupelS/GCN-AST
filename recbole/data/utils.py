@@ -18,7 +18,7 @@ import os
 import pickle
 
 from recbole.data.dataloader import *
-from recbole.sampler import KGSampler, Sampler, RepeatableSampler, PositiveSampler
+from recbole.sampler import KGSampler, Sampler, RepeatableSampler, PSST
 from recbole.utils import ModelType, ensure_dir, get_local_time, set_color
 from recbole.utils.argument_list import dataset_arguments
 
@@ -48,8 +48,8 @@ def create_dataset(config):
             ModelType.TRADITIONAL: "Dataset",
             ModelType.DECISIONTREE: "Dataset",
         }
-        if config["data_augmentation"] and model_type == ModelType.GENERAL:
-            dataset_class = getattr(dataset_module, 'AugmentedDataset')
+        if config["enable_SBGA"] and model_type == ModelType.GENERAL:
+            dataset_class = getattr(dataset_module, 'SBGA')
         else:
             dataset_class = getattr(dataset_module, type2class[model_type])
 
@@ -297,7 +297,7 @@ def create_samplers(config, dataset, built_datasets):
 
     if train_neg_sample_args["distribution"] != "none":
         if not config["repeatable"] and config["positive_sampling"]:
-            sampler = PositiveSampler(
+            sampler = PSST(
                 phases,
                 built_datasets,
                 train_neg_sample_args["distribution"],
