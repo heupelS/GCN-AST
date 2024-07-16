@@ -5,6 +5,7 @@
 
 .vscode/
 .idea/
+*.log
 *.pyc
 log_tensorboard
 saved/
@@ -13,3 +14,4 @@ saved/
 docs/build/
 wandb/*
 /ray_log*
+/log/*
