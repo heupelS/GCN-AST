@@ -54,8 +54,6 @@ def run_recbole(
     """
     # configurations initialization
     config = Config(
-        model=model,
-        dataset=dataset,
         config_file_list=config_file_list,
         config_dict=config_dict,
     )
