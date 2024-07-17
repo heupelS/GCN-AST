@@ -6,6 +6,7 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Configuration](#configuration)
+- [Hyperparameter Tuning](#hyperparameter-tuning)
 - [Model Architecture](#model-architecture)
 - [License](#license)
 
@@ -254,6 +255,30 @@ The configuration of the GCN-AST model is defined in the [`GCN-AST.yaml`](recbol
 
 ### General Hyperparameter Config
 The general hyperparameters for the training process are defined in the [`overall.yaml`](recbole/properties/overall.yaml) file. These hyperparameters include the training epochs, batch size, learning rate, and evaluation settings. They are grouped into three categories: Environment, Training, and Evaluation settings.
+
+## Hyperparameter Auto-Tuning
+
+The file [`model_hyper_GCN-AST.testing`](model_hyper_GCN-AST.testing) contains the hyperparameters that will be tuned. They can be adjusted to find the optimal hyperparameters for the GCN-AST model. The optimal values can be searched with two ways:
+
+- **uniform**: The uniform method samples hyperparameters uniformly from a specified range, defined by low and high values.
+- **choice**: The choice method selects hyperparameters from a predefined list of values.
+
+**⚠️ Note:** The hyperparameter tuning process may take a very long time to complete, depending on the size of the search space and the computational resources available.
+
+An example command to tune the GCN-AST hyperparameters is shown below:
+
+```bash
+python run_hyper.py --tool=Hyperopt --config_files=recbole/properties/GCN-AST.yaml --params_file=model_hyper_GCN-AST.testing --output_file=hyper_GCN-AST.result
+```
+
+This produces an output file `hyper_GCN-AST.result` containing the hyperparameters and their corresponding evaluation metrics. During run time the output looks like this:
+
+```
+running parameters:                                                                                                                                                                                                                                                                          
+{'K': 1, 'Q': 15, 'eps': 0.10591133259870984, 'gamma': 0.06599150853938457, 'learning_rate': 0.0015, 'n_layers': 3, 'reg_weight': 1e-05}                                                                                                                                                     
+  0%|                                                      | 0/720 [00:00<?, ?trial/s, best loss=?]
+```
+
 
 ## Model Architecture
 
