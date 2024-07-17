@@ -10,7 +10,7 @@ install_requires = [
     "torch>=1.10.0",
     "numpy>=1.17.2",
     "scipy>=1.6.0",
-    "pandas>=1.0.5",
+    "pandas>=1.4.0",
     "tqdm>=4.48.2",
     "colorlog==4.7.2",
     "colorama==0.4.4",
@@ -20,11 +20,12 @@ install_requires = [
     "thop>=0.1.1.post2207130030",
     "tabulate>=0.8.10",
     "plotly>=4.0.0",
+    "matplotlib>=3.9.1",
 ]
 
 setup_requires = []
 
-extras_require = {"hyperopt": ["hyperopt==0.2.5"], "ray": ["ray>=1.13.0"]}
+extras_require = {"hyperopt": ["hyperopt==0.2.5"], "ray": ["ray>=1.13.0", "ray[tune]>=1.13.0"]}
 
 classifiers = ["License :: OSI Approved :: MIT License"]
 

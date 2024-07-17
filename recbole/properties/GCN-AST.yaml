@@ -1,6 +1,6 @@
 ### Custom Model Parameters of GCN-AST
-model: 'ANS'                      # (str) model name
-dataset: 'ml-100k'                # (str) dataset name
+model: 'ANS'                      # (str) model name, can also be set to 'LightGCN', 'NGCF' etc.
+dataset: 'ml-100k'                # (str) dataset name, can be set to 'lastfm'
 
 ### LightGCN Hyperparameters
 embedding_size: 64              # (int) The embedding size of users and items.
