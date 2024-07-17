@@ -145,7 +145,6 @@ class Config(object):
         return config_dict
 
     def _load_config_files(self, file_list):
-        print(f"the current path is {os.getcwd()}")
         file_config_dict = dict()
         if file_list:
             for file in file_list:
